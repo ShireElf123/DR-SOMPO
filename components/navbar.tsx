@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, Menu, Phone, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { nav, practice } from "@/lib/practice";
@@ -30,7 +30,6 @@ function Wordmark({ onClick }: { onClick?: () => void }) {
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("#top");
-  const reduce = useReducedMotion();
 
   useEffect(() => {
     const ids = nav.map((n) => n.href.replace("#", ""));
@@ -182,10 +181,6 @@ export function Navbar() {
         )}
       </AnimatePresence>
 
-      {/* keep motion import used when reduced motion is on */}
-      <span className="hidden" aria-hidden="true">
-        {reduce ? "" : ""}
-      </span>
     </header>
   );
 }
