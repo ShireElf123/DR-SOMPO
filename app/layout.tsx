@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import "@fontsource-variable/figtree";
+import localFont from "next/font/local";
 import "./globals.css";
 
 import { MotionProvider } from "@/components/motion-provider";
@@ -13,6 +13,15 @@ import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { SmoothScroll } from "@/components/ui/smooth-scroll";
 import { practice } from "@/lib/practice";
 import { practiceJsonLd, siteUrl, websiteJsonLd } from "@/lib/structured-data";
+
+// Preload the existing, self-hosted typeface. Optional display avoids a late
+// font swap moving hero copy/controls on a cold, throttled mobile connection.
+const figtree = localFont({
+  src: "../node_modules/@fontsource-variable/figtree/files/figtree-latin-wght-normal.woff2",
+  variable: "--font-figtree",
+  weight: "300 900",
+  display: "optional",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -72,7 +81,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-ZA">
+    <html lang="en-ZA" className={figtree.variable}>
       <body className="bg-white antialiased">
         {/* JSON-LD is generated from typed, verified content — never user input. */}
         <script

@@ -23,11 +23,13 @@ export function PageTransition({ children }: { children: ReactNode }) {
     active: false,
   });
   if (transition.path !== pathname) {
-    setTransition({ path: pathname, active: !reduce });
+    // Home owns its arrival; a full-screen curtain would obscure its call
+    // and enquiry controls. Keep the stable content boundary on every route.
+    setTransition({ path: pathname, active: !reduce && pathname !== "/" });
   } else if (reduce && transition.active) {
     setTransition({ path: pathname, active: false });
   }
-  const curtain = transition.active && !reduce;
+  const curtain = transition.active && !reduce && pathname !== "/";
 
   useEffect(() => {
     if (!transition.active) return;

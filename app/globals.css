@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Figtree Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-serif: "Figtree Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-figtree), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
 
   /* Brand palette — supplied by the practice */
   --color-forest: #174d3c;
@@ -346,6 +346,43 @@
     overflow: hidden;
     vertical-align: bottom;
   }
+}
+
+/* One opening sequence, finishing at 1.4s. Only copy moves; the photograph
+   settles inside its stationary frame and both call/booking targets stay put.
+   These rules also work before hydration. The default/reduced state is final. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-photo-arrival { animation: hero-photo-in 0.35s ease-out backwards; }
+  .hero-copy-arrival { animation: hero-copy-in 0.55s var(--ease-out-soft) backwards; }
+  .hero-label, .hero-headline { animation-delay: 0.35s; }
+  .hero-support { animation-delay: 0.65s; }
+  .hero-credentials { animation-delay: 0.8s; }
+  /* Never hide, translate, disable or intercept an action during arrival. */
+  .hero-actions { animation: hero-actions-in 0.4s ease-out 1s backwards; }
+  .hero-actions:focus-within { animation: none; }
+  .hero-pill-label { animation: hero-copy-in 0.45s var(--ease-out-soft) backwards; }
+  .hero-scroll-cue { animation: hero-scroll 2.2s ease-in-out infinite; }
+
+  #top[data-hero-active="false"] *,
+  #top[data-hero-active="false"] *::before,
+  #top[data-hero-active="false"] *::after { animation-play-state: paused; transition: none; }
+}
+
+@keyframes hero-photo-in {
+  from { opacity: 0.9; filter: blur(1px); }
+  to { opacity: 1; filter: none; }
+}
+@keyframes hero-copy-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes hero-actions-in {
+  from { opacity: 0.96; }
+  to { opacity: 1; }
+}
+@keyframes hero-scroll {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(260%); }
 }
 
 /* Lenis: hand scroll-behaviour over to the library while it is running. */

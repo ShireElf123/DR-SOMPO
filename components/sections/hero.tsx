@@ -1,14 +1,12 @@
 "use client";
 
-import { AnimatePresence, m, useScroll, useTransform } from "framer-motion";
+import { m, useInView, useMotionValue, useMotionValueEvent, useScroll, type MotionValue } from "framer-motion";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { ArrowUpRight, Phone } from "lucide-react";
 import Image, { PhotographyNotice, PortraitLabel } from "@/components/ui/practice-image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type RefObject } from "react";
 import { brand, practice } from "@/lib/practice";
-import { WordsIn } from "@/components/ui/motion";
-
-const EASE = [0.16, 1, 0.3, 1] as const;
+import { useDesktopMotion } from "@/lib/use-desktop-motion";
 
 const rotating = [
   "Women's health advocate",
@@ -17,30 +15,38 @@ const rotating = [
   "English & French",
 ];
 
-/**
- * Full-bleed gradient hero with a stationary portrait frame. The route curtain
- * handles entry; scaling this entire frame made the mobile background photo
- * zoom when returning Home. Desktop parallax stays on its separate image layer.
- */
+/** The frame never moves on entry. CSS owns the 1.4s arrival, including the
+ * pre-hydration/reduced-motion states; controls are always painted and usable. */
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
   const [pill, setPill] = useState(0);
 
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const copyY = useTransform(scrollYProgress, [0, 1], [0, -90]);
-  const chipY = useTransform(scrollYProgress, [0, 1], [0, 40]);
-  const imageY = useTransform(scrollYProgress, [0, 1], [0, 60]);
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.06]);
+  const inView = useInView(ref, { initial: true });
+  const desktopMotion = useDesktopMotion();
+  const active = inView && !reduce;
+  const parallax = active && desktopMotion;
+  const copyY = useMotionValue(0);
+  const chipY = useMotionValue(0);
+  const imageY = useMotionValue(0);
+  const imageScale = useMotionValue(1);
 
   useEffect(() => {
-    if (reduce) return;
+    if (!active || !desktopMotion) return;
     const id = setInterval(() => setPill((p) => (p + 1) % rotating.length), 3200);
     return () => clearInterval(id);
-  }, [reduce]);
+  }, [active, desktopMotion]);
 
   return (
-    <section id="top" ref={ref} className="relative px-3 pt-3 sm:px-4 sm:pt-4">
+    <section
+      id="top"
+      ref={ref}
+      data-hero-active={active}
+      className="relative px-3 pt-3 sm:px-4 sm:pt-4"
+    >
+      {parallax && (
+        <HeroParallax target={ref} copyY={copyY} chipY={chipY} imageY={imageY} imageScale={imageScale} />
+      )}
       <div className="relative mx-auto w-full max-w-[1180px]">
         <div className="fig-gradient relative overflow-hidden rounded-[1.4rem] sm:rounded-[1.75rem]">
           {/* Botanical light shapes */}
@@ -70,10 +76,11 @@ export function Hero() {
           <div className="pointer-events-none absolute inset-0 sm:inset-auto sm:bottom-0 sm:right-0 sm:h-[88%] sm:w-[52%] lg:w-[46%]">
             <m.div
               data-hero-image-layer
-              style={reduce ? undefined : { y: imageY, scale: imageScale }}
+              style={desktopMotion ? { y: imageY, scale: imageScale } : undefined}
               className="home-portrait-motion relative h-full w-full"
             >
-              <div className="relative h-full w-full overflow-hidden sm:rounded-tl-[9rem]">
+              <div data-hero-arrival="photo"
+                className="hero-photo-arrival relative h-full w-full overflow-hidden sm:rounded-tl-[9rem]">
                 <Image
                   src="/images/hero-doctor.jpg"
                   alt="Illustration of a healthcare professional"
@@ -92,44 +99,36 @@ export function Hero() {
 
           {/* Copy */}
           <m.div
-            style={reduce ? undefined : { y: copyY }}
+            style={desktopMotion ? { y: copyY } : undefined}
             className="relative z-10 max-w-[42rem] px-6 pb-14 pt-16 text-white sm:px-10 sm:pb-20 sm:pt-20 lg:px-14 lg:pb-24 lg:pt-24"
           >
-            <m.span
-              initial={reduce ? undefined : { opacity: 0, y: 12 }}
-              animate={reduce ? undefined : { opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6, ease: EASE }}
-              className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/35 bg-forest/30 px-4 py-1.5 text-[11px] font-medium tracking-wide"
+            <span
+              data-hero-arrival="label"
+              className="hero-copy-arrival hero-label mb-5 inline-flex items-center gap-2 rounded-full border border-white/35 bg-forest/30 px-4 py-1.5 text-[11px] font-medium tracking-wide"
             >
               <span className="relative flex h-1.5 w-1.5">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-lime/70 motion-reduce:hidden" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-lime" />
               </span>
               Consulting at Life Roseacres Hospital
-            </m.span>
+            </span>
 
-            <h1 className="text-[clamp(2.6rem,7.4vw,5.9rem)] font-light leading-[0.98] tracking-[-0.035em]">
-              <WordsIn text="Women's Health." delay={0.5} stagger={0.07} />
-              <br />
-              <WordsIn text="Every Stage." delay={0.72} stagger={0.07} gray />
-              <br />
-              <WordsIn text="Every Journey." delay={0.94} stagger={0.07} />
+            <h1 data-hero-arrival="headline" className="hero-copy-arrival hero-headline text-[clamp(2.6rem,7.4vw,5.9rem)] font-light leading-[0.98] tracking-[-0.035em]">
+              <span className="block">{"Women's Health."}</span>
+              <span className="block text-white/80">Every Stage.</span>
+              <span className="block">Every Journey.</span>
             </h1>
 
-            <m.p
-              initial={reduce ? undefined : { opacity: 0, y: 14 }}
-              animate={reduce ? undefined : { opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 1.3, ease: EASE }}
-              className="mt-6 max-w-[26rem] text-[0.875rem] leading-relaxed text-white/90 sm:text-[0.9375rem]"
+            <p
+              data-hero-arrival="support"
+              className="hero-copy-arrival hero-support mt-6 max-w-[26rem] text-[0.875rem] leading-relaxed text-white/90 sm:text-[0.9375rem]"
             >
               {brand.heroCopy}
-            </m.p>
+            </p>
 
-            <m.div
-              initial={reduce ? undefined : { opacity: 0 }}
-              animate={reduce ? undefined : { opacity: 1 }}
-              transition={{ duration: 1.1, delay: 1.5 }}
-              className="mt-7 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-[10px] uppercase tracking-[0.16em] text-white/85"
+            <div
+              data-hero-arrival="credentials"
+              className="hero-copy-arrival hero-credentials mt-7 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-[10px] uppercase tracking-[0.16em] text-white/85"
             >
               {["MBChB", "FCOG (SA)", "MMed (O&G) Wits"].map((item, i) => (
                 <span key={item} className="flex items-center gap-3">
@@ -137,13 +136,11 @@ export function Hero() {
                   {item}
                 </span>
               ))}
-            </m.div>
+            </div>
 
-            <m.div
-              initial={reduce ? undefined : { opacity: 0, y: 14 }}
-              animate={reduce ? undefined : { opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 1.6, ease: EASE }}
-              className="mt-6 flex flex-wrap items-center gap-2.5"
+            <div
+              data-hero-arrival="actions"
+              className="hero-actions mt-6 flex flex-wrap items-center gap-2.5"
             >
               <a href="/contact" className="btn btn-light" data-cursor="Book">
                 Book an appointment
@@ -157,50 +154,32 @@ export function Hero() {
                   <ArrowUpRight className="h-3 w-3" />
                 </i>
               </a>
-            </m.div>
+            </div>
           </m.div>
 
-          {/* Scroll cue */}
-          <m.span
+          {/* Existing cue: CSS is paused offscreen and absent under reduced motion. */}
+          <span
             aria-hidden="true"
-            initial={reduce ? undefined : { opacity: 0 }}
-            animate={reduce ? undefined : { opacity: 1 }}
-            transition={{ duration: 1, delay: 2.1 }}
             className="absolute bottom-6 left-6 z-20 hidden items-center gap-2 text-[9.5px] uppercase tracking-[0.18em] text-white/80 lg:flex"
           >
             <span className="relative block h-8 w-px overflow-hidden bg-white/25">
-              <m.span
-                className="absolute inset-x-0 top-0 block h-3 bg-white"
-                animate={reduce ? undefined : { y: ["-100%", "260%"] }}
-                transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-              />
+              <span className="hero-scroll-cue absolute inset-x-0 top-0 block h-3 bg-white" />
             </span>
             Scroll
-          </m.span>
+          </span>
 
           {/* Rotating glass pill */}
           <span className="pointer-events-none absolute right-[27%] top-8 z-20 hidden rounded-full bg-white px-4 py-2 text-[11px] font-medium text-charcoal lg:block">
-            <AnimatePresence mode="wait" initial={false}>
-              <m.span
-                key={pill}
-                initial={reduce ? undefined : { opacity: 0, y: 8 }}
-                animate={reduce ? undefined : { opacity: 1, y: 0 }}
-                exit={reduce ? undefined : { opacity: 0, y: -8 }}
-                transition={{ duration: 0.45 }}
-                className="block"
-              >
-                {rotating[pill]}
-              </m.span>
-            </AnimatePresence>
+            <span key={pill} className={pill === 0 ? "block" : "hero-pill-label block"}>
+              {rotating[pill]}
+            </span>
           </span>
 
           {/* Contact chip */}
           <m.a
             href={practice.phoneHref}
-            style={reduce ? undefined : { y: chipY }}
-            initial={reduce ? undefined : { opacity: 0, y: 18 }}
-            animate={reduce ? undefined : { opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 1.9, ease: EASE }}
+            data-hero-call
+            style={desktopMotion ? { y: chipY } : undefined}
             className="group absolute bottom-4 right-4 z-20 flex items-center gap-2.5 rounded-2xl bg-white p-2 pr-4 text-charcoal shadow-[0_18px_40px_-22px_rgba(0,0,0,0.45)] transition-transform duration-500 hover:-translate-y-1 sm:bottom-6 sm:right-6"
           >
             <span className="relative h-11 w-11 overflow-hidden rounded-xl bg-mist">
@@ -223,4 +202,25 @@ export function Hero() {
       </div>
     </section>
   );
+}
+
+/** Subscribe only while the hero is visible on a motion-capable desktop.
+ * The stable values live in Hero, so leaving the viewport does not snap the
+ * portrait back or keep four scroll transforms ticking farther down the page. */
+function HeroParallax({ target, copyY, chipY, imageY, imageScale }: {
+  target: RefObject<HTMLDivElement | null>;
+  copyY: MotionValue<number>;
+  chipY: MotionValue<number>;
+  imageY: MotionValue<number>;
+  imageScale: MotionValue<number>;
+}) {
+  const { scrollYProgress } = useScroll({ target, offset: ["start start", "end start"] });
+  useMotionValueEvent(scrollYProgress, "change", (value) => {
+    const progress = Math.max(0, Math.min(1, value));
+    copyY.set(progress * -90);
+    chipY.set(progress * 40);
+    imageY.set(progress * 60);
+    imageScale.set(1 + progress * 0.06);
+  });
+  return null;
 }
