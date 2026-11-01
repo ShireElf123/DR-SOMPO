@@ -18,10 +18,9 @@ const rotating = [
 ];
 
 /**
- * Full-bleed gradient hero: layered botanical wash, a light-weight headline
- * that reveals word by word, a photo panel that grows out of the page on load,
- * floating glass pills and a contact chip. This is the composition the
- * reference opens with.
+ * Full-bleed gradient hero with a stationary portrait frame. The route curtain
+ * handles entry; scaling this entire frame made the mobile background photo
+ * zoom when returning Home. Desktop parallax stays on its separate image layer.
  */
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -43,12 +42,7 @@ export function Hero() {
   return (
     <section id="top" ref={ref} className="relative px-3 pt-3 sm:px-4 sm:pt-4">
       <div className="relative mx-auto w-full max-w-[1180px]">
-        <m.div
-          initial={reduce ? undefined : { opacity: 0, scale: 0.965, y: 28 }}
-          animate={reduce ? undefined : { opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 1.4, ease: EASE, delay: 0.15 }}
-          className="fig-gradient relative overflow-hidden rounded-[1.4rem] sm:rounded-[1.75rem]"
-        >
+        <div className="fig-gradient relative overflow-hidden rounded-[1.4rem] sm:rounded-[1.75rem]">
           {/* Botanical light shapes */}
           <span
             aria-hidden="true"
@@ -235,7 +229,7 @@ export function Hero() {
             </span>
             <Phone className="h-3.5 w-3.5 text-forest/60" aria-hidden="true" />
           </m.a>
-        </m.div>
+        </div>
       </div>
     </section>
   );

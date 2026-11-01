@@ -90,3 +90,21 @@ and hydration snapshot, then responds to the user's preference and live changes.
 Real-device Safari/Firefox checks and field performance measurements are still
 separate follow-up work. These changes do not verify the placeholder photography,
 clinical/publication details, domain ownership or enquiry delivery configuration.
+
+## Follow-up: mobile portrait zoom on return to Home
+
+The settled-page checks missed a transition bug: the keyed, exit-wait page
+wrapper mounted Home once inside the departing route and again about 0.7 seconds
+later. The hero's 96.5%-to-100% entrance scale restarted at each mount. On a
+390 px viewport this grew the full-bleed portrait from roughly 353 to 366 px.
+
+The content wrapper now retains a stable identity, with only the decorative
+curtain handling route transitions. The portrait frame itself is stationary;
+desktop image parallax remains on its separate layer. The initial presence
+boundary is retained so SSR/no-JavaScript readability is not lost.
+
+Seven additional browser tests observe 2.6 seconds of actual transition frames,
+covering return from all five main interior pages, browser Back, four phone
+widths, menu/logo navigation and retained desktop parallax. The new regression
+failed on the previous build (two mounts) and passes on the fix (one mount,
+constant mobile image dimensions). Total checks: 8 quality + 29 browser tests.

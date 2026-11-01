@@ -6,16 +6,14 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
 /**
- * Site-wide page transition, modelled on Framer's global wipe:
- *  - the outgoing page lifts and fades (offset -30%)
- *  - a forest curtain sweeps up from the bottom, holding for a beat at full
- *    cover so the route swap is never visible
- *  - the incoming page rises from below (+30%) on the same soft curve
- *  - 0.62s in, 0.86s out, matching Framer's documented "smooth" preset
+ * The curtain owns the route transition; the content wrapper stays mounted.
+ * App Router children update through router context, even inside an exiting
+ * AnimatePresence child. Keying that wrapper by pathname mounted the incoming
+ * page once in the departing wrapper, then again when its exit completed.
+ * That restarted the home hero's entrance and produced a second zoom.
  *
- * The curtain is painted from the page background colour rather than white, so
- * there is no flash between breakpoints. Under `prefers-reduced-motion` the
- * whole thing is bypassed.
+ * Keep the initial presence boundary so server-rendered content is readable
+ * before hydration. Only the decorative curtain is keyed and animated out.
  */
 export function PageTransition({ children }: { children: ReactNode }) {
   const pathname = usePathname();
@@ -36,16 +34,8 @@ export function PageTransition({ children }: { children: ReactNode }) {
 
   return (
     <>
-      <AnimatePresence mode="wait" initial={false}>
-        <m.div
-          key={pathname}
-          initial={reduce ? false : { opacity: 0, y: 26 }}
-          animate={reduce ? undefined : { opacity: 1, y: 0 }}
-          exit={reduce ? undefined : { opacity: 0, y: -18 }}
-          transition={{ duration: 0.62, ease: [0.16, 1, 0.3, 1] }}
-        >
-          {children}
-        </m.div>
+      <AnimatePresence initial={false}>
+        <div key="page-content">{children}</div>
       </AnimatePresence>
 
       <AnimatePresence>
