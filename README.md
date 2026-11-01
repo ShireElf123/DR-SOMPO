@@ -163,3 +163,31 @@ verified credentials, affiliations, research and clear contact routes.
    (`https://www.drngweysompo.co.za`) is a placeholder and is used for
    canonical URLs, Open Graph, the sitemap and JSON-LD. Then submit
    `sitemap.xml` to Google Search Console.
+
+---
+
+## Deployment
+
+The Vercel project has `gitProviderOptions.createDeployments` set to
+`disabled`, and the repository carries a `vercel.json` with
+`git.deploymentEnabled: { "main": true, "**": false }`. Both are deliberate.
+
+**Why:** the project's production branch is `main`. This repository is developed
+on feature branches that sit in an open pull request, so a push to one of them
+is not a release. Without those two settings every push produced a *pair* of
+deployments — a preview for the branch and, when the Vercel integration felt
+like it, a production build that claimed the live alias mid-review. That is how a
+half-finished branch reached production more than once.
+
+**How to release:** merge the pull request into `main`. That is the only push
+that produces a production deployment, and `main` is the only branch that does.
+
+**How to look at work in progress:** trigger a preview deployment by hand, or
+use the branch alias. Previews are behind Vercel Authentication
+(`ssoProtection: all_except_custom_domains`), so open them while signed in to
+Vercel — a plain `curl` will get a login page, which is expected and not a bug.
+
+**How to verify a release landed:** the deployment must report
+`readySubstate: PROMOTED` and carry `dr-cm-ngwey-sompo-website.vercel.app` in its
+`alias` list. A deployment that is `READY` but `STAGED`, with `target: null`, is a
+preview and is not live. Check that, not just the READY state.
