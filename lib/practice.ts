@@ -65,6 +65,18 @@ export const practice: Practice = {
   ],
 };
 
+/**
+ * Facts the practice has confirmed in writing and which the site may state.
+ * `yearsInPractice` is deliberately a phrase rather than a number: the practice
+ * describes the period as "a year and a half", and a site should not round that
+ * into a claim it cannot stand behind.
+ */
+export const practiceFacts = {
+  yearsInPractice: "A year and a half in independent practice",
+  hospitals: ["Life Roseacres Hospital, Germiston", "Dr Phakisa Mokhesi Hospital, Sebokeng"],
+  conditionScope: "Adolescence through pregnancy, childbirth, menopause and beyond",
+};
+
 export const brand = {
   tagline: "Women's Health. Every Stage. Every Journey.",
   supporting:
@@ -154,10 +166,14 @@ export const serviceGroups: {
       {
         id: "oncology",
         group: "Gynaecology",
-        title: "Oncology assessment",
+        title: "Female screening & oncology assessment",
         summary:
-          "Assessment and appropriate onward referral when a concern requires specialist gynaecological oncology input.",
-        items: ["Assessment and investigation", "Cervical screening follow-up", "Referral where indicated"],
+          "Cervical screening, assessment of abnormal results, and onward referral to a gynaecological oncologist where that is the right next step.",
+        items: [
+          "Cervical screening and follow-up",
+          "Assessment of abnormal results",
+          "Onward referral where indicated",
+        ],
       },
     ],
   },
@@ -286,9 +302,9 @@ export const affiliations: { name: string; detail: string; state: VerificationSt
   { name: "Fellowship with the Colleges of Medicine of South Africa", detail: "FCOG (SA)", state: "verified" },
   { name: "Life Roseacres Hospital, Germiston", detail: "Hospital association", state: "verified" },
   {
-    name: "Dr Phakisa Mokhesi, Sebokeng",
-    detail: "Institutional name and nature of affiliation to be confirmed",
-    state: "pending",
+    name: "Dr Phakisa Mokhesi Hospital, Sebokeng",
+    detail: "Hospital association",
+    state: "verified",
   },
 ];
 
@@ -326,18 +342,19 @@ export const research = {
     { label: "FIGO 2025", detail: "Poster presentation", state: "verified" as VerificationState },
     {
       label: "International Journal of Gynecology & Obstetrics",
-      detail: "Abstract — publication record to be verified before citation",
-      state: "pending" as VerificationState,
+      detail: "Abstract",
+      state: "verified" as VerificationState,
     },
   ],
   disclaimer:
-    "Numerical findings, statistics and clinical interpretations are deliberately not published here. The original abstract and thesis are being verified with the author before any results are presented.",
+    "The abstract reports group-level findings from a single-centre review. Numerical results, subgroup statistics and clinical interpretation are not reproduced on this website; the published abstract is the authoritative source.",
 };
 
 export const biography = [
   "Dr CM Ngwey-Sompo is a specialist Obstetrician and Gynaecologist practising at Life Roseacres Hospital in Primrose, Germiston, where she runs Dr CM Ngwey-Sompo Inc.",
   "She holds a Master of Medicine in Obstetrics and Gynaecology from the University of the Witwatersrand. Her academic research focused on margin status following Large Loop Excision of the Transformation Zone (LLETZ) in women living with HIV.",
-  "Her special interests include fertility and cervical health. She is passionate about HPV prevention, patient education and improving women's health through accessible, informed medical care.",
+  "That work was presented at SASOG 2025 in South Africa, at the Presentis Women's Health Conference in Dubai, as a poster at FIGO 2025, and published as an abstract in the International Journal of Gynecology & Obstetrics.",
+  "Her special interests are fertility and cervical health. She works hard on HPV prevention and patient education in the community, and her goal is to improve women's health at every stage of life — from adolescence through pregnancy and childbirth, to menopause and beyond.",
   "Having experienced difficult pregnancies herself, Dr Sompo brings a personal understanding and empathy to the women she cares for.",
 ];
 
@@ -613,7 +630,7 @@ export const serviceDetails: ServiceDetail[] = [
     serviceId: "oncology",
     image: "/images/cervical-research.jpg",
     imageAlt: "A microscope in a research setting",
-    eyebrow: "Gynaecology",
+    eyebrow: "Screening & assessment",
     standfirst:
       "Assessment when a concern needs a closer look — including abnormal screening results — with clear onward referral where specialist oncology input is the right next step.",
     sections: [

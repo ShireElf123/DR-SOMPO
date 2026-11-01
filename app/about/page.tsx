@@ -292,14 +292,22 @@ export default function AboutPage() {
                   </RevealItem>
                 ))}
               </RevealGroup>
-              <p className="mt-3 flex items-center gap-2 text-[10.5px] text-ink-soft">
-                <span
-                  className="h-1.5 w-1.5 rounded-full bg-gold ring-2 ring-gold/25"
-                  aria-hidden="true"
-                />
-                Marked items await confirmation from the practice before
-                publication.
-              </p>
+              {affiliations.some((a) => a.state === "pending") ? (
+                <p className="mt-3 flex items-center gap-2 text-[10.5px] text-ink-soft">
+                  <span
+                    className="h-1.5 w-1.5 rounded-full bg-gold ring-2 ring-gold/25"
+                    aria-hidden="true"
+                  />
+                  Marked items await confirmation from the practice before
+                  publication.
+                </p>
+              ) : (
+                <p className="mt-3 text-[10.5px] leading-relaxed text-ink-soft">
+                  Registration and memberships confirmed with the practice. Hospital
+                  appointments vary — confirm where your procedure will take place
+                  when you book.
+                </p>
+              )}
             </div>
           </div>
         </div>

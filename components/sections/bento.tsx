@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { Reveal, ScrollWords, WordsIn } from "@/components/ui/motion";
 import { SignalBars } from "@/components/ui/plate";
-import { practice, research } from "@/lib/practice";
+import { practice } from "@/lib/practice";
 
 /**
  * The editorial band that breaks up the home page between the service grid and
@@ -48,8 +48,8 @@ export function BentoBand() {
             </h2>
           </div>
           <p className="max-w-[22rem] text-[12.5px] leading-relaxed text-ink-soft">
-            One specialist, one hospital, two languages — and a consulting room that
-            runs on time and on your terms.
+            One specialist, two hospital settings, consultations in two languages —
+            and a consulting room where nothing is rushed.
           </p>
         </div>
 
@@ -183,6 +183,9 @@ export function BentoBand() {
                   <p className="mt-1 text-[12.5px] font-medium text-white">
                     {practice.hospital}, Primrose
                   </p>
+                  <p className="mt-0.5 text-[10px] text-white/70">
+                    Operates at Dr Phakisa Mokhesi Hospital, Sebokeng
+                  </p>
                 </div>
                 <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white text-black transition-transform duration-500 group-hover:rotate-45">
                   <ArrowUpRight className="h-3 w-3" />
@@ -230,11 +233,6 @@ export function BentoBand() {
           </Reveal>
         </div>
 
-        <Reveal delay={0.1}>
-          <p className="mt-4 max-w-2xl text-[10.5px] leading-relaxed text-ink-soft">
-            {research.disclaimer}
-          </p>
-        </Reveal>
       </div>
     </section>
   );
