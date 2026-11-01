@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-01",
+  "source": "Read-only Vercel project environment-variable and production-deployment listings during this audit; this is a summary, not a raw provider export.",
+  "project": "dr-cm-ngwey-sompo-website",
+  "publicUrl": "https://dr-cm-ngwey-sompo-website.vercel.app",
+  "deployment": "dpl_4ng5NRapCohPoCgMuSHbfqmkCZPa",
+  "state": "READY / PROMOTED",
+  "gitSha": "e1d66e914888660fd381f07101cb16f767d97519",
+  "projectEnvironmentVariableNames": [
+    "NEXT_PUBLIC_SITE_URL"
+  ],
+  "limitations": [
+    "Project-level environment listing only.",
+    "No production enquiry submission, external webhook call or inbox receipt test.",
+    "No environment settings, deployment settings or application code changed."
+  ]
+}

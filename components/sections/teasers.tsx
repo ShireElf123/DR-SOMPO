@@ -1,4 +1,5 @@
-import Image from "next/image";
+import { PortraitLabel } from "@/components/ui/practice-image";
+import { FaqList } from "@/components/ui/faq-list";
 import Link from "next/link";
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import { ParallaxImage, Reveal, WordsIn } from "@/components/ui/motion";
@@ -24,6 +25,7 @@ export function AboutTeaser() {
                   className="absolute inset-0"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/40 via-transparent to-transparent" />
+                <PortraitLabel />
                 <div className="absolute inset-x-3 bottom-3 flex flex-wrap gap-1.5">
                   {["FCOG (SA)", "MMed (O&G)", "Wits"].map((chip) => (
                     <span
@@ -48,6 +50,7 @@ export function AboutTeaser() {
 
           <div>
             <SectionHead
+              id="about-teaser-heading"
               tag="Meet Dr Sompo"
               title="An advocate first,"
               muted="then a specialist."
@@ -153,6 +156,7 @@ export function FaqTeaser() {
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
           <div>
             <SectionHead
+              id="faq-teaser-heading"
               tag="Patient information"
               title="Before you visit"
               intro="Practical answers about booking, records, confidentiality and what to expect."
@@ -184,30 +188,9 @@ export function FaqTeaser() {
           </div>
 
           <div>
-            <ul className="border-t border-charcoal/12">
-              {faqs.slice(0, 4).map((faq, i) => (
-                <Reveal key={faq.q} delay={i * 0.05} y={14}>
-                  <li className="group border-b border-charcoal/12 py-4">
-                    <div className="flex items-start justify-between gap-4">
-                      <p className="max-w-[30rem] text-[14.5px] font-medium tracking-[-0.01em] text-charcoal">
-                        {faq.q}
-                      </p>
-                      <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full border border-charcoal/15 text-[11px] text-ink-soft transition-all duration-500 group-hover:rotate-90 group-hover:border-forest group-hover:bg-forest group-hover:text-white">
-                        +
-                      </span>
-                    </div>
-                    <p className="mt-1.5 max-w-[34rem] text-[12px] leading-relaxed text-ink-soft">
-                      {faq.a.length > 150 ? `${faq.a.slice(0, 150).trimEnd()}…` : faq.a}
-                    </p>
-                  </li>
-                </Reveal>
-              ))}
-            </ul>
+            <FaqList items={faqs.slice(0, 4)} prefix="home-faq" />
           </div>
         </div>
-        <h2 id="faq-teaser-heading" className="sr-only">
-          Before you visit
-        </h2>
       </div>
     </section>
   );

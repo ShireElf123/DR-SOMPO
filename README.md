@@ -11,14 +11,14 @@ Framer Motion (LazyMotion) · Lucide icons · self-hosted variable Figtree.
 ## Running locally
 
 ```bash
-npm install
+npm ci
 npm run dev     # http://localhost:3000  (binds 0.0.0.0)
 npm run build   # production build
 npm start       # production server
 npm run typecheck
 ```
 
-Copy `.env.example` to `.env.local` before wiring up enquiry delivery.
+Copy `.env.example` to `.env.local` for local configuration. Online collection is off by default. Complete the [delivery and privacy activation checklist](docs/enquiry-operations.md) before enabling it; a receiver URL alone is not approval or proof of delivery.
 
 ---
 
@@ -60,19 +60,26 @@ reduced-motion preference. Native scrolling is the fallback.
 ```bash
 npm run build
 npm run typecheck
-npm test                 # production bundle budgets, contrast and SSR assertions
+npm run lint
+npm test                 # 37 API/calendar/SSR/bundle/contrast checks
 npm run analyze          # modern vs legacy scripts, optional scrolling, CSS and HTML/RSC
 npx playwright install chromium  # once per machine
 npm run test:e2e          # production browser checks; manages a local test server
 ```
 
-To test an existing local production server, set `PLAYWRIGHT_BASE_URL`.
+To test an existing local production server, set `PLAYWRIGHT_BASE_URL`. This skips
+Playwright's test-only environment setup: use a separate synthetic QA server,
+not production. The ordinary preview intentionally has no active form while
+delivery is unconfigured.
 `CHROMIUM_EXECUTABLE_PATH` optionally selects an installed Chromium binary.
 Test screenshots/traces are ignored by Git. Enquiry tests intercept submission
 requests; they never send patient details to a delivery provider.
 
-See [the quality upgrade notes](docs/quality-upgrade.md) for measurement scope,
-trade-offs and the correction to the original invisible-text diagnosis.
+See the [current repair and verification report](docs/audits/2026-11-01-repairs/README.md)
+for the banner fix, all 22 audit dispositions, 100 browser scenarios (including
+96 responsive combinations and 24 axe scans), evidence and remaining approvals.
+The [earlier quality notes](docs/quality-upgrade.md) retain the historical
+performance baseline and invisible-text diagnosis.
 
 ---
 
@@ -98,14 +105,19 @@ components/
 
 lib/
   practice.ts           single source of truth for all published facts
-  structured-data.ts    Physician / FAQPage / WebSite JSON-LD
+  structured-data.ts    Physician / scoped FAQPage / WebSite JSON-LD
+  appointment-dates.ts  SAST date-only calendar and validation
+  enquiry.ts            shared service/contact/field validation
+  enquiry-config.ts     server-side activation gate
+  photography.ts        truthful generated-image descriptions
 ```
 
 ---
 
 ## Editorial governance (important)
 
-`lib/practice.ts` is the only place content is written. Items the brief marked
+Practice facts and service data are centralised in `lib/practice.ts`; presentation
+copy also lives in the pages/components. Items the brief marked
 "to confirm" carry `state: "pending"` and are rendered with a visible gold
 marker instead of being presented as fact:
 
@@ -131,40 +143,56 @@ confirmation against the doctor's actual practice and hospital privileges.
 reproduced. Publishing patient testimonials for a medical practitioner risks
 breaching HPCSA guidelines on professional advertising, and any review shown
 would have had to be invented. The trust-building work is done instead with
-verified credentials, affiliations, research and clear contact routes.
+practice-supplied credentials, affiliations, research and clear contact routes.
+Source verification flags reflect the supplied brief, not independent medical
+or regulatory verification performed by this engineering change. The practice
+must approve the final content and replace the clearly labelled generated
+photography with approved, licensed real images.
 
 ---
 
-## Privacy (POPIA)
+## Privacy and delivery
 
-- The enquiry form asks for the minimum: name, one contact method, an optional
-  preferred time of day, and an optional **non-clinical** note.
-- Nothing is persisted server-side. `app/api/enquiry/route.ts` validates,
-  strips control characters, rejects honeypot and too-fast submissions, and
-  forwards the enquiry to `ENQUIRY_WEBHOOK_URL`.
-- If that endpoint is unset or unreachable the request returns an error that
-  instructs the patient to call or email — it never silently drops a message.
-- No analytics or third-party scripts are loaded.
-- The form states clearly that submitting does not constitute a confirmed
-  appointment and is not a channel for urgent or clinical questions.
+- No personal-data form is rendered unless collection is explicitly enabled and
+  an HTTPS receiver is configured. Otherwise the page offers telephone/email.
+- A configured form asks for contact details, optional date/time/service
+  preferences and an optional **non-clinical** note, with consent and a privacy
+  notice link. Users may still enter sensitive information despite the warning.
+- Server HTML keeps fields disabled until hydration; the native action is POST,
+  never GET. The API validates a bounded request and only acknowledges success
+  after the configured receiver accepts it. This is not a confirmed booking.
+- The application does not log enquiry bodies or implement a patient-record
+  database. That is **not** a guarantee of no storage: delivery providers,
+  mailboxes, queues, backups and hosting logs can retain data under their policies.
+- Honeypot filtering is not distributed abuse protection. No client timestamp
+  is trusted as a rate limiter. Configure platform/receiver controls before
+  activation, and do not claim legal compliance without practice review.
+- No analytics/session replay was added. Review any future integrations before
+  allowing them to access personal-data fields.
+
+See [enquiry operations](docs/enquiry-operations.md) for the approval checklist,
+configuration, receiver contract, testing, incident response and rollback.
 
 ---
 
 ## Accessibility
 
 - Semantic landmarks, one `h1`, ordered headings, skip link.
-- FAQ accordion uses `aria-expanded` / `aria-controls` with a `role="region"`
-  panel.
+- FAQs use native `details` / `summary`: keyboard operation, correct collapsed
+  semantics and working no-JavaScript disclosures.
 - Form labels, `aria-invalid`, described-by error messages, visible focus rings.
 - Body copy and small labels were audited against WCAG AA contrast on ivory,
   white, sage, mint and forest backgrounds.
-- Full reduced-motion support, including the announcement marquee.
+- Reduced-motion/static marquee modes, visible pause controls and a reactive
+  cursor lifecycle. Automated checks do not replace physical-device or
+  assistive-technology testing.
 
 ## SEO
 
 - Per-page metadata, Open Graph and Twitter cards, generated OG image.
-- `Physician` + `FAQPage` + `WebSite` JSON-LD built from verified content only —
-  no `aggregateRating`, no invented hours or prices.
+- `Physician` + `WebSite` JSON-LD from practice-supplied content, with FAQ schema
+  scoped to pages containing its answers. Service pages are not blanket-labelled
+  non-invasive procedures; no invented ratings, hours or prices.
 - `sitemap.xml` and `robots.txt` generated from `NEXT_PUBLIC_SITE_URL`.
 - Security headers (HSTS, nosniff, referrer policy, frame options,
   permissions policy) set in `next.config.ts`.
@@ -180,7 +208,10 @@ verified credentials, affiliations, research and clear contact routes.
    practice number and medical aid arrangements.
 3. Verify the IJGO abstract citation and obtain the thesis before publishing any
    numerical findings.
-4. Configure `ENQUIRY_WEBHOOK_URL` (and token) so the enquiry form can deliver.
+4. Complete [enquiry operations](docs/enquiry-operations.md): approve the receiver,
+   privacy/retention arrangements and distributed abuse controls; verify receipt
+   with authorised synthetic data. Configure URL/token securely and set
+   `ENQUIRY_ENABLED=true` **last**. Otherwise keep direct-contact mode.
 5. Set `NEXT_PUBLIC_SITE_URL` to the live domain — the current default
    (`https://www.drngweysompo.co.za`) is a placeholder and is used for
    canonical URLs, Open Graph, the sitemap and JSON-LD. Then submit

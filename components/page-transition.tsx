@@ -3,7 +3,7 @@
 import { AnimatePresence, m } from "framer-motion";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 /**
  * The curtain owns the route transition; the content wrapper stays mounted.
@@ -18,19 +18,30 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 export function PageTransition({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const reduce = useReducedMotion();
-  const [curtain, setCurtain] = useState(false);
-  const previousPath = useRef(pathname);
+  const [transition, setTransition] = useState({
+    path: pathname,
+    active: false,
+  });
+  if (transition.path !== pathname) {
+    setTransition({ path: pathname, active: !reduce });
+  } else if (reduce && transition.active) {
+    setTransition({ path: pathname, active: false });
+  }
+  const curtain = transition.active && !reduce;
 
   useEffect(() => {
-    const navigated = previousPath.current !== pathname;
-    previousPath.current = pathname;
-    setCurtain(false);
-    // Never cover the initial server-rendered page after hydration.
-    if (reduce || !navigated) return;
-    setCurtain(true);
-    const id = setTimeout(() => setCurtain(false), 900);
+    if (!transition.active) return;
+    const id = setTimeout(
+      () =>
+        setTransition((current) =>
+          current.path === transition.path
+            ? { ...current, active: false }
+            : current,
+        ),
+      900,
+    );
     return () => clearTimeout(id);
-  }, [pathname, reduce]);
+  }, [transition.path, transition.active]);
 
   return (
     <>

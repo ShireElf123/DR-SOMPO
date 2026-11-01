@@ -1,5 +1,6 @@
+import { pageMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image from "@/components/ui/practice-image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { PageHero, SectionHead } from "@/components/page-hero";
@@ -8,12 +9,11 @@ import { ParallaxImage, Reveal, RevealGroup, RevealItem, WordsIn } from "@/compo
 import { serviceGroups } from "@/lib/practice";
 import { ConditionsTreated } from "@/components/sections/conditions";
 
-export const metadata: Metadata = {
-  title: "Services — Obstetrics, Gynaecology, Fertility & Surgery",
-  description:
-    "Antenatal care, delivery, gynaecological consultations, fertility assessment and minimally invasive surgery with Dr CM Ngwey-Sompo at Life Roseacres Hospital, Primrose, Germiston.",
-  alternates: { canonical: "/services" },
-};
+export const metadata: Metadata = pageMetadata(
+  "Services — Obstetrics, Gynaecology, Fertility & Surgery",
+  "Antenatal care, delivery, gynaecological consultations, fertility assessment and minimally invasive surgery with Dr CM Ngwey-Sompo at Life Roseacres Hospital, Primrose, Germiston.",
+  "/services",
+);
 
 const groupImages: Record<string, { image: string; alt: string }> = {
   obstetrics: {

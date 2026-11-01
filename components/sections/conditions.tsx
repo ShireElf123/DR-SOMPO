@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/ui/practice-image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { m } from "framer-motion";
@@ -78,6 +78,7 @@ export function ConditionsTreated() {
       <div className="shell">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionHead
+              id="conditions-heading"
             tag="Conditions treated"
             title="Start with what you are"
             muted="actually experiencing."

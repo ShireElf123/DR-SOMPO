@@ -143,6 +143,7 @@ test.describe("mobile appointment request", () => {
       responses.shift()!();
       if (attempt === 1) {
         await expect(page.locator("main form").getByRole("alert")).toContainText("Test delivery unavailable");
+        await expect(page.locator("main form").getByRole("alert")).toBeFocused();
         await expect(submit).toBeEnabled();
         await expectPageFits(page);
       }

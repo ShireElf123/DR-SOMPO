@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/ui/practice-image";
 import { ScrollWords, WordsIn } from "@/components/ui/motion";
 import { journey } from "@/lib/practice";
 

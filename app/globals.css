@@ -89,6 +89,9 @@
     border-radius: 4px;
   }
 
+  /* A green outline disappears on a forest panel; inverse surfaces need white. */
+  .text-white :focus-visible { outline-color: #fff; }
+
   /* Display type: light, tightly tracked, with a hint of optical tightness at
      large sizes. `font-synthesis: none` stops the browser faking a lighter
      weight than the variable axis actually provides. */
@@ -278,17 +281,40 @@
 }
 
 @layer utilities {
+  .marquee-group {
+    container-type: inline-size;
+    overflow-x: auto;
+  }
+
   .marquee-track {
-    display: inline-block;
+    display: flex;
+    width: max-content;
+  }
+
+  .marquee-copy {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 100vw; /* Safe fallback for older browsers. */
+    min-width: 100cqw;
+    white-space: nowrap;
+  }
+
+  .marquee-copy > * { flex-shrink: 0; }
+  .marquee-group:not([data-ready="true"]) .marquee-copy[aria-hidden="true"],
+  .marquee-group:not([data-ready="true"]) .marquee-toggle { display: none; }
+
+  .marquee-group[data-ready="true"] { overflow: hidden; }
+  .marquee-group[data-ready="true"] .marquee-track {
     animation: marquee 26s linear infinite;
   }
+  .marquee-group[data-ready="true"] .marquee-slow { animation-duration: 46s; }
 
-  .marquee-slow {
-    animation-duration: 46s;
-  }
-
-  .marquee-group:hover .marquee-track {
-    animation-play-state: paused;
+  .marquee-group:focus-visible .marquee-track,
+  .marquee-group[data-paused="true"] .marquee-track { animation-play-state: paused; }
+  @media (hover: hover) {
+    .marquee-group:hover .marquee-track { animation-play-state: paused; }
   }
 
   /* Hero wash. Layered radial light rather than a flat three-stop gradient, so
@@ -370,7 +396,13 @@ html.lenis body {
     scroll-behavior: auto !important;
   }
 
-  .marquee-track {
-    animation: none !important;
-  }
+  .marquee-track { animation: none !important; width: 100%; }
+  .marquee-copy { min-width: 0; width: 100%; flex-wrap: wrap; row-gap: 0.75rem; white-space: normal; }
+  .marquee-copy[aria-hidden="true"], .marquee-toggle { display: none; }
+}
+
+/* A phone uses the portrait as its static full-frame background. Never inherit
+   desktop image scale/translation when navigating or rotating a small device. */
+@media (max-width: 639px) {
+  .home-portrait-motion { transform: none !important; }
 }

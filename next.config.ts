@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  allowedDevOrigins: ["*.e2b.app"],
   images: {
     // All photography is served locally from /public/images and optimised on demand.
     formats: ["image/avif", "image/webp"],
@@ -16,7 +17,9 @@ const nextConfig: NextConfig = {
         headers: [
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          ...(process.env.ARENA_PREVIEW === "true"
+            ? []
+            : [{ key: "X-Frame-Options", value: "SAMEORIGIN" }]),
           {
             key: "Permissions-Policy",
             value: "camera=(), microphone=(), geolocation=()",

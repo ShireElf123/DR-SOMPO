@@ -12,7 +12,7 @@ import { Cursor } from "@/components/ui/cursor";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { SmoothScroll } from "@/components/ui/smooth-scroll";
 import { practice } from "@/lib/practice";
-import { faqJsonLd, practiceJsonLd, siteUrl, websiteJsonLd } from "@/lib/structured-data";
+import { practiceJsonLd, siteUrl, websiteJsonLd } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -78,10 +78,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(practiceJsonLd()) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd()) }}
         />
         <script
           type="application/ld+json"

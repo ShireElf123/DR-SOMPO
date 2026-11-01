@@ -2,7 +2,11 @@
 
 import { m, useScroll, useTransform } from "framer-motion";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
-import Image from "next/image";
+import Image, {
+  PhotographyNotice,
+  PortraitLabel,
+} from "@/components/ui/practice-image";
+import { ResponsivePhoto } from "@/components/ui/responsive-photo";
 import { useRef, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { WordsIn } from "@/components/ui/motion";
@@ -35,7 +39,10 @@ export function PageHero({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
 
   return (
@@ -43,11 +50,17 @@ export function PageHero({
       <div className="mx-auto w-full max-w-[1180px]">
         <div
           ref={ref}
-          className={cn(
-            "relative overflow-hidden rounded-[1.4rem] bg-sage sm:rounded-[1.75rem]",
-            aspect,
-          )}
+          className="relative grid overflow-hidden rounded-[1.4rem] bg-sage sm:rounded-[1.75rem]"
         >
+          {/* The aspect spacer and copy share a grid cell. The row grows to the
+              larger of the image ratio or the complete text, including zoom. */}
+          <div
+            aria-hidden="true"
+            className={cn(
+              "pointer-events-none col-start-1 row-start-1 w-full self-start",
+              aspect,
+            )}
+          />
           {/* The layer slides 12% of its own height, so it needs at least that
               much overflow on both edges; -8% left a visible sliver at the top
               whenever the image drifted furthest. */}
@@ -55,43 +68,20 @@ export function PageHero({
             style={reduce ? undefined : { y }}
             className="absolute inset-[-14%_0] [backface-visibility:hidden] motion-safe:will-change-transform"
           >
-            {/* Phones get their own crop: a wide landscape crop of a portrait
-                subject invariably cuts the head off on a narrow frame. */}
-            {mobileImage ? (
-              <>
-                <Image
-                  src={mobileImage}
-                  alt={alt}
-                  fill
-                  priority
-                  sizes="100vw"
-                  className="object-cover sm:hidden"
-                />
-                <Image
-                  src={image}
-                  alt=""
-                  fill
-                  priority
-                  sizes="(max-width: 1180px) 96vw, 1180px"
-                  className="hidden object-cover sm:block"
-                />
-              </>
-            ) : (
-              <Image
-                src={image}
-                alt={alt}
-                fill
-                priority
-                sizes="(max-width: 1180px) 96vw, 1180px"
-                className="object-cover"
-              />
-            )}
+            <ResponsivePhoto
+              image={image}
+              mobileImage={mobileImage}
+              alt={alt}
+            />
           </m.div>
 
           <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/75 via-forest-ink/25 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-forest-ink/45 to-transparent" />
 
-          <div className="absolute inset-x-0 bottom-0 p-5 text-white sm:p-8 lg:p-10">
+          <div
+            className="relative col-start-1 row-start-1 min-w-0 self-end p-5 text-white [overflow-wrap:anywhere] sm:p-8 lg:p-10"
+            data-hero-copy
+          >
             <span className="tag tag-light">{tag}</span>
             <h1 className="max-w-[46rem] text-[clamp(2rem,5.2vw,3.9rem)] leading-[1.02]">
               <WordsIn text={title} delay={0.15} stagger={0.03} />
@@ -112,6 +102,7 @@ export function PageHero({
             {children}
           </div>
         </div>
+        <PhotographyNotice />
       </div>
     </section>
   );
@@ -119,12 +110,14 @@ export function PageHero({
 
 /** Section heading used across the interior pages. */
 export function SectionHead({
+  id,
   tag,
   title,
   muted,
   intro,
   className,
 }: {
+  id?: string;
   tag?: string;
   title: string;
   muted?: string;
@@ -134,7 +127,7 @@ export function SectionHead({
   return (
     <div className={cn("max-w-2xl", className)}>
       {tag && <span className="tag">{tag}</span>}
-      <h2 className="text-[clamp(1.6rem,3.4vw,2.35rem)] leading-[1.06]">
+      <h2 id={id} className="text-[clamp(1.6rem,3.4vw,2.35rem)] leading-[1.06]">
         <WordsIn text={title} />
         {muted && (
           <>
@@ -146,12 +139,13 @@ export function SectionHead({
         )}
       </h2>
       {intro && (
-        <p className="mt-3 max-w-lg text-[13px] leading-relaxed text-ink-soft">{intro}</p>
+        <p className="mt-3 max-w-lg text-[13px] leading-relaxed text-ink-soft">
+          {intro}
+        </p>
       )}
     </div>
   );
 }
-
 
 /**
  * Portrait-led hero for pages where the subject is a person rather than a
@@ -228,11 +222,13 @@ export function SplitHero({
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-forest-ink/45 via-transparent to-transparent" />
               <p className="absolute inset-x-4 bottom-4 text-[10px] uppercase tracking-[0.16em] text-white/85">
-                Life Roseacres Hospital · Primrose
+                AI-generated illustration · not a portrait of Dr Sompo
               </p>
+              <PortraitLabel />
             </div>
           </div>
         </div>
+        <PhotographyNotice />
       </div>
     </section>
   );

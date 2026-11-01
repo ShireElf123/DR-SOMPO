@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { m } from "framer-motion";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
-import { Marquee, WipeText } from "@/components/ui/motion";
+import { Marquee } from "@/components/ui/motion";
 import { nav, practice } from "@/lib/practice";
 
 const press = ["HPCSA", "SASOG", "CMSA", "SAMA", "FIGO 2025", "Wits"];
@@ -18,13 +18,12 @@ export function Footer() {
   const reduce = useReducedMotion();
   const year = new Date().getFullYear();
   const leftLinks = nav.slice(0, 4);
-  const rightLinks = nav.slice(4);
 
   return (
     <footer className="relative -mt-7 overflow-hidden rounded-t-[2.25rem] bg-forest text-white sm:rounded-t-[2.75rem]">
       {/* Rolling affiliations */}
       <div className="border-y border-white/15 py-4 opacity-70">
-        <Marquee trackClassName="text-[18px] font-semibold tracking-[-0.02em]">
+        <Marquee label="Professional affiliations" trackClassName="text-[18px] font-semibold tracking-[-0.02em]">
           {press.map((item) => (
             <span key={item} className="mx-10 inline-block">
               {item}
@@ -36,7 +35,7 @@ export function Footer() {
       <div className="shell">
         <div className="grid gap-8 py-10 sm:grid-cols-[1fr_1.3fr_1fr] sm:items-start sm:text-center">
           <ul className="grid gap-1.5 text-left sm:text-left">
-            <li className="mb-1.5 text-[11px] opacity-50">Pages</li>
+            <li className="mb-1.5 text-[11px] text-white/80">Pages</li>
             {leftLinks.map((item) => (
               <li key={item.href}>
                 <Link
@@ -67,7 +66,7 @@ export function Footer() {
           </div>
 
           <ul className="grid gap-1.5 text-right">
-            <li className="mb-1.5 text-[11px] opacity-50">Contact</li>
+            <li className="mb-1.5 text-[11px] text-white/80">Contact</li>
             <li>
               <a href={practice.phoneHref} className="text-[12px] text-white/75 hover:text-white">
                 {practice.phone}

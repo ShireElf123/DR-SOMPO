@@ -138,7 +138,7 @@ test("desktop return mounts once and retains the photo's scroll parallax", async
   const { mounts, frames } = await page.evaluate(() => window.heroReturnProbe);
   expect(mounts).toBe(1);
   expect(frames.length).toBeGreaterThan(5);
-  const imageLayer = page.locator("#top img[alt='Dr CM Ngwey-Sompo, specialist obstetrician and gynaecologist']").locator("..").locator("..");
+  const imageLayer = page.locator("#top [data-hero-image-layer]");
   await page.mouse.wheel(0, 350);
   await expect.poll(() => imageLayer.evaluate((element) => new DOMMatrixReadOnly(getComputedStyle(element).transform).a)).toBeGreaterThan(1);
 });

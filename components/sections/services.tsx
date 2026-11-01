@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/ui/practice-image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal, ScrollWords } from "@/components/ui/motion";
@@ -110,6 +110,7 @@ export function Services() {
         <div className="shell">
           <div className="mb-8 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
             <SectionHead
+              id="services-heading"
               tag="What we care for"
               title="Care for every stage of life"
               intro="Antenatal and delivery care, contraception, fertility assessment, screening and surgery — one practice, one standard of care."

@@ -115,11 +115,11 @@ export function practiceJsonLd() {
   };
 }
 
-export function faqJsonLd() {
+export function faqJsonLd(items = faqs) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
+    mainEntity: items.map((faq) => ({
       "@type": "Question",
       name: faq.q,
       acceptedAnswer: { "@type": "Answer", text: faq.a },

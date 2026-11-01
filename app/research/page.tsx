@@ -1,5 +1,6 @@
+import { pageMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image from "@/components/ui/practice-image";
 import Link from "next/link";
 import { AlertCircle, ArrowUpRight, BookOpen, FileText } from "lucide-react";
 import { PageHero, SectionHead } from "@/components/page-hero";
@@ -7,12 +8,11 @@ import { IconDisc, Panel, Plate, SignalBars } from "@/components/ui/plate";
 import { ParallaxImage, Reveal, RevealGroup, RevealItem } from "@/components/ui/motion";
 import { research } from "@/lib/practice";
 
-export const metadata: Metadata = {
-  title: "Research & Cervical Health — LLETZ Margin Status Study",
-  description:
-    "Dr CM Ngwey-Sompo's Master of Medicine research on margin status after LLETZ in women living with HIV, presented at SASOG 2025, FIGO 2025 and the Presentis Women's Health Conference in Dubai.",
-  alternates: { canonical: "/research" },
-};
+export const metadata: Metadata = pageMetadata(
+  "Research & Cervical Health — LLETZ Margin Status Study",
+  "Dr CM Ngwey-Sompo's Master of Medicine research on margin status after LLETZ in women living with HIV, presented at SASOG 2025, FIGO 2025 and the Presentis Women's Health Conference in Dubai.",
+  "/research",
+);
 
 export default function ResearchPage() {
   return (

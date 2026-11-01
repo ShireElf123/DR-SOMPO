@@ -1,5 +1,7 @@
 # Performance and accessibility upgrade — 1 November 2026
 
+> Historical upgrade record. The [subsequent full-site repair report](audits/2026-11-01-repairs/README.md) records the current 137 checks, banner repair, all-audit finding dispositions, performance figures and remaining launch requirements. The measurements below belong to their stated earlier checkpoints.
+
 ## Measured result
 
 Production build, gzip level 9. KiB means 1,024 bytes. The baseline is the

@@ -16,17 +16,27 @@ export default defineConfig({
     reducedMotion: "no-preference",
     screenshot: "only-on-failure",
     trace: "retain-on-failure",
-    launchOptions: process.env.CHROMIUM_EXECUTABLE_PATH ? {
-      executablePath: process.env.CHROMIUM_EXECUTABLE_PATH,
-      args: ["--no-sandbox", "--disable-dev-shm-usage"],
-    } : undefined,
+    launchOptions: process.env.CHROMIUM_EXECUTABLE_PATH
+      ? {
+          executablePath: process.env.CHROMIUM_EXECUTABLE_PATH,
+          args: ["--no-sandbox", "--disable-dev-shm-usage"],
+        }
+      : undefined,
   },
   // A production build must already exist. An explicit base URL uses a server
   // managed by the caller; otherwise Playwright owns and cleans up this server.
-  webServer: process.env.PLAYWRIGHT_BASE_URL ? undefined : {
-    command: "npx next start -H 0.0.0.0 -p 3010",
-    url: baseURL,
-    reuseExistingServer: !process.env.CI,
-    timeout: 60_000,
-  },
+  webServer: process.env.PLAYWRIGHT_BASE_URL
+    ? undefined
+    : {
+        command: "npx next start -H 0.0.0.0 -p 3010",
+        // The reserved .invalid receiver is test-only. Browser submissions are
+        // intercepted; no test can deliver to the practice. Production stays gated.
+        env: {
+          ENQUIRY_ENABLED: "true",
+          ENQUIRY_WEBHOOK_URL: "https://delivery.example.invalid/enquiry",
+        },
+        url: baseURL,
+        reuseExistingServer: !process.env.CI,
+        timeout: 60_000,
+      },
 });

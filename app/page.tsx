@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 import { Hero } from "@/components/sections/hero";
 import { Services } from "@/components/sections/services";
@@ -7,11 +8,11 @@ import { AboutTeaser, ResearchTeaser, FaqTeaser, ContactBand } from "@/component
 import { FinalCta } from "@/components/sections/final-cta";
 import { Marquee } from "@/components/ui/motion";
 
-export const metadata: Metadata = {
-  title: "Specialist Obstetrician & Gynaecologist in Primrose, Germiston",
-  description:
-    "Women's health, every stage, every journey. Obstetric, gynaecological, fertility and surgical care with Dr CM Ngwey-Sompo at Life Roseacres Hospital, Primrose, Germiston.",
-};
+export const metadata: Metadata = pageMetadata(
+  "Specialist Obstetrician & Gynaecologist in Primrose, Germiston",
+  "Women's health, every stage, every journey. Obstetric, gynaecological, fertility and surgical care with Dr CM Ngwey-Sompo at Life Roseacres Hospital, Primrose, Germiston.",
+  "/",
+);
 
 export default function HomePage() {
   return (
@@ -26,7 +27,7 @@ export default function HomePage() {
               Registered &amp; affiliated
             </span>
             <div className="min-w-0 flex-1 opacity-70">
-              <Marquee trackClassName="text-[13px] font-medium tracking-[0.06em] text-charcoal">
+              <Marquee label="Professional organisations" trackClassName="text-[13px] font-medium tracking-[0.06em] text-charcoal">
                 {["HPCSA", "SASOG", "CMSA", "SAMA", "FIGO 2025", "Wits", "Life Roseacres"].map(
                   (item) => (
                     <span key={item} className="mx-7 inline-block whitespace-nowrap">

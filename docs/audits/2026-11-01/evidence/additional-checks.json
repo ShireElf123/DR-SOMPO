@@ -1,0 +1,16 @@
+[
+  {
+    "test": "pending-whatsapp",
+    "checked": true,
+    "disabled": false
+  },
+  {
+    "test": "skip-link",
+    "first": "Skip to content",
+    "next": {
+      "tag": "A",
+      "href": "/contact",
+      "text": "Book an appointment"
+    }
+  }
+]

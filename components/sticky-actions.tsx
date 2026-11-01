@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ArrowUp } from "lucide-react";
 import { AnimatePresence, m } from "framer-motion";
@@ -14,6 +16,7 @@ import { practice } from "@/lib/practice";
 export function StickyActions() {
   const [visible, setVisible] = useState(false);
   const reduce = useReducedMotion();
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 700);
@@ -25,7 +28,10 @@ export function StickyActions() {
   return (
     <>
       {/* Mobile action bar */}
-      <div className="fixed inset-x-0 bottom-0 z-50 lg:hidden">
+      <nav
+        aria-label="Quick appointment actions"
+        className="fixed inset-x-0 bottom-0 z-50 lg:hidden"
+      >
         <AnimatePresence>
           {visible && (
             <m.div
@@ -39,20 +45,38 @@ export function StickyActions() {
                 href={practice.phoneHref}
                 className="flex flex-1 items-center justify-center gap-2 rounded-full border border-charcoal/12 py-3 text-[12px] font-medium text-charcoal"
               >
-                <span className="h-1.5 w-1.5 rounded-full bg-forest" aria-hidden="true" />
+                <span
+                  className="h-1.5 w-1.5 rounded-full bg-forest"
+                  aria-hidden="true"
+                />
                 Call
               </a>
-              <a
-                href="/contact"
+              <Link
+                href={
+                  pathname === "/contact"
+                    ? "#appointment-request"
+                    : "/contact#appointment-request"
+                }
+                onClick={(event) => {
+                  if (pathname !== "/contact") return;
+                  event.preventDefault();
+                  const target = document.getElementById("appointment-request");
+                  target?.scrollIntoView({
+                    block: "center",
+                    behavior: reduce ? "instant" : "smooth",
+                  });
+                  const field = document.getElementById("enq-name") ?? target;
+                  field?.focus({ preventScroll: true });
+                }}
                 className="flex flex-[1.4] items-center justify-center gap-2 rounded-full bg-forest py-3 text-[12px] font-medium text-white"
               >
                 Book
                 <span className="sr-only">an appointment</span>
-              </a>
+              </Link>
             </m.div>
           )}
         </AnimatePresence>
-      </div>
+      </nav>
 
       {/* Desktop back-to-top */}
       <AnimatePresence>

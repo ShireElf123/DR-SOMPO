@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimatePresence, m } from "framer-motion";
+import { useHydrated } from "@/lib/use-hydrated";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { ArrowUpRight, Menu, Phone, X } from "lucide-react";
 import Link from "next/link";
@@ -49,26 +50,23 @@ export function Navbar() {
   const triggerRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useHydrated();
   const pathname = usePathname();
   const active = pathname ?? "/";
   const reduce = useReducedMotion();
 
-  // Portals need the DOM. This also guarantees the sheet is never rendered
-  // inside the header's own containing block.
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // Closing on navigation is not enough on its own — the sheet also closes when
-  // the route changes from anywhere else (back button, a link inside the sheet).
-  useEffect(() => {
+  // Adjust navigation-owned state before rendering the new route, rather than
+  // committing an open sheet and then closing it in a second effect render.
+  const [menuPath, setMenuPath] = useState(pathname);
+  if (menuPath !== pathname) {
+    setMenuPath(pathname);
     setOpen(false);
-  }, [pathname]);
+  }
 
   useEffect(() => {
     if (!open) return;
     lockScroll();
+    const trigger = triggerRef.current;
 
     closeRef.current?.focus({ preventScroll: true });
     const desktop = window.matchMedia("(min-width: 1024px)");
@@ -106,8 +104,8 @@ export function Navbar() {
       window.removeEventListener("keydown", onKey);
       desktop.removeEventListener("change", onResize);
       unlockScroll();
-      if (triggerRef.current?.getClientRects().length) {
-        triggerRef.current.focus({ preventScroll: true });
+      if (trigger?.isConnected && trigger.getClientRects().length) {
+        trigger.focus({ preventScroll: true });
       }
     };
   }, [open]);

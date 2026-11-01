@@ -1,0 +1,163 @@
+[
+  {
+    "path": "/",
+    "currentSrc": "http://127.0.0.1:3010/_next/image?url=%2Fimages%2Fhero-doctor.jpg&w=420&q=75",
+    "alt": "AI-generated illustration: a healthcare professional, not Dr Sompo. Not a verified practice photograph.",
+    "heroImageCount": 1,
+    "imageResources": [
+      {
+        "url": "/images/hero-doctor.jpg",
+        "width": "420",
+        "transferSize": 10792,
+        "encodedBodySize": 10492
+      },
+      {
+        "url": "/images/consultation.jpg",
+        "width": "96",
+        "transferSize": 1413,
+        "encodedBodySize": 1113
+      },
+      {
+        "url": "/images/patient-quiet.jpg",
+        "width": "96",
+        "transferSize": 1481,
+        "encodedBodySize": 1181
+      },
+      {
+        "url": "/images/fertility.jpg",
+        "width": "96",
+        "transferSize": 1225,
+        "encodedBodySize": 925
+      },
+      {
+        "url": "/images/antenatal.jpg",
+        "width": "256",
+        "transferSize": 4964,
+        "encodedBodySize": 4664
+      },
+      {
+        "url": "/images/consultation.jpg",
+        "width": "256",
+        "transferSize": 4515,
+        "encodedBodySize": 4215
+      },
+      {
+        "url": "/images/fertility.jpg",
+        "width": "256",
+        "transferSize": 3382,
+        "encodedBodySize": 3082
+      },
+      {
+        "url": "/images/gynae.jpg",
+        "width": "256",
+        "transferSize": 3790,
+        "encodedBodySize": 3490
+      },
+      {
+        "url": "/images/surgery.jpg",
+        "width": "256",
+        "transferSize": 4035,
+        "encodedBodySize": 3735
+      },
+      {
+        "url": "/images/cervical-research.jpg",
+        "width": "256",
+        "transferSize": 3123,
+        "encodedBodySize": 2823
+      },
+      {
+        "url": "/images/hospital-exterior.jpg",
+        "width": "256",
+        "transferSize": 4121,
+        "encodedBodySize": 3821
+      },
+      {
+        "url": "/images/portrait-somp-card.jpg",
+        "width": "384",
+        "transferSize": 7451,
+        "encodedBodySize": 7151
+      },
+      {
+        "url": "/images/hospital-exterior.jpg",
+        "width": "384",
+        "transferSize": 8162,
+        "encodedBodySize": 7862
+      },
+      {
+        "url": "/images/consultation.jpg",
+        "width": "384",
+        "transferSize": 8400,
+        "encodedBodySize": 8100
+      }
+    ],
+    "preloads": [
+      "/_next/image?url=%2Fimages%2Fhero-doctor.jpg&w=256&q=75 256w, /_next/image?url=%2Fimages%2Fhero-doctor.jpg&w=384&q=75 384w, /_next/image?url=%2Fimages%2Fhero-doctor.jpg&w=420&q=75 420w, /_next/image?url=%2Fimages%2Fhero-doctor.jpg&w=640&q=75 640w, /_next/image?url=%2Fimages%2Fhero-doctor.jpg&w=828&q=75 828w, /_next/image?url=%2Fimages%2Fhero-doctor.jpg&w=1080&q=75 1080w, /_next/image?url=%2Fimages%2Fhero-doctor.jpg&w=1200&q=75 1200w, /_next/image?url=%2Fimages%2Fhero-doctor.jpg&w=1600&q=75 1600w"
+    ]
+  },
+  {
+    "path": "/research",
+    "currentSrc": "http://127.0.0.1:3010/_next/image?url=%2Fimages%2Fresearch-desk.jpg&w=420&q=75",
+    "alt": "AI-generated healthcare illustration; not a photograph of the doctor or practice.",
+    "heroImageCount": 1,
+    "imageResources": [
+      {
+        "url": "/images/research-desk.jpg",
+        "width": "420",
+        "transferSize": 9922,
+        "encodedBodySize": 9622
+      },
+      {
+        "url": "/images/patient-quiet.jpg",
+        "width": "384",
+        "transferSize": 10087,
+        "encodedBodySize": 9787
+      },
+      {
+        "url": "/images/cervical-research.jpg",
+        "width": "384",
+        "transferSize": 5041,
+        "encodedBodySize": 4741
+      },
+      {
+        "url": "/images/research-desk.jpg",
+        "width": "384",
+        "transferSize": 8390,
+        "encodedBodySize": 8090
+      },
+      {
+        "url": "/images/screening-room.jpg",
+        "width": "384",
+        "transferSize": 5539,
+        "encodedBodySize": 5239
+      }
+    ],
+    "preloads": []
+  },
+  {
+    "path": "/contact",
+    "currentSrc": "http://127.0.0.1:3010/_next/image?url=%2Fimages%2Fcorridor.jpg&w=420&q=75",
+    "alt": "AI-generated healthcare illustration; not a photograph of the doctor or practice.",
+    "heroImageCount": 1,
+    "imageResources": [
+      {
+        "url": "/images/corridor.jpg",
+        "width": "420",
+        "transferSize": 4389,
+        "encodedBodySize": 4089
+      },
+      {
+        "url": "/images/hospital-exterior.jpg",
+        "width": "384",
+        "transferSize": 8162,
+        "encodedBodySize": 7862
+      },
+      {
+        "url": "/images/waiting-room.jpg",
+        "width": "384",
+        "transferSize": 8419,
+        "encodedBodySize": 8119
+      }
+    ],
+    "preloads": []
+  }
+]

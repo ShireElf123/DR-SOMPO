@@ -1,3 +1,6 @@
+import { practiceToday, upcomingWeekdays } from "@/lib/appointment-dates";
+import { enquiryDeliveryEnabled } from "@/lib/enquiry-config";
+import { pageMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 import { Mail, MapPin, MessageCircle, Navigation, Phone } from "lucide-react";
 import { PageHero, SectionHead } from "@/components/page-hero";
@@ -6,12 +9,11 @@ import { EnquiryForm } from "@/components/enquiry-form";
 import { ParallaxImage, Reveal, RevealGroup, RevealItem } from "@/components/ui/motion";
 import { practice } from "@/lib/practice";
 
-export const metadata: Metadata = {
-  title: "Contact & Appointment Enquiries",
-  description:
-    "Contact Dr CM Ngwey-Sompo Inc. at Life Roseacres Hospital, Primrose, Germiston. Telephone 011 842 7651 or send a non-clinical appointment enquiry. Consultations in English and French.",
-  alternates: { canonical: "/contact" },
-};
+export const metadata: Metadata = pageMetadata(
+  "Contact & Appointment Enquiries",
+  "Contact Dr CM Ngwey-Sompo Inc. at Life Roseacres Hospital, Primrose, Germiston. Telephone 011 842 7651 or send a non-clinical appointment enquiry. Consultations in English and French.",
+  "/contact",
+);
 
 const directionsUrl =
   "https://www.google.com/maps/dir/?api=1&destination=Life+Roseacres+Hospital%2C+St+Joseph+and+Castor+Road%2C+Primrose%2C+Germiston";
@@ -174,7 +176,7 @@ export default async function ContactPage({
             {/* Form */}
             <div className="min-w-0">
               <Reveal y={24} delay={0.06}>
-                <EnquiryForm defaultService={service ?? ""} />
+                <EnquiryForm defaultService={service ?? ""} days={upcomingWeekdays(practiceToday())} onlineEnabled={enquiryDeliveryEnabled()} />
               </Reveal>
 
               <div className="mt-4 grid gap-4 sm:grid-cols-2">

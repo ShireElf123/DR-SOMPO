@@ -1,10 +1,11 @@
+import { siteUrl, faqJsonLd } from "@/lib/structured-data";
+import { pageMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image from "@/components/ui/practice-image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowUpRight, ChevronRight, Phone } from "lucide-react";
 import { PageHero, SectionHead } from "@/components/page-hero";
-import { Plate } from "@/components/ui/plate";
 import { Reveal, RevealGroup, RevealItem, WordsIn } from "@/components/ui/motion";
 import {
   allServiceMap,
@@ -16,6 +17,9 @@ import {
 
 type Params = { params: Promise<{ slug: string }> };
 
+// Only published services exist; unknown and inherited object-property names are 404s.
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return serviceDetails.map((detail) => ({ slug: detail.serviceId }));
 }
@@ -26,17 +30,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const detail = serviceDetailMap[slug];
   if (!service || !detail) return {};
 
-  return {
-    title: `${service.title} — ${detail.eyebrow} in Germiston`,
-    description: detail.standfirst.slice(0, 158),
-    alternates: { canonical: `/services/${slug}` },
-    openGraph: {
-      title: `${service.title} | ${practice.entity}`,
-      description: detail.standfirst.slice(0, 158),
-      url: `/services/${slug}`,
-      type: "article",
-    },
-  };
+  return pageMetadata(`${service.title} — ${detail.eyebrow} in Germiston`, detail.standfirst.slice(0, 158), `/services/${slug}`);
 }
 
 const phases = [
@@ -57,28 +51,16 @@ export default async function ServiceDetailPage({ params }: Params) {
     .map((id) => ({ service: allServiceMap[id], detail: serviceDetailMap[id] }))
     .filter((item) => item.service && item.detail);
 
-  // Structured data for the procedure page — descriptive only, no pricing or
-  // outcome claims, which is why no `offers` or `aggregateRating` is emitted.
+  // Describe the page without inventing a clinical procedure classification.
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "MedicalProcedure",
+    "@type": "WebPage",
+    "@id": `${siteUrl}/services/${slug}#page`,
+    url: `${siteUrl}/services/${slug}`,
     name: service.title,
     description: detail.standfirst,
-    procedureType: "https://schema.org/NoninvasiveProcedure",
-    bodyLocation: detail.eyebrow,
-    howPerformed: detail.sections.map((section) => `${section.heading}: ${section.body[0]}`).join(" "),
-    availableService: {
-      "@type": "MedicalClinic",
-      name: practice.entity,
-      telephone: practice.phone,
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: practice.addressLines.join(", "),
-        addressLocality: "Germiston",
-        addressRegion: "Gauteng",
-        addressCountry: "ZA",
-      },
-    },
+    about: { "@type": "Thing", name: service.title },
+    publisher: { "@id": `${siteUrl}/#practice` },
   };
 
   return (
@@ -87,6 +69,8 @@ export default async function ServiceDetailPage({ params }: Params) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(detail.questions)) }} />
 
       <PageHero
         tag={detail.eyebrow}
@@ -155,7 +139,7 @@ export default async function ServiceDetailPage({ params }: Params) {
                   </i>
                 </a>
                 <Link
-                  href={`/contact?service=${encodeURIComponent(service.title)}`}
+                  href={`/contact?service=${service.id}`}
                   className="mt-2 flex items-center justify-between rounded-full border border-forest/20 px-3.5 py-2 text-[11px] font-medium text-forest transition-colors hover:border-forest hover:bg-white"
                 >
                   Request this appointment
@@ -248,15 +232,13 @@ export default async function ServiceDetailPage({ params }: Params) {
             />
             <dl className="border-t border-charcoal/12">
               {detail.questions.map((item, i) => (
-                <Reveal key={item.q} delay={i * 0.05} y={14}>
-                  <div className="border-b border-charcoal/12 py-4">
+                <Reveal key={item.q} delay={i * 0.05} y={14} className="border-b border-charcoal/12 py-4">
                     <dt className="text-[14px] font-medium tracking-[-0.01em] text-charcoal">
                       {item.q}
                     </dt>
                     <dd className="mt-1.5 max-w-[38rem] text-[12.5px] leading-relaxed text-ink-soft">
                       {item.a}
                     </dd>
-                  </div>
                 </Reveal>
               ))}
             </dl>

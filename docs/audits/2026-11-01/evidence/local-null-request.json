@@ -1,0 +1,9 @@
+{
+  "target": "Local production server only, http://127.0.0.1:3010/api/enquiry",
+  "method": "POST",
+  "contentType": "application/json",
+  "payload": "null",
+  "status": 500,
+  "body": "",
+  "externalDelivery": "None: null fails while reading body.company, before the delivery branch."
+}

@@ -1,19 +1,20 @@
+import { faqJsonLd } from "@/lib/structured-data";
+import { pageMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight, ShieldCheck } from "lucide-react";
 import { PageHero, SectionHead } from "@/components/page-hero";
-import Image from "next/image";
-import { IconDisc, Panel, Plate } from "@/components/ui/plate";
-import { Reveal, RevealGroup, RevealItem, ScrollWords } from "@/components/ui/motion";
+import Image from "@/components/ui/practice-image";
+import { Panel, Plate } from "@/components/ui/plate";
+import { Reveal, RevealGroup, RevealItem } from "@/components/ui/motion";
 import { Faqs } from "@/components/sections/faqs";
 import { journey, practice } from "@/lib/practice";
 
-export const metadata: Metadata = {
-  title: "Patient Information — Booking, Preparation & Confidentiality",
-  description:
-    "How to book with Dr CM Ngwey-Sompo, what to bring to your first consultation, how enquiries are handled under POPIA, and answers to common questions.",
-  alternates: { canonical: "/patient-info" },
-};
+export const metadata: Metadata = pageMetadata(
+  "Patient Information — Booking, Preparation & Confidentiality",
+  "How to book with Dr CM Ngwey-Sompo, what to bring to your first consultation, how enquiries are handled under POPIA, and answers to common questions.",
+  "/patient-info",
+);
 
 const prep = [
   {
@@ -39,6 +40,7 @@ const prep = [
 export default function PatientInfoPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd()) }} />
       <PageHero
         tag="Patient information"
         title="Everything you need"
@@ -122,7 +124,7 @@ export default function PatientInfoPage() {
       </section>
 
       {/* Privacy */}
-      <section className="sec">
+      <section id="privacy" className="sec">
         <div className="shell">
           <Reveal>
             <Panel tone="forest" className="p-6 sm:p-9">
@@ -141,13 +143,19 @@ export default function PatientInfoPage() {
                     Your information is handled with care.
                   </h2>
                   <p className="mt-3 text-[13px] leading-relaxed text-white/85">
-                    Enquiries are received by the practice and handled in line with
-                    South African privacy law, including the Protection of Personal
-                    Information Act (POPIA). The website asks for the minimum needed
-                    to arrange an appointment, stores nothing, and is not a channel
-                    for clinical information.
+                    When online enquiries are enabled, your name, chosen contact
+                    details and appointment preferences are sent to the practice
+                    through its configured delivery provider. The form is unavailable
+                    until that connection is approved. Telephone and email remain
+                    available directly.
                   </p>
-                  <p className="mt-3 text-[11.5px] leading-relaxed text-white/75">
+                  <p className="mt-3 text-[12px] leading-relaxed text-white/85">
+                    Delivery providers and website hosting may retain messages or
+                    technical access logs. Contact the practice using the details
+                    on the Contact page to ask about access, correction, retention
+                    or deletion of your information under POPIA.
+                  </p>
+                  <p className="mt-3 text-[11.5px] leading-relaxed text-white/85">
                     Please do not send symptoms, results or other sensitive medical
                     information through the enquiry form or by email. Urgent concerns
                     should go to {practice.hospital} or your nearest emergency

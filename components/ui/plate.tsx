@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/ui/practice-image";
 import { ArrowUpRight } from "lucide-react";
 import type { ReactNode } from "react";
 

@@ -1,9 +1,10 @@
+import { pageMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image, { PortraitLabel } from "@/components/ui/practice-image";
 import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
 import { SectionHead, SplitHero } from "@/components/page-hero";
-import { IconDisc, Panel, Plate } from "@/components/ui/plate";
+import { IconDisc, Panel } from "@/components/ui/plate";
 import {
   ParallaxImage,
   Reveal,
@@ -20,12 +21,11 @@ import {
   practice,
 } from "@/lib/practice";
 
-export const metadata: Metadata = {
-  title: "Meet Dr CM Ngwey-Sompo — Specialist Obstetrician & Gynaecologist",
-  description:
-    "Dr CM Ngwey-Sompo is a specialist Obstetrician and Gynaecologist practising at Life Roseacres Hospital, Primrose, Germiston. MBChB, FCOG (SA), MMed (O&G) Wits. Consultations in English and French.",
-  alternates: { canonical: "/about" },
-};
+export const metadata: Metadata = pageMetadata(
+  "Meet Dr CM Ngwey-Sompo — Specialist Obstetrician & Gynaecologist",
+  "Dr CM Ngwey-Sompo is a specialist Obstetrician and Gynaecologist practising at Life Roseacres Hospital, Primrose, Germiston. MBChB, FCOG (SA), MMed (O&G) Wits. Consultations in English and French.",
+  "/about",
+);
 
 const values = [
   {
@@ -199,6 +199,7 @@ export default function AboutPage() {
                   sizes="(max-width: 1024px) 92vw, 38vw"
                   className="object-cover object-[center_22%]"
                 />
+                <PortraitLabel />
                 <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/60 via-transparent to-transparent" />
                 <div className="absolute inset-x-4 bottom-4">
                   <p className="text-[10px] uppercase tracking-[0.16em] text-white/80">
@@ -217,7 +218,7 @@ export default function AboutPage() {
                   <div className="group relative h-full overflow-hidden rounded-[1.25rem] bg-white p-5 ring-1 ring-charcoal/8 transition-colors duration-500 hover:ring-forest/25">
                     <span
                       aria-hidden="true"
-                      className="absolute -right-6 -top-6 grid h-20 w-20 place-items-center rounded-full bg-mint text-[26px] font-light text-forest/25 transition-transform duration-700 group-hover:scale-110"
+                      className="absolute -right-6 -top-6 grid h-20 w-20 place-items-center rounded-full bg-mint text-[26px] font-light text-forest transition-transform duration-700 group-hover:scale-110"
                     >
                       0{i + 1}
                     </span>

@@ -1,0 +1,62 @@
+
+> dr-ngwey-sompo@1.0.0 test
+> node --test tests/quality.test.mjs
+
+TAP version 13
+# Subtest: initial modern home scripts stay below 200 KiB gzip
+ok 1 - initial modern home scripts stay below 200 KiB gzip
+  ---
+  duration_ms: 0.944116
+  type: 'test'
+  ...
+# Subtest: optional scrolling is absent from initial script tags
+ok 2 - optional scrolling is absent from initial script tags
+  ---
+  duration_ms: 1.831136
+  type: 'test'
+  ...
+# Subtest: HTML/RSC stays bounded too, not just the script download
+ok 3 - HTML/RSC stays bounded too, not just the script download
+  ---
+  duration_ms: 0.19171
+  type: 'test'
+  ...
+# Subtest: CSS stays within the existing small budget
+ok 4 - CSS stays within the existing small budget
+  ---
+  duration_ms: 0.124168
+  type: 'test'
+  ...
+# Subtest: resting light text meets AA on white and ivory
+ok 5 - resting light text meets AA on white and ivory
+  ---
+  duration_ms: 0.615695
+  type: 'test'
+  ...
+# Subtest: resting forest text meets AA including the lightest gradient wash
+ok 6 - resting forest text meets AA including the lightest gradient wash
+  ---
+  duration_ms: 0.509018
+  type: 'test'
+  ...
+# Subtest: SSR copy needs neither hydration nor decorative duplicates
+ok 7 - SSR copy needs neither hydration nor decorative duplicates
+  ---
+  duration_ms: 309.734042
+  type: 'test'
+  ...
+# Subtest: components cannot reintroduce full Motion or layout/drag features
+ok 8 - components cannot reintroduce full Motion or layout/drag features
+  ---
+  duration_ms: 19.441291
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 514.401473

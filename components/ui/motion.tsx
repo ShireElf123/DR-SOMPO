@@ -9,8 +9,9 @@ import {
   type Variants,
 } from "framer-motion";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
-import Image from "next/image";
-import { useRef, type ElementType, type ReactNode } from "react";
+import Image from "@/components/ui/practice-image";
+import { useRef, useState, type ElementType, type ReactNode } from "react";
+import { useHydrated } from "@/lib/use-hydrated";
 import { cn } from "@/lib/utils";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -41,7 +42,8 @@ export function Reveal({
   const reduce = useReducedMotion();
   const Tag = m[as as keyof typeof m] as typeof m.div;
 
-  if (reduce) return <div className={className}>{children}</div>;
+  const StaticTag = as;
+  if (reduce) return <StaticTag className={className}>{children}</StaticTag>;
 
   return (
     <Tag
@@ -110,7 +112,13 @@ export function RevealItem({
 
   const variants: Variants = {
     hidden: { opacity: 0, y, x, scale },
-    show: { opacity: 1, y: 0, x: 0, scale: 1, transition: { duration: 1, ease: EASE } },
+    show: {
+      opacity: 1,
+      y: 0,
+      x: 0,
+      scale: 1,
+      transition: { duration: 1, ease: EASE },
+    },
   };
 
   return (
@@ -295,29 +303,56 @@ function ScrollWordOverlay({
 /* Marquee                                                                     */
 /* -------------------------------------------------------------------------- */
 
+/** Two equal, non-shrinking cycles, each at least as wide as its own viewport.
+ * The -50% endpoint is exactly one cycle, even on ultra-wide displays. */
 export function Marquee({
   children,
   className,
   trackClassName,
   slow = false,
+  label = "Practice information",
 }: {
   children: ReactNode;
   className?: string;
   trackClassName?: string;
   slow?: boolean;
+  label?: string;
 }) {
+  const hydrated = useHydrated();
+  const [paused, setPaused] = useState(false);
   return (
-    <div className={cn("marquee-group overflow-hidden", className)}>
+    <div
+      className={cn("marquee-group relative", className)}
+      role="region"
+      aria-label={label}
+      tabIndex={0}
+      data-ready={hydrated}
+      data-paused={paused}
+    >
       <div
-        className={cn(
-          "marquee-track whitespace-nowrap",
-          slow && "marquee-slow",
-          trackClassName,
-        )}
+        className={cn("marquee-track", slow && "marquee-slow", trackClassName)}
       >
-        {children}
-        {children}
+        <div className="marquee-copy">{children}</div>
+        <div className="marquee-copy" aria-hidden="true" inert>
+          {children}
+        </div>
       </div>
+      <button
+        type="button"
+        onClick={() => setPaused((value) => !value)}
+        aria-label={`${paused ? "Resume" : "Pause"} ${label.toLowerCase()}`}
+        aria-pressed={paused}
+        className="marquee-toggle absolute right-1.5 top-1/2 z-10 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full border border-forest/20 bg-white text-forest shadow-sm"
+      >
+        <span
+          aria-hidden="true"
+          className={
+            paused
+              ? "ml-0.5 h-0 w-0 border-y-[5px] border-l-[8px] border-y-transparent border-l-current"
+              : "h-3 w-2 border-x-2 border-current"
+          }
+        />
+      </button>
     </div>
   );
 }
@@ -366,7 +401,10 @@ export function ParallaxImage({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: ref, offset: offset as never });
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: offset as never,
+  });
   const y = useTransform(scrollYProgress, [0, 1], [strength, -strength]);
 
   return (
@@ -388,70 +426,5 @@ export function ParallaxImage({
       </m.div>
       {children}
     </div>
-  );
-}
-
-/* -------------------------------------------------------------------------- */
-/* Card lift                                                                  */
-/* -------------------------------------------------------------------------- */
-
-/**
- * Wraps a card in a magnetic hover: a small lift, a touch of scale and a soft
- * shadow that blooms underneath. Used sparingly, on the panels that are
- * actually clickable, so the effect keeps its meaning.
- */
-export function HoverLift({
-  children,
-  className,
-  lift = 6,
-}: {
-  children: ReactNode;
-  className?: string;
-  lift?: number;
-}) {
-  const reduce = useReducedMotion();
-
-  if (reduce) return <div className={className}>{children}</div>;
-
-  return (
-    <m.div
-      className={className}
-      whileHover={{ y: -lift }}
-      transition={{ duration: 0.5, ease: EASE }}
-    >
-      {children}
-    </m.div>
-  );
-}
-
-/* -------------------------------------------------------------------------- */
-/* Wordmark wipe                                                              */
-/* -------------------------------------------------------------------------- */
-
-/**
- * The oversized footer wordmark, revealed by a clip-path wipe as it enters
- * view. Pure transform — no layout cost.
- */
-export function WipeText({
-  children,
-  className,
-  delay = 0,
-}: {
-  children: ReactNode;
-  className?: string;
-  delay?: number;
-}) {
-  const reduce = useReducedMotion();
-
-  return (
-    <m.div
-      className={className}
-      initial={reduce ? undefined : { clipPath: "inset(0 100% 0 0)" }}
-      whileInView={reduce ? undefined : { clipPath: "inset(0 0% 0 0)" }}
-      viewport={{ once: true, amount: 0.4 }}
-      transition={{ duration: 1.5, delay, ease: [0.6, 0, 0.2, 1] }}
-    >
-      {children}
-    </m.div>
   );
 }

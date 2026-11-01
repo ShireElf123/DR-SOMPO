@@ -4,6 +4,7 @@ import { practice } from "@/lib/practice";
 
 export const metadata = {
   title: "Page not found",
+  robots: { index: false, follow: false, googleBot: { index: false, follow: false } },
 };
 
 export default function NotFound() {

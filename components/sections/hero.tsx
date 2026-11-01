@@ -3,7 +3,7 @@
 import { AnimatePresence, m, useScroll, useTransform } from "framer-motion";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { ArrowUpRight, Phone } from "lucide-react";
-import Image from "next/image";
+import Image, { PhotographyNotice, PortraitLabel } from "@/components/ui/practice-image";
 import { useEffect, useRef, useState } from "react";
 import { brand, practice } from "@/lib/practice";
 import { WordsIn } from "@/components/ui/motion";
@@ -65,41 +65,30 @@ export function Hero() {
             className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-forest/35 to-transparent"
           />
 
-          {/* Portrait — full-bleed behind the copy on phones, a clipped panel from
-              sm up. Photography is always visible, never a hover reveal. */}
-          <div className="pointer-events-none absolute inset-0 sm:hidden">
-            <Image
-              src="/images/hero-doctor.jpg"
-              alt=""
-              fill
-              priority
-              /* The frame is inset by the shell's padding and capped at 1180px,
-                 so a bare 100vw over-requests on tablets and up. */
-              sizes="(max-width: 640px) 100vw, (max-width: 1180px) 96vw, 1180px"
-              className="object-cover object-[62%_18%]"
-            />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,42,32,0.62)_0%,rgba(10,42,32,0.35)_45%,rgba(10,42,32,0.78)_100%)]" />
-          </div>
-
-          <div className="pointer-events-none absolute bottom-0 right-0 hidden h-[88%] w-[52%] sm:block lg:w-[46%]">
+          {/* One image request. On phones the motion layer is static; the desktop
+              crop retains its independent scroll parallax without scaling the hero. */}
+          <div className="pointer-events-none absolute inset-0 sm:inset-auto sm:bottom-0 sm:right-0 sm:h-[88%] sm:w-[52%] lg:w-[46%]">
             <m.div
+              data-hero-image-layer
               style={reduce ? undefined : { y: imageY, scale: imageScale }}
-              className="relative h-full w-full"
+              className="home-portrait-motion relative h-full w-full"
             >
-              <div className="relative h-full w-full overflow-hidden rounded-tl-[9rem]">
+              <div className="relative h-full w-full overflow-hidden sm:rounded-tl-[9rem]">
                 <Image
                   src="/images/hero-doctor.jpg"
-                  alt="Dr CM Ngwey-Sompo, specialist obstetrician and gynaecologist"
+                  alt="Illustration of a healthcare professional"
                   fill
                   priority
-                  sizes="(max-width: 1024px) 54vw, 46vw"
-                  className="object-cover object-[center_16%]"
+                  sizes="(max-width: 639px) 100vw, (max-width: 1023px) 52vw, (max-width: 1279px) 46vw, 544px"
+                  className="object-cover object-[62%_18%] sm:object-[center_16%]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-mist/40 via-transparent to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-t from-forest/45 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,42,32,0.62)_0%,rgba(10,42,32,0.35)_45%,rgba(10,42,32,0.78)_100%)] sm:hidden" />
+                <div className="absolute inset-0 hidden bg-gradient-to-r from-mist/40 via-transparent to-transparent sm:block" />
+                <div className="absolute inset-0 hidden bg-gradient-to-t from-forest/45 via-transparent to-transparent sm:block" />
               </div>
             </m.div>
           </div>
+          <PortraitLabel />
 
           {/* Copy */}
           <m.div
@@ -230,6 +219,7 @@ export function Hero() {
             <Phone className="h-3.5 w-3.5 text-forest/60" aria-hidden="true" />
           </m.a>
         </div>
+        <PhotographyNotice />
       </div>
     </section>
   );
