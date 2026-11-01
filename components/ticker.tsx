@@ -4,9 +4,10 @@ import { Marquee } from "@/components/ui/motion";
 
 const items = [
   "Obstetrics & Gynaecology",
+  "Adolescence to menopause",
   "English & French",
-  "Life Roseacres Hospital",
   "Fertility & cervical health",
+  "HPV prevention & patient education",
   "011 842 7651",
   "Primrose, Germiston",
 ];

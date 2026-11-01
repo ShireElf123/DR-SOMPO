@@ -87,7 +87,7 @@ export function Services() {
             </Reveal>
 
             <ScrollWords
-              text="Compassionate, personalised and evidence-informed care, supporting women through every stage of life with specialist expertise, empathy and dignity."
+              text="A women's health advocate from adolescence to childbirth, menopause and beyond — one specialist, one standard of care, and every step explained."
               avatars={[9, 17]}
               className="mx-auto max-w-[40rem] text-center text-[clamp(1.15rem,2.4vw,1.55rem)] leading-[1.35] tracking-[-0.02em]"
             />
@@ -114,14 +114,25 @@ export function Services() {
             <SectionHead
               tag="What we care for"
               title="Care for every stage of life"
-              intro="Obstetrics, gynaecology, fertility and surgery — one practice, one standard of care."
+              intro="Antenatal and delivery care, contraception, fertility assessment, screening and surgery — one practice, one standard of care."
             />
-            <Link href="/services" className="btn self-start sm:self-auto">
-              All services
-              <i aria-hidden="true">
-                <ArrowUpRight className="h-3 w-3" />
-              </i>
-            </Link>
+            <div className="flex flex-wrap items-center gap-2 self-start sm:self-auto">
+              <Link href="/services#conditions" className="btn">
+                Conditions we treat
+                <i aria-hidden="true">
+                  <ArrowUpRight className="h-3 w-3" />
+                </i>
+              </Link>
+              <Link
+                href="/services"
+                className="btn btn-light shadow-none ring-1 ring-charcoal/12"
+              >
+                All services
+                <i aria-hidden="true">
+                  <ArrowUpRight className="h-3 w-3" />
+                </i>
+              </Link>
+            </div>
           </div>
 
           <div className="grid auto-rows-[13rem] grid-cols-2 gap-3 sm:gap-3.5 lg:grid-cols-4">

@@ -77,12 +77,28 @@ export const practiceFacts = {
   conditionScope: "Adolescence through pregnancy, childbirth, menopause and beyond",
 };
 
+/**
+ * Voice note.
+ *
+ * The practice describes herself as a women's health advocate "from adolescence
+ * to childbirth, menopause and beyond", and speaks in the first person about
+ * why she does this work. The site previously spoke about her in the
+ * institutional third person — "compassionate, personalised and
+ * evidence-informed care" — which is the register every clinic website uses and
+ * none of them mean. These strings are hers: the scope sentence, the reason,
+ * and the plain description of what a patient gets.
+ */
 export const brand = {
   tagline: "Women's Health. Every Stage. Every Journey.",
+  scope: "From adolescence to childbirth, menopause and beyond.",
+  advocacy:
+    "A women's health advocate — for HPV prevention, for patient education, and for women who have been told their symptoms are normal.",
   supporting:
-    "Compassionate, personalised and evidence-informed obstetric and gynaecological care, supporting women through every stage of life.",
+    "One specialist, from a first teenage consultation through pregnancy, childbirth and menopause — the same person, in the same rooms, with the same standard of care.",
   heroCopy:
-    "Your health deserves specialist attention and compassionate care. Dr CM Ngwey-Sompo provides obstetric and gynaecological care with a patient-centred approach, supporting women from adolescence through pregnancy, childbirth, menopause and beyond.",
+    "Your health deserves specialist attention and an advocate, not just a clinician. Dr CM Ngwey-Sompo cares for women from adolescence through pregnancy, childbirth, menopause and beyond — and explains every step of it in plain language, in English or French.",
+  /** First-person, as she describes her own reason for the work. */
+  why: "Having been through difficult pregnancies herself, she knows how much the words in that room matter.",
 };
 
 export const ticker = [
@@ -832,3 +848,124 @@ export const allServices = serviceGroups.flatMap((group) =>
 export const allServiceMap = Object.fromEntries(
   allServices.map((service) => [service.id, service]),
 ) as Record<string, (typeof allServices)[number]>;
+
+/* -------------------------------------------------------------------------- */
+/* Conditions treated                                                         */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * The patient arrives with a problem, not with a service name. This is the list
+ * that answers "can she help with what I have?" — grouped by the stage of life
+ * it belongs to, not by the department that bills for it.
+ *
+ * Every item traces to the practice's own stated scope: antenatal and delivery
+ * care, contraception, fertility assessment, female screening and oncology
+ * assessment, and surgery for cysts, fibroids, early-stage endometriosis and
+ * hysterectomy. Symptoms are described in the words a patient would use; nothing
+ * here diagnoses, promises an outcome, or implies a condition is always treated
+ * by this practice.
+ */
+export type ConditionGroup = {
+  id: string;
+  label: string;
+  stage: string;
+  intro: string;
+  conditions: string[];
+  serviceId: string;
+};
+
+export const conditionGroups: ConditionGroup[] = [
+  {
+    id: "pregnancy",
+    label: "Pregnancy & birth",
+    stage: "Antenatal to postnatal",
+    intro:
+      "The whole of a pregnancy, including the parts nobody warns you about.",
+    conditions: [
+      "Pregnancy care and antenatal visits",
+      "Planning for a vaginal or caesarean birth",
+      "Concerns about the baby's growth or movement",
+      "High blood pressure in pregnancy",
+      "Bleeding in early pregnancy",
+      "Previous difficult pregnancy or birth",
+      "Twin or multiple pregnancy",
+      "Postnatal recovery and feeding concerns",
+    ],
+    serviceId: "antenatal",
+  },
+  {
+    id: "cycle",
+    label: "Cycles & everyday gynaecology",
+    stage: "Adolescence onwards",
+    intro:
+      "The symptoms that are common but rarely discussed, and the contraception conversation that goes with them.",
+    conditions: [
+      "Heavy or painful periods",
+      "Irregular or absent periods",
+      "Contraception counselling and fitting",
+      "Pain during sex",
+      "Recurrent vaginal infections or discharge",
+      "Polycystic ovary syndrome (PCOS) assessment",
+      "Menopause and perimenopause symptoms",
+      "A first gynaecological visit, at any age",
+    ],
+    serviceId: "general",
+  },
+  {
+    id: "screening",
+    label: "Screening & cervical health",
+    stage: "From the first Pap smear onwards",
+    intro:
+      "Screening, abnormal results, and the follow-up that should never be left open.",
+    conditions: [
+      "Routine cervical screening (Pap smear)",
+      "An abnormal Pap smear result",
+      "HPV testing and HPV prevention",
+      "Colposcopy and biopsy",
+      "LLETZ and follow-up after treatment",
+      "Postmenopausal bleeding",
+      "A suspicious finding on examination",
+      "Family history that warrants assessment",
+    ],
+    serviceId: "oncology",
+  },
+  {
+    id: "fertility",
+    label: "Fertility",
+    stage: "When conception is taking longer",
+    intro:
+      "Her special interest. Assessment first, then an honest conversation about what comes next.",
+    conditions: [
+      "Difficulty falling pregnant",
+      "Recurrent pregnancy loss",
+      "Irregular ovulation",
+      "Male-factor concerns raised by a partner's results",
+      "PCOS and fertility",
+      "Endometriosis and fertility",
+      "Review after previous fertility treatment",
+      "A second opinion on a fertility plan",
+    ],
+    serviceId: "fertility-assessment",
+  },
+  {
+    id: "surgery",
+    label: "Growths & surgical conditions",
+    stage: "When an operation is being considered",
+    intro:
+      "Conditions where surgery may be one option — discussed in full before anything is decided.",
+    conditions: [
+      "Ovarian and other gynaecological cysts",
+      "Uterine fibroids",
+      "Early-stage endometriosis",
+      "Hysterectomy, including total laparoscopic hysterectomy",
+      "Pelvic pain needing investigation",
+      "Heavy bleeding not controlled by other treatment",
+    ],
+    serviceId: "laparoscopy",
+  },
+];
+
+/** Every condition name once, for the search-style index. */
+export const allConditions = conditionGroups.flatMap((group) =>
+  group.conditions.map((condition) => ({ condition, group: group.label, serviceId: group.serviceId })),
+);

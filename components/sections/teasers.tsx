@@ -51,8 +51,8 @@ export function AboutTeaser() {
           <div>
             <SectionHead
               tag="Meet Dr Sompo"
-              title="Specialist care, with"
-              muted="personal understanding."
+              title="An advocate first,"
+              muted="then a specialist."
               intro={biography[0]}
             />
             <Reveal delay={0.1}>

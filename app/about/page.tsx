@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/motion";
 import {
   affiliations,
+  brand,
   biography,
   biographyAside,
   credentials,
@@ -92,6 +93,17 @@ export default function AboutPage() {
         <div className="shell">
           <div className="grid gap-9 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
             <div>
+              <Reveal y={18}>
+                <blockquote className="mb-6 max-w-2xl border-l-2 border-forest/30 pl-4">
+                  <p className="text-[clamp(1.05rem,2.1vw,1.35rem)] font-light leading-[1.45] tracking-[-0.02em] text-forest">
+                    {brand.advocacy}
+                  </p>
+                  <footer className="mt-2 text-[10.5px] uppercase tracking-[0.14em] text-ink-muted">
+                    Her practice, in her words
+                  </footer>
+                </blockquote>
+              </Reveal>
+
               <div className="space-y-4">
                 {biography.map((paragraph, i) => (
                   <Reveal key={i} delay={i * 0.04}>

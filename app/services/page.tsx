@@ -6,6 +6,7 @@ import { PageHero, SectionHead } from "@/components/page-hero";
 import { IconDisc, Panel, SignalBars } from "@/components/ui/plate";
 import { ParallaxImage, Reveal, RevealGroup, RevealItem, WordsIn } from "@/components/ui/motion";
 import { serviceGroups } from "@/lib/practice";
+import { ConditionsTreated } from "@/components/sections/conditions";
 
 export const metadata: Metadata = {
   title: "Services — Obstetrics, Gynaecology, Fertility & Surgery",
@@ -45,6 +46,8 @@ export default function ServicesPage() {
         mobileImage="/images/screening-room.jpg"
         alt="Dr Sompo in consultation with a patient"
       />
+
+      <ConditionsTreated />
 
       {/* Quick index — glass chips that invert on hover */}
       <section className="bg-white pt-9">
@@ -205,7 +208,10 @@ export default function ServicesPage() {
                       ))}
                     </RevealGroup>
 
-                    <Link href="/contact" className="btn mt-6">
+                    <Link
+                      href={`/contact?service=${group.services[0].id}`}
+                      className="btn mt-6"
+                    >
                       Enquire about this
                       <i aria-hidden="true">
                         <ArrowUpRight className="h-3 w-3" />

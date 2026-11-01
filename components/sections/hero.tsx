@@ -4,15 +4,15 @@ import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } fr
 import { ArrowUpRight, Phone } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { practice } from "@/lib/practice";
+import { brand, practice } from "@/lib/practice";
 import { WordsIn } from "@/components/ui/motion";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 const rotating = [
-  "Specialist OBGYN",
+  "Women's health advocate",
   "Fertility & cervical health",
-  "Obstetrics · Gynaecology",
+  "Adolescence to menopause",
   "English & French",
 ];
 
@@ -136,8 +136,7 @@ export function Hero() {
               transition={{ duration: 0.9, delay: 1.3, ease: EASE }}
               className="mt-6 max-w-[26rem] text-[0.875rem] leading-relaxed text-white/90 sm:text-[0.9375rem]"
             >
-              Your health deserves specialist attention and compassionate care,
-              from adolescence through pregnancy, childbirth, menopause and beyond.
+              {brand.heroCopy}
             </motion.p>
 
             <motion.div
