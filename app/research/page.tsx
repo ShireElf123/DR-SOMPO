@@ -212,7 +212,7 @@ export default function ResearchPage() {
             tag="In practice"
             title="Screening, HPV prevention"
             muted="and follow-up."
-            intro="Cervical health is one of Dr Somp's special interests, alongside fertility."
+            intro="Cervical health is one of Dr Sompo's special interests, alongside fertility."
           />
 
           <div className="mt-8 grid gap-4 sm:grid-cols-3">

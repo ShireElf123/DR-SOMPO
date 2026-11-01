@@ -152,7 +152,7 @@ verified credentials, affiliations, research and clear contact routes.
 ## Before launch
 
 1. Replace the AI-generated placeholder photography in `public/images/` with
-   the practice's own photographs of Dr Somp, the consulting rooms and Life
+   the practice's own photographs of Dr Sompo, the consulting rooms and Life
    Roseacres Hospital.
 2. Confirm the WhatsApp number, exact address formatting, consulting hours,
    practice number and medical aid arrangements.

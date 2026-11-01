@@ -41,13 +41,13 @@ export function Journey() {
                       step.step === "01"
                         ? "/images/consultation.jpg"
                         : step.step === "02"
-                          ? "/images/portrait-somp.jpg"
+                          ? "/images/portrait-somp-card.jpg"
                           : "/images/patient-quiet.jpg"
                     }
                     alt={step.title}
                     fill
                     sizes="(max-width: 640px) 92vw, 30vw"
-                    className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.05]"
+                    className="object-cover object-[center_20%] transition-transform duration-[900ms] ease-out group-hover:scale-[1.05]"
                   />
                   <span className="absolute left-3 top-3 flex h-7 w-7 items-center justify-center rounded-full bg-white/95 text-[10.5px] font-medium text-forest backdrop-blur-sm">
                     {step.step}

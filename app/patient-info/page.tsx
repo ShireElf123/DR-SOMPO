@@ -65,12 +65,12 @@ export default function PatientInfoPage() {
                   <div className="relative aspect-[4/3] overflow-hidden bg-sage">
                     <Image
                       src={
-                        ["/images/consultation.jpg", "/images/portrait-somp.jpg", "/images/patient-quiet.jpg"][i % 3]
+                        ["/images/consultation.jpg", "/images/portrait-somp-card.jpg", "/images/patient-quiet.jpg"][i % 3]
                       }
                       alt=""
                       fill
                       sizes="(max-width: 640px) 92vw, 30vw"
-                      className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
+                      className="object-cover object-[center_18%] transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/45 to-transparent" />
                     <span className="absolute left-3 top-3 grid h-7 w-7 place-items-center rounded-full bg-white/95 text-[10.5px] font-medium text-forest backdrop-blur-md">

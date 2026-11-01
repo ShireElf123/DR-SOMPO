@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
-import { PageHero, SectionHead } from "@/components/page-hero";
+import { SectionHead, SplitHero } from "@/components/page-hero";
 import { IconDisc, Panel, Plate } from "@/components/ui/plate";
 import {
   ParallaxImage,
@@ -50,15 +50,30 @@ const values = [
 export default function AboutPage() {
   return (
     <>
-      <PageHero
-        tag="Meet Dr Somp"
+      <SplitHero
+        tag="Meet Dr Sompo"
         title="Specialist care, with"
         muted="personal understanding."
         intro={`${practice.title} · ${practice.entity}`}
-        image="/images/portrait-somp.jpg"
-        mobileImage="/images/hero-doctor.jpg"
-        alt="Portrait of Dr CM Ngwey-Sompo"
-        aspect="aspect-[16/11] sm:aspect-[16/8] lg:aspect-[16/7]"
+        image="/images/portrait-somp-card.jpg"
+        alt="Portrait of Dr CM Ngwey-Sompo, specialist obstetrician and gynaecologist"
+        chips={["MBChB", "FCOG (SA)", "MMed (O&G) Wits", "English & French"]}
+        footer={
+          <div className="flex flex-wrap items-center gap-2.5">
+            <Link href="/contact" className="btn">
+              Request a consultation
+              <i aria-hidden="true">
+                <ArrowUpRight className="h-3 w-3" />
+              </i>
+            </Link>
+            <Link href="/research" className="btn btn-light shadow-none ring-1 ring-charcoal/12">
+              Her research
+              <i aria-hidden="true">
+                <ArrowUpRight className="h-3 w-3" />
+              </i>
+            </Link>
+          </div>
+        }
       />
 
       {/* Scroll-lit statement */}
@@ -117,7 +132,7 @@ export default function AboutPage() {
                   <div className="relative aspect-[4/5] overflow-hidden rounded-[1.35rem]">
                     <ParallaxImage
                       src="/images/consultation.jpg"
-                      alt="Dr Somp in consultation with a patient"
+                      alt="Dr Sompo in consultation with a patient"
                       strength={44}
                       sizes="(max-width: 1024px) 92vw, 42vw"
                       className="absolute inset-0 rounded-[1.35rem]"
@@ -166,7 +181,7 @@ export default function AboutPage() {
             <Reveal y={22}>
               <div className="relative aspect-[4/3] overflow-hidden rounded-[1.35rem] bg-sage lg:aspect-[4/5]">
                 <Image
-                  src="/images/portrait-somp.jpg"
+                  src="/images/portrait-somp-card.jpg"
                   alt="Dr CM Ngwey-Sompo"
                   fill
                   sizes="(max-width: 1024px) 92vw, 38vw"

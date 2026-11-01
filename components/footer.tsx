@@ -97,7 +97,7 @@ export function Footer() {
           aria-hidden="true"
           className="whitespace-nowrap bg-[linear-gradient(180deg,#ffffff,rgba(255,255,255,0.08))] bg-clip-text text-center text-[clamp(2.6rem,13vw,11rem)] font-bold leading-[0.9] tracking-[-0.045em] text-transparent opacity-65"
         >
-          DR SOMP <span className="font-light">OBGYN</span>
+          DR SOMPO <span className="font-light">OBGYN</span>
         </motion.p>
       </div>
     </footer>

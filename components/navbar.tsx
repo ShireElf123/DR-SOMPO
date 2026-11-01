@@ -38,7 +38,7 @@ function Wordmark({
         <span className="absolute left-[7px] top-[7px] h-3 w-3 rounded-[50%_14%_50%_14%] bg-fern/80" />
       </span>
       <span className="hidden sm:inline">Dr CM Ngwey-Sompo</span>
-      <span className="sm:hidden">Dr Somp</span>
+      <span className="sm:hidden">Dr Sompo</span>
     </Link>
   );
 }

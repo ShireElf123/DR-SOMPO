@@ -31,7 +31,7 @@ export type Practice = {
 
 export const practice: Practice = {
   doctorName: "Dr CM Ngwey-Sompo",
-  shortName: "Dr Somp",
+  shortName: "Dr Sompo",
   title: "Specialist Obstetrician & Gynaecologist",
   entity: "Dr CM Ngwey-Sompo Inc.",
   hospital: "Life Roseacres Hospital",
@@ -166,7 +166,7 @@ export const serviceGroups: {
     label: "Fertility",
     headline: "Fertility care that starts with listening.",
     intro:
-      "Fertility is one of Dr Somp's special interests. Care begins with a careful assessment and a clear, individualised pathway — with honest expectations at each step.",
+      "Fertility is one of Dr Sompo's special interests. Care begins with a careful assessment and a clear, individualised pathway — with honest expectations at each step.",
     services: [
       {
         id: "fertility-assessment",
@@ -239,7 +239,7 @@ export const journey = [
   },
   {
     step: "02",
-    title: "Meet Dr Somp",
+    title: "Meet Dr Sompo",
     body: "Discuss your concerns, medical history and healthcare needs in a private consultation, with time to ask anything you need to.",
     meta: "Consultation · English or French",
   },
@@ -309,7 +309,7 @@ export const research = {
     },
     {
       title: "HPV and prevention",
-      body: "Most cervical changes are linked to persistent infection with high-risk types of the human papillomavirus (HPV). HPV vaccination and screening together form the backbone of prevention. Dr Somp is passionate about HPV prevention and patient education.",
+      body: "Most cervical changes are linked to persistent infection with high-risk types of the human papillomavirus (HPV). HPV vaccination and screening together form the backbone of prevention. Dr Sompo is passionate about HPV prevention and patient education.",
     },
     {
       title: "Why research in this area matters",
@@ -338,7 +338,7 @@ export const biography = [
   "Dr CM Ngwey-Sompo is a specialist Obstetrician and Gynaecologist practising at Life Roseacres Hospital in Primrose, Germiston, where she runs Dr CM Ngwey-Sompo Inc.",
   "She holds a Master of Medicine in Obstetrics and Gynaecology from the University of the Witwatersrand. Her academic research focused on margin status following Large Loop Excision of the Transformation Zone (LLETZ) in women living with HIV.",
   "Her special interests include fertility and cervical health. She is passionate about HPV prevention, patient education and improving women's health through accessible, informed medical care.",
-  "Having experienced difficult pregnancies herself, Dr Somp brings a personal understanding and empathy to the women she cares for.",
+  "Having experienced difficult pregnancies herself, Dr Sompo brings a personal understanding and empathy to the women she cares for.",
 ];
 
 export const biographyAside = {
@@ -357,8 +357,8 @@ export const faqs = [
     a: "Please bring your ID or passport, your medical aid card if you have one, a list of current medications, and any previous results, scans or referral letters that are relevant. If you are pregnant, bring any antenatal records you already have.",
   },
   {
-    q: "Where does Dr Somp consult?",
-    a: "Dr Somp practises at Life Roseacres Hospital, on the corner of St Joseph and Castor Road, Primrose, Germiston, Johannesburg. Please confirm the exact consulting-room and address details with the practice when you book.",
+    q: "Where does Dr Sompo consult?",
+    a: "Dr Sompo practises at Life Roseacres Hospital, on the corner of St Joseph and Castor Road, Primrose, Germiston, Johannesburg. Please confirm the exact consulting-room and address details with the practice when you book.",
   },
   {
     q: "Does the practice accept medical aid?",

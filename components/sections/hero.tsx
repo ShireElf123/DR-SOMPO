@@ -167,7 +167,7 @@ export function Hero() {
                 </i>
               </a>
               <a href="/about" className="btn btn-glass">
-                Meet Dr Somp
+                Meet Dr Sompo
                 <i aria-hidden="true">
                   <ArrowUpRight className="h-3 w-3" />
                 </i>

@@ -43,7 +43,7 @@ export default function ServicesPage() {
         intro="One practice, one standard of care — from a first consultation through pregnancy, surgery and long-term follow-up."
         image="/images/consultation.jpg"
         mobileImage="/images/screening-room.jpg"
-        alt="Dr Somp in consultation with a patient"
+        alt="Dr Sompo in consultation with a patient"
       />
 
       {/* Quick index — glass chips that invert on hover */}
@@ -274,7 +274,7 @@ export default function ServicesPage() {
           <Reveal delay={0.1}>
             <p className="mt-6 max-w-2xl text-[11px] leading-relaxed text-ink-soft">
               All listed services and procedures are subject to confirmation
-              against Dr Somp&apos;s current practice and hospital privileges.
+              against Dr Sompo&apos;s current practice and hospital privileges.
               Nothing on this page is a guarantee of a clinical outcome, and
               fertility or surgical results are never promised.
             </p>

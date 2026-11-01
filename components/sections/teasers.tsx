@@ -18,10 +18,11 @@ export function AboutTeaser() {
             <div className="relative">
               <div className="relative aspect-[4/5] overflow-hidden rounded-[1.35rem] bg-sage">
                 <ParallaxImage
-                  src="/images/portrait-somp.jpg"
+                  src="/images/portrait-somp-card.jpg"
                   alt="Portrait of Dr CM Ngwey-Sompo"
                   strength={44}
                   sizes="(max-width: 1024px) 92vw, 40vw"
+                  imageClassName="object-[center_16%]"
                   className="absolute inset-0"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/40 via-transparent to-transparent" />
@@ -49,7 +50,7 @@ export function AboutTeaser() {
 
           <div>
             <SectionHead
-              tag="Meet Dr Somp"
+              tag="Meet Dr Sompo"
               title="Specialist care, with"
               muted="personal understanding."
               intro={biography[0]}

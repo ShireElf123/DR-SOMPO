@@ -166,7 +166,7 @@ export function Services() {
 
           <p className="mt-5 text-[11px] leading-relaxed text-ink-soft">
             All listed services and procedures are subject to confirmation
-            against Dr Somp&apos;s current practice and hospital privileges.
+            against Dr Sompo&apos;s current practice and hospital privileges.
           </p>
         </div>
       </section>
