@@ -31,7 +31,7 @@ for (const path of ["/", "/about", "/services", "/services/antenatal", "/patient
     await go(page, path);
     await expect(page.locator("main h1")).toHaveCount(1);
     await expectPainted(page.locator("main h1"));
-    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
   });
 }
 
@@ -189,7 +189,7 @@ for (const width of [360, 768, 1024]) {
     await page.setViewportSize({ width, height: 900 });
     for (const path of ["/", "/services"]) {
       await go(page, path);
-      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), path).toBe(true);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth), path).toBe(true);
       await expectPainted(page.locator("h1"));
     }
   });

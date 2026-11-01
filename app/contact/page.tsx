@@ -41,9 +41,9 @@ export default async function ContactPage({
 
       <section className="bg-white py-12 sm:py-16">
         <div className="shell">
-          <div className="grid gap-4 lg:grid-cols-[0.95fr_1.05fr]">
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-[0.95fr_1.05fr]">
             {/* Details */}
-            <div>
+            <div className="min-w-0">
               <Reveal>
                 <div className="rounded-[1.35rem] bg-mint p-6 ring-1 ring-forest/8 sm:p-7">
                   <SectionHead tag="Reach the practice" title="Details" />
@@ -172,7 +172,7 @@ export default async function ContactPage({
             </div>
 
             {/* Form */}
-            <div>
+            <div className="min-w-0">
               <Reveal y={24} delay={0.06}>
                 <EnquiryForm defaultService={service ?? ""} />
               </Reveal>

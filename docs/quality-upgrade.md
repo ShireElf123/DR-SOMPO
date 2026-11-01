@@ -108,3 +108,28 @@ covering return from all five main interior pages, browser Back, four phone
 widths, menu/logo navigation and retained desktop parallax. The new regression
 failed on the previous build (two mounts) and passes on the fix (one mount,
 constant mobile image dimensions). Total checks: 8 quality + 29 browser tests.
+
+## Follow-up: mobile appointment form containment
+
+The contact form's date rail and default fieldset minimum width forced its
+implicit mobile grid column to roughly 590 px. A 390 px device ended up with
+610 px of document content. Hiding horizontal overflow did not fix the layout;
+comparing document width against `innerWidth` also missed it because that value
+expanded along with the overflow in mobile Chromium.
+
+The contact grid now explicitly uses a shrinkable single mobile column. Its
+children and fieldsets can shrink, so only the date rail scrolls sideways.
+Phone/tablet inputs use 16 px text and at least 48 px height; mobile contact
+choices and consent labels have at least 44 px touch areas. The existing desktop
+two-column arrangement and compact control typography are retained.
+
+Thirteen new checks cover six phone widths (320–430 px), arrival from Home,
+portrait/landscape changes, focus, date scrolling/selection, validation,
+sending/error/retry/success/reset states, tablet/desktop columns and no-JavaScript
+rendering. The 390 px regression failed on the previous build at 610 px, then
+passed with a 390 px document and a 350 px form. Existing viewport assertions
+now use the document's client width, not the overflow-inflated inner width.
+
+Total: 8 quality checks and 42 Chromium browser checks. Delivery responses in
+the enquiry flow are mocked; no test sends patient information to the practice.
+These are emulated-phone checks, not physical iPhone/Safari keyboard validation.

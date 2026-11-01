@@ -212,7 +212,7 @@ export function EnquiryForm({ defaultService = "" }: { defaultService?: string }
           </p>
         )}
         <div className="mt-5 flex flex-wrap gap-2">
-          <a href={practice.phoneHref} className="btn btn-forest">
+          <a href={practice.phoneHref} className="btn btn-forest min-h-12 lg:min-h-0">
             <span className="flex items-center gap-2">
               <Phone className="h-3.5 w-3.5" aria-hidden="true" />
               {practice.phone}
@@ -233,7 +233,7 @@ export function EnquiryForm({ defaultService = "" }: { defaultService?: string }
               setConsent(false);
               startedAt.current = Date.now();
             }}
-            className="btn btn-ghost"
+            className="btn btn-ghost min-h-12 lg:min-h-0"
           >
             Send another
             <i aria-hidden="true">
@@ -249,7 +249,7 @@ export function EnquiryForm({ defaultService = "" }: { defaultService?: string }
     <form
       onSubmit={onSubmit}
       noValidate
-      className="rounded-[1.35rem] bg-white p-5 ring-1 ring-charcoal/10 sm:p-7"
+      className="min-w-0 max-w-full rounded-[1.35rem] bg-white p-5 ring-1 ring-charcoal/10 sm:p-7"
     >
       <div className="flex items-start justify-between gap-4">
         <div>
@@ -321,12 +321,13 @@ export function EnquiryForm({ defaultService = "" }: { defaultService?: string }
           />
         </Field>
 
-        {/* Requested day */}
-        <fieldset>
+        {/* Fieldsets default to min-content width. Allow them to shrink so only
+            the date strip scrolls, rather than stretching the whole mobile page. */}
+        <fieldset className="min-w-0">
           <legend className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-soft">
             Preferred day <span className="normal-case tracking-normal">(optional)</span>
           </legend>
-          <div className="-mx-1 flex gap-1.5 overflow-x-auto px-1 pb-1">
+          <div className="-mx-1 flex gap-1.5 overflow-x-auto overscroll-x-contain px-1 pb-1">
             {days.map((iso) => {
               const d = new Date(`${iso}T12:00:00`);
               const selected = date === iso;
@@ -363,7 +364,7 @@ export function EnquiryForm({ defaultService = "" }: { defaultService?: string }
         </fieldset>
 
         {/* Requested time */}
-        <fieldset>
+        <fieldset className="min-w-0">
           <legend className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-soft">
             Preferred time <span className="normal-case tracking-normal">(optional)</span>
           </legend>
@@ -421,7 +422,7 @@ export function EnquiryForm({ defaultService = "" }: { defaultService?: string }
           </select>
         </Field>
 
-        <fieldset>
+        <fieldset className="min-w-0">
           <legend className="mb-1.5 block text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-soft">
             How should we confirm? *
           </legend>
@@ -432,7 +433,7 @@ export function EnquiryForm({ defaultService = "" }: { defaultService?: string }
                 <label
                   key={method}
                   className={cn(
-                    "cursor-pointer rounded-full border px-3.5 py-1.5 text-[11px] font-medium transition-colors duration-300",
+                    "inline-flex min-h-11 cursor-pointer items-center rounded-full border px-3.5 py-1.5 text-[13px] font-medium transition-colors duration-300 lg:min-h-0 lg:text-[11px]",
                     selected
                       ? "border-forest bg-forest text-white"
                       : "border-forest/15 text-ink-soft hover:border-forest/35 hover:text-forest",
@@ -513,7 +514,7 @@ export function EnquiryForm({ defaultService = "" }: { defaultService?: string }
         </div>
 
         <div>
-          <label className="flex cursor-pointer items-start gap-2.5">
+          <label className="flex min-h-11 cursor-pointer items-start gap-2.5 lg:min-h-0">
             <input
               type="checkbox"
               name="consent"
@@ -526,7 +527,7 @@ export function EnquiryForm({ defaultService = "" }: { defaultService?: string }
               aria-describedby={errors.consent ? "enq-consent-error" : undefined}
               className="mt-0.5 h-4 w-4 shrink-0 rounded border-charcoal/30 accent-forest"
             />
-            <span className="text-[11.5px] leading-relaxed text-ink-soft">
+            <span className="text-[13px] leading-relaxed text-ink-soft lg:text-[11.5px]">
               I agree that the practice may use these details to respond, in line
               with POPIA. *
             </span>
@@ -556,7 +557,7 @@ export function EnquiryForm({ defaultService = "" }: { defaultService?: string }
         <button
           type="submit"
           disabled={state === "sending"}
-          className="btn btn-forest group w-full justify-between disabled:cursor-not-allowed disabled:opacity-70"
+          className="btn btn-forest group min-h-12 w-full justify-between disabled:cursor-not-allowed disabled:opacity-70 lg:min-h-0"
         >
           {state === "sending" ? (
             <>
@@ -594,7 +595,7 @@ export function EnquiryForm({ defaultService = "" }: { defaultService?: string }
 
 function inputClass(hasError: boolean) {
   return cn(
-    "w-full rounded-xl border bg-ivory/60 px-3.5 py-2.5 text-[13px] text-charcoal placeholder:text-ink-muted",
+    "min-h-12 w-full min-w-0 rounded-xl border bg-ivory/60 px-3.5 py-2.5 text-base text-charcoal placeholder:text-ink-muted lg:min-h-0 lg:text-[13px]",
     "transition-colors duration-300 focus:bg-white focus:outline-none",
     hasError ? "border-[#c98a7a] focus:border-[#a8543f]" : "border-charcoal/10 focus:border-forest",
   );
