@@ -16,6 +16,15 @@ export function Cursor() {
   const [visible, setVisible] = useState(false);
   const [active, setActive] = useState(false);
 
+  // Pointer state is held in refs, not React state. Reporting it through
+  // setState meant a render pass on every single pointermove, which is felt
+  // most while scrolling and is the sort of thing that makes a page feel
+  // heavier than its frame budget suggests. The two booleans are only pushed
+  // into state when they actually change.
+  const labelRef = useRef<string | null>(null);
+  const visibleRef = useRef(false);
+  const activeRef = useRef(false);
+
   useEffect(() => {
     const fine = window.matchMedia("(pointer: fine)").matches;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -30,19 +39,32 @@ export function Cursor() {
     const onMove = (event: PointerEvent) => {
       targetX = event.clientX;
       targetY = event.clientY;
-      setVisible(true);
 
       const el = (event.target as HTMLElement | null)?.closest<HTMLElement>("[data-cursor]");
-      setLabel(el?.dataset.cursor || null);
-      setActive(
-        Boolean(
-          el ||
-            (event.target as HTMLElement | null)?.closest("a, button, input, textarea, select, summary"),
-        ),
+      const nextLabel = el?.dataset.cursor || null;
+      const nextActive = Boolean(
+        el ||
+          (event.target as HTMLElement | null)?.closest("a, button, input, textarea, select, summary"),
       );
+
+      if (!visibleRef.current) {
+        visibleRef.current = true;
+        setVisible(true);
+      }
+      if (nextLabel !== labelRef.current) {
+        labelRef.current = nextLabel;
+        setLabel(nextLabel);
+      }
+      if (nextActive !== activeRef.current) {
+        activeRef.current = nextActive;
+        setActive(nextActive);
+      }
     };
 
-    const onLeave = () => setVisible(false);
+    const onLeave = () => {
+      visibleRef.current = false;
+      setVisible(false);
+    };
 
     const tick = () => {
       ringX += (targetX - ringX) * 0.16;

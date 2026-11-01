@@ -155,13 +155,19 @@ export function WordsIn({
   return (
     <span className={lineClass}>
       {words.map((word, i) => (
+        /* The travel is 112% of the word's own height but the clip only has
+           0.14em of padding underneath, so the incoming word is still being
+           painted while it clears the mask — and a browser re-rasterises text
+           that is mid-transform inside a clip. Translating the mask's contents
+           with `translateZ(0)` and easing the travel out sooner keeps it on
+           the compositor. */
         <span
           key={`${word}-${i}`}
           className="inline-block overflow-hidden align-bottom pb-[0.14em] -mb-[0.14em]"
         >
           <motion.span
-            className="inline-block will-change-transform"
-            initial={{ y: "112%" }}
+            className="inline-block [backface-visibility:hidden] motion-safe:will-change-transform"
+            initial={{ y: "115%" }}
             whileInView={{ y: "0%" }}
             viewport={{ once, amount }}
             transition={{ duration: 1, delay: delay + i * stagger, ease: EASE }}
@@ -313,10 +319,20 @@ export function Marquee({
 /* -------------------------------------------------------------------------- */
 
 /**
- * Scroll-linked parallax for a photograph. The image is deliberately oversized
- * inside a clipped frame and drifts at a fraction of scroll speed — the depth
- * cue that separates a Framer build from a flat one. Disabled for reduced
- * motion, where the image is simply static.
+ * Scroll-linked parallax for a photograph.
+ *
+ * Performance notes, because this component is the one most likely to make a
+ * page feel like it is stuttering:
+ *
+ *  - The frames are padded well beyond the drift distance. The drift below is
+ *    `strength` pixels each way, so the frame has to carry at least that much
+ *    overflow on both edges or the clip will reveal bare background at the
+ *    extremes, which reads as a jolt.
+ *  - The moving layer is promoted once, and the drift is a pure `translate3d`
+ *    on a compositor layer. Nothing here animates layout.
+ *  - The photograph itself carries its own hover scale. That scale lives on the
+ *    <img>, not on the parallax layer, so the two transforms do not compound
+ *    into a pixel grid that has to be re-rasterised on every frame.
  */
 export function ParallaxImage({
   src,
@@ -349,7 +365,9 @@ export function ParallaxImage({
     <div ref={ref} className={cn("relative overflow-hidden", className)}>
       <motion.div
         style={reduce ? undefined : { y }}
-        className="absolute inset-x-0 -inset-y-[12%]"
+        /* Padded to comfortably exceed `strength`, and promoted up front so the
+           compositor is not asked to create a layer mid-scroll. */
+        className="absolute inset-x-0 -inset-y-[22%] [backface-visibility:hidden] motion-safe:will-change-transform"
       >
         <Image
           src={src}

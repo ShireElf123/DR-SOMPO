@@ -26,7 +26,10 @@ export function FinalCta() {
             ref={ref}
             className="relative overflow-hidden rounded-[1.5rem] sm:rounded-[1.75rem]"
           >
-            <motion.div style={reduce ? undefined : { y }} className="absolute inset-[-8%_0]">
+            <motion.div
+              style={reduce ? undefined : { y }}
+              className="absolute inset-[-14%_0] [backface-visibility:hidden] motion-safe:will-change-transform"
+            >
               <Image
                 src="/images/corridor.jpg"
                 alt="The corridor leading to the consulting rooms"

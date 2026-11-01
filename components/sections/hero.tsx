@@ -78,7 +78,9 @@ export function Hero() {
               alt=""
               fill
               priority
-              sizes="100vw"
+              /* The frame is inset by the shell's padding and capped at 1180px,
+                 so a bare 100vw over-requests on tablets and up. */
+              sizes="(max-width: 640px) 100vw, (max-width: 1180px) 96vw, 1180px"
               className="object-cover object-[62%_18%]"
             />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,42,32,0.62)_0%,rgba(10,42,32,0.35)_45%,rgba(10,42,32,0.78)_100%)]" />

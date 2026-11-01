@@ -10,7 +10,6 @@ import { cn } from "@/lib/utils";
  * Magazine plate: photography is never hidden, never cropped out of the story.
  *  - a numbered plate with a museum-style caption
  *  - the image scales up 1.03 on hover only
- *  - optional `parallax` makes the photo drift inside its frame as you scroll
  *  - the caption carries a `meta` line so every plate reads as archival
  */
 export function Plate({
@@ -23,7 +22,6 @@ export function Plate({
   className,
   ratio = "aspect-[4/5]",
   sizes = "(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 30vw",
-  parallax = false,
   priority = false,
 }: {
   image: string;
@@ -35,11 +33,9 @@ export function Plate({
   className?: string;
   ratio?: string;
   sizes?: string;
-  parallax?: boolean;
   priority?: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const reduce = useReducedMotion();
 
   return (
     <figure ref={ref} className={cn("group", className)}>
@@ -50,10 +46,7 @@ export function Plate({
           fill
           priority={priority}
           sizes={sizes}
-          className={cn(
-            "object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.035]",
-            !reduce && parallax && "will-change-transform",
-          )}
+          className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.035]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/50 via-transparent to-transparent" />
 

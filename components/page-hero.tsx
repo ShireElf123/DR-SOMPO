@@ -47,7 +47,13 @@ export function PageHero({
             aspect,
           )}
         >
-          <motion.div style={reduce ? undefined : { y }} className="absolute inset-[-6%_0]">
+          {/* The layer slides 12% of its own height, so it needs at least that
+              much overflow on both edges; -8% left a visible sliver at the top
+              whenever the image drifted furthest. */}
+          <motion.div
+            style={reduce ? undefined : { y }}
+            className="absolute inset-[-14%_0] [backface-visibility:hidden] motion-safe:will-change-transform"
+          >
             {/* Phones get their own crop: a wide landscape crop of a portrait
                 subject invariably cuts the head off on a narrow frame. */}
             {mobileImage ? (
