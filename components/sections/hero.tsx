@@ -115,7 +115,7 @@ export function Hero() {
               initial={reduce ? undefined : { opacity: 0, y: 12 }}
               animate={reduce ? undefined : { opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6, ease: EASE }}
-              className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/35 bg-white/15 px-4 py-1.5 text-[11px] font-medium tracking-wide backdrop-blur-md"
+              className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/35 bg-forest/30 px-4 py-1.5 text-[11px] font-medium tracking-wide"
             >
               <span className="relative flex h-1.5 w-1.5">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-lime/70 motion-reduce:hidden" />
@@ -195,7 +195,7 @@ export function Hero() {
           </motion.span>
 
           {/* Rotating glass pill */}
-          <span className="pointer-events-none absolute right-[27%] top-8 z-20 hidden rounded-full bg-white/70 px-4 py-2 text-[11px] font-medium text-charcoal backdrop-blur-md lg:block">
+          <span className="pointer-events-none absolute right-[27%] top-8 z-20 hidden rounded-full bg-white px-4 py-2 text-[11px] font-medium text-charcoal lg:block">
             <AnimatePresence mode="wait">
               <motion.span
                 key={pill}
@@ -217,7 +217,7 @@ export function Hero() {
             initial={reduce ? undefined : { opacity: 0, y: 18 }}
             animate={reduce ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 1.9, ease: EASE }}
-            className="group absolute bottom-4 right-4 z-20 flex items-center gap-2.5 rounded-2xl bg-white/92 p-2 pr-4 text-charcoal shadow-[0_18px_40px_-22px_rgba(0,0,0,0.45)] backdrop-blur-md transition-transform duration-500 hover:-translate-y-1 sm:bottom-6 sm:right-6"
+            className="group absolute bottom-4 right-4 z-20 flex items-center gap-2.5 rounded-2xl bg-white p-2 pr-4 text-charcoal shadow-[0_18px_40px_-22px_rgba(0,0,0,0.45)] transition-transform duration-500 hover:-translate-y-1 sm:bottom-6 sm:right-6"
           >
             <span className="relative h-11 w-11 overflow-hidden rounded-xl bg-mist">
               <Image

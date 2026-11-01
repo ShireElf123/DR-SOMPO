@@ -51,13 +51,13 @@ export function Plate({
         <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/50 via-transparent to-transparent" />
 
         {index && (
-          <span className="absolute left-3 top-3 rounded-full bg-white/92 px-2.5 py-1 text-[10px] font-medium tracking-[0.06em] text-forest backdrop-blur-md">
+          <span className="absolute left-3 top-3 rounded-full bg-white/92 px-2.5 py-1 text-[10px] font-medium tracking-[0.06em] text-forest">
             {index}
           </span>
         )}
 
         <figcaption className="absolute inset-x-3 bottom-3 flex items-end justify-between gap-3">
-          <span className="rounded-full bg-white/95 px-3 py-1 text-[10.5px] font-medium text-charcoal backdrop-blur-md">
+          <span className="rounded-full bg-white px-3 py-1 text-[10.5px] font-medium text-charcoal">
             {label}
           </span>
           <span

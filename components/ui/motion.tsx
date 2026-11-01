@@ -2,6 +2,7 @@
 
 import {
   motion,
+  useInView,
   useReducedMotion,
   useScroll,
   useTransform,
@@ -146,14 +147,19 @@ export function WordsIn({
   /** Render this line in the softer tint used for the middle hero line. */
   gray?: boolean;
 }) {
+  const ref = useRef<HTMLSpanElement>(null);
   const reduce = useReducedMotion();
   const words = text.split(" ");
   const lineClass = cn("inline", gray && "text-white/80", className);
+  /* A heading is on screen for a moment, not a page length. Promotion is cheap
+     to add on approach and expensive to hold, so it is tied to visibility
+     instead of sitting on the element for the life of the document. */
+  const near = useInView(ref, { margin: "10% 0px 10% 0px" });
 
   if (reduce) return <span className={lineClass}>{text}</span>;
 
   return (
-    <span className={lineClass}>
+    <span ref={ref} className={lineClass}>
       {words.map((word, i) => (
         /* The travel is 112% of the word's own height but the clip only has
            0.14em of padding underneath, so the incoming word is still being
@@ -166,7 +172,10 @@ export function WordsIn({
           className="inline-block overflow-hidden align-bottom pb-[0.14em] -mb-[0.14em]"
         >
           <motion.span
-            className="inline-block [backface-visibility:hidden] motion-safe:will-change-transform"
+            className={cn(
+              "inline-block [backface-visibility:hidden]",
+              near && "motion-safe:will-change-transform",
+            )}
             initial={{ y: "115%" }}
             whileInView={{ y: "0%" }}
             viewport={{ once, amount }}
@@ -184,6 +193,15 @@ export function WordsIn({
 /**
  * Scroll-lit sentence: muted words warm to full ink as the block scrolls
  * through the viewport. The reference's most distinctive reading moment.
+ *
+ * Accessibility note on the resting tint. The dim layer is the layer that is
+ * always painted, and it is also the layer a search engine, a reader-mode
+ * extraction or an accessibility overlay will pick up — the lit copy is hidden
+ * behind `aria-hidden`. So the dim tint is a contrast requirement, not a
+ * styling preference: it has to clear 4.5:1 on its own. The original greys did
+ * not (`#c3c8c4` measured 1.70:1 on white and 1.58:1 on ivory; white at 34%
+ * over forest measured 2.54:1 against forest). The values below measure
+ * 4.67:1 and 4.98:1 — still clearly the quieter layer, but legible.
  */
 export function ScrollWords({
   text,
@@ -210,8 +228,17 @@ export function ScrollWords({
     offset: ["start 0.92", "end 0.42"],
   });
 
+  /* Scroll-linking is only worth paying for while the sentence can be seen.
+     Every word below owns a MotionValue, and those bindings are driven from
+     the page-wide scroll tracker — so a page carrying six of these sentences
+     was keeping every word of all six subscribed on every scroll frame, for
+     the whole length of the page. Off screen the words render as plain spans
+     at their current opacity; the observer flips them back to motion components
+     on approach, which is well before the reveal is visible. */
+  const onScreen = useInView(ref, { margin: "15% 0px 15% 0px" });
+
   const lit = tint === "light" ? "var(--color-charcoal)" : "#ffffff";
-  const dim = tint === "light" ? "#c3c8c4" : "rgba(255,255,255,0.34)";
+  const dim = tint === "light" ? "#6e7671" : "rgba(255,255,255,0.62)";
 
   return (
     <p ref={ref} className={className}>
@@ -231,7 +258,15 @@ export function ScrollWords({
               />
             </span>
           )}
-          <ScrollWord index={i} total={words.length} progress={scrollYProgress} lit={lit} dim={dim} reduce={!!reduce}>
+          <ScrollWord
+            index={i}
+            total={words.length}
+            progress={scrollYProgress}
+            lit={lit}
+            dim={dim}
+            reduce={!!reduce}
+            onScreen={onScreen}
+          >
             {word}
           </ScrollWord>{" "}
         </span>
@@ -253,6 +288,7 @@ function ScrollWord({
   lit,
   dim,
   reduce,
+  onScreen,
   children,
 }: {
   index: number;
@@ -261,6 +297,7 @@ function ScrollWord({
   lit: string;
   dim: string;
   reduce: boolean;
+  onScreen: boolean;
   children: ReactNode;
 }) {
   const start = index / total;
@@ -269,16 +306,24 @@ function ScrollWord({
 
   return (
     <span className="relative inline-block">
-      <span style={{ color: dim }} aria-hidden={false}>
-        {children}
-      </span>
-      <motion.span
-        aria-hidden="true"
-        style={{ opacity: reduce ? 1 : opacity, color: lit }}
-        className="absolute inset-0"
-      >
-        {children}
-      </motion.span>
+      <span style={{ color: dim }}>{children}</span>
+      {reduce || !onScreen ? (
+        <span
+          aria-hidden="true"
+          className="absolute inset-0"
+          style={{ color: lit, opacity: reduce ? 1 : 0 }}
+        >
+          {children}
+        </span>
+      ) : (
+        <motion.span
+          aria-hidden="true"
+          className="absolute inset-0"
+          style={{ opacity, color: lit }}
+        >
+          {children}
+        </motion.span>
+      )}
     </span>
   );
 }
