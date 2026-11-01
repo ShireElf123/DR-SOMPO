@@ -52,10 +52,10 @@ export function Fertility() {
                 </p>
               </Reveal>
 
-              <RevealGroup className="mt-8 space-y-3" stagger={0.1}>
+              <RevealGroup className="mt-8 divide-y divide-ivory/10" stagger={0.1}>
                 {service.items.map((item) => (
                   <RevealItem key={item}>
-                    <div className="flex items-start gap-3 border-t border-ivory/10 pt-3 first:border-t-0 first:pt-0">
+                    <div className="flex items-start gap-3 py-3">
                       <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-ivory/10">
                         <Check className="h-3 w-3 text-sage" aria-hidden="true" />
                       </span>

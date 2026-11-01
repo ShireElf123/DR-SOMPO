@@ -10,7 +10,7 @@ import { journey } from "@/lib/practice";
  */
 export function Journey() {
   return (
-    <section className="relative py-14 sm:py-16 lg:py-20" aria-labelledby="journey-heading">
+    <section id="journey" className="relative py-14 sm:py-16 lg:py-20" aria-labelledby="journey-heading">
       <div className="shell">
         <div className="overflow-hidden rounded-[2rem] bg-sage/55 px-6 py-12 sm:px-10 sm:py-14 lg:px-14">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
