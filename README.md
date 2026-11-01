@@ -104,6 +104,13 @@ thesis must be reviewed with the author before any results appear.
 Every clinical section closes with a note that services are subject to
 confirmation against the doctor's actual practice and hospital privileges.
 
+**No patient testimonials or star ratings.** The reference site carries a
+"Real People. Real Results." review grid; that block was intentionally not
+reproduced. Publishing patient testimonials for a medical practitioner risks
+breaching HPCSA guidelines on professional advertising, and any review shown
+would have had to be invented. The trust-building work is done instead with
+verified credentials, affiliations, research and clear contact routes.
+
 ---
 
 ## Privacy (POPIA)
@@ -152,5 +159,7 @@ confirmation against the doctor's actual practice and hospital privileges.
 3. Verify the IJGO abstract citation and obtain the thesis before publishing any
    numerical findings.
 4. Configure `ENQUIRY_WEBHOOK_URL` (and token) so the enquiry form can deliver.
-5. Set `NEXT_PUBLIC_SITE_URL` to the live domain and submit `sitemap.xml` to
-   Google Search Console.
+5. Set `NEXT_PUBLIC_SITE_URL` to the live domain — the current default
+   (`https://www.drngweysompo.co.za`) is a placeholder and is used for
+   canonical URLs, Open Graph, the sitemap and JSON-LD. Then submit
+   `sitemap.xml` to Google Search Console.
