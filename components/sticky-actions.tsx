@@ -24,7 +24,7 @@ export function StickyActions() {
   return (
     <>
       {/* Mobile action bar */}
-      <div className="fixed inset-x-0 bottom-0 z-40 lg:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-50 lg:hidden">
         <AnimatePresence>
           {visible && (
             <motion.div
@@ -32,20 +32,21 @@ export function StickyActions() {
               animate={reduce ? undefined : { y: 0 }}
               exit={reduce ? undefined : { y: 80 }}
               transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-              className="mx-3 mb-3 flex items-center gap-2 rounded-full border border-charcoal/10 bg-white/90 p-1.5 shadow-[0_-8px_40px_-20px_rgba(0,0,0,0.35)] backdrop-blur-xl"
+              className="mx-3 mb-[calc(0.75rem+env(safe-area-inset-bottom))] flex items-center gap-1.5 rounded-full border border-charcoal/10 bg-white/92 p-1.5 shadow-[0_-8px_40px_-20px_rgba(0,0,0,0.35)] backdrop-blur-xl"
             >
               <a
                 href={practice.phoneHref}
-                className="flex flex-1 items-center justify-center gap-2 rounded-full border border-charcoal/12 py-2.5 text-[12px] font-medium text-charcoal"
+                className="flex flex-1 items-center justify-center gap-2 rounded-full border border-charcoal/12 py-3 text-[12px] font-medium text-charcoal"
               >
                 <span className="h-1.5 w-1.5 rounded-full bg-forest" aria-hidden="true" />
                 Call
               </a>
               <a
                 href="/contact"
-                className="flex flex-1 items-center justify-center gap-2 rounded-full bg-forest py-2.5 text-[12px] font-medium text-white"
+                className="flex flex-[1.4] items-center justify-center gap-2 rounded-full bg-forest py-3 text-[12px] font-medium text-white"
               >
-                Book an Appointment
+                Book
+                <span className="sr-only">an appointment</span>
               </a>
             </motion.div>
           )}

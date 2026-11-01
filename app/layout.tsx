@@ -97,8 +97,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SmoothScroll />
         <Cursor />
         <ScrollProgress />
+        {/* The announcement bar scrolls away; only the nav docks. On a phone
+            that hands roughly 40px of viewport back the moment you scroll. */}
         <Ticker />
-        <Navbar />
+        <div className="sticky top-0 z-[70]">
+          <Navbar />
+        </div>
         <main id="main">
           <PageTransition>{children}</PageTransition>
         </main>

@@ -15,6 +15,23 @@ import { useEffect } from "react";
  */
 let instance: Lenis | null = null;
 
+/**
+ * Pause page scrolling (used while the mobile menu sheet is open). Lenis drives
+ * the scroll itself, so `overflow: hidden` alone is not enough — it has to be
+ * stopped, and the fallback path covers browsers where Lenis never mounted.
+ */
+export function lockScroll() {
+  instance?.stop();
+  document.documentElement.classList.add("lenis-stopped");
+  document.body.style.overflow = "hidden";
+}
+
+export function unlockScroll() {
+  instance?.start();
+  document.documentElement.classList.remove("lenis-stopped");
+  document.body.style.overflow = "";
+}
+
 export function SmoothScroll() {
   const pathname = usePathname();
 
