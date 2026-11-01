@@ -163,5 +163,3 @@ verified credentials, affiliations, research and clear contact routes.
    (`https://www.drngweysompo.co.za`) is a placeholder and is used for
    canonical URLs, Open Graph, the sitemap and JSON-LD. Then submit
    `sitemap.xml` to Google Search Console.
-
----
