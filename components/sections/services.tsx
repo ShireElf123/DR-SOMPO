@@ -1,81 +1,75 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
-import { Reveal, ScrollWords, WordsIn } from "@/components/ui/motion";
-import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { Reveal, ScrollWords } from "@/components/ui/motion";
+import { SectionHead } from "@/components/page-hero";
 
 type Tile = {
   title: string;
   blurb: string;
-  gradient: string;
   image: string;
+  href: string;
+  span?: string;
 };
 
 /**
- * Service gallery — eight square tiles on a gradient ground with a soft
- * silhouette printed on each. Hover lifts the colour out and swaps in the
- * photograph plus the blurb, exactly like the reference's services grid.
+ * Service gallery — photography visible in every tile, full bleed, with a slow
+ * hover zoom and a caption plate. No silhouette placeholders, no hover reveal.
+ * Tiles link to the dedicated services page.
  */
 const tiles: Tile[] = [
   {
     title: "Antenatal care",
-    blurb: "Regular monitoring and support through every trimester.",
-    gradient: "linear-gradient(160deg,#2f7a62,#9cc7b2)",
+    blurb: "Monitoring and support through every trimester.",
     image: "/images/antenatal.jpg",
+    href: "/services#obstetrics",
+    span: "sm:col-span-2 lg:col-span-2 lg:row-span-2",
   },
   {
     title: "Delivery",
-    blurb: "Vaginal and caesarean delivery at Life Roseacres Hospital.",
-    gradient: "linear-gradient(160deg,#d9bfa5,#efe1d0)",
+    blurb: "Vaginal and caesarean delivery.",
     image: "/images/consultation.jpg",
-  },
-  {
-    title: "Contraception",
-    blurb: "Advice on options that suit your body and your life.",
-    gradient: "linear-gradient(160deg,#c9c3b5,#e4dfd2)",
-    image: "/images/gynae.jpg",
-  },
-  {
-    title: "Menstrual health",
-    blurb: "Assessment of cycles and reproductive health concerns.",
-    gradient: "linear-gradient(160deg,#6b8f7f,#c9dccf)",
-    image: "/images/patient-quiet.jpg",
+    href: "/services#obstetrics",
   },
   {
     title: "Fertility",
-    blurb: "Fertility assessment and care pathways tailored to you.",
-    gradient: "linear-gradient(160deg,#174d3c,#6ea58f)",
+    blurb: "Assessment and care pathways.",
     image: "/images/fertility.jpg",
+    href: "/services#fertility",
   },
   {
-    title: "Screening",
-    blurb: "Female health screening and gynaecological oncology assessment.",
-    gradient: "linear-gradient(160deg,#b8c9bf,#eaf4ee)",
-    image: "/images/cervical-research.jpg",
+    title: "Gynaecology",
+    blurb: "Consultations, contraception, screening.",
+    image: "/images/gynae.jpg",
+    href: "/services#gynaecology",
   },
   {
-    title: "Fibroids & cysts",
-    blurb: "Minimally invasive and open surgical management.",
-    gradient: "linear-gradient(160deg,#cfc3a6,#e9dfc6)",
+    title: "Surgery",
+    blurb: "Minimally invasive and open procedures.",
     image: "/images/surgery.jpg",
+    href: "/services#surgery",
   },
   {
-    title: "Hysterectomy",
-    blurb: "Including total laparoscopic hysterectomy.",
-    gradient: "linear-gradient(160deg,#8d9d94,#d3ddd6)",
+    title: "Cervical health",
+    blurb: "Screening, HPV prevention and follow-up.",
+    image: "/images/cervical-research.jpg",
+    href: "/research",
+  },
+  {
+    title: "The practice",
+    blurb: "Life Roseacres Hospital, Primrose.",
     image: "/images/hospital-exterior.jpg",
+    href: "/contact",
   },
 ];
 
 export function Services() {
-  const [hovered, setHovered] = useState<number | null>(null);
-
   return (
     <>
       {/* Scroll-lit statement */}
-      <section className="bg-white pb-16 pt-14 sm:pb-20 sm:pt-16">
+      <section className="bg-white pb-14 pt-14 sm:pb-16 sm:pt-16">
         <div className="shell">
           <ScrollWords
             text="Compassionate, personalised and evidence-informed care, supporting women through every stage of life with specialist expertise, empathy and dignity."
@@ -85,102 +79,59 @@ export function Services() {
         </div>
       </section>
 
-      {/* Services grid */}
-      <section id="services" className="sec sec-tint" aria-labelledby="services-heading">
+      <section className="sec sec-tint" aria-labelledby="services-heading">
         <div className="shell">
-          <div className="mb-9 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
-            <div className="max-w-xl">
-              <span className="tag">What we care for</span>
-              <h2
-                id="services-heading"
-                className="text-[clamp(1.75rem,3.6vw,2.5rem)] leading-[1.05]"
-              >
-                <WordsIn text="Care for every stage of life:" />
-              </h2>
-              <p className="mt-3 max-w-sm text-[13px] leading-relaxed text-charcoal/55">
-                Obstetrics, gynaecology, fertility and surgery — one practice,
-                one standard of care.
-              </p>
-            </div>
-            <a href="#contact" className="btn self-start sm:self-auto">
-              Book an appointment
+          <div className="mb-8 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+            <SectionHead
+              tag="What we care for"
+              title="Care for every stage of life"
+              intro="Obstetrics, gynaecology, fertility and surgery — one practice, one standard of care."
+            />
+            <Link href="/services" className="btn self-start sm:self-auto">
+              All services
               <i aria-hidden="true">
                 <ArrowUpRight className="h-3 w-3" />
               </i>
-            </a>
+            </Link>
           </div>
 
-          <div className="grid grid-cols-2 gap-3 sm:gap-3.5 lg:grid-cols-4">
-            {tiles.map((tile, i) => {
-              const isOn = hovered === i;
-              return (
-                <Reveal key={tile.title} delay={(i % 4) * 0.07} y={26}>
-                  <a
-                    href="#contact"
-                    onMouseEnter={() => setHovered(i)}
-                    onMouseLeave={() => setHovered(null)}
-                    onFocus={() => setHovered(i)}
-                    onBlur={() => setHovered(null)}
-                    className="group relative block aspect-[1/1.1] overflow-hidden rounded-[1.25rem]"
-                    style={{ background: tile.gradient }}
-                  >
-                    {/* photograph that fades up on hover */}
-                    <Image
-                      src={tile.image}
-                      alt=""
-                      fill
-                      sizes="(max-width: 640px) 46vw, 22vw"
-                      className={cn(
-                        "object-cover transition-all duration-700 ease-out",
-                        isOn ? "scale-100 opacity-100" : "scale-105 opacity-0",
-                      )}
-                    />
-                    <span
-                      aria-hidden="true"
-                      className={cn(
-                        "absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0)_35%,rgba(0,0,0,0.55))] transition-opacity duration-500",
-                        isOn ? "opacity-100" : "opacity-0",
-                      )}
-                    />
+          <div className="grid auto-rows-[13rem] grid-cols-2 gap-3 sm:gap-3.5 lg:grid-cols-4">
+            {tiles.map((tile, i) => (
+              <Reveal
+                key={tile.title}
+                delay={(i % 4) * 0.06}
+                y={22}
+                className={tile.span}
+              >
+                <Link
+                  href={tile.href}
+                  className="group relative flex h-full min-h-[13rem] flex-col justify-end overflow-hidden rounded-[1.25rem] bg-sage p-4"
+                >
+                  <Image
+                    src={tile.image}
+                    alt={tile.title}
+                    fill
+                    sizes="(max-width: 640px) 46vw, (max-width: 1024px) 46vw, 30vw"
+                    className="object-cover transition-transform duration-[1100ms] ease-out group-hover:scale-[1.05]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/80 via-forest-ink/20 to-transparent" />
 
-                    {/* soft silhouette, matching the reference's figure motif */}
-                    <span
-                      aria-hidden="true"
-                      className={cn(
-                        "pointer-events-none absolute inset-0 transition-all duration-700",
-                        isOn ? "scale-105 opacity-0" : "opacity-100",
-                      )}
-                      style={{
-                        backgroundImage:
-                          "radial-gradient(ellipse 15% 17% at 50% 37%, rgba(255,255,255,.55) 97%, transparent 100%), radial-gradient(ellipse 5% 8% at 50% 53%, rgba(255,255,255,.5) 97%, transparent 100%), radial-gradient(ellipse 21% 25% at 50% 38%, rgba(255,255,255,.22) 97%, transparent 100%), radial-gradient(ellipse 52% 32% at 50% 104%, rgba(255,255,255,.5) 97%, transparent 100%)",
-                      }}
-                    />
-
-                    {/* blurb, revealed on hover */}
-                    <span
-                      className={cn(
-                        "absolute inset-x-0 top-0 p-4 text-[11.5px] leading-snug text-white transition-all duration-500",
-                        isOn ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0",
-                      )}
-                    >
+                  <div className="relative">
+                    <p className="text-[12.5px] font-medium text-white">{tile.title}</p>
+                    <p className="mt-0.5 max-w-[14rem] text-[11px] leading-snug text-white/70">
                       {tile.blurb}
-                    </span>
+                    </p>
+                  </div>
 
-                    <span className="absolute bottom-3 left-3 rounded-full bg-black/85 px-3.5 py-1 text-[10.5px] font-medium text-white backdrop-blur-sm">
-                      {tile.title}
-                    </span>
-                    <span
-                      className={cn(
-                        "absolute bottom-3 right-3 flex h-6 w-6 items-center justify-center rounded-full bg-white text-black transition-transform duration-500",
-                        isOn ? "rotate-45" : "rotate-0",
-                      )}
-                    >
-                      <ArrowUpRight className="h-3 w-3" aria-hidden="true" />
-                    </span>
-                  </a>
-                </Reveal>
-              );
-            })}
+                  <span
+                    aria-hidden="true"
+                    className="absolute right-3 top-3 flex h-6 w-6 items-center justify-center rounded-full bg-white/90 text-black transition-transform duration-500 group-hover:rotate-45"
+                  >
+                    <ArrowUpRight className="h-3 w-3" />
+                  </span>
+                </Link>
+              </Reveal>
+            ))}
           </div>
 
           <p className="mt-5 text-[11px] leading-relaxed text-charcoal/40">

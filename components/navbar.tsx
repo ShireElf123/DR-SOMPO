@@ -2,6 +2,8 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, Menu, Phone, X } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { nav, practice } from "@/lib/practice";
 import { cn } from "@/lib/utils";
@@ -12,8 +14,8 @@ const right = nav.slice(3);
 /** Wordmark: the reference's logotype, centred between two link clusters. */
 function Wordmark({ onClick }: { onClick?: () => void }) {
   return (
-    <a
-      href="#top"
+    <Link
+      href="/"
       onClick={onClick}
       className="group flex shrink-0 items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.14em] text-charcoal sm:text-[14px]"
     >
@@ -23,33 +25,14 @@ function Wordmark({ onClick }: { onClick?: () => void }) {
       </span>
       <span className="hidden xs:inline sm:inline">Dr CM Ngwey-Sompo</span>
       <span className="xs:hidden sm:hidden">Dr Somp</span>
-    </a>
+    </Link>
   );
 }
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState("#top");
-
-  useEffect(() => {
-    const ids = nav.map((n) => n.href.replace("#", ""));
-    const sections = ids
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => Boolean(el));
-    if (!sections.length) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) setActive(`#${visible.target.id}`);
-      },
-      { rootMargin: "-45% 0px -50% 0px", threshold: [0, 0.25, 0.6] },
-    );
-    sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
-  }, []);
+  const pathname = usePathname();
+  const active = pathname ?? "/";
 
   useEffect(() => {
     document.documentElement.style.overflow = open ? "hidden" : "";
@@ -60,19 +43,26 @@ export function Navbar() {
 
   const linkClass = (href: string) =>
     cn(
-      "rounded-full px-3 py-1.5 text-[13px] transition-colors duration-300",
+      "relative rounded-full px-3 py-1.5 text-[13px] transition-colors duration-300",
       active === href ? "text-charcoal" : "text-charcoal/55 hover:text-charcoal",
     );
 
   return (
-    <header className="sticky top-0 z-50 bg-white/85 backdrop-blur-xl">
+    <header className="sticky top-0 z-[70] bg-white/85 backdrop-blur-xl">
       <div className="shell">
         <div className="flex items-center justify-between gap-4 py-3">
           <nav aria-label="Primary" className="hidden flex-1 items-center gap-1 md:flex">
             {left.map((item) => (
-              <a key={item.href} href={item.href} className={linkClass(item.href)}>
-                {item.label}
-              </a>
+              <Link key={item.href} href={item.href} className={linkClass(item.href)}>
+                {active === item.href && (
+                  <motion.span
+                    layoutId="nav-dot"
+                    className="absolute inset-0 rounded-full bg-ivory"
+                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                  />
+                )}
+                <span className="relative">{item.label}</span>
+              </Link>
             ))}
           </nav>
 
@@ -81,17 +71,24 @@ export function Navbar() {
           <div className="flex flex-1 items-center justify-end gap-1">
             <nav aria-label="Secondary" className="hidden items-center gap-1 md:flex">
               {right.map((item) => (
-                <a key={item.href} href={item.href} className={linkClass(item.href)}>
-                  {item.label}
-                </a>
+                <Link key={item.href} href={item.href} className={linkClass(item.href)}>
+                  {active === item.href && (
+                    <motion.span
+                      layoutId="nav-dot"
+                      className="absolute inset-0 rounded-full bg-ivory"
+                      transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                    />
+                  )}
+                  <span className="relative">{item.label}</span>
+                </Link>
               ))}
             </nav>
-            <a href="#contact" className="btn ml-1 hidden shrink-0 sm:inline-flex">
+            <Link href="/contact" className="btn ml-1 hidden shrink-0 sm:inline-flex">
               Book an appointment
               <i aria-hidden="true">
                 <ArrowUpRight className="h-3 w-3" />
               </i>
-            </a>
+            </Link>
             <button
               type="button"
               onClick={() => setOpen(true)}
@@ -145,25 +142,25 @@ export function Navbar() {
               <ul className="mt-6">
                 {nav.map((item) => (
                   <li key={item.href}>
-                    <a
+                    <Link
                       href={item.href}
                       onClick={() => setOpen(false)}
                       className="flex items-center justify-between border-b border-charcoal/8 py-3.5 text-[1.25rem] font-light tracking-[-0.02em] text-charcoal"
                     >
                       {item.label}
                       <ArrowUpRight className="h-4 w-4 text-charcoal/30" aria-hidden="true" />
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
 
               <div className="mt-6 flex flex-col gap-2">
-                <a href="#contact" onClick={() => setOpen(false)} className="btn justify-between">
+                <Link href="/contact" onClick={() => setOpen(false)} className="btn justify-between">
                   Book an appointment
                   <i aria-hidden="true">
                     <ArrowUpRight className="h-3 w-3" />
                   </i>
-                </a>
+                </Link>
                 <a
                   href={practice.phoneHref}
                   className="flex items-center justify-center gap-2 rounded-full border border-charcoal/15 py-2.5 text-[13px] font-medium text-charcoal"

@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import { ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Marquee } from "@/components/ui/motion";
@@ -36,12 +38,12 @@ export function Footer() {
             <li className="mb-1.5 text-[11px] opacity-50">Pages</li>
             {leftLinks.map((item) => (
               <li key={item.href}>
-                <a
+                <Link
                   href={item.href}
                   className="text-[12px] text-white/75 transition-colors hover:text-white"
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
             <li className="mt-3 text-[11px] text-white/40">© {year} {practice.entity}</li>
@@ -51,15 +53,12 @@ export function Footer() {
             <p className="text-[15px] leading-snug tracking-[-0.02em] sm:text-[17px]">
               Women&apos;s Health. Every Stage. Every Journey.
             </p>
-            <a
-              href="#contact"
-              className="btn mx-auto mt-4 bg-white text-black"
-            >
+            <Link href="/contact" className="btn mx-auto mt-4 bg-white text-black">
               Book an appointment
               <i aria-hidden="true">
                 <ArrowUpRight className="h-3 w-3" />
               </i>
-            </a>
+            </Link>
             <p className="mt-4 text-[10.5px] leading-relaxed text-white/40">
               General information only — not medical advice. In an emergency
               contact your nearest emergency department.

@@ -42,7 +42,7 @@ export function StickyActions() {
                 Call
               </a>
               <a
-                href="#contact"
+                href="/contact"
                 className="flex flex-1 items-center justify-center gap-2 rounded-full bg-forest py-2.5 text-[12px] font-medium text-white"
               >
                 Book an Appointment

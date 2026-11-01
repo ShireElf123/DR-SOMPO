@@ -35,7 +35,7 @@ export function FinalCta() {
                 <ArrowUpRight className="h-3 w-3" />
               </i>
             </a>
-            <a href="#contact" className="btn btn-light border border-charcoal/12 shadow-none">
+            <a href="/contact" className="btn btn-light border border-charcoal/12 shadow-none">
               Send an enquiry
               <i aria-hidden="true">
                 <ArrowUpRight className="h-3 w-3" />

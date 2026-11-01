@@ -126,13 +126,13 @@ export function Hero() {
               transition={{ duration: 0.9, delay: 1.45, ease: EASE }}
               className="mt-7 flex flex-wrap items-center gap-2.5"
             >
-              <a href="#contact" className="btn btn-light">
+              <a href="/contact" className="btn btn-light">
                 Book an appointment
                 <i aria-hidden="true">
                   <ArrowUpRight className="h-3 w-3" />
                 </i>
               </a>
-              <a href="#about" className="btn btn-glass">
+              <a href="/about" className="btn btn-glass">
                 Meet Dr Somp
                 <i aria-hidden="true">
                   <ArrowUpRight className="h-3 w-3" />

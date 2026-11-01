@@ -6,10 +6,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     { url: siteUrl, lastModified, changeFrequency: "monthly", priority: 1 },
-    { url: `${siteUrl}/#services`, lastModified, changeFrequency: "yearly", priority: 0.8 },
-    { url: `${siteUrl}/#fertility`, lastModified, changeFrequency: "yearly", priority: 0.8 },
-    { url: `${siteUrl}/#about`, lastModified, changeFrequency: "yearly", priority: 0.7 },
-    { url: `${siteUrl}/#research`, lastModified, changeFrequency: "yearly", priority: 0.6 },
-    { url: `${siteUrl}/#contact`, lastModified, changeFrequency: "yearly", priority: 0.9 },
+    { url: `${siteUrl}/services`, lastModified, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${siteUrl}/about`, lastModified, changeFrequency: "yearly", priority: 0.8 },
+    { url: `${siteUrl}/research`, lastModified, changeFrequency: "yearly", priority: 0.6 },
+    { url: `${siteUrl}/patient-info`, lastModified, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${siteUrl}/contact`, lastModified, changeFrequency: "yearly", priority: 0.9 },
   ];
 }

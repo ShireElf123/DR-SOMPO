@@ -5,9 +5,9 @@ import { ScrollWords, WordsIn } from "@/components/ui/motion";
 import { journey } from "@/lib/practice";
 
 /**
- * Patient journey — three bordered steps on a dotted rule, each with a portrait
- * medallion. Hovering floods the card from the bottom with forest green, the
- * reference's most tactile interaction.
+ * Patient journey — three steps, each with a real photograph taking up the top
+ * of the card, a number chip and copy below. Photography is always visible;
+ * hover only lifts the card slightly and warms the border.
  */
 export function Journey() {
   return (
@@ -31,42 +31,39 @@ export function Journey() {
 
           <div className="grid gap-3.5 sm:grid-cols-3">
             {journey.map((step) => (
-              <div key={step.step} className="relative text-center">
-                <span className="relative mx-auto mb-4 flex h-7 w-7 items-center justify-center rounded-full bg-mint text-[10.5px] font-medium text-forest ring-4 ring-white">
-                  {step.step}
-                </span>
-
-                <div className="group relative overflow-hidden rounded-xl border border-charcoal/10 px-4 pb-6 pt-5 transition-colors duration-500 hover:border-forest">
-                  <span
-                    aria-hidden="true"
-                    className="absolute left-1/2 top-full h-0 w-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-forest transition-all duration-700 ease-[cubic-bezier(.6,0,.2,1)] group-hover:h-[300%] group-hover:w-[300%]"
+              <div
+                key={step.step}
+                className="group relative flex flex-col overflow-hidden rounded-[1.25rem] border border-charcoal/10 bg-white transition-all duration-500 hover:-translate-y-1 hover:border-forest/30 hover:shadow-[0_28px_60px_-40px_rgba(23,77,60,0.5)]"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden bg-sage">
+                  <Image
+                    src={
+                      step.step === "01"
+                        ? "/images/consultation.jpg"
+                        : step.step === "02"
+                          ? "/images/portrait-somp.jpg"
+                          : "/images/patient-quiet.jpg"
+                    }
+                    alt={step.title}
+                    fill
+                    sizes="(max-width: 640px) 92vw, 30vw"
+                    className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.05]"
                   />
+                  <span className="absolute left-3 top-3 flex h-7 w-7 items-center justify-center rounded-full bg-white/95 text-[10.5px] font-medium text-forest backdrop-blur-sm">
+                    {step.step}
+                  </span>
+                </div>
 
-                  <div className="relative">
-                    <span className="relative mx-auto mb-3 block h-[4.5rem] w-[4.5rem] rounded-full border border-charcoal/25 p-1 transition-colors duration-500 group-hover:border-white/40">
-                      <span className="relative block h-full w-full overflow-hidden rounded-full">
-                        <Image
-                          src={
-                            step.step === "01"
-                              ? "/images/consultation.jpg"
-                              : step.step === "02"
-                                ? "/images/portrait-somp.jpg"
-                                : "/images/patient-quiet.jpg"
-                          }
-                          alt=""
-                          fill
-                          sizes="72px"
-                          className="object-cover"
-                        />
-                      </span>
-                    </span>
-                    <h3 className="text-[13.5px] font-medium tracking-[-0.01em] transition-colors duration-500 group-hover:text-white">
-                      {step.title}
-                    </h3>
-                    <p className="mt-1.5 text-[12px] leading-relaxed text-charcoal/55 transition-colors duration-500 group-hover:text-white/75">
-                      {step.body}
-                    </p>
-                  </div>
+                <div className="flex flex-1 flex-col p-4">
+                  <h3 className="text-[13.5px] font-medium tracking-[-0.01em] text-charcoal">
+                    {step.title}
+                  </h3>
+                  <p className="mt-1.5 flex-1 text-[12px] leading-relaxed text-charcoal/55">
+                    {step.body}
+                  </p>
+                  <p className="mt-3 text-[9.5px] uppercase tracking-[0.14em] text-charcoal/35">
+                    {step.meta}
+                  </p>
                 </div>
               </div>
             ))}

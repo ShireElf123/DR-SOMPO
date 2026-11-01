@@ -1,13 +1,8 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/sections/hero";
 import { Services } from "@/components/sections/services";
-import { Disciplines } from "@/components/sections/disciplines";
 import { Journey } from "@/components/sections/journey";
-import { Fertility } from "@/components/sections/fertility";
-import { About } from "@/components/sections/about";
-import { Research } from "@/components/sections/research";
-import { Faqs } from "@/components/sections/faqs";
-import { Contact } from "@/components/sections/contact";
+import { AboutTeaser, ResearchTeaser, FaqTeaser, ContactBand } from "@/components/sections/teasers";
 import { FinalCta } from "@/components/sections/final-cta";
 
 export const metadata: Metadata = {
@@ -21,13 +16,11 @@ export default function HomePage() {
     <>
       <Hero />
       <Services />
-      <Disciplines />
       <Journey />
-      <Fertility />
-      <About />
-      <Research />
-      <Faqs />
-      <Contact />
+      <AboutTeaser />
+      <ResearchTeaser />
+      <FaqTeaser />
+      <ContactBand />
       <FinalCta />
     </>
   );

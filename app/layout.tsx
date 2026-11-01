@@ -3,6 +3,7 @@ import "@fontsource-variable/figtree";
 import "./globals.css";
 
 import { Navbar } from "@/components/navbar";
+import { PageTransition } from "@/components/page-transition";
 import { Ticker } from "@/components/ticker";
 import { Footer } from "@/components/footer";
 import { StickyActions } from "@/components/sticky-actions";
@@ -92,7 +93,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <Ticker />
         <Navbar />
-        <main id="main">{children}</main>
+        <main id="main">
+          <PageTransition>{children}</PageTransition>
+        </main>
         <StickyActions />
         <Footer />
       </body>

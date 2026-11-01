@@ -77,7 +77,7 @@ export function practiceJsonLd() {
       "@type": "ReserveAction",
       target: {
         "@type": "EntryPoint",
-        urlTemplate: `${siteUrl}/#contact`,
+        urlTemplate: `${siteUrl}/contact`,
         inLanguage: "en-ZA",
         actionPlatform: [
           "http://schema.org/DesktopWebPlatform",

@@ -378,12 +378,15 @@ export const faqs = [
   },
 ];
 
+/**
+ * Real routes, not hash anchors — the site is a set of separate pages with its
+ * own page transitions, the way a Framer site is built.
+ */
 export const nav = [
-  { label: "Home", href: "#top" },
-  { label: "Services", href: "#services" },
-  { label: "Fertility", href: "#fertility" },
-  { label: "About", href: "#about" },
-  { label: "Research", href: "#research" },
-  { label: "FAQs", href: "#faqs" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "About", href: "/about" },
+  { label: "Research", href: "/research" },
+  { label: "Patient info", href: "/patient-info" },
+  { label: "Contact", href: "/contact" },
 ];
