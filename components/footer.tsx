@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
-import { Marquee } from "@/components/ui/motion";
+import { Marquee, WipeText } from "@/components/ui/motion";
 import { nav, practice } from "@/lib/practice";
 
 const press = ["HPCSA", "SASOG", "CMSA", "SAMA", "FIGO 2025", "Wits"];
@@ -22,7 +22,7 @@ export function Footer() {
   return (
     <footer className="relative -mt-7 overflow-hidden rounded-t-[2.25rem] bg-forest text-white sm:rounded-t-[2.75rem]">
       {/* Rolling affiliations */}
-      <div className="border-y border-white/15 py-4 opacity-55">
+      <div className="border-y border-white/15 py-4 opacity-70">
         <Marquee trackClassName="text-[18px] font-semibold tracking-[-0.02em]">
           {press.map((item) => (
             <span key={item} className="mx-10 inline-block">
@@ -46,7 +46,7 @@ export function Footer() {
                 </Link>
               </li>
             ))}
-            <li className="mt-3 text-[11px] text-white/40">© {year} {practice.entity}</li>
+            <li className="mt-3 text-[11px] text-white/80">© {year} {practice.entity}</li>
           </ul>
 
           <div className="sm:px-4">
@@ -59,7 +59,7 @@ export function Footer() {
                 <ArrowUpRight className="h-3 w-3" />
               </i>
             </Link>
-            <p className="mt-4 text-[10.5px] leading-relaxed text-white/40">
+            <p className="mt-4 text-[10.5px] leading-relaxed text-white/80">
               General information only — not medical advice. In an emergency
               contact your nearest emergency department.
             </p>
@@ -82,7 +82,7 @@ export function Footer() {
                 {practice.email}
               </a>
             </li>
-            <li className="text-[11px] text-white/40">POPIA-conscious handling</li>
+            <li className="text-[11px] text-white/80">POPIA-conscious handling</li>
           </ul>
         </div>
       </div>
@@ -95,7 +95,7 @@ export function Footer() {
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 1.6, ease: [0.6, 0, 0.2, 1] }}
           aria-hidden="true"
-          className="whitespace-nowrap bg-[linear-gradient(180deg,#ffffff,rgba(255,255,255,0))] bg-clip-text text-center text-[clamp(3rem,13vw,11rem)] font-bold leading-[0.9] tracking-[-0.03em] text-transparent opacity-55"
+          className="whitespace-nowrap bg-[linear-gradient(180deg,#ffffff,rgba(255,255,255,0.08))] bg-clip-text text-center text-[clamp(2.6rem,13vw,11rem)] font-bold leading-[0.9] tracking-[-0.045em] text-transparent opacity-65"
         >
           DR SOMP <span className="font-light">OBGYN</span>
         </motion.p>

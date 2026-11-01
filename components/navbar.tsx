@@ -44,7 +44,7 @@ export function Navbar() {
   const linkClass = (href: string) =>
     cn(
       "relative rounded-full px-3 py-1.5 text-[13px] transition-colors duration-300",
-      active === href ? "text-charcoal" : "text-charcoal/55 hover:text-charcoal",
+      active === href ? "text-charcoal" : "text-ink-soft hover:text-charcoal",
     );
 
   return (
@@ -148,7 +148,7 @@ export function Navbar() {
                       className="flex items-center justify-between border-b border-charcoal/8 py-3.5 text-[1.25rem] font-light tracking-[-0.02em] text-charcoal"
                     >
                       {item.label}
-                      <ArrowUpRight className="h-4 w-4 text-charcoal/30" aria-hidden="true" />
+                      <ArrowUpRight className="h-4 w-4 text-ink-soft" aria-hidden="true" />
                     </Link>
                   </li>
                 ))}
@@ -170,7 +170,7 @@ export function Navbar() {
                 </a>
               </div>
 
-              <p className="mt-6 text-center text-[11px] text-charcoal/40">
+              <p className="mt-6 text-center text-[11px] text-ink-soft">
                 {practice.hospital} · Primrose, Germiston
               </p>
             </motion.div>

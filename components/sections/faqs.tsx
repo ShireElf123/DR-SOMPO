@@ -37,7 +37,7 @@ export function Faqs() {
                       <span
                         className={cn(
                           "text-[15px] font-normal tracking-[-0.01em] transition-colors",
-                          isOpen ? "text-forest" : "text-charcoal/85",
+                          isOpen ? "text-forest" : "text-ink-soft",
                         )}
                       >
                         {faq.q}
@@ -47,7 +47,7 @@ export function Faqs() {
                           "flex h-6 w-6 shrink-0 items-center justify-center rounded-full border transition-all duration-500",
                           isOpen
                             ? "rotate-45 border-forest bg-forest text-white"
-                            : "border-charcoal/20 text-charcoal/50",
+                            : "border-charcoal/20 text-ink-soft",
                         )}
                       >
                         <Plus className="h-3 w-3" aria-hidden="true" />
@@ -66,7 +66,7 @@ export function Faqs() {
                     )}
                   >
                     <div className="overflow-hidden">
-                      <p className="max-w-[38rem] pb-5 text-[13px] leading-relaxed text-charcoal/60">
+                      <p className="max-w-[38rem] pb-5 text-[13px] leading-relaxed text-ink-soft">
                         {faq.a}
                       </p>
                     </div>
@@ -76,7 +76,7 @@ export function Faqs() {
             })}
           </ul>
 
-          <p className="mt-6 text-center text-[12px] text-charcoal/45">
+          <p className="mt-6 text-center text-[12px] text-ink-soft">
             Still unsure? Call{" "}
             <a
               href={practice.phoneHref}

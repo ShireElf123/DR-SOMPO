@@ -3,8 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
 import { PageHero, SectionHead } from "@/components/page-hero";
-import { PhotoCard } from "@/components/photo-card";
-import { Reveal, RevealGroup, RevealItem } from "@/components/ui/motion";
+import { IconDisc, Panel, Plate } from "@/components/ui/plate";
+import { ParallaxImage, Reveal, RevealGroup, RevealItem, ScrollWords } from "@/components/ui/motion";
 import { affiliations, biography, biographyAside, credentials, practice } from "@/lib/practice";
 
 export const metadata: Metadata = {
@@ -48,8 +48,19 @@ export default function AboutPage() {
         aspect="aspect-[16/11] sm:aspect-[16/8] lg:aspect-[16/7]"
       />
 
+      {/* Scroll-lit statement */}
+      <section className="bg-white pb-4 pt-12 sm:pt-16">
+        <div className="shell">
+          <ScrollWords
+            text="Having experienced difficult pregnancies herself, she brings a personal understanding to the women she cares for — alongside specialist training, research and a commitment to patient education."
+            avatars={[2]}
+            className="mx-auto max-w-[44rem] text-center text-[clamp(1.15rem,2.4vw,1.55rem)] leading-[1.4] tracking-[-0.02em]"
+          />
+        </div>
+      </section>
+
       {/* Biography */}
-      <section className="bg-white py-12 sm:py-16">
+      <section className="bg-white py-10 sm:py-14">
         <div className="shell">
           <div className="grid gap-9 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
             <div>
@@ -59,8 +70,8 @@ export default function AboutPage() {
                     <p
                       className={
                         i === 0
-                          ? "max-w-2xl text-[15px] leading-[1.65] text-charcoal/80"
-                          : "max-w-2xl text-[13.5px] leading-[1.7] text-charcoal/62"
+                          ? "max-w-2xl text-[15px] leading-[1.65] text-ink-soft"
+                          : "max-w-2xl text-[13.5px] leading-[1.7] text-ink-soft"
                       }
                     >
                       {paragraph}
@@ -76,7 +87,7 @@ export default function AboutPage() {
                     <p className="text-[12.5px] font-medium text-forest">
                       {biographyAside.title}
                     </p>
-                    <p className="mt-1 text-[12.5px] leading-relaxed text-charcoal/60">
+                    <p className="mt-1 text-[12.5px] leading-relaxed text-ink-soft">
                       {biographyAside.body} {biographyAside.languages}
                     </p>
                   </div>
@@ -85,14 +96,38 @@ export default function AboutPage() {
             </div>
 
             <Reveal y={26} delay={0.1}>
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[1.25rem] rounded-tr-[4rem] bg-sage">
-                <Image
-                  src="/images/consultation.jpg"
-                  alt="Dr Somp in consultation with a patient"
-                  fill
-                  sizes="(max-width: 1024px) 92vw, 42vw"
-                  className="object-cover"
-                />
+              <div className="relative">
+                <Panel tone="sage" className="p-2">
+                  <div className="relative aspect-[4/5] overflow-hidden rounded-[1.35rem]">
+                    <ParallaxImage
+                      src="/images/consultation.jpg"
+                      alt="Dr Somp in consultation with a patient"
+                      strength={44}
+                      sizes="(max-width: 1024px) 92vw, 42vw"
+                      className="absolute inset-0 rounded-[1.35rem]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/45 via-transparent to-transparent" />
+                    <div className="absolute inset-x-3 bottom-3 flex flex-wrap gap-1.5">
+                      {["MBChB", "FCOG (SA)", "MMed (O&G)"].map((code) => (
+                        <span
+                          key={code}
+                          className="rounded-full bg-white/92 px-2.5 py-1 text-[10px] font-medium text-forest backdrop-blur-md"
+                        >
+                          {code}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </Panel>
+                <div className="absolute -bottom-5 -left-2 hidden rounded-2xl bg-white px-4 py-3 shadow-[0_24px_50px_-30px_rgba(0,0,0,0.5)] ring-1 ring-charcoal/8 sm:block">
+                  <p className="text-[9.5px] uppercase tracking-[0.14em] text-ink-muted">
+                    Consulting
+                  </p>
+                  <p className="mt-0.5 text-[12.5px] font-medium text-forest">
+                    Life Roseacres Hospital
+                  </p>
+                  <p className="text-[10.5px] text-ink-soft">Primrose, Germiston</p>
+                </div>
               </div>
             </Reveal>
           </div>
@@ -110,23 +145,29 @@ export default function AboutPage() {
           />
 
           <RevealGroup className="mt-8 grid gap-3 sm:grid-cols-2" stagger={0.07}>
-            {credentials.map((credential) => (
+            {credentials.map((credential, i) => (
               <RevealItem key={credential.code}>
-                <div className="h-full rounded-[1.1rem] border border-charcoal/8 bg-white p-5">
-                  <div className="flex items-start justify-between gap-3">
-                    <p className="text-[15px] font-medium tracking-[-0.02em] text-charcoal">
+                <div className="group relative h-full overflow-hidden rounded-[1.25rem] bg-white p-5 ring-1 ring-charcoal/8 transition-colors duration-500 hover:ring-forest/25">
+                  <span
+                    aria-hidden="true"
+                    className="absolute -right-6 -top-6 grid h-20 w-20 place-items-center rounded-full bg-mint text-[26px] font-light text-forest/25 transition-transform duration-700 group-hover:scale-110"
+                  >
+                    0{i + 1}
+                  </span>
+                  <div className="relative flex items-start justify-between gap-3">
+                    <p className="text-[16px] font-medium tracking-[-0.02em] text-charcoal">
                       {credential.code}
                     </p>
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" aria-hidden="true" />
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" aria-hidden="true" />
                   </div>
-                  <p className="mt-2 text-[12.5px] leading-relaxed text-charcoal/60">
+                  <p className="relative mt-2 max-w-[22rem] text-[12.5px] leading-relaxed text-ink-soft">
                     {credential.title}
                   </p>
-                  <p className="mt-2 text-[10.5px] uppercase tracking-[0.1em] text-charcoal/40">
+                  <p className="relative mt-2 text-[10px] uppercase tracking-[0.14em] text-ink-muted">
                     {credential.institution}
                   </p>
                   {credential.note && (
-                    <p className="mt-2 border-t border-charcoal/8 pt-2 text-[10.5px] leading-relaxed text-charcoal/45">
+                    <p className="relative mt-3 border-t border-charcoal/8 pt-2.5 text-[10.5px] leading-relaxed text-ink-soft">
                       {credential.note}
                     </p>
                   )}
@@ -161,16 +202,16 @@ export default function AboutPage() {
                               : "h-1.5 w-1.5 rounded-full bg-gold ring-2 ring-gold/25"
                           }
                         />
-                        <p className="text-[13px] text-charcoal/75">{affiliation.name}</p>
+                        <p className="text-[13px] text-ink-soft">{affiliation.name}</p>
                       </div>
-                      <p className="pl-6 text-[10.5px] uppercase tracking-[0.1em] text-charcoal/40 sm:pl-0">
+                      <p className="pl-6 text-[10.5px] uppercase tracking-[0.1em] text-ink-soft sm:pl-0">
                         {affiliation.detail}
                       </p>
                     </div>
                   </RevealItem>
                 ))}
               </RevealGroup>
-              <p className="mt-3 flex items-center gap-2 text-[10.5px] text-charcoal/40">
+              <p className="mt-3 flex items-center gap-2 text-[10.5px] text-ink-soft">
                 <span className="h-1.5 w-1.5 rounded-full bg-gold ring-2 ring-gold/25" aria-hidden="true" />
                 Marked items await confirmation from the practice before publication.
               </p>
@@ -190,15 +231,34 @@ export default function AboutPage() {
           />
 
           <div className="mt-8 grid gap-3.5 sm:grid-cols-3">
-            {values.map((value) => (
-              <PhotoCard
-                key={value.title}
-                image={value.image}
-                alt={value.alt}
-                label={value.title}
-                ratio="aspect-[4/3]"
-                body={value.body}
-              />
+            {values.map((value, i) => (
+              <Reveal key={value.title} delay={i * 0.08} y={20}>
+                <div className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] bg-white ring-1 ring-charcoal/8">
+                  <div className="relative aspect-[4/3] overflow-hidden bg-sage">
+                    <Image
+                      src={value.image}
+                      alt={value.alt}
+                      fill
+                      sizes="(max-width: 640px) 92vw, 30vw"
+                      className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/40 to-transparent" />
+                  </div>
+                  <div className="flex flex-1 flex-col p-4">
+                    <div className="flex items-center gap-2.5">
+                      <IconDisc>
+                        <span className="h-1.5 w-1.5 rounded-full bg-forest" />
+                      </IconDisc>
+                      <p className="text-[13.5px] font-medium tracking-[-0.01em] text-charcoal">
+                        {value.title}
+                      </p>
+                    </div>
+                    <p className="mt-2.5 text-[12px] leading-relaxed text-ink-soft">
+                      {value.body}
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
             ))}
           </div>
 

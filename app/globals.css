@@ -21,16 +21,26 @@
   --color-sand: #e8d5b0;
   --color-mist: #9cc7b2;
 
+  /* Accessible text ramps. These replace ad-hoc alpha values so every body
+     colour in the build clears WCAG AA (4.5:1) on white. */
+  --color-ink: #222722; /* 15.7:1  */
+  --color-ink-soft: #555c56; /* 7.3:1   */
+  --color-ink-muted: #626963; /* 5.7:1  */
+
   --radius-xl2: 1.75rem;
   --radius-xl3: 2.25rem;
 
   --shadow-lift: 0 1px 2px rgba(23, 77, 60, 0.04), 0 18px 44px -24px rgba(23, 77, 60, 0.28);
   --shadow-float: 0 2px 6px rgba(23, 77, 60, 0.05), 0 30px 70px -34px rgba(23, 77, 60, 0.4);
+
+  /* One easing voice across the whole site: a long, soft expo-out. */
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-soft: cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 @layer base {
   :root {
-    --shell: 1180px;
+    --shell: 1200px;
     color-scheme: light;
   }
 
@@ -38,6 +48,10 @@
     scroll-behavior: smooth;
     scroll-padding-top: 5.5rem;
     -webkit-text-size-adjust: 100%;
+    /* Figtree is a variable font — this is what makes the 300 weight read
+       crisp instead of thinned out on subpixel rendering. */
+    text-rendering: optimizeLegibility;
+    font-optical-sizing: auto;
   }
 
   body {
@@ -45,21 +59,23 @@
     color: var(--color-charcoal);
     font-family: var(--font-sans);
     font-feature-settings: "ss01" 1;
+    font-variant-numeric: tabular-nums;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
   }
 
-  /* Fine film grain over the whole page — the reference's signature texture. */
+  /* Fine film grain over the whole page — the reference's signature texture.
+     Kept faint and in `overlay` so it adds tooth without muddying colour. */
   body::after {
     content: "";
     position: fixed;
     inset: 0;
     pointer-events: none;
     z-index: 90;
-    opacity: 0.05;
-    mix-blend-mode: multiply;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+    opacity: 0.028;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
   }
 
   ::selection {
@@ -73,20 +89,30 @@
     border-radius: 4px;
   }
 
+  /* Display type: light, tightly tracked, with a hint of optical tightness at
+     large sizes. `font-synthesis: none` stops the browser faking a lighter
+     weight than the variable axis actually provides. */
   h1,
   h2,
   h3 {
-    /* The reference uses a very light, tightly tracked grotesque. */
-    font-weight: 300 !important;
+    font-weight: 300;
+    font-synthesis: none;
     letter-spacing: -0.035em;
+    text-wrap: balance;
   }
 
   h1 {
     line-height: 0.98;
+    letter-spacing: -0.042em;
   }
 
   p {
     text-wrap: pretty;
+  }
+
+  strong,
+  b {
+    font-weight: 600;
   }
 }
 
@@ -139,8 +165,10 @@
 
   .tag-light {
     background: rgba(255, 255, 255, 0.16);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.32);
     color: #fff;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 
   /* Pill button with the arrow disc that the reference uses everywhere. */
@@ -154,15 +182,19 @@
     border-radius: 999px;
     font-size: 0.8125rem;
     font-weight: 500;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.13);
     transition:
-      transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.45s var(--ease-out-soft),
       background-color 0.3s ease,
-      color 0.3s ease;
+      color 0.3s ease,
+      box-shadow 0.45s var(--ease-out-soft);
   }
 
   .btn:hover {
     transform: translateY(-2px);
+    box-shadow: 0 14px 34px -10px rgba(0, 0, 0, 0.4);
   }
 
   .btn i {
@@ -174,7 +206,7 @@
     place-items: center;
     font-style: normal;
     transition:
-      transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.45s var(--ease-out-soft),
       background-color 0.3s ease,
       color 0.3s ease;
   }
@@ -210,19 +242,38 @@
     background: var(--color-forest);
   }
 
+  /* Understated bordered pill used for secondary actions on tinted panels. */
+  .btn-ghost {
+    background: transparent;
+    color: var(--color-charcoal);
+    border: 1px solid rgba(34, 39, 34, 0.16);
+    box-shadow: none;
+  }
+
+  .btn-ghost i {
+    border-color: rgba(34, 39, 34, 0.28);
+  }
+
+  .btn-ghost:hover i {
+    background: var(--color-charcoal);
+    color: #fff;
+    border-color: var(--color-charcoal);
+  }
+
   .headline {
     font-weight: 300;
     letter-spacing: -0.035em;
     line-height: 1.02;
   }
 
+  /* Accessible body ramp — replaces the old low-alpha greys. */
   .muted {
-    color: #7a807d;
+    color: var(--color-ink-soft);
   }
 
   .hairline {
     height: 1px;
-    background: #e6e9e8;
+    background: color-mix(in oklab, var(--color-charcoal) 10%, transparent);
   }
 }
 
@@ -240,17 +291,53 @@
     animation-play-state: paused;
   }
 
+  /* Hero wash. Layered radial light rather than a flat three-stop gradient, so
+     there is depth in the surface instead of a banded ramp. */
   .fig-gradient {
     background:
-      radial-gradient(circle at 82% 18%, #f6e7c8, transparent 38%),
-      radial-gradient(circle at 8% 100%, #174d3c, transparent 55%),
-      linear-gradient(120deg, #2f7a62, #9cc7b2 55%, #e8d5b0);
+      radial-gradient(120% 90% at 78% 8%, rgba(246, 231, 200, 0.92), transparent 46%),
+      radial-gradient(90% 80% at 96% 62%, rgba(156, 199, 178, 0.75), transparent 52%),
+      radial-gradient(80% 70% at 4% 104%, rgba(23, 77, 60, 0.95), transparent 58%),
+      linear-gradient(118deg, #2f7a62 0%, #6ea58f 42%, #b9d3c3 68%, #e8d5b0 100%);
+  }
+
+  /* Deep forest wash for the research panel. */
+  .forest-gradient {
+    background:
+      radial-gradient(100% 120% at 92% 0%, rgba(110, 165, 143, 0.55), transparent 55%),
+      radial-gradient(90% 90% at 0% 100%, rgba(10, 42, 32, 0.9), transparent 60%),
+      linear-gradient(135deg, #174d3c 0%, #0f3a2d 100%);
   }
 
   .noise-soft {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.3'/%3E%3C/svg%3E");
     mix-blend-mode: soft-light;
   }
+
+  /* Masked line reveal — used where a heading needs to wipe up from nothing. */
+  .mask-line {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+  }
+}
+
+/* Lenis: hand scroll-behaviour over to the library while it is running. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
 }
 
 @keyframes sway {

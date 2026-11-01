@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight, ShieldCheck } from "lucide-react";
 import { PageHero, SectionHead } from "@/components/page-hero";
-import { PhotoCard } from "@/components/photo-card";
-import { Reveal, RevealGroup, RevealItem } from "@/components/ui/motion";
+import Image from "next/image";
+import { IconDisc, Panel, Plate } from "@/components/ui/plate";
+import { Reveal, RevealGroup, RevealItem, ScrollWords } from "@/components/ui/motion";
 import { Faqs } from "@/components/sections/faqs";
 import { journey, practice } from "@/lib/practice";
 
@@ -57,19 +58,35 @@ export default function PatientInfoPage() {
           />
 
           <div className="mt-8 grid gap-3.5 sm:grid-cols-3">
-            {journey.map((step) => (
-              <Reveal key={step.step}>
-                <div className="h-full rounded-[1.1rem] border border-charcoal/10 p-5">
-                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-mint text-[10.5px] font-medium text-forest">
-                    {step.step}
-                  </span>
-                  <h3 className="mt-4 text-[13.5px] font-medium tracking-[-0.01em] text-charcoal">
-                    {step.title}
-                  </h3>
-                  <p className="mt-1.5 text-[12px] leading-relaxed text-charcoal/55">{step.body}</p>
-                  <p className="mt-3 text-[9.5px] uppercase tracking-[0.14em] text-charcoal/35">
-                    {step.meta}
-                  </p>
+            {journey.map((step, i) => (
+              <Reveal key={step.step} delay={i * 0.08}>
+                <div className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] bg-white ring-1 ring-charcoal/8">
+                  <div className="relative aspect-[4/3] overflow-hidden bg-sage">
+                    <Image
+                      src={
+                        ["/images/consultation.jpg", "/images/portrait-somp.jpg", "/images/patient-quiet.jpg"][i % 3]
+                      }
+                      alt=""
+                      fill
+                      sizes="(max-width: 640px) 92vw, 30vw"
+                      className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/45 to-transparent" />
+                    <span className="absolute left-3 top-3 grid h-7 w-7 place-items-center rounded-full bg-white/95 text-[10.5px] font-medium text-forest backdrop-blur-md">
+                      {step.step}
+                    </span>
+                  </div>
+                  <div className="flex flex-1 flex-col p-4">
+                    <h3 className="text-[13.5px] font-medium tracking-[-0.01em] text-charcoal">
+                      {step.title}
+                    </h3>
+                    <p className="mt-1.5 flex-1 text-[12px] leading-relaxed text-ink-soft">
+                      {step.body}
+                    </p>
+                    <p className="mt-3 text-[9.5px] uppercase tracking-[0.14em] text-ink-muted">
+                      {step.meta}
+                    </p>
+                  </div>
                 </div>
               </Reveal>
             ))}
@@ -85,16 +102,19 @@ export default function PatientInfoPage() {
             title="What to bring, and"
             muted="what to expect."
           />
-          <div className="mt-8 grid gap-3.5 sm:grid-cols-3">
-            {prep.map((item) => (
-              <PhotoCard
-                key={item.label}
-                image={item.image}
-                alt={item.alt}
-                label={item.label}
-                ratio="aspect-[4/3]"
-                body={item.body}
-              />
+          <div className="mt-8 grid gap-4 sm:grid-cols-3">
+            {prep.map((item, i) => (
+              <Reveal key={item.label} delay={i * 0.07} y={20}>
+                <Plate
+                  image={item.image}
+                  alt={item.alt}
+                  index={`0${i + 1}`}
+                  label={item.label}
+                  meta="Guide"
+                  ratio="aspect-[4/3]"
+                  body={item.body}
+                />
+              </Reveal>
             ))}
           </div>
         </div>
@@ -104,32 +124,40 @@ export default function PatientInfoPage() {
       <section className="sec">
         <div className="shell">
           <Reveal>
-            <div className="rounded-[1.25rem] bg-mint p-6 sm:p-8">
+            <Panel tone="forest" className="p-6 sm:p-9">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full border border-white/15"
+              />
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full border border-white/10"
+              />
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div className="max-w-xl">
-                  <span className="tag bg-white">Privacy</span>
+                  <span className="tag tag-light">Privacy</span>
                   <h2 className="text-[clamp(1.4rem,2.8vw,1.9rem)] leading-[1.08]">
                     Your information is handled with care.
                   </h2>
-                  <p className="mt-3 text-[13px] leading-relaxed text-charcoal/60">
+                  <p className="mt-3 text-[13px] leading-relaxed text-white/85">
                     Enquiries are received by the practice and handled in line with
                     South African privacy law, including the Protection of Personal
                     Information Act (POPIA). The website asks for the minimum needed
                     to arrange an appointment, stores nothing, and is not a channel
                     for clinical information.
                   </p>
-                  <p className="mt-3 text-[11.5px] leading-relaxed text-charcoal/45">
+                  <p className="mt-3 text-[11.5px] leading-relaxed text-white/75">
                     Please do not send symptoms, results or other sensitive medical
                     information through the enquiry form or by email. Urgent concerns
                     should go to {practice.hospital} or your nearest emergency
                     department.
                   </p>
                 </div>
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-forest">
+                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white/12 text-white ring-1 ring-white/25">
                   <ShieldCheck className="h-5 w-5" aria-hidden="true" />
                 </span>
               </div>
-            </div>
+            </Panel>
           </Reveal>
         </div>
       </section>

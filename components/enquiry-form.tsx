@@ -109,12 +109,12 @@ export function EnquiryForm() {
         <h3 className="mt-4 text-[1.125rem] font-medium tracking-[-0.02em] text-forest">
           Enquiry received
         </h3>
-        <p className="mt-2 text-[0.875rem] leading-relaxed text-charcoal/68">
+        <p className="mt-2 text-[0.875rem] leading-relaxed text-ink-soft">
           Thank you — the practice will respond using the contact details you
           provided. This is an enquiry, not a confirmed appointment; the practice
           will confirm your date and time directly.
         </p>
-        <p className="mt-4 text-[11.5px] leading-relaxed text-charcoal/55">
+        <p className="mt-4 text-[11.5px] leading-relaxed text-ink-soft">
           If your concern is urgent, please contact Life Roseacres Hospital or
           your nearest emergency department rather than waiting for a reply.
         </p>
@@ -143,7 +143,7 @@ export function EnquiryForm() {
           <h3 className="text-[1.0625rem] font-normal tracking-[-0.02em] text-charcoal">
             Appointment enquiry
           </h3>
-          <p className="mt-1 text-[0.75rem] leading-relaxed text-charcoal/62">
+          <p className="mt-1 text-[0.75rem] leading-relaxed text-ink-soft">
             Takes under a minute. Fields marked * are required.
           </p>
         </div>
@@ -174,7 +174,7 @@ export function EnquiryForm() {
         </Field>
 
         <fieldset>
-          <legend className="mb-1.5 block text-[0.625rem] font-semibold uppercase tracking-[0.14em] text-charcoal/45">
+          <legend className="mb-1.5 block text-[0.625rem] font-semibold uppercase tracking-[0.14em] text-ink-soft">
             How should we reach you? *
           </legend>
           <div className="flex flex-wrap gap-2" role="radiogroup" aria-label="Preferred contact method">
@@ -187,7 +187,7 @@ export function EnquiryForm() {
                     "cursor-pointer rounded-full border px-3.5 py-1.5 text-[0.6875rem] font-medium transition-colors duration-300",
                     selected
                       ? "border-forest bg-forest text-white"
-                      : "border-forest/15 text-charcoal/68 hover:border-forest/35 hover:text-forest",
+                      : "border-forest/15 text-ink-soft hover:border-forest/35 hover:text-forest",
                   )}
                 >
                   <input
@@ -289,7 +289,7 @@ export function EnquiryForm() {
               aria-describedby={errors.consent ? "enq-consent-error" : undefined}
               className="mt-0.5 h-4 w-4 shrink-0 rounded border-charcoal/30 accent-forest"
             />
-            <span className="text-[0.75rem] leading-relaxed text-charcoal/68">
+            <span className="text-[0.75rem] leading-relaxed text-ink-soft">
               I agree that the practice may use these details to respond to my
               enquiry, in line with POPIA. *
             </span>
@@ -301,7 +301,7 @@ export function EnquiryForm() {
           )}
         </div>
 
-        <p className="flex items-start gap-2 rounded-xl bg-ivory px-3 py-2.5 text-[0.6875rem] leading-relaxed text-charcoal/62">
+        <p className="flex items-start gap-2 rounded-xl bg-ivory px-3 py-2.5 text-[0.6875rem] leading-relaxed text-ink-soft">
           <ShieldAlert className="mt-0.5 h-3 w-3 shrink-0 text-forest/60" aria-hidden="true" />
           Submitting this form does not constitute a confirmed appointment, and
           it is not a channel for urgent or clinical questions.
@@ -339,7 +339,7 @@ export function EnquiryForm() {
           )}
         </button>
 
-        <p className="text-center text-[0.6875rem] text-charcoal/55">
+        <p className="text-center text-[0.6875rem] text-ink-soft">
           Prefer to talk?{" "}
           <a
             href={practice.phoneHref}
@@ -355,7 +355,7 @@ export function EnquiryForm() {
 
 function inputClass(hasError: boolean) {
   return cn(
-    "w-full rounded-xl border bg-ivory/60 px-3.5 py-2.5 text-[0.875rem] text-charcoal placeholder:text-charcoal/45",
+    "w-full rounded-xl border bg-ivory/60 px-3.5 py-2.5 text-[0.875rem] text-charcoal placeholder:text-ink-soft",
     "transition-colors duration-300 focus:bg-white focus:outline-none",
     hasError
       ? "border-[#c98a7a] focus:border-[#a8543f]"
@@ -382,13 +382,13 @@ function Field({
     <div>
       <label
         htmlFor={htmlFor}
-        className="mb-1.5 block text-[0.625rem] font-semibold uppercase tracking-[0.14em] text-charcoal/45"
+        className="mb-1.5 block text-[0.625rem] font-semibold uppercase tracking-[0.14em] text-ink-soft"
       >
         {label} {required && "*"}
       </label>
       {children}
       {hint && (
-        <p id={`${htmlFor}-hint`} className="mt-1.5 text-[0.6875rem] leading-relaxed text-charcoal/55">
+        <p id={`${htmlFor}-hint`} className="mt-1.5 text-[0.6875rem] leading-relaxed text-ink-soft">
           {hint}
         </p>
       )}

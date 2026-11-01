@@ -1,7 +1,15 @@
 "use client";
 
-import { motion, useReducedMotion, type Variants } from "framer-motion";
-import { useEffect, useRef, useState, type ElementType, type ReactNode } from "react";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+  type MotionValue,
+  type Variants,
+} from "framer-motion";
+import Image from "next/image";
+import { useRef, type ElementType, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -140,7 +148,7 @@ export function WordsIn({
 }) {
   const reduce = useReducedMotion();
   const words = text.split(" ");
-  const lineClass = cn("inline", gray && "text-white/70", className);
+  const lineClass = cn("inline", gray && "text-white/80", className);
 
   if (reduce) return <span className={lineClass}>{text}</span>;
 
@@ -175,71 +183,97 @@ export function ScrollWords({
   text,
   className,
   avatars = [],
+  tint = "light",
 }: {
   text: string;
   className?: string;
   /** Word indices that should render a soft avatar dot before them. */
   avatars?: number[];
+  /** `light` for white panels, `dark` for forest panels. */
+  tint?: "light" | "forest";
 }) {
   const ref = useRef<HTMLParagraphElement>(null);
-  const [progress, setProgress] = useState(0);
   const reduce = useReducedMotion();
   const words = text.split(" ");
 
-  useEffect(() => {
-    if (reduce) {
-      setProgress(1);
-      return;
-    }
+  // Scroll position → per-word progress, handled by Motion's own scroll
+  // tracker so it can ride the compositor instead of firing a React render on
+  // every wheel event.
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 0.92", "end 0.42"],
+  });
 
-    let frame = 0;
-    const onScroll = () => {
-      cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => {
-        const el = ref.current;
-        if (!el) return;
-        const rect = el.getBoundingClientRect();
-        const start = window.innerHeight * 0.92;
-        const span = window.innerHeight * 0.5;
-        const raw = (start - rect.top) / span;
-        setProgress(Math.min(Math.max(raw, 0), 1));
-      });
-    };
-
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, [reduce]);
+  const lit = tint === "light" ? "var(--color-charcoal)" : "#ffffff";
+  const dim = tint === "light" ? "#c3c8c4" : "rgba(255,255,255,0.34)";
 
   return (
     <p ref={ref} className={className}>
-      {words.map((word, i) => {
-        const on = i / words.length < progress;
-        return (
-          <span key={`${word}-${i}`}>
-            {avatars.includes(i) && (
-              <span
-                aria-hidden="true"
-                className="mr-1 inline-block h-[1.05em] w-[1.05em] translate-y-[0.12em] rounded-full bg-gradient-to-br from-clay to-mint align-baseline ring-2 ring-white/70"
-              />
-            )}
+      {words.map((word, i) => (
+        <span key={`${word}-${i}`}>
+          {avatars.includes(i) && (
             <span
-              className={cn(
-                "transition-colors duration-300",
-                on ? "text-charcoal" : "text-[#b9bdbb]",
-              )}
+              aria-hidden="true"
+              className="mr-1 inline-block h-[1.05em] w-[1.05em] translate-y-[0.12em] overflow-hidden rounded-full bg-gradient-to-br from-clay to-mint align-baseline ring-2 ring-white/70"
             >
-              {word}
-            </span>{" "}
-          </span>
-        );
-      })}
+              <Image
+                src={avatarImages[i % avatarImages.length]}
+                alt=""
+                width={40}
+                height={40}
+                className="h-full w-full object-cover"
+              />
+            </span>
+          )}
+          <ScrollWord index={i} total={words.length} progress={scrollYProgress} lit={lit} dim={dim} reduce={!!reduce}>
+            {word}
+          </ScrollWord>{" "}
+        </span>
+      ))}
     </p>
+  );
+}
+
+const avatarImages = [
+  "/images/patient-quiet.jpg",
+  "/images/consultation.jpg",
+  "/images/fertility.jpg",
+];
+
+function ScrollWord({
+  index,
+  total,
+  progress,
+  lit,
+  dim,
+  reduce,
+  children,
+}: {
+  index: number;
+  total: number;
+  progress: MotionValue<number>;
+  lit: string;
+  dim: string;
+  reduce: boolean;
+  children: ReactNode;
+}) {
+  const start = index / total;
+  const end = Math.min(1, start + 0.16);
+  const opacity = useTransform(progress, [start, end], [0, 1]);
+
+  return (
+    <span className="relative inline-block">
+      <span style={{ color: dim }} aria-hidden={false}>
+        {children}
+      </span>
+      <motion.span
+        aria-hidden="true"
+        style={{ opacity: reduce ? 1 : opacity, color: lit }}
+        className="absolute inset-0"
+      >
+        {children}
+      </motion.span>
+    </span>
   );
 }
 
@@ -271,5 +305,127 @@ export function Marquee({
         {children}
       </div>
     </div>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/* Parallax                                                                   */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Scroll-linked parallax for a photograph. The image is deliberately oversized
+ * inside a clipped frame and drifts at a fraction of scroll speed — the depth
+ * cue that separates a Framer build from a flat one. Disabled for reduced
+ * motion, where the image is simply static.
+ */
+export function ParallaxImage({
+  src,
+  alt,
+  className,
+  imageClassName,
+  strength = 60,
+  sizes = "(max-width: 1024px) 100vw, 1180px",
+  priority = false,
+  children,
+  offset = ["start end", "end start"] as const,
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+  imageClassName?: string;
+  strength?: number;
+  sizes?: string;
+  priority?: boolean;
+  /** Overlay content rendered above the image, inside the clipped frame. */
+  children?: ReactNode;
+  offset?: readonly [string, string];
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: ref, offset: offset as never });
+  const y = useTransform(scrollYProgress, [0, 1], [strength, -strength]);
+
+  return (
+    <div ref={ref} className={cn("relative overflow-hidden", className)}>
+      <motion.div
+        style={reduce ? undefined : { y }}
+        className="absolute inset-x-0 -inset-y-[12%]"
+      >
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          priority={priority}
+          sizes={sizes}
+          className={cn("object-cover", imageClassName)}
+        />
+      </motion.div>
+      {children}
+    </div>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/* Card lift                                                                  */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Wraps a card in a magnetic hover: a small lift, a touch of scale and a soft
+ * shadow that blooms underneath. Used sparingly, on the panels that are
+ * actually clickable, so the effect keeps its meaning.
+ */
+export function HoverLift({
+  children,
+  className,
+  lift = 6,
+}: {
+  children: ReactNode;
+  className?: string;
+  lift?: number;
+}) {
+  const reduce = useReducedMotion();
+
+  if (reduce) return <div className={className}>{children}</div>;
+
+  return (
+    <motion.div
+      className={className}
+      whileHover={{ y: -lift }}
+      transition={{ duration: 0.5, ease: EASE }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/* Wordmark wipe                                                              */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * The oversized footer wordmark, revealed by a clip-path wipe as it enters
+ * view. Pure transform — no layout cost.
+ */
+export function WipeText({
+  children,
+  className,
+  delay = 0,
+}: {
+  children: ReactNode;
+  className?: string;
+  delay?: number;
+}) {
+  const reduce = useReducedMotion();
+
+  return (
+    <motion.div
+      className={className}
+      initial={reduce ? undefined : { clipPath: "inset(0 100% 0 0)" }}
+      whileInView={reduce ? undefined : { clipPath: "inset(0 0% 0 0)" }}
+      viewport={{ once: true, amount: 0.4 }}
+      transition={{ duration: 1.5, delay, ease: [0.6, 0, 0.2, 1] }}
+    >
+      {children}
+    </motion.div>
   );
 }

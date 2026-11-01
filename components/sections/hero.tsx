@@ -30,6 +30,8 @@ export function Hero() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const copyY = useTransform(scrollYProgress, [0, 1], [0, -90]);
   const chipY = useTransform(scrollYProgress, [0, 1], [0, 40]);
+  const imageY = useTransform(scrollYProgress, [0, 1], [0, 60]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.06]);
 
   useEffect(() => {
     if (reduce) return;
@@ -68,20 +70,38 @@ export function Hero() {
             className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-forest/35 to-transparent"
           />
 
-          {/* Portrait panel — sits inside the gradient, clipped by the card */}
-          <div className="pointer-events-none absolute bottom-0 right-0 hidden h-[86%] w-[54%] sm:block lg:w-[44%]">
-            <div className="relative h-full w-full overflow-hidden rounded-tl-[9rem]">
-              <Image
-                src="/images/hero-doctor.jpg"
-                alt="Dr CM Ngwey-Sompo, specialist obstetrician and gynaecologist"
-                fill
-                priority
-                sizes="(max-width: 1024px) 54vw, 44vw"
-                className="object-cover object-[center_18%]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-mist/50 via-transparent to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-t from-forest/45 via-transparent to-transparent" />
-            </div>
+          {/* Portrait — full-bleed behind the copy on phones, a clipped panel from
+              sm up. Photography is always visible, never a hover reveal. */}
+          <div className="pointer-events-none absolute inset-0 sm:hidden">
+            <Image
+              src="/images/hero-doctor.jpg"
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-[62%_18%]"
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,42,32,0.62)_0%,rgba(10,42,32,0.35)_45%,rgba(10,42,32,0.78)_100%)]" />
+          </div>
+
+          <div className="pointer-events-none absolute bottom-0 right-0 hidden h-[88%] w-[52%] sm:block lg:w-[46%]">
+            <motion.div
+              style={reduce ? undefined : { y: imageY, scale: imageScale }}
+              className="relative h-full w-full"
+            >
+              <div className="relative h-full w-full overflow-hidden rounded-tl-[9rem]">
+                <Image
+                  src="/images/hero-doctor.jpg"
+                  alt="Dr CM Ngwey-Sompo, specialist obstetrician and gynaecologist"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 54vw, 46vw"
+                  className="object-cover object-[center_16%]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-mist/40 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-forest/45 via-transparent to-transparent" />
+              </div>
+            </motion.div>
           </div>
 
           {/* Copy */}
@@ -121,12 +141,26 @@ export function Hero() {
             </motion.p>
 
             <motion.div
+              initial={reduce ? undefined : { opacity: 0 }}
+              animate={reduce ? undefined : { opacity: 1 }}
+              transition={{ duration: 1.1, delay: 1.5 }}
+              className="mt-7 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-[10px] uppercase tracking-[0.16em] text-white/85"
+            >
+              {["MBChB", "FCOG (SA)", "MMed (O&G) Wits"].map((item, i) => (
+                <span key={item} className="flex items-center gap-3">
+                  {i > 0 && <span className="h-3 w-px bg-white/35" aria-hidden="true" />}
+                  {item}
+                </span>
+              ))}
+            </motion.div>
+
+            <motion.div
               initial={reduce ? undefined : { opacity: 0, y: 14 }}
               animate={reduce ? undefined : { opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 1.45, ease: EASE }}
-              className="mt-7 flex flex-wrap items-center gap-2.5"
+              transition={{ duration: 0.9, delay: 1.6, ease: EASE }}
+              className="mt-6 flex flex-wrap items-center gap-2.5"
             >
-              <a href="/contact" className="btn btn-light">
+              <a href="/contact" className="btn btn-light" data-cursor="Book">
                 Book an appointment
                 <i aria-hidden="true">
                   <ArrowUpRight className="h-3 w-3" />
@@ -140,6 +174,24 @@ export function Hero() {
               </a>
             </motion.div>
           </motion.div>
+
+          {/* Scroll cue */}
+          <motion.span
+            aria-hidden="true"
+            initial={reduce ? undefined : { opacity: 0 }}
+            animate={reduce ? undefined : { opacity: 1 }}
+            transition={{ duration: 1, delay: 2.1 }}
+            className="absolute bottom-6 left-6 z-20 hidden items-center gap-2 text-[9.5px] uppercase tracking-[0.18em] text-white/80 lg:flex"
+          >
+            <span className="relative block h-8 w-px overflow-hidden bg-white/25">
+              <motion.span
+                className="absolute inset-x-0 top-0 block h-3 bg-white"
+                animate={reduce ? undefined : { y: ["-100%", "260%"] }}
+                transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+              />
+            </span>
+            Scroll
+          </motion.span>
 
           {/* Rotating glass pill */}
           <span className="pointer-events-none absolute right-[27%] top-8 z-20 hidden rounded-full bg-white/70 px-4 py-2 text-[11px] font-medium text-charcoal backdrop-blur-md lg:block">

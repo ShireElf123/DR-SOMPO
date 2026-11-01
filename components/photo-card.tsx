@@ -64,7 +64,7 @@ export function PhotoCard({
       </div>
 
       {body && (
-        <p className="mt-2.5 max-w-[20rem] text-[12px] leading-relaxed text-charcoal/55">
+        <p className="mt-2.5 max-w-[20rem] text-[12px] leading-relaxed text-ink-soft">
           {body}
         </p>
       )}

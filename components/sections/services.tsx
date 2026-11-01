@@ -105,6 +105,7 @@ export function Services() {
               >
                 <Link
                   href={tile.href}
+                  data-cursor="View"
                   className="group relative flex h-full min-h-[13rem] flex-col justify-end overflow-hidden rounded-[1.25rem] bg-sage p-4"
                 >
                   <Image
@@ -118,7 +119,7 @@ export function Services() {
 
                   <div className="relative">
                     <p className="text-[12.5px] font-medium text-white">{tile.title}</p>
-                    <p className="mt-0.5 max-w-[14rem] text-[11px] leading-snug text-white/70">
+                    <p className="mt-0.5 max-w-[14rem] text-[11px] leading-snug text-white/80">
                       {tile.blurb}
                     </p>
                   </div>
@@ -134,7 +135,7 @@ export function Services() {
             ))}
           </div>
 
-          <p className="mt-5 text-[11px] leading-relaxed text-charcoal/40">
+          <p className="mt-5 text-[11px] leading-relaxed text-ink-soft">
             All listed services and procedures are subject to confirmation
             against Dr Somp&apos;s current practice and hospital privileges.
           </p>

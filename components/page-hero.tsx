@@ -68,7 +68,7 @@ export function PageHero({
               {muted && (
                 <>
                   {" "}
-                  <span className="text-white/65">
+                  <span className="text-white/80">
                     <WordsIn text={muted} delay={0.3} stagger={0.03} />
                   </span>
                 </>
@@ -109,14 +109,14 @@ export function SectionHead({
         {muted && (
           <>
             {" "}
-            <span className="text-charcoal/35">
+            <span className="text-ink-soft">
               <WordsIn text={muted} delay={0.15} />
             </span>
           </>
         )}
       </h2>
       {intro && (
-        <p className="mt-3 max-w-lg text-[13px] leading-relaxed text-charcoal/55">{intro}</p>
+        <p className="mt-3 max-w-lg text-[13px] leading-relaxed text-ink-soft">{intro}</p>
       )}
     </div>
   );

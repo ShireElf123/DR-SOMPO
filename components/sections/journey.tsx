@@ -58,10 +58,10 @@ export function Journey() {
                   <h3 className="text-[13.5px] font-medium tracking-[-0.01em] text-charcoal">
                     {step.title}
                   </h3>
-                  <p className="mt-1.5 flex-1 text-[12px] leading-relaxed text-charcoal/55">
+                  <p className="mt-1.5 flex-1 text-[12px] leading-relaxed text-ink-soft">
                     {step.body}
                   </p>
-                  <p className="mt-3 text-[9.5px] uppercase tracking-[0.14em] text-charcoal/35">
+                  <p className="mt-3 text-[9.5px] uppercase tracking-[0.14em] text-ink-soft">
                     {step.meta}
                   </p>
                 </div>

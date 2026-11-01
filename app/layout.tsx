@@ -7,6 +7,9 @@ import { PageTransition } from "@/components/page-transition";
 import { Ticker } from "@/components/ticker";
 import { Footer } from "@/components/footer";
 import { StickyActions } from "@/components/sticky-actions";
+import { Cursor } from "@/components/ui/cursor";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
+import { SmoothScroll } from "@/components/ui/smooth-scroll";
 import { practice } from "@/lib/practice";
 import { faqJsonLd, practiceJsonLd, siteUrl, websiteJsonLd } from "@/lib/structured-data";
 
@@ -91,6 +94,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
 
+        <SmoothScroll />
+        <Cursor />
+        <ScrollProgress />
         <Ticker />
         <Navbar />
         <main id="main">
