@@ -1,6 +1,32 @@
 import { practice, credentials, faqs } from "@/lib/practice";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.drngweysompo.co.za";
+/**
+ * The canonical origin for every absolute URL the site emits — canonical tags,
+ * Open Graph, the sitemap, robots.txt and JSON-LD.
+ *
+ * `NEXT_PUBLIC_SITE_URL` is set per Vercel environment. The fallback exists so a
+ * local `next build` does not crash, but it is only ever the placeholder in
+ * development: a *production* build with no value would silently publish
+ * `drngweysompo.co.za` as the canonical host and hand Google a domain nobody has
+ * bought. Rather than let that ship quietly, fail the build.
+ */
+function resolveSiteUrl(): string {
+  const configured = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, "");
+
+  if (configured) return configured;
+
+  if (process.env.VERCEL_ENV === "production") {
+    throw new Error(
+      "NEXT_PUBLIC_SITE_URL is not set for the production environment. Refusing to " +
+        "publish canonical URLs, Open Graph tags and JSON-LD pointing at the " +
+        "placeholder domain. Set it in the Vercel project settings and redeploy.",
+    );
+  }
+
+  return "https://www.drngweysompo.co.za";
+}
+
+export const siteUrl = resolveSiteUrl();
 
 /**
  * Local medical-practice structured data.
@@ -113,4 +139,3 @@ export function websiteJsonLd() {
   };
 }
 
-export { siteUrl };
