@@ -32,18 +32,18 @@ export function StickyActions() {
               animate={reduce ? undefined : { y: 0 }}
               exit={reduce ? undefined : { y: 80 }}
               transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-              className="mx-3 mb-3 flex items-center gap-2 rounded-2xl border border-forest/10 bg-white/90 p-2 shadow-[0_-8px_40px_-20px_rgba(23,77,60,0.5)] backdrop-blur-xl"
+              className="mx-3 mb-3 flex items-center gap-2 rounded-full border border-charcoal/10 bg-white/90 p-1.5 shadow-[0_-8px_40px_-20px_rgba(0,0,0,0.35)] backdrop-blur-xl"
             >
               <a
                 href={practice.phoneHref}
-                className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-forest/15 py-2.5 text-[0.8125rem] font-medium text-forest"
+                className="flex flex-1 items-center justify-center gap-2 rounded-full border border-charcoal/12 py-2.5 text-[12px] font-medium text-charcoal"
               >
                 <span className="h-1.5 w-1.5 rounded-full bg-forest" aria-hidden="true" />
                 Call
               </a>
               <a
                 href="#contact"
-                className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-forest py-2.5 text-[0.8125rem] font-medium text-ivory"
+                className="flex flex-1 items-center justify-center gap-2 rounded-full bg-forest py-2.5 text-[12px] font-medium text-white"
               >
                 Book an Appointment
               </a>
@@ -64,7 +64,7 @@ export function StickyActions() {
               window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" })
             }
             aria-label="Back to top"
-            className="fixed bottom-6 right-6 z-40 hidden h-11 w-11 items-center justify-center rounded-full border border-forest/15 bg-white/90 text-forest shadow-[var(--shadow-lift)] backdrop-blur-xl transition-colors hover:bg-white lg:flex"
+            className="fixed bottom-6 right-6 z-40 hidden h-11 w-11 items-center justify-center rounded-full border border-charcoal/10 bg-white/90 text-charcoal shadow-[0_16px_40px_-20px_rgba(0,0,0,0.4)] backdrop-blur-xl transition-colors hover:bg-white lg:flex"
           >
             <ArrowUp className="h-4 w-4" aria-hidden="true" />
           </motion.button>

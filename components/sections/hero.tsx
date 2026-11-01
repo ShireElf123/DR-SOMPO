@@ -1,227 +1,187 @@
 "use client";
 
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { ArrowUpRight, HeartPulse, Phone, ShieldCheck } from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { ArrowUpRight, Phone } from "lucide-react";
 import Image from "next/image";
-import { useRef } from "react";
-import { brand, practice } from "@/lib/practice";
-import { FadeUp, WordsIn } from "@/components/ui/motion";
-import { cn } from "@/lib/utils";
+import { useEffect, useRef, useState } from "react";
+import { practice } from "@/lib/practice";
+import { WordsIn } from "@/components/ui/motion";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
+const rotating = [
+  "Specialist OBGYN",
+  "Fertility & cervical health",
+  "Obstetrics · Gynaecology",
+  "English & French",
+];
+
+/**
+ * Full-bleed gradient hero: layered botanical wash, a light-weight headline
+ * that reveals word by word, a photo panel that grows out of the page on load,
+ * floating glass pills and a contact chip. This is the composition the
+ * reference opens with.
+ */
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
+  const [pill, setPill] = useState(0);
 
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "9%"]);
-  const floatY = useTransform(scrollYProgress, [0, 1], [0, -48]);
-  const glowY = useTransform(scrollYProgress, [0, 1], [0, 60]);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const copyY = useTransform(scrollYProgress, [0, 1], [0, -90]);
+  const chipY = useTransform(scrollYProgress, [0, 1], [0, 40]);
+
+  useEffect(() => {
+    if (reduce) return;
+    const id = setInterval(() => setPill((p) => (p + 1) % rotating.length), 3200);
+    return () => clearInterval(id);
+  }, [reduce]);
 
   return (
-    <section
-      id="top"
-      ref={ref}
-      className="relative overflow-hidden bg-ivory pt-10 pb-6 sm:pt-14"
-      aria-labelledby="hero-heading"
-    >
-      {/* Soft botanical wash behind the composition */}
-      <motion.div
-        aria-hidden="true"
-        style={reduce ? undefined : { y: glowY }}
-        className="pointer-events-none absolute -left-40 -top-32 h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle_at_center,rgba(220,235,225,0.95),rgba(234,244,238,0)_68%)] blur-2xl"
-      />
-      <motion.div
-        aria-hidden="true"
-        style={reduce ? undefined : { y: glowY }}
-        className="pointer-events-none absolute -right-32 top-24 h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle_at_center,rgba(214,198,162,0.4),rgba(248,247,242,0)_70%)] blur-2xl"
-      />
+    <section id="top" ref={ref} className="relative px-3 pt-3 sm:px-4 sm:pt-4">
+      <div className="relative mx-auto w-full max-w-[1180px]">
+        <motion.div
+          initial={reduce ? undefined : { opacity: 0, scale: 0.965, y: 28 }}
+          animate={reduce ? undefined : { opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 1.4, ease: EASE, delay: 0.15 }}
+          className="fig-gradient relative overflow-hidden rounded-[1.4rem] sm:rounded-[1.75rem]"
+        >
+          {/* Botanical light shapes */}
+          <span
+            aria-hidden="true"
+            className="absolute right-[42%] top-[6%] h-32 w-32 rounded-[0_85%_0_85%] bg-white/15 motion-safe:animate-[sway_9s_ease-in-out_infinite_alternate]"
+          />
+          <span
+            aria-hidden="true"
+            className="absolute right-[6%] top-[20%] h-20 w-20 rounded-[0_85%_0_85%] bg-white/15 motion-safe:animate-[sway_9s_ease-in-out_infinite_alternate_-4s]"
+          />
+          <div
+            aria-hidden="true"
+            className="noise-soft pointer-events-none absolute inset-0 opacity-40"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_35%,rgba(255,255,255,0.3),transparent_45%)]"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-forest/35 to-transparent"
+          />
 
-      <div className="shell relative">
-        <div className="grid items-end gap-10 lg:grid-cols-[1.06fr_0.94fr] lg:gap-6">
-          {/* ---------------------------------------------------------------- */}
-          {/* Copy column                                                      */}
-          {/* ---------------------------------------------------------------- */}
-          <div className="relative z-10 pb-2 lg:pb-16">
-            <FadeUp delay={0.05}>
-              <span className="eyebrow">
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-forest/40 motion-reduce:hidden" />
-                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-forest" />
-                </span>
-                Specialist Obstetrician &amp; Gynaecologist
-              </span>
-            </FadeUp>
+          {/* Portrait panel — sits inside the gradient, clipped by the card */}
+          <div className="pointer-events-none absolute bottom-0 right-0 hidden h-[86%] w-[54%] sm:block lg:w-[44%]">
+            <div className="relative h-full w-full overflow-hidden rounded-tl-[9rem]">
+              <Image
+                src="/images/hero-doctor.jpg"
+                alt="Dr CM Ngwey-Sompo, specialist obstetrician and gynaecologist"
+                fill
+                priority
+                sizes="(max-width: 1024px) 54vw, 44vw"
+                className="object-cover object-[center_18%]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-mist/50 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-forest/45 via-transparent to-transparent" />
+            </div>
+          </div>
 
-            <h1
-              id="hero-heading"
-              className="display mt-6 text-[clamp(2.6rem,6.4vw,4.6rem)] text-forest"
+          {/* Copy */}
+          <motion.div
+            style={reduce ? undefined : { y: copyY }}
+            className="relative z-10 max-w-[42rem] px-6 pb-14 pt-16 text-white sm:px-10 sm:pb-20 sm:pt-20 lg:px-14 lg:pb-24 lg:pt-24"
+          >
+            <motion.span
+              initial={reduce ? undefined : { opacity: 0, y: 12 }}
+              animate={reduce ? undefined : { opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6, ease: EASE }}
+              className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/35 bg-white/15 px-4 py-1.5 text-[11px] font-medium tracking-wide backdrop-blur-md"
             >
-              <WordsIn text="Women's Health." delay={0.15} />
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-lime/70 motion-reduce:hidden" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-lime" />
+              </span>
+              Consulting at Life Roseacres Hospital
+            </motion.span>
+
+            <h1 className="text-[clamp(2.6rem,7.4vw,5.9rem)] font-light leading-[0.98] tracking-[-0.035em]">
+              <WordsIn text="Women's Health." delay={0.5} stagger={0.07} />
               <br />
-              <span className="text-forest/95">
-                <WordsIn text="Every Stage." delay={0.3} />{" "}
-              </span>
-              <span className="serif-accent text-forest">
-                <WordsIn text="Every Journey." delay={0.42} />
-              </span>
+              <WordsIn text="Every Stage." delay={0.72} stagger={0.07} gray />
+              <br />
+              <WordsIn text="Every Journey." delay={0.94} stagger={0.07} />
             </h1>
 
-            <FadeUp delay={0.55}>
-              <p className="mt-6 max-w-[34rem] text-[0.975rem] leading-relaxed text-charcoal/72 sm:text-base">
-                {brand.heroCopy}
-              </p>
-            </FadeUp>
-
-            <FadeUp delay={0.68}>
-              <div className="mt-8 flex flex-wrap items-center gap-3">
-                <a className="btn btn-primary group" href="#contact">
-                  Book an Appointment
-                  <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </a>
-                <a className="btn btn-ghost group" href="#about">
-                  Meet Dr Somp
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-forest/10 transition-colors duration-300 group-hover:bg-forest/15">
-                    <ArrowUpRight className="h-3.5 w-3.5" />
-                  </span>
-                </a>
-              </div>
-            </FadeUp>
-
-            {/* Trust row — facts only, no invented statistics */}
-            <FadeUp delay={0.8}>
-              <dl className="mt-10 grid max-w-lg grid-cols-3 gap-4 border-t border-forest/10 pt-6">
-                <div>
-                  <dt className="text-[0.625rem] font-medium uppercase tracking-[0.14em] text-forest/60">
-                    Practising at
-                  </dt>
-                  <dd className="mt-1.5 text-[0.8125rem] font-medium leading-snug text-forest">
-                    Life Roseacres Hospital
-                  </dd>
-                </div>
-                <div>
-                  <dt className="text-[0.625rem] font-medium uppercase tracking-[0.14em] text-forest/60">
-                    Consultations
-                  </dt>
-                  <dd className="mt-1.5 text-[0.8125rem] font-medium leading-snug text-forest">
-                    English &amp; French
-                  </dd>
-                </div>
-                <div>
-                  <dt className="text-[0.625rem] font-medium uppercase tracking-[0.14em] text-forest/60">
-                    Focus areas
-                  </dt>
-                  <dd className="mt-1.5 text-[0.8125rem] font-medium leading-snug text-forest">
-                    Fertility &amp; cervical health
-                  </dd>
-                </div>
-              </dl>
-            </FadeUp>
-          </div>
-
-          {/* ---------------------------------------------------------------- */}
-          {/* Portrait composition                                             */}
-          {/* ---------------------------------------------------------------- */}
-          <div className="relative pb-4 lg:pb-0">
-            <motion.div
-              initial={reduce ? undefined : { opacity: 0, scale: 0.97, y: 26 }}
-              animate={reduce ? undefined : { opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 1.25, ease: EASE, delay: 0.1 }}
-              className="relative ml-auto aspect-[4/5] w-full max-w-[34rem] overflow-hidden rounded-[2rem] bg-sage shadow-[0_40px_90px_-50px_rgba(23,77,60,0.6)] sm:rounded-[2.5rem] lg:aspect-[4/4.7]"
-            >
-              <motion.div
-                style={reduce ? undefined : { y: imageY }}
-                className="absolute inset-[-6%_0]"
-              >
-                <Image
-                  src="/images/hero-doctor.jpg"
-                  alt="Dr CM Ngwey-Sompo, specialist obstetrician and gynaecologist, photographed in her consulting rooms"
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 92vw, 44vw"
-                  className="object-cover object-[center_22%]"
-                />
-              </motion.div>
-              <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/35 via-transparent to-transparent" />
-
-              {/* Overlay chip: qualifications */}
-              <div className="absolute inset-x-4 bottom-4 flex items-end justify-between gap-3 sm:inset-x-5 sm:bottom-5">
-                <div className="rounded-2xl border border-white/25 bg-white/12 px-4 py-3 backdrop-blur-md">
-                  <p className="text-[0.625rem] font-medium uppercase tracking-[0.16em] text-ivory/70">
-                    Qualifications
-                  </p>
-                  <p className="mt-1 text-[0.8125rem] font-medium text-ivory">
-                    MBChB · FCOG (SA) · MMed (O&amp;G)
-                  </p>
-                </div>
-                <div className="hidden h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/25 bg-white/12 backdrop-blur-md sm:flex">
-                  <ShieldCheck className="h-5 w-5 text-ivory" aria-hidden="true" />
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Floating information cards — the signature Framer detail */}
-            <motion.div
-              style={reduce ? undefined : { y: floatY }}
-              className="absolute left-2 top-6 z-20 sm:left-3 lg:-top-4 lg:left-6"
-            >
-              <motion.div
-                initial={reduce ? undefined : { opacity: 0, x: -18 }}
-                animate={reduce ? undefined : { opacity: 1, x: 0 }}
-                transition={{ duration: 0.9, delay: 0.7, ease: EASE }}
-                className="flex items-center gap-3 rounded-2xl border border-white/70 bg-white/85 p-2.5 pr-4 shadow-[0_18px_40px_-22px_rgba(23,77,60,0.55)] backdrop-blur-xl"
-              >
-                <Image
-                  src="/images/consultation.jpg"
-                  alt=""
-                  width={88}
-                  height={88}
-                  className="h-11 w-11 rounded-xl object-cover"
-                />
-                <div>
-                  <p className="flex items-center gap-1 text-[0.6875rem] font-semibold text-forest">
-                    <HeartPulse className="h-3 w-3 text-forest/70" aria-hidden="true" />
-                    Patient-centred care
-                  </p>
-                  <p className="mt-0.5 max-w-[8.5rem] text-[0.625rem] leading-snug text-charcoal/66">
-                    Unhurried consultations, in English or French
-                  </p>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            <motion.div
-              initial={reduce ? undefined : { opacity: 0, y: 18 }}
+            <motion.p
+              initial={reduce ? undefined : { opacity: 0, y: 14 }}
               animate={reduce ? undefined : { opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.9, ease: EASE }}
-              className="absolute -bottom-5 right-3 z-20 sm:right-5 lg:-bottom-6 lg:right-6"
+              transition={{ duration: 0.9, delay: 1.3, ease: EASE }}
+              className="mt-6 max-w-[26rem] text-[0.875rem] leading-relaxed text-white/90 sm:text-[0.9375rem]"
             >
-              <a
-                href={practice.phoneHref}
-                className={cn(
-                  "group flex items-center gap-3 rounded-2xl bg-forest px-4 py-3",
-                  "shadow-[0_22px_50px_-24px_rgba(23,77,60,0.9)] transition-transform duration-500 hover:-translate-y-1",
-                )}
-              >
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-ivory/12">
-                  <Phone className="h-4 w-4 text-ivory" aria-hidden="true" />
-                </span>
-                <span>
-                  <span className="block text-[0.5625rem] font-medium uppercase tracking-[0.18em] text-sage/68">
-                    Appointments
-                  </span>
-                  <span className="block text-[0.875rem] font-medium tracking-tight text-ivory">
-                    {practice.phone}
-                  </span>
-                </span>
+              Your health deserves specialist attention and compassionate care,
+              from adolescence through pregnancy, childbirth, menopause and beyond.
+            </motion.p>
+
+            <motion.div
+              initial={reduce ? undefined : { opacity: 0, y: 14 }}
+              animate={reduce ? undefined : { opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 1.45, ease: EASE }}
+              className="mt-7 flex flex-wrap items-center gap-2.5"
+            >
+              <a href="#contact" className="btn btn-light">
+                Book an appointment
+                <i aria-hidden="true">
+                  <ArrowUpRight className="h-3 w-3" />
+                </i>
+              </a>
+              <a href="#about" className="btn btn-glass">
+                Meet Dr Somp
+                <i aria-hidden="true">
+                  <ArrowUpRight className="h-3 w-3" />
+                </i>
               </a>
             </motion.div>
-          </div>
-        </div>
+          </motion.div>
+
+          {/* Rotating glass pill */}
+          <span className="pointer-events-none absolute right-[27%] top-8 z-20 hidden rounded-full bg-white/70 px-4 py-2 text-[11px] font-medium text-charcoal backdrop-blur-md lg:block">
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={pill}
+                initial={reduce ? undefined : { opacity: 0, y: 8 }}
+                animate={reduce ? undefined : { opacity: 1, y: 0 }}
+                exit={reduce ? undefined : { opacity: 0, y: -8 }}
+                transition={{ duration: 0.45 }}
+                className="block"
+              >
+                {rotating[pill]}
+              </motion.span>
+            </AnimatePresence>
+          </span>
+
+          {/* Contact chip */}
+          <motion.a
+            href={practice.phoneHref}
+            style={reduce ? undefined : { y: chipY }}
+            initial={reduce ? undefined : { opacity: 0, y: 18 }}
+            animate={reduce ? undefined : { opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 1.9, ease: EASE }}
+            className="group absolute bottom-4 right-4 z-20 flex items-center gap-2.5 rounded-2xl bg-white/92 p-2 pr-4 text-charcoal shadow-[0_18px_40px_-22px_rgba(0,0,0,0.45)] backdrop-blur-md transition-transform duration-500 hover:-translate-y-1 sm:bottom-6 sm:right-6"
+          >
+            <span className="relative h-11 w-11 overflow-hidden rounded-xl bg-mist">
+              <Image
+                src="/images/consultation.jpg"
+                alt=""
+                fill
+                sizes="44px"
+                className="object-cover"
+              />
+            </span>
+            <span className="text-[11px] leading-tight">
+              <span className="block font-medium">Specialist OBGYN</span>
+              <span className="mt-0.5 block text-[#8b918e]">{practice.phone}</span>
+            </span>
+            <Phone className="h-3.5 w-3.5 text-forest/60" aria-hidden="true" />
+          </motion.a>
+        </motion.div>
       </div>
     </section>
   );

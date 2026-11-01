@@ -1,7 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import "@fontsource-variable/inter-tight";
-import "@fontsource/instrument-serif/400.css";
-import "@fontsource/instrument-serif/400-italic.css";
+import "@fontsource-variable/figtree";
 import "./globals.css";
 
 import { Navbar } from "@/components/navbar";
@@ -70,7 +68,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-ZA">
-      <body className="bg-sage/40 antialiased">
+      <body className="bg-white antialiased">
         {/* JSON-LD is generated from typed, verified content — never user input. */}
         <script
           type="application/ld+json"
@@ -92,13 +90,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
 
-        <div className="page-sheet">
-          <Ticker />
-          <Navbar />
-          <main id="main">{children}</main>
-          <StickyActions />
-          <Footer />
-        </div>
+        <Ticker />
+        <Navbar />
+        <main id="main">{children}</main>
+        <StickyActions />
+        <Footer />
       </body>
     </html>
   );

@@ -99,7 +99,7 @@ export function EnquiryForm() {
         initial={reduce ? undefined : { opacity: 0, y: 12 }}
         animate={reduce ? undefined : { opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className="rounded-[1.5rem] border border-forest/10 bg-white p-7 shadow-[var(--shadow-lift)]"
+        className="h-full rounded-[1.25rem] border border-charcoal/10 bg-white p-7"
         role="status"
         aria-live="polite"
       >
@@ -114,7 +114,7 @@ export function EnquiryForm() {
           provided. This is an enquiry, not a confirmed appointment; the practice
           will confirm your date and time directly.
         </p>
-        <p className="mt-4 text-[0.75rem] leading-relaxed text-charcoal/60">
+        <p className="mt-4 text-[11.5px] leading-relaxed text-charcoal/55">
           If your concern is urgent, please contact Life Roseacres Hospital or
           your nearest emergency department rather than waiting for a reply.
         </p>
@@ -136,18 +136,18 @@ export function EnquiryForm() {
     <form
       onSubmit={onSubmit}
       noValidate
-      className="rounded-[1.5rem] border border-forest/10 bg-white p-6 shadow-[var(--shadow-lift)] sm:p-7"
+      className="h-full rounded-[1.25rem] border border-charcoal/10 bg-white p-6 sm:p-7"
     >
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h3 className="text-[1.0625rem] font-medium tracking-[-0.02em] text-forest">
+          <h3 className="text-[1.0625rem] font-normal tracking-[-0.02em] text-charcoal">
             Appointment enquiry
           </h3>
           <p className="mt-1 text-[0.75rem] leading-relaxed text-charcoal/62">
             Takes under a minute. Fields marked * are required.
           </p>
         </div>
-        <span className="hidden shrink-0 rounded-full bg-mint px-2.5 py-1 text-[0.5625rem] font-semibold uppercase tracking-[0.14em] text-forest/70 sm:block">
+        <span className="hidden shrink-0 rounded-full bg-mint px-2.5 py-1 text-[0.5625rem] font-semibold uppercase tracking-[0.14em] text-forest sm:block">
           POPIA
         </span>
       </div>
@@ -174,7 +174,7 @@ export function EnquiryForm() {
         </Field>
 
         <fieldset>
-          <legend className="mb-1.5 block text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-forest/60">
+          <legend className="mb-1.5 block text-[0.625rem] font-semibold uppercase tracking-[0.14em] text-charcoal/45">
             How should we reach you? *
           </legend>
           <div className="flex flex-wrap gap-2" role="radiogroup" aria-label="Preferred contact method">
@@ -184,9 +184,9 @@ export function EnquiryForm() {
                 <label
                   key={method}
                   className={cn(
-                    "cursor-pointer rounded-full border px-3.5 py-1.5 text-[0.75rem] font-medium transition-colors duration-300",
+                    "cursor-pointer rounded-full border px-3.5 py-1.5 text-[0.6875rem] font-medium transition-colors duration-300",
                     selected
-                      ? "border-forest bg-forest text-ivory"
+                      ? "border-forest bg-forest text-white"
                       : "border-forest/15 text-charcoal/68 hover:border-forest/35 hover:text-forest",
                   )}
                 >
@@ -287,7 +287,7 @@ export function EnquiryForm() {
               onChange={(e) => update("consent", e.target.checked)}
               aria-invalid={Boolean(errors.consent)}
               aria-describedby={errors.consent ? "enq-consent-error" : undefined}
-              className="mt-0.5 h-4 w-4 shrink-0 rounded border-forest/30 accent-forest"
+              className="mt-0.5 h-4 w-4 shrink-0 rounded border-charcoal/30 accent-forest"
             />
             <span className="text-[0.75rem] leading-relaxed text-charcoal/68">
               I agree that the practice may use these details to respond to my
@@ -302,7 +302,7 @@ export function EnquiryForm() {
         </div>
 
         <p className="flex items-start gap-2 rounded-xl bg-ivory px-3 py-2.5 text-[0.6875rem] leading-relaxed text-charcoal/62">
-          <ShieldAlert className="mt-0.5 h-3 w-3 shrink-0 text-forest/62" aria-hidden="true" />
+          <ShieldAlert className="mt-0.5 h-3 w-3 shrink-0 text-forest/60" aria-hidden="true" />
           Submitting this form does not constitute a confirmed appointment, and
           it is not a channel for urgent or clinical questions.
         </p>
@@ -324,7 +324,7 @@ export function EnquiryForm() {
         <button
           type="submit"
           disabled={state === "sending"}
-          className="btn btn-primary group w-full disabled:cursor-not-allowed disabled:opacity-70"
+          className="btn btn-forest group w-full justify-between disabled:cursor-not-allowed disabled:opacity-70"
         >
           {state === "sending" ? (
             <>
@@ -359,7 +359,7 @@ function inputClass(hasError: boolean) {
     "transition-colors duration-300 focus:bg-white focus:outline-none",
     hasError
       ? "border-[#c98a7a] focus:border-[#a8543f]"
-      : "border-forest/12 focus:border-forest/45",
+      : "border-charcoal/10 focus:border-forest",
   );
 }
 
@@ -382,7 +382,7 @@ function Field({
     <div>
       <label
         htmlFor={htmlFor}
-        className="mb-1.5 block text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-forest/60"
+        className="mb-1.5 block text-[0.625rem] font-semibold uppercase tracking-[0.14em] text-charcoal/45"
       >
         {label} {required && "*"}
       </label>

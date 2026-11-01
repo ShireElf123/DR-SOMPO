@@ -1,29 +1,35 @@
-import { ticker } from "@/lib/practice";
+"use client";
+
+import { Marquee } from "@/components/ui/motion";
+
+const items = [
+  "Obstetrics & Gynaecology",
+  "English & French",
+  "Life Roseacres Hospital",
+  "Fertility & cervical health",
+  "011 842 7651",
+  "Primrose, Germiston",
+];
 
 /**
- * Announcement marquee — the slim, always-moving strip at the very top of the
- * page. Duplicated content plus a 50% translate keeps the loop seamless; the
- * animation pauses on hover and is disabled entirely under reduced motion.
+ * The slim gradient announcement bar. Pale lime to fern, dark green type,
+ * floaty rounded bar rather than a full-bleed strip — exactly the reference's
+ * opening gesture.
  */
 export function Ticker() {
-  const items = [...ticker, ...ticker];
-
   return (
-    <div className="relative overflow-hidden border-b border-forest/10 bg-forest text-ivory">
-      <div className="marquee-group relative flex overflow-hidden">
-        <div className="marquee-track flex shrink-0 items-center gap-10 whitespace-nowrap py-2.5 pr-10 motion-reduce:animate-none">
-          {items.map((item, i) => (
-            <span
-              key={i}
-              className="flex items-center gap-10 text-[0.6875rem] font-medium uppercase tracking-[0.16em] text-sage/85"
-            >
+    <div className="px-3 pt-3 sm:px-4">
+      <div className="mx-auto w-full max-w-[1180px] overflow-hidden rounded-lg bg-[linear-gradient(90deg,#d8f2a8,#cfe3a6_28%,#3f9a78)]">
+        <Marquee trackClassName="py-1.5 text-[11px] font-medium text-[#10382b]">
+          {items.map((item) => (
+            <span key={item} className="mx-6 inline-block">
               {item}
-              <span aria-hidden="true" className="text-gold/70">
-                &#10022;
+              <span aria-hidden="true" className="ml-6 opacity-50">
+                •
               </span>
             </span>
           ))}
-        </div>
+        </Marquee>
       </div>
     </div>
   );

@@ -1,74 +1,76 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
-import { Reveal, RevealGroup, RevealItem } from "@/components/ui/motion";
+import Image from "next/image";
+import { ScrollWords, WordsIn } from "@/components/ui/motion";
 import { journey } from "@/lib/practice";
 
 /**
- * Patient journey — three steps drawn as a single continuous line, the way a
- * Framer site would: numbers, a connecting rule, and quiet supporting detail.
+ * Patient journey — three bordered steps on a dotted rule, each with a portrait
+ * medallion. Hovering floods the card from the bottom with forest green, the
+ * reference's most tactile interaction.
  */
 export function Journey() {
   return (
-    <section id="journey" className="relative py-14 sm:py-16 lg:py-20" aria-labelledby="journey-heading">
+    <section id="journey" className="sec" aria-labelledby="journey-heading">
       <div className="shell">
-        <div className="overflow-hidden rounded-[2rem] bg-sage/55 px-6 py-12 sm:px-10 sm:py-14 lg:px-14">
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <Reveal>
-                <span className="eyebrow border-forest/12 bg-white/60">How it works</span>
-              </Reveal>
-              <Reveal delay={0.06}>
-                <h2
-                  id="journey-heading"
-                  className="display mt-4 max-w-lg text-[clamp(1.75rem,3.4vw,2.5rem)] text-forest"
-                >
-                  From first enquiry to{" "}
-                  <span className="serif-accent">follow-up care.</span>
-                </h2>
-              </Reveal>
-            </div>
-            <Reveal delay={0.12}>
-              <a
-                href="#contact"
-                className="group inline-flex items-center gap-2 whitespace-nowrap text-[0.8125rem] font-medium text-forest"
-              >
-                Start with an enquiry
-                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-forest text-ivory transition-transform duration-500 group-hover:rotate-45">
-                  <ArrowUpRight className="h-3.5 w-3.5" />
-                </span>
-              </a>
-            </Reveal>
-          </div>
+        <ScrollWords
+          text="Your path to care — three simple steps, from the first phone call to follow-up."
+          avatars={[4]}
+          className="mx-auto mb-10 max-w-[38rem] text-center text-[clamp(1.15rem,2.2vw,1.4rem)] leading-[1.35] tracking-[-0.02em]"
+        />
 
-          <RevealGroup className="mt-11 grid gap-6 sm:grid-cols-3 sm:gap-8" stagger={0.12}>
-            {journey.map((step, i) => (
-              <RevealItem key={step.step}>
-                <div className="relative">
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full border border-forest/20 bg-white/70 text-[0.6875rem] font-semibold tabular-nums text-forest">
-                      {step.step}
+        <h2 id="journey-heading" className="sr-only">
+          <WordsIn text="How it works" />
+        </h2>
+
+        <div className="relative mx-auto max-w-4xl">
+          <span
+            aria-hidden="true"
+            className="absolute left-[14%] right-[14%] top-[13px] hidden border-t border-dotted border-charcoal/25 sm:block"
+          />
+
+          <div className="grid gap-3.5 sm:grid-cols-3">
+            {journey.map((step) => (
+              <div key={step.step} className="relative text-center">
+                <span className="relative mx-auto mb-4 flex h-7 w-7 items-center justify-center rounded-full bg-mint text-[10.5px] font-medium text-forest ring-4 ring-white">
+                  {step.step}
+                </span>
+
+                <div className="group relative overflow-hidden rounded-xl border border-charcoal/10 px-4 pb-6 pt-5 transition-colors duration-500 hover:border-forest">
+                  <span
+                    aria-hidden="true"
+                    className="absolute left-1/2 top-full h-0 w-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-forest transition-all duration-700 ease-[cubic-bezier(.6,0,.2,1)] group-hover:h-[300%] group-hover:w-[300%]"
+                  />
+
+                  <div className="relative">
+                    <span className="relative mx-auto mb-3 block h-[4.5rem] w-[4.5rem] rounded-full border border-charcoal/25 p-1 transition-colors duration-500 group-hover:border-white/40">
+                      <span className="relative block h-full w-full overflow-hidden rounded-full">
+                        <Image
+                          src={
+                            step.step === "01"
+                              ? "/images/consultation.jpg"
+                              : step.step === "02"
+                                ? "/images/portrait-somp.jpg"
+                                : "/images/patient-quiet.jpg"
+                          }
+                          alt=""
+                          fill
+                          sizes="72px"
+                          className="object-cover"
+                        />
+                      </span>
                     </span>
-                    {i < journey.length - 1 && (
-                      <span
-                        aria-hidden="true"
-                        className="hidden h-px flex-1 bg-gradient-to-r from-forest/25 to-forest/5 sm:block"
-                      />
-                    )}
+                    <h3 className="text-[13.5px] font-medium tracking-[-0.01em] transition-colors duration-500 group-hover:text-white">
+                      {step.title}
+                    </h3>
+                    <p className="mt-1.5 text-[12px] leading-relaxed text-charcoal/55 transition-colors duration-500 group-hover:text-white/75">
+                      {step.body}
+                    </p>
                   </div>
-                  <h3 className="mt-5 text-[1.0625rem] font-medium tracking-[-0.02em] text-forest">
-                    {step.title}
-                  </h3>
-                  <p className="mt-2 text-[0.8125rem] leading-relaxed text-charcoal/68">
-                    {step.body}
-                  </p>
-                  <p className="mt-4 text-[0.625rem] font-medium uppercase tracking-[0.14em] text-forest/56">
-                    {step.meta}
-                  </p>
                 </div>
-              </RevealItem>
+              </div>
             ))}
-          </RevealGroup>
+          </div>
         </div>
       </div>
     </section>

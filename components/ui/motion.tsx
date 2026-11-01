@@ -1,78 +1,76 @@
 "use client";
 
 import { motion, useReducedMotion, type Variants } from "framer-motion";
-import type { ElementType, ReactNode } from "react";
+import { useEffect, useRef, useState, type ElementType, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
-/**
- * Default entrance: a short, soft rise. Deliberately restrained — the premium
- * feel comes from timing and typography, not from large movements.
- */
+/* -------------------------------------------------------------------------- */
+/* Entrance                                                                    */
+/* -------------------------------------------------------------------------- */
+
 export function Reveal({
   children,
   delay = 0,
-  y = 22,
+  y = 24,
+  x = 0,
   once = true,
   className,
   as = "div",
-  amount = 0.35,
+  amount = 0.3,
 }: {
   children: ReactNode;
   delay?: number;
   y?: number;
+  x?: number;
   once?: boolean;
   className?: string;
   as?: ElementType;
   amount?: number;
 }) {
   const reduce = useReducedMotion();
-  const MotionTag = motion[as as keyof typeof motion] as typeof motion.div;
+  const Tag = motion[as as keyof typeof motion] as typeof motion.div;
 
   if (reduce) return <div className={className}>{children}</div>;
 
   return (
-    <MotionTag
+    <Tag
       className={className}
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y, x }}
+      whileInView={{ opacity: 1, y: 0, x: 0 }}
       viewport={{ once, amount }}
-      transition={{ duration: 0.85, delay, ease: EASE }}
+      transition={{ duration: 1, delay, ease: EASE }}
     >
       {children}
-    </MotionTag>
+    </Tag>
   );
 }
 
-/** Staggered container — children use <RevealItem>. */
 export function RevealGroup({
   children,
   className,
-  stagger = 0.08,
+  stagger = 0.09,
   delay = 0,
-  amount = 0.2,
-  as = "div",
+  amount = 0.15,
 }: {
   children: ReactNode;
   className?: string;
   stagger?: number;
   delay?: number;
   amount?: number;
-  as?: ElementType;
 }) {
   const reduce = useReducedMotion();
-  const MotionTag = motion[as as keyof typeof motion] as typeof motion.div;
+
+  if (reduce) return <div className={className}>{children}</div>;
 
   const variants: Variants = {
     hidden: {},
     show: { transition: { staggerChildren: stagger, delayChildren: delay } },
   };
 
-  if (reduce) return <div className={className}>{children}</div>;
-
   return (
-    <MotionTag
+    <motion.div
       className={className}
       variants={variants}
       initial="hidden"
@@ -80,111 +78,198 @@ export function RevealGroup({
       viewport={{ once: true, amount }}
     >
       {children}
-    </MotionTag>
+    </motion.div>
   );
 }
 
 export function RevealItem({
   children,
   className,
-  y = 24,
-  as = "div",
+  y = 26,
+  x = 0,
+  scale = 1,
 }: {
   children: ReactNode;
   className?: string;
   y?: number;
-  as?: ElementType;
+  x?: number;
+  scale?: number;
 }) {
   const reduce = useReducedMotion();
-  const MotionTag = motion[as as keyof typeof motion] as typeof motion.div;
-
-  const variants: Variants = {
-    hidden: { opacity: 0, y },
-    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: EASE } },
-  };
 
   if (reduce) return <div className={className}>{children}</div>;
 
+  const variants: Variants = {
+    hidden: { opacity: 0, y, x, scale },
+    show: { opacity: 1, y: 0, x: 0, scale: 1, transition: { duration: 1, ease: EASE } },
+  };
+
   return (
-    <MotionTag className={className} variants={variants}>
+    <motion.div className={className} variants={variants}>
       {children}
-    </MotionTag>
+    </motion.div>
   );
 }
 
+/* -------------------------------------------------------------------------- */
+/* Headlines                                                                   */
+/* -------------------------------------------------------------------------- */
+
 /**
- * Headline treatment used across the site: each word rises out of its own
- * baseline mask. Falls back to plain text when motion is reduced.
+ * Masked word-by-word headline rise — each word travels up out of its own
+ * baseline. This is the reference's hero treatment and it is used on every
+ * major heading so the page has one consistent voice.
  */
 export function WordsIn({
   text,
   className,
   delay = 0,
-  stagger = 0.055,
+  stagger = 0.06,
   once = true,
-  as = "span",
+  amount = 0.4,
+  gray = false,
 }: {
   text: string;
   className?: string;
   delay?: number;
   stagger?: number;
   once?: boolean;
-  as?: ElementType;
+  amount?: number;
+  /** Render this line in the softer tint used for the middle hero line. */
+  gray?: boolean;
 }) {
   const reduce = useReducedMotion();
   const words = text.split(" ");
+  const lineClass = cn("inline", gray && "text-white/70", className);
 
-  if (reduce) return <span className={className}>{text}</span>;
-
-  const Tag = as;
+  if (reduce) return <span className={lineClass}>{text}</span>;
 
   return (
-    <Tag className={cn("inline", className)}>
+    <span className={lineClass}>
       {words.map((word, i) => (
         <span
           key={`${word}-${i}`}
-          className="inline-block overflow-hidden align-bottom pb-[0.12em] -mb-[0.12em]"
+          className="inline-block overflow-hidden align-bottom pb-[0.14em] -mb-[0.14em]"
         >
           <motion.span
             className="inline-block will-change-transform"
-            initial={{ y: "110%", opacity: 0 }}
-            whileInView={{ y: "0%", opacity: 1 }}
-            viewport={{ once, amount: 0.5 }}
-            transition={{
-              duration: 0.9,
-              delay: delay + i * stagger,
-              ease: EASE,
-            }}
+            initial={{ y: "112%" }}
+            whileInView={{ y: "0%" }}
+            viewport={{ once, amount }}
+            transition={{ duration: 1, delay: delay + i * stagger, ease: EASE }}
           >
             {word}
             {i < words.length - 1 ? "\u00A0" : ""}
           </motion.span>
         </span>
       ))}
-    </Tag>
+    </span>
   );
 }
 
-/** Soft parallax on scroll — used sparingly on hero and feature imagery. */
-export function FadeUp({
+/**
+ * Scroll-lit sentence: muted words warm to full ink as the block scrolls
+ * through the viewport. The reference's most distinctive reading moment.
+ */
+export function ScrollWords({
+  text,
+  className,
+  avatars = [],
+}: {
+  text: string;
+  className?: string;
+  /** Word indices that should render a soft avatar dot before them. */
+  avatars?: number[];
+}) {
+  const ref = useRef<HTMLParagraphElement>(null);
+  const [progress, setProgress] = useState(0);
+  const reduce = useReducedMotion();
+  const words = text.split(" ");
+
+  useEffect(() => {
+    if (reduce) {
+      setProgress(1);
+      return;
+    }
+
+    let frame = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const el = ref.current;
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const start = window.innerHeight * 0.92;
+        const span = window.innerHeight * 0.5;
+        const raw = (start - rect.top) / span;
+        setProgress(Math.min(Math.max(raw, 0), 1));
+      });
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [reduce]);
+
+  return (
+    <p ref={ref} className={className}>
+      {words.map((word, i) => {
+        const on = i / words.length < progress;
+        return (
+          <span key={`${word}-${i}`}>
+            {avatars.includes(i) && (
+              <span
+                aria-hidden="true"
+                className="mr-1 inline-block h-[1.05em] w-[1.05em] translate-y-[0.12em] rounded-full bg-gradient-to-br from-clay to-mint align-baseline ring-2 ring-white/70"
+              />
+            )}
+            <span
+              className={cn(
+                "transition-colors duration-300",
+                on ? "text-charcoal" : "text-[#b9bdbb]",
+              )}
+            >
+              {word}
+            </span>{" "}
+          </span>
+        );
+      })}
+    </p>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/* Marquee                                                                     */
+/* -------------------------------------------------------------------------- */
+
+export function Marquee({
   children,
   className,
-  delay = 0,
+  trackClassName,
+  slow = false,
 }: {
   children: ReactNode;
   className?: string;
-  delay?: number;
+  trackClassName?: string;
+  slow?: boolean;
 }) {
-  const reduce = useReducedMotion();
-  if (reduce) return <div className={className}>{children}</div>;
   return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, delay, ease: EASE }}
-    >
-      {children}
-    </motion.div>
+    <div className={cn("marquee-group overflow-hidden", className)}>
+      <div
+        className={cn(
+          "marquee-track whitespace-nowrap",
+          slow && "marquee-slow",
+          trackClassName,
+        )}
+      >
+        {children}
+        {children}
+      </div>
+    </div>
   );
 }
