@@ -200,7 +200,7 @@ export function SplitHero({
                 {chips.map((chip) => (
                   <span
                     key={chip}
-                    className="rounded-full bg-white px-2.5 py-1 text-[10.5px] font-medium text-forest ring-1 ring-charcoal/8"
+                    className="rounded-full bg-white px-2.5 py-1 text-[10.5px] font-medium text-forest border-hairline border-charcoal/8"
                   >
                     {chip}
                   </span>

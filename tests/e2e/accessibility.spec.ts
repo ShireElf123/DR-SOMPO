@@ -8,6 +8,7 @@ const routes = [
   "/research",
   "/patient-info",
   "/contact",
+  "/this-page-does-not-exist",
   ...[
     "antenatal",
     "delivery",

@@ -162,7 +162,7 @@ export default function AboutPage() {
                     </div>
                   </div>
                 </Panel>
-                <div className="absolute -bottom-5 -left-2 hidden rounded-2xl bg-white px-4 py-3 shadow-[0_24px_50px_-30px_rgba(0,0,0,0.5)] ring-1 ring-charcoal/8 sm:block">
+                <div className="absolute -bottom-5 -left-2 hidden rounded-2xl bg-white px-4 py-3 shadow-float border-hairline border-charcoal/8 sm:block">
                   <p className="text-[9.5px] uppercase tracking-[0.14em] text-ink-muted">
                     Consulting
                   </p>
@@ -215,7 +215,7 @@ export default function AboutPage() {
             <RevealGroup className="grid gap-3 sm:grid-cols-2" stagger={0.07}>
               {credentials.map((credential, i) => (
                 <RevealItem key={credential.code}>
-                  <div className="group relative h-full overflow-hidden rounded-[1.25rem] bg-white p-5 ring-1 ring-charcoal/8 transition-colors duration-500 hover:ring-forest/25">
+                  <div className="group relative h-full overflow-hidden rounded-[1.25rem] bg-white p-5 border-hairline border-charcoal/8 hover:border-forest/25">
                     <span
                       aria-hidden="true"
                       className="absolute -right-6 -top-6 grid h-20 w-20 place-items-center rounded-full bg-mint text-[26px] font-light text-forest transition-transform duration-700 group-hover:scale-110"
@@ -238,7 +238,7 @@ export default function AboutPage() {
                       {credential.institution}
                     </p>
                     {credential.note && (
-                      <p className="relative mt-3 border-t border-charcoal/8 pt-2.5 text-[10.5px] leading-relaxed text-ink-soft">
+                      <p className="relative mt-3 border-t-hairline border-charcoal/8 pt-2.5 text-[10.5px] leading-relaxed text-ink-soft">
                         {credential.note}
                       </p>
                     )}
@@ -279,7 +279,7 @@ export default function AboutPage() {
 
             <div>
               <RevealGroup
-                className="divide-y divide-charcoal/8 border-y border-charcoal/8"
+                className="divide-y-hairline divide-charcoal/8 border-y-hairline border-charcoal/8"
                 stagger={0.05}
               >
                 {affiliations.map((affiliation) => (
@@ -339,7 +339,7 @@ export default function AboutPage() {
           <div className="mt-8 grid gap-3.5 sm:grid-cols-3">
             {values.map((value, i) => (
               <Reveal key={value.title} delay={i * 0.08} y={20}>
-                <div className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] bg-white ring-1 ring-charcoal/8">
+                <div className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] bg-white border-hairline border-charcoal/8">
                   <div className="relative aspect-[4/3] overflow-hidden bg-sage">
                     <Image
                       src={value.image}

@@ -131,8 +131,8 @@ export function ConditionsTreated() {
                 animate={reduce ? undefined : { opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.04, ease: [0.16, 1, 0.3, 1] }}
                 className={cn(
-                  "flex flex-col overflow-hidden rounded-[1.35rem] bg-white ring-1 ring-charcoal/8",
-                  isFiltering && "ring-forest/20",
+                  "flex flex-col overflow-hidden rounded-[1.35rem] bg-white border-hairline border-charcoal/8",
+                  isFiltering && "border-forest/20",
                 )}
               >
                 {/* Photography first — the plate carries the stage of life, not
@@ -176,7 +176,7 @@ export function ConditionsTreated() {
 
                   <Link
                     href={`/services/${group.serviceId}`}
-                    className="group mt-4 inline-flex items-center gap-1.5 border-t border-charcoal/8 pt-2.5 text-[10.5px] font-medium text-forest"
+                    className="group mt-4 inline-flex items-center gap-1.5 border-t-hairline border-charcoal/8 pt-2.5 text-[10.5px] font-medium text-forest"
                   >
                     How this is handled
                     <ArrowUpRight className="h-2.5 w-2.5 transition-transform duration-500 group-hover:rotate-45" />
@@ -188,7 +188,7 @@ export function ConditionsTreated() {
         </div>
 
         {filtered.length === 0 && (
-          <div className="mt-8 rounded-[1.35rem] bg-white p-6 ring-1 ring-charcoal/8">
+          <div className="mt-8 rounded-[1.35rem] bg-white p-6 border-hairline border-charcoal/8">
             <p className="text-[13px] leading-relaxed text-ink-soft">
               This list covers the conditions the practice is most often asked
               about, not every condition it can assess. If you cannot find what you

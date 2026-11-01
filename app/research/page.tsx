@@ -33,7 +33,7 @@ export default function ResearchPage() {
           <div className="grid gap-9 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
             <div>
               <Reveal>
-                <figure className="rounded-[1.35rem] border border-charcoal/10 bg-white p-6 shadow-[0_28px_60px_-52px_rgba(23,77,60,0.5)] sm:p-7">
+                <figure className="rounded-[1.35rem] border-hairline border-charcoal/10 bg-white p-6 shadow-soft sm:p-7">
                   <div className="flex items-center gap-2 text-ink-soft">
                     <BookOpen className="h-4 w-4" aria-hidden="true" />
                     <span className="text-[10px] font-semibold uppercase tracking-[0.16em]">
@@ -45,7 +45,7 @@ export default function ResearchPage() {
                     {research.title}
                   </blockquote>
 
-                  <dl className="mt-5 grid gap-x-6 gap-y-3 border-t border-charcoal/8 pt-4 sm:grid-cols-2">
+                  <dl className="mt-5 grid gap-x-6 gap-y-3 border-t-hairline border-charcoal/8 pt-4 sm:grid-cols-2">
                     {[
                       { k: "Author", v: research.author },
                       { k: "Degree", v: research.degree },
@@ -78,7 +78,7 @@ export default function ResearchPage() {
                     {research.presentations.map((item) => (
                       <li
                         key={item.label}
-                        className="flex items-start justify-between gap-2 rounded-xl border border-charcoal/8 bg-white px-3 py-2"
+                        className="flex items-start justify-between gap-2 rounded-xl border-hairline border-charcoal/8 bg-white px-3 py-2"
                       >
                         <div>
                           <p className="text-[11.5px] font-medium leading-snug text-charcoal">
@@ -139,7 +139,7 @@ export default function ResearchPage() {
                     {research.presentations.map((item) => (
                       <li
                         key={item.label}
-                        className="flex items-center justify-between gap-3 border-t border-white/12 pt-2 first:border-0 first:pt-0"
+                        className="flex items-center justify-between gap-3 border-t-hairline border-white/12 pt-2 first:border-0 first:pt-0"
                       >
                         <span className="text-[12px] font-medium text-white">{item.label}</span>
                         <span className="text-[9.5px] uppercase tracking-[0.12em] text-white/70">
@@ -172,7 +172,7 @@ export default function ResearchPage() {
           <div className="mt-8 grid gap-3.5 sm:grid-cols-3">
             {research.context.map((item, i) => (
               <Reveal key={item.title} delay={i * 0.07}>
-                <div className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] bg-white ring-1 ring-charcoal/8 transition-shadow duration-500 hover:shadow-[0_28px_60px_-44px_rgba(23,77,60,0.45)]">
+                <div className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] bg-white border-hairline border-charcoal/8 hover:shadow-lift">
                   <div className="relative aspect-[16/9] overflow-hidden bg-sage">
                     <Image
                       src={

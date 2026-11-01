@@ -63,7 +63,7 @@ export default function PatientInfoPage() {
           <div className="mt-8 grid gap-3.5 sm:grid-cols-3">
             {journey.map((step, i) => (
               <Reveal key={step.step} delay={i * 0.08}>
-                <div className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] bg-white ring-1 ring-charcoal/8">
+                <div className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] bg-white border-hairline border-charcoal/8">
                   <div className="relative aspect-[4/3] overflow-hidden bg-sage">
                     <Image
                       src={

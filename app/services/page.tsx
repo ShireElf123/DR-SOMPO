@@ -111,7 +111,7 @@ export default function ServicesPage() {
                   {serviceGroups.map((group, i) => (
                     <div
                       key={group.id}
-                      className="rounded-xl border border-white/15 bg-white/8 p-3 backdrop-blur-sm"
+                      className="rounded-xl border-hairline border-white/15 bg-white/8 p-3 backdrop-blur-sm"
                     >
                       <p className="text-[11.5px] font-medium leading-snug text-white">
                         {group.label}
@@ -174,7 +174,7 @@ export default function ServicesPage() {
                     <RevealGroup className="mt-6 space-y-4" stagger={0.07}>
                       {group.services.map((service) => (
                         <RevealItem key={service.id}>
-                          <div className="group border-t border-charcoal/10 pt-3.5">
+                          <div className="group border-t-hairline border-charcoal/10 pt-3.5">
                             <Link
                               href={`/services/${service.id}`}
                               data-cursor="Open"
@@ -257,7 +257,7 @@ export default function ServicesPage() {
               },
             ].map((step, i) => (
               <Reveal key={step.label} delay={i * 0.08} y={20}>
-                <div className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] bg-white ring-1 ring-charcoal/8 transition-shadow duration-500 hover:shadow-[0_28px_60px_-40px_rgba(23,77,60,0.45)]">
+                <div className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] bg-white border-hairline border-charcoal/8 hover:shadow-lift">
                   <div className="relative aspect-[4/3] overflow-hidden bg-sage">
                     <Image
                       src={step.image}

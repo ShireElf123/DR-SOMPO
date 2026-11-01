@@ -4,7 +4,7 @@ import { lazy, Suspense, useSyncExternalStore } from "react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 
 const Companion = lazy(() => import("./cursor-companion"));
-const query = "(pointer: fine)";
+const query = "(min-width: 1024px) and (hover: hover) and (pointer: fine) and (not (any-pointer: coarse))";
 const snapshot = () => window.matchMedia(query).matches;
 const serverSnapshot = () => false;
 function subscribe(listener: () => void) {

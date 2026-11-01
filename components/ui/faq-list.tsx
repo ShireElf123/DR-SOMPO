@@ -11,9 +11,9 @@ export function FaqList({
   openFirst?: boolean;
 }) {
   return (
-    <ul className="border-t border-charcoal/12" data-faq-list>
+    <ul className="border-t-hairline border-charcoal/12" data-faq-list>
       {items.map((faq, index) => (
-        <li key={faq.q} className="border-b border-charcoal/12">
+        <li key={faq.q} className="border-b-hairline border-charcoal/12">
           <details className="group" open={openFirst && index === 0}>
             <summary
               id={`${prefix}-${index}`}

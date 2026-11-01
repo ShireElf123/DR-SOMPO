@@ -60,10 +60,6 @@ export function Hero() {
           />
           <div
             aria-hidden="true"
-            className="noise-soft pointer-events-none absolute inset-0 opacity-40"
-          />
-          <div
-            aria-hidden="true"
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_35%,rgba(255,255,255,0.3),transparent_45%)]"
           />
           <div
@@ -89,7 +85,7 @@ export function Hero() {
                   sizes="(max-width: 639px) 100vw, (max-width: 1023px) 52vw, (max-width: 1279px) 46vw, 544px"
                   className="object-cover object-[62%_18%] sm:object-[center_16%]"
                 />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,42,32,0.62)_0%,rgba(10,42,32,0.35)_45%,rgba(10,42,32,0.78)_100%)] sm:hidden" />
+                <div className="absolute inset-0 hero-photo-scrim sm:hidden" />
                 <div className="absolute inset-0 hidden bg-gradient-to-r from-mist/40 via-transparent to-transparent sm:block" />
                 <div className="absolute inset-0 hidden bg-gradient-to-t from-forest/45 via-transparent to-transparent sm:block" />
               </div>
@@ -100,7 +96,7 @@ export function Hero() {
           {/* Copy */}
           <m.div
             style={desktopMotion ? { y: copyY } : undefined}
-            className="relative z-10 max-w-[42rem] px-6 pb-14 pt-16 text-white sm:px-10 sm:pb-20 sm:pt-20 lg:px-14 lg:pb-24 lg:pt-24"
+            className="relative z-10 max-w-[42rem] px-6 pb-24 pt-16 text-white sm:px-10 sm:pb-20 sm:pt-20 lg:px-14 lg:pb-24 lg:pt-24"
           >
             <span
               data-hero-arrival="label"
@@ -180,7 +176,7 @@ export function Hero() {
             href={practice.phoneHref}
             data-hero-call
             style={desktopMotion ? { y: chipY } : undefined}
-            className="group absolute bottom-4 right-4 z-20 flex items-center gap-2.5 rounded-2xl bg-white p-2 pr-4 text-charcoal shadow-[0_18px_40px_-22px_rgba(0,0,0,0.45)] transition-transform duration-500 hover:-translate-y-1 sm:bottom-6 sm:right-6"
+            className="group absolute bottom-4 right-4 z-20 flex items-center gap-2.5 rounded-2xl bg-white p-2 pr-4 text-charcoal shadow-float transition-transform duration-500 hover:-translate-y-1 sm:bottom-6 sm:right-6"
           >
             <span className="relative h-11 w-11 overflow-hidden rounded-xl bg-mist">
               <Image

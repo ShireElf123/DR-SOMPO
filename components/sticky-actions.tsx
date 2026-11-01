@@ -39,7 +39,7 @@ export function StickyActions() {
               animate={reduce ? undefined : { y: 0 }}
               exit={reduce ? undefined : { y: 80 }}
               transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-              className="mx-3 mb-[calc(0.75rem+env(safe-area-inset-bottom))] flex items-center gap-1.5 rounded-full border border-charcoal/10 bg-white/92 p-1.5 shadow-[0_-8px_40px_-20px_rgba(0,0,0,0.35)] backdrop-blur-xl"
+              className="mx-3 mb-[calc(0.75rem+env(safe-area-inset-bottom))] flex items-center gap-1.5 rounded-full border border-charcoal/10 bg-white/92 p-1.5 shadow-float backdrop-blur-xl"
             >
               <a
                 href={practice.phoneHref}
@@ -90,7 +90,7 @@ export function StickyActions() {
               window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" })
             }
             aria-label="Back to top"
-            className="fixed bottom-6 right-6 z-40 hidden h-11 w-11 items-center justify-center rounded-full border border-charcoal/10 bg-white/90 text-charcoal shadow-[0_16px_40px_-20px_rgba(0,0,0,0.4)] backdrop-blur-xl transition-colors hover:bg-white lg:flex"
+            className="fixed bottom-6 right-6 z-40 hidden h-11 w-11 items-center justify-center rounded-full border border-charcoal/10 bg-white/90 text-charcoal shadow-float backdrop-blur-xl transition-colors hover:bg-white lg:flex"
           >
             <ArrowUp className="h-4 w-4" aria-hidden="true" />
           </m.button>

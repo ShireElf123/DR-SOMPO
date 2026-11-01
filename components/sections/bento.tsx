@@ -122,7 +122,7 @@ export function BentoBand() {
 
           {/* 3 — languages + hospital, compact */}
           <Reveal y={22} delay={0.1}>
-            <div className="flex h-full flex-col justify-between rounded-[1.35rem] bg-white p-4 ring-1 ring-charcoal/8">
+            <div className="flex h-full flex-col justify-between rounded-[1.35rem] bg-white p-4 border-hairline border-charcoal/8">
               <LanguageIcon className="h-4 w-4 text-forest/70" aria-hidden="true" />
               <div>
                 <p className="text-[1.6rem] font-light leading-none tracking-[-0.03em] text-forest">
@@ -140,7 +140,7 @@ export function BentoBand() {
             <Link
               href="/contact"
               data-cursor="Book"
-              className="group flex h-full flex-col justify-between rounded-[1.35rem] bg-mint p-4 ring-1 ring-forest/10 transition-shadow duration-500 hover:shadow-[0_24px_50px_-38px_rgba(23,77,60,0.5)]"
+              className="group flex h-full flex-col justify-between rounded-[1.35rem] bg-mint p-4 border-hairline border-forest/10 hover:shadow-lift"
             >
               <CalendarCheck className="h-4 w-4 text-forest" aria-hidden="true" />
               <div>
@@ -197,7 +197,7 @@ export function BentoBand() {
           <Reveal y={22} delay={0.22}>
             <Link
               href="/patient-info"
-              className="group flex h-full flex-col justify-between rounded-[1.35rem] bg-white p-4 ring-1 ring-charcoal/8"
+              className="group flex h-full flex-col justify-between rounded-[1.35rem] bg-white p-4 border-hairline border-charcoal/8"
             >
               <ShieldCheck className="h-4 w-4 text-forest/70" aria-hidden="true" />
               <div>

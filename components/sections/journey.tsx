@@ -30,7 +30,7 @@ export function Journey() {
                   tabIndex={0}
                   aria-labelledby={`journey-title-${step.step}`}
                   aria-describedby={`journey-body-${step.step} journey-meta-${step.step}`}
-                  className="journey-card flex h-full flex-col overflow-hidden rounded-[1.25rem] border border-charcoal/10 bg-white"
+                  className="journey-card flex h-full flex-col overflow-hidden rounded-[1.25rem] border-hairline border-charcoal/10 bg-white"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden bg-sage">
                     <Image

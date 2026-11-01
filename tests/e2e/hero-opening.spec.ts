@@ -51,15 +51,20 @@ async function observeOpening(page: Page) {
             start = arrival.startTime;
             alignedToPaint = true;
           }
-          const targets = ['a[href="/contact"]', "[data-hero-call]"].map((selector) => {
+          const targets = ['a[href="/contact"]', 'a[href="/about"]', "[data-hero-call]"].map((selector) => {
             const element = root.querySelector<HTMLAnchorElement>(selector)!;
             const rect = element.getBoundingClientRect();
             let opacity = 1;
             for (let node: Element | null = element; node; node = node.parentElement) {
               opacity *= Number(getComputedStyle(node).opacity);
             }
-            const hit = document.elementFromPoint(rect.x + rect.width / 2, rect.y + rect.height / 2);
-            return { name: selector, opacity, hit: !!hit && element.contains(hit), x: rect.x, y: rect.y, width: rect.width, height: rect.height };
+            // Check the label and all four inset corners, including the arrow.
+            // A floating call chip must not partly cover the secondary action.
+            const hit = [[rect.width / 2, rect.height / 2], [10, 10], [rect.width - 10, 10], [10, rect.height - 10], [rect.width - 10, rect.height - 10]].every(([x, y]) => {
+              const target = document.elementFromPoint(rect.x + x, rect.y + y);
+              return !!target && element.contains(target);
+            });
+            return { name: selector, opacity, hit, x: rect.x, y: rect.y, width: rect.width, height: rect.height };
           });
           const settled = [...root.querySelectorAll("[data-hero-arrival]")].every((element) => {
             const style = getComputedStyle(element);

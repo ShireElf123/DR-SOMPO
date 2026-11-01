@@ -1,0 +1,98 @@
+[
+  {
+    "test": "hero settles without moving or hiding actions: no-preference",
+    "profile": "1440×1200 desktop",
+    "sampledFrames": 21,
+    "firstSettledTimeMs": 1416.6410000014525,
+    "finalStateFrom1500Ms": true,
+    "allFramesFinal": false,
+    "cls": 0,
+    "targets": [
+      {
+        "name": "a[href=\"/contact\"]",
+        "minOpacity": 0.96,
+        "allFiveHitPointsPass": true,
+        "maxGeometryDelta": 0
+      },
+      {
+        "name": "a[href=\"/about\"]",
+        "minOpacity": 0.96,
+        "allFiveHitPointsPass": true,
+        "maxGeometryDelta": 0.0
+      },
+      {
+        "name": "[data-hero-call]",
+        "minOpacity": 1,
+        "allFiveHitPointsPass": true,
+        "maxGeometryDelta": 0
+      }
+    ],
+    "imageWidthDelta": 0.0,
+    "imageHeightDelta": 0.0,
+    "errors": []
+  },
+  {
+    "test": "hero settles without moving or hiding actions: reduce",
+    "profile": "1440×1200 desktop",
+    "sampledFrames": 67,
+    "firstSettledTimeMs": 0,
+    "finalStateFrom1500Ms": true,
+    "allFramesFinal": true,
+    "cls": 0,
+    "targets": [
+      {
+        "name": "a[href=\"/contact\"]",
+        "minOpacity": 1,
+        "allFiveHitPointsPass": true,
+        "maxGeometryDelta": 0
+      },
+      {
+        "name": "a[href=\"/about\"]",
+        "minOpacity": 1,
+        "allFiveHitPointsPass": true,
+        "maxGeometryDelta": 0.0
+      },
+      {
+        "name": "[data-hero-call]",
+        "minOpacity": 1,
+        "allFiveHitPointsPass": true,
+        "maxGeometryDelta": 0
+      }
+    ],
+    "imageWidthDelta": 0.0,
+    "imageHeightDelta": 0.0,
+    "errors": []
+  },
+  {
+    "test": "cold mid-range mobile: no CLS, stationary portrait, actions available throughout",
+    "profile": "390×844 / DPR 2 / CPU 4× / 1.6Mbps down / 750Kbps up / 150ms RTT / cold cache",
+    "sampledFrames": 12,
+    "firstSettledTimeMs": 1549.9479999994337,
+    "finalStateFrom1500Ms": true,
+    "allFramesFinal": false,
+    "cls": 0,
+    "targets": [
+      {
+        "name": "a[href=\"/contact\"]",
+        "minOpacity": 0.96,
+        "allFiveHitPointsPass": true,
+        "maxGeometryDelta": 0
+      },
+      {
+        "name": "a[href=\"/about\"]",
+        "minOpacity": 0.96,
+        "allFiveHitPointsPass": true,
+        "maxGeometryDelta": 0
+      },
+      {
+        "name": "[data-hero-call]",
+        "minOpacity": 1,
+        "allFiveHitPointsPass": true,
+        "maxGeometryDelta": 0
+      }
+    ],
+    "imageWidthDelta": 0,
+    "imageHeightDelta": 0.0,
+    "errors": []
+  }
+]

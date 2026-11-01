@@ -37,7 +37,7 @@ export function AboutTeaser() {
                   ))}
                 </div>
               </div>
-              <div className="absolute -bottom-4 right-3 rounded-xl bg-white px-3.5 py-2.5 shadow-[0_18px_40px_-24px_rgba(0,0,0,0.45)] sm:-right-5">
+              <div className="absolute -bottom-4 right-3 rounded-xl bg-white px-3.5 py-2.5 shadow-float sm:-right-5">
                 <p className="text-[9.5px] uppercase tracking-[0.14em] text-ink-soft">
                   Consulting
                 </p>

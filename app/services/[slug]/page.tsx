@@ -111,7 +111,7 @@ export default async function ServiceDetailPage({ params }: Params) {
               <p className="text-[10px] uppercase tracking-[0.18em] text-ink-muted">
                 On this page
               </p>
-              <ul className="mt-3 space-y-2 border-l border-charcoal/12 pl-4">
+              <ul className="mt-3 space-y-2 border-l-hairline border-charcoal/12 pl-4">
                 {detail.sections.map((section, i) => (
                   <li key={section.heading}>
                     <a
@@ -160,7 +160,7 @@ export default async function ServiceDetailPage({ params }: Params) {
                 <article
                   key={section.heading}
                   id={`section-${i}`}
-                  className="scroll-mt-28 border-t border-charcoal/10 py-7 first:border-0 first:pt-0"
+                  className="scroll-mt-28 border-t-hairline border-charcoal/10 py-7 first:border-0 first:pt-0"
                 >
                   <div className="flex items-baseline gap-3">
                     <span className="text-[10px] tabular-nums text-ink-muted">0{i + 1}</span>
@@ -190,7 +190,7 @@ export default async function ServiceDetailPage({ params }: Params) {
                             ? "bg-mint"
                             : phase.tone === "sage"
                               ? "bg-sage"
-                              : "bg-ivory ring-1 ring-charcoal/8"
+                              : "bg-ivory border-hairline border-charcoal/8"
                         }`}
                       >
                         <p className="text-[9.5px] uppercase tracking-[0.16em] text-ink-muted">
@@ -230,9 +230,9 @@ export default async function ServiceDetailPage({ params }: Params) {
               muted="ask about this."
               intro="Answered plainly. If your question is not here, ask it at the appointment — it is not an imposition."
             />
-            <dl className="border-t border-charcoal/12">
+            <dl className="border-t-hairline border-charcoal/12">
               {detail.questions.map((item, i) => (
-                <Reveal key={item.q} delay={i * 0.05} y={14} className="border-b border-charcoal/12 py-4">
+                <Reveal key={item.q} delay={i * 0.05} y={14} className="border-b-hairline border-charcoal/12 py-4">
                     <dt className="text-[14px] font-medium tracking-[-0.01em] text-charcoal">
                       {item.q}
                     </dt>
@@ -266,7 +266,7 @@ export default async function ServiceDetailPage({ params }: Params) {
                   <Link
                     href={`/services/${relService.id}`}
                     data-cursor="Open"
-                    className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] bg-white ring-1 ring-charcoal/8 transition-shadow duration-500 hover:shadow-[0_30px_60px_-44px_rgba(23,77,60,0.5)]"
+                    className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] bg-white border-hairline border-charcoal/8 hover:shadow-lift"
                   >
                     <div className="relative aspect-[16/9] overflow-hidden bg-sage">
                       <Image

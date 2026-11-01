@@ -226,7 +226,7 @@ export function Navbar() {
                   transition={{ duration: 0.5, ease: EASE }}
                   className="absolute inset-x-0 bottom-0 flex max-h-[92dvh] flex-col overflow-hidden rounded-t-[1.75rem] bg-white"
                 >
-                  <div className="flex items-center justify-between border-b border-charcoal/8 px-5 py-4">
+                  <div className="flex items-center justify-between border-b-hairline border-charcoal/8 px-5 py-4">
                     <Wordmark onClick={() => setOpen(false)} compact />
                     <button
                       type="button"
@@ -248,7 +248,7 @@ export function Navbar() {
                             aria-current={active === item.href ? "page" : undefined}
                             onClick={() => setOpen(false)}
                             className={cn(
-                              "flex items-center justify-between border-b border-charcoal/8 py-3.5 text-[1.15rem] font-light tracking-[-0.02em]",
+                              "flex items-center justify-between border-b-hairline border-charcoal/8 py-3.5 text-[1.15rem] font-light tracking-[-0.02em]",
                               active === item.href
                                 ? "text-forest"
                                 : "text-charcoal",
@@ -273,7 +273,7 @@ export function Navbar() {
                     </ul>
                   </div>
 
-                  <div className="flex flex-col gap-2 border-t border-charcoal/8 px-5 pb-[calc(1rem+env(safe-area-inset-bottom))] pt-4">
+                  <div className="flex flex-col gap-2 border-t-hairline border-charcoal/8 px-5 pb-[calc(1rem+env(safe-area-inset-bottom))] pt-4">
                     <Link
                       href="/contact"
                       onClick={() => setOpen(false)}

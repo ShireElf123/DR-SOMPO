@@ -10,6 +10,16 @@ import { extendTailwindMerge } from "tailwind-merge";
  */
 const merge = extendTailwindMerge({
   extend: {
+    // Custom width utilities must not be mistaken for colours and discarded
+    // when a surface also supplies border-charcoal/8 (or a filtered colour).
+    classGroups: {
+      "border-w": ["border-hairline"],
+      "border-w-t": ["border-t-hairline"],
+      "border-w-b": ["border-b-hairline"],
+      "border-w-l": ["border-l-hairline"],
+      "border-w-y": ["border-y-hairline"],
+      "divide-y": ["divide-y-hairline"],
+    },
     theme: {
       color: [
         "forest",

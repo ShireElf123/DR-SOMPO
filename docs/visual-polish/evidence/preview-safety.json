@@ -1,0 +1,24 @@
+{
+  "previewPort": 3011,
+  "collectionEnabled": false,
+  "iframeReadable": true,
+  "syntheticEnquiryStatus": 503,
+  "contact": [
+    {
+      "width": 390,
+      "status": 200,
+      "personalFields": 0,
+      "axeViolations": [],
+      "pageErrors": [],
+      "frameOptions": null
+    },
+    {
+      "width": 1440,
+      "status": 200,
+      "personalFields": 0,
+      "axeViolations": [],
+      "pageErrors": [],
+      "frameOptions": null
+    }
+  ]
+}

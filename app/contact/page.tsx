@@ -47,7 +47,7 @@ export default async function ContactPage({
             {/* Details */}
             <div className="min-w-0">
               <Reveal>
-                <div className="rounded-[1.35rem] bg-mint p-6 ring-1 ring-forest/8 sm:p-7">
+                <div className="rounded-[1.35rem] bg-mint p-6 border-hairline border-forest/8 sm:p-7">
                   <SectionHead tag="Reach the practice" title="Details" />
 
                   <address className="mt-4 not-italic text-[13.5px] leading-[1.75] text-ink-soft">

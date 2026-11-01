@@ -67,7 +67,7 @@ export function Plate({
       </div>
 
       {(meta || body) && (
-        <div className="mt-2 flex items-baseline justify-between gap-4 border-t border-charcoal/10 pt-2">
+        <div className="mt-2 flex items-baseline justify-between gap-4 border-t-hairline border-charcoal/10 pt-2">
           {body && (
             <p className="max-w-[22rem] text-[12px] leading-relaxed text-ink-soft">{body}</p>
           )}
@@ -104,7 +104,7 @@ export function Panel({
         tone === "sage" && "bg-sage",
         tone === "ivory" && "bg-ivory",
         tone === "forest" && "forest-gradient text-white",
-        tone === "outline" && "border border-charcoal/12 bg-white",
+        tone === "outline" && "border-hairline border-charcoal/12 bg-white",
         className,
       )}
     >

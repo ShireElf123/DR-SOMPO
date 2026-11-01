@@ -22,7 +22,7 @@ export default function HomePage() {
           the hero and the first card section. */}
       <section aria-label="Professional affiliations" className="bg-white py-6 sm:py-8">
         <div className="shell">
-          <div className="flex items-center gap-6 overflow-hidden border-y border-charcoal/10 py-3">
+          <div className="flex items-center gap-6 overflow-hidden border-y-hairline border-charcoal/10 py-3">
             <span className="hidden shrink-0 text-[9.5px] uppercase tracking-[0.18em] text-ink-muted sm:block">
               Registered &amp; affiliated
             </span>

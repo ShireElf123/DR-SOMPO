@@ -22,7 +22,7 @@ export function Footer() {
   return (
     <footer className="relative -mt-7 overflow-hidden rounded-t-[2.25rem] bg-forest text-white sm:rounded-t-[2.75rem]">
       {/* Rolling affiliations */}
-      <div className="border-y border-white/15 py-4 opacity-70">
+      <div className="border-y-hairline border-white/15 py-4 opacity-70">
         <Marquee label="Professional affiliations" trackClassName="text-[18px] font-semibold tracking-[-0.02em]">
           {press.map((item) => (
             <span key={item} className="mx-10 inline-block">
