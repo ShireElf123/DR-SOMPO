@@ -5,9 +5,10 @@ import { NextResponse } from "next/server";
  *
  * Privacy-by-design notes:
  *  - The form intentionally collects only what is needed to return a call:
- *    a name, one contact method, an optional preferred day-part, and an
- *    optional free-text note. The UI warns patients not to include clinical
- *    detail.
+ *    a name, one contact method, an optional requested date and time window,
+ *    an optional service interest, and an optional free-text note. The UI warns
+ *    patients not to include clinical detail. A requested slot is a *request*:
+ *    the route never treats it as a confirmed appointment.
  *  - Nothing is persisted by this route. It validates and forwards the enquiry
  *    to the practice's inbox through a provider configured in the environment.
  *    Without that configuration the route fails closed and tells the patient to
@@ -23,15 +24,19 @@ type Payload = {
   contactMethod?: unknown;
   contact?: unknown;
   preferred?: unknown;
+  preferredDate?: unknown;
+  preferredSlot?: unknown;
+  service?: unknown;
   message?: unknown;
   consent?: unknown;
   company?: unknown; // honeypot
   startedAt?: unknown;
 };
 
-const MAX = { name: 120, contact: 160, message: 800 };
+const MAX = { name: 120, contact: 160, message: 800, date: 10, slot: 20, service: 80 };
 const PREFERRED = ["Any time", "Morning", "Afternoon"];
 const METHODS = ["Telephone", "Email", "WhatsApp"];
+const SLOTS = ["Early morning", "Late morning", "Early afternoon", "Late afternoon"];
 
 function clean(value: unknown, limit: number): string {
   if (typeof value !== "string") return "";
@@ -44,6 +49,18 @@ function isEmail(value: string) {
 
 function isPhone(value: string) {
   return /^[+()\d\s-]{9,20}$/.test(value);
+}
+
+/** ISO calendar date, and never in the past (same-day requests are allowed). */
+function isValidPreferredDate(value: string) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  const requested = new Date(`${value}T00:00:00Z`);
+  if (Number.isNaN(requested.getTime())) return false;
+  const today = new Date();
+  const startOfToday = Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate());
+  // Allow today through 90 days ahead; anything else is a mistake or abuse.
+  const diffDays = (requested.getTime() - startOfToday) / 86_400_000;
+  return diffDays >= 0 && diffDays <= 90;
 }
 
 export async function POST(request: Request) {
@@ -76,6 +93,9 @@ export async function POST(request: Request) {
   const contactMethod = clean(body.contactMethod, 20);
   const contact = clean(body.contact, MAX.contact);
   const preferred = clean(body.preferred, 20);
+  const preferredDate = clean(body.preferredDate, MAX.date);
+  const preferredSlot = clean(body.preferredSlot, MAX.slot);
+  const service = clean(body.service, MAX.service);
   const message = clean(body.message, MAX.message);
   const consent = body.consent === true;
 
@@ -97,6 +117,22 @@ export async function POST(request: Request) {
 
   if (preferred && !PREFERRED.includes(preferred)) {
     errors.preferred = "Please choose a valid time of day.";
+  }
+
+  if (preferredDate && !isValidPreferredDate(preferredDate)) {
+    errors.preferredDate = "Please choose a date in the next three months.";
+  }
+
+  if (preferredSlot && !SLOTS.includes(preferredSlot)) {
+    errors.preferredSlot = "Please choose a valid time.";
+  }
+
+  // A slot without a date (or the reverse) would produce an unworkable request.
+  if (preferredDate && !preferredSlot) {
+    errors.preferredSlot = "Please choose a time for that date.";
+  }
+  if (preferredSlot && !preferredDate) {
+    errors.preferredDate = "Please choose a date for that time.";
   }
 
   if (!consent) {
@@ -138,6 +174,11 @@ export async function POST(request: Request) {
         contactMethod,
         contact,
         preferred: preferred || "Any time",
+        // The patient's requested appointment window. Labelled as a request,
+        // never as a booking, in every downstream copy.
+        preferredDate: preferredDate || null,
+        preferredSlot: preferredSlot || null,
+        service: service || null,
         message: message || null,
         // No IP address, user agent or clinical detail is forwarded.
       }),

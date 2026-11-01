@@ -19,7 +19,13 @@ const directionsUrl =
 const mapsUrl =
   "https://www.google.com/maps/search/?api=1&query=Life+Roseacres+Hospital%2C+St+Joseph+and+Castor+Road%2C+Primrose%2C+Germiston";
 
-export default function ContactPage() {
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ service?: string }>;
+}) {
+  const { service } = await searchParams;
+
   return (
     <>
       <PageHero
@@ -168,7 +174,7 @@ export default function ContactPage() {
             {/* Form */}
             <div>
               <Reveal y={24} delay={0.06}>
-                <EnquiryForm />
+                <EnquiryForm defaultService={service ?? ""} />
               </Reveal>
 
               <div className="mt-4 grid gap-4 sm:grid-cols-2">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/sections/hero";
 import { Services } from "@/components/sections/services";
 import { Journey } from "@/components/sections/journey";
+import { BentoBand } from "@/components/sections/bento";
 import { AboutTeaser, ResearchTeaser, FaqTeaser, ContactBand } from "@/components/sections/teasers";
 import { FinalCta } from "@/components/sections/final-cta";
 import { Marquee } from "@/components/ui/motion";
@@ -39,6 +40,7 @@ export default function HomePage() {
         </div>
       </section>
       <Services />
+      <BentoBand />
       <Journey />
       <AboutTeaser />
       <ResearchTeaser />

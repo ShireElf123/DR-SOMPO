@@ -171,10 +171,15 @@ export default function ServicesPage() {
                     <RevealGroup className="mt-6 space-y-4" stagger={0.07}>
                       {group.services.map((service) => (
                         <RevealItem key={service.id}>
-                          <div className="border-t border-charcoal/10 pt-3.5">
-                            <p className="text-[13.5px] font-medium tracking-[-0.01em] text-forest">
+                          <div className="group border-t border-charcoal/10 pt-3.5">
+                            <Link
+                              href={`/services/${service.id}`}
+                              data-cursor="Open"
+                              className="inline-flex items-center gap-1.5 text-[13.5px] font-medium tracking-[-0.01em] text-forest"
+                            >
                               {service.title}
-                            </p>
+                              <ArrowUpRight className="h-3 w-3 opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:opacity-100" />
+                            </Link>
                             <p className="mt-1 max-w-md text-[12px] leading-relaxed text-ink-soft">
                               {service.summary}
                             </p>
@@ -188,6 +193,13 @@ export default function ServicesPage() {
                                 </li>
                               ))}
                             </ul>
+                            <Link
+                              href={`/services/${service.id}`}
+                              className="mt-2.5 inline-flex items-center gap-1 text-[10.5px] font-medium text-forest/80 hover:text-forest"
+                            >
+                              Full details
+                              <ArrowUpRight className="h-2.5 w-2.5" />
+                            </Link>
                           </div>
                         </RevealItem>
                       ))}
