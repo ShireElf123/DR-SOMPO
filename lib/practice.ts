@@ -832,12 +832,14 @@ export const serviceDetails: ServiceDetail[] = [
   },
 ];
 
-export const serviceDetailMap = Object.fromEntries(
-  serviceDetails.map((detail) => [detail.serviceId, detail]),
+// These indexes are side-effect-free. Keep unused catalogues tree-shakeable
+// when a client component only imports the practice's contact or navigation data.
+export const serviceDetailMap = /* @__PURE__ */ Object.fromEntries(
+  /* @__PURE__ */ serviceDetails.map((detail) => [detail.serviceId, detail]),
 ) as Record<string, ServiceDetail>;
 
 /** Flat index of every service, with its parent group, for routing and cards. */
-export const allServices = serviceGroups.flatMap((group) =>
+export const allServices = /* @__PURE__ */ serviceGroups.flatMap((group) =>
   group.services.map((service) => ({
     ...service,
     groupId: group.id,
@@ -845,8 +847,8 @@ export const allServices = serviceGroups.flatMap((group) =>
   })),
 );
 
-export const allServiceMap = Object.fromEntries(
-  allServices.map((service) => [service.id, service]),
+export const allServiceMap = /* @__PURE__ */ Object.fromEntries(
+  /* @__PURE__ */ allServices.map((service) => [service.id, service]),
 ) as Record<string, (typeof allServices)[number]>;
 
 /* -------------------------------------------------------------------------- */
@@ -966,6 +968,6 @@ export const conditionGroups: ConditionGroup[] = [
 ];
 
 /** Every condition name once, for the search-style index. */
-export const allConditions = conditionGroups.flatMap((group) =>
+export const allConditions = /* @__PURE__ */ conditionGroups.flatMap((group) =>
   group.conditions.map((condition) => ({ condition, group: group.label, serviceId: group.serviceId })),
 );

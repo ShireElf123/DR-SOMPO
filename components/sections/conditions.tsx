@@ -3,7 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { m } from "framer-motion";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { ArrowUpRight, Search } from "lucide-react";
 import { SectionHead } from "@/components/page-hero";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/motion";
@@ -123,9 +124,8 @@ export function ConditionsTreated() {
             const isFiltering = Boolean(term);
 
             return (
-              <motion.article
+              <m.article
                 key={group.id}
-                layout={reduce ? undefined : "position"}
                 initial={reduce ? undefined : { opacity: 0, y: 16 }}
                 animate={reduce ? undefined : { opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.04, ease: [0.16, 1, 0.3, 1] }}
@@ -181,7 +181,7 @@ export function ConditionsTreated() {
                     <ArrowUpRight className="h-2.5 w-2.5 transition-transform duration-500 group-hover:rotate-45" />
                   </Link>
                 </div>
-              </motion.article>
+              </m.article>
             );
           })}
         </div>

@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { m, useScroll, useTransform } from "framer-motion";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { useRef } from "react";
 import { Reveal, WordsIn } from "@/components/ui/motion";
 import { practice } from "@/lib/practice";
@@ -26,7 +27,7 @@ export function FinalCta() {
             ref={ref}
             className="relative overflow-hidden rounded-[1.5rem] sm:rounded-[1.75rem]"
           >
-            <motion.div
+            <m.div
               style={reduce ? undefined : { y }}
               className="absolute inset-[-14%_0] [backface-visibility:hidden] motion-safe:will-change-transform"
             >
@@ -37,7 +38,7 @@ export function FinalCta() {
                 sizes="(max-width: 1180px) 96vw, 1180px"
                 className="object-cover"
               />
-            </motion.div>
+            </m.div>
             <div className="absolute inset-0 bg-forest-ink/62" />
             <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/80 via-forest-ink/35 to-transparent" />
 

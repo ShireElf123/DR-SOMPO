@@ -1,6 +1,7 @@
 "use client";
 
-import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { AnimatePresence, m, useScroll, useTransform } from "framer-motion";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { ArrowUpRight, Phone } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
@@ -42,7 +43,7 @@ export function Hero() {
   return (
     <section id="top" ref={ref} className="relative px-3 pt-3 sm:px-4 sm:pt-4">
       <div className="relative mx-auto w-full max-w-[1180px]">
-        <motion.div
+        <m.div
           initial={reduce ? undefined : { opacity: 0, scale: 0.965, y: 28 }}
           animate={reduce ? undefined : { opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1.4, ease: EASE, delay: 0.15 }}
@@ -87,7 +88,7 @@ export function Hero() {
           </div>
 
           <div className="pointer-events-none absolute bottom-0 right-0 hidden h-[88%] w-[52%] sm:block lg:w-[46%]">
-            <motion.div
+            <m.div
               style={reduce ? undefined : { y: imageY, scale: imageScale }}
               className="relative h-full w-full"
             >
@@ -103,15 +104,15 @@ export function Hero() {
                 <div className="absolute inset-0 bg-gradient-to-r from-mist/40 via-transparent to-transparent" />
                 <div className="absolute inset-0 bg-gradient-to-t from-forest/45 via-transparent to-transparent" />
               </div>
-            </motion.div>
+            </m.div>
           </div>
 
           {/* Copy */}
-          <motion.div
+          <m.div
             style={reduce ? undefined : { y: copyY }}
             className="relative z-10 max-w-[42rem] px-6 pb-14 pt-16 text-white sm:px-10 sm:pb-20 sm:pt-20 lg:px-14 lg:pb-24 lg:pt-24"
           >
-            <motion.span
+            <m.span
               initial={reduce ? undefined : { opacity: 0, y: 12 }}
               animate={reduce ? undefined : { opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6, ease: EASE }}
@@ -122,7 +123,7 @@ export function Hero() {
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-lime" />
               </span>
               Consulting at Life Roseacres Hospital
-            </motion.span>
+            </m.span>
 
             <h1 className="text-[clamp(2.6rem,7.4vw,5.9rem)] font-light leading-[0.98] tracking-[-0.035em]">
               <WordsIn text="Women's Health." delay={0.5} stagger={0.07} />
@@ -132,16 +133,16 @@ export function Hero() {
               <WordsIn text="Every Journey." delay={0.94} stagger={0.07} />
             </h1>
 
-            <motion.p
+            <m.p
               initial={reduce ? undefined : { opacity: 0, y: 14 }}
               animate={reduce ? undefined : { opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 1.3, ease: EASE }}
               className="mt-6 max-w-[26rem] text-[0.875rem] leading-relaxed text-white/90 sm:text-[0.9375rem]"
             >
               {brand.heroCopy}
-            </motion.p>
+            </m.p>
 
-            <motion.div
+            <m.div
               initial={reduce ? undefined : { opacity: 0 }}
               animate={reduce ? undefined : { opacity: 1 }}
               transition={{ duration: 1.1, delay: 1.5 }}
@@ -153,9 +154,9 @@ export function Hero() {
                   {item}
                 </span>
               ))}
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={reduce ? undefined : { opacity: 0, y: 14 }}
               animate={reduce ? undefined : { opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 1.6, ease: EASE }}
@@ -173,11 +174,11 @@ export function Hero() {
                   <ArrowUpRight className="h-3 w-3" />
                 </i>
               </a>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
 
           {/* Scroll cue */}
-          <motion.span
+          <m.span
             aria-hidden="true"
             initial={reduce ? undefined : { opacity: 0 }}
             animate={reduce ? undefined : { opacity: 1 }}
@@ -185,19 +186,19 @@ export function Hero() {
             className="absolute bottom-6 left-6 z-20 hidden items-center gap-2 text-[9.5px] uppercase tracking-[0.18em] text-white/80 lg:flex"
           >
             <span className="relative block h-8 w-px overflow-hidden bg-white/25">
-              <motion.span
+              <m.span
                 className="absolute inset-x-0 top-0 block h-3 bg-white"
                 animate={reduce ? undefined : { y: ["-100%", "260%"] }}
                 transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
               />
             </span>
             Scroll
-          </motion.span>
+          </m.span>
 
           {/* Rotating glass pill */}
           <span className="pointer-events-none absolute right-[27%] top-8 z-20 hidden rounded-full bg-white px-4 py-2 text-[11px] font-medium text-charcoal lg:block">
-            <AnimatePresence mode="wait">
-              <motion.span
+            <AnimatePresence mode="wait" initial={false}>
+              <m.span
                 key={pill}
                 initial={reduce ? undefined : { opacity: 0, y: 8 }}
                 animate={reduce ? undefined : { opacity: 1, y: 0 }}
@@ -206,12 +207,12 @@ export function Hero() {
                 className="block"
               >
                 {rotating[pill]}
-              </motion.span>
+              </m.span>
             </AnimatePresence>
           </span>
 
           {/* Contact chip */}
-          <motion.a
+          <m.a
             href={practice.phoneHref}
             style={reduce ? undefined : { y: chipY }}
             initial={reduce ? undefined : { opacity: 0, y: 18 }}
@@ -230,11 +231,11 @@ export function Hero() {
             </span>
             <span className="text-[11px] leading-tight">
               <span className="block font-medium">Specialist OBGYN</span>
-              <span className="mt-0.5 block text-[#8b918e]">{practice.phone}</span>
+              <span className="mt-0.5 block text-ink-muted">{practice.phone}</span>
             </span>
             <Phone className="h-3.5 w-3.5 text-forest/60" aria-hidden="true" />
-          </motion.a>
-        </motion.div>
+          </m.a>
+        </m.div>
       </div>
     </section>
   );

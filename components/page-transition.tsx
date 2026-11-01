@@ -1,8 +1,9 @@
 "use client";
 
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { usePathname } from "next/navigation";
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 /**
  * Site-wide page transition, modelled on Framer's global wipe:
@@ -20,9 +21,14 @@ export function PageTransition({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const reduce = useReducedMotion();
   const [curtain, setCurtain] = useState(false);
+  const previousPath = useRef(pathname);
 
   useEffect(() => {
-    if (reduce) return;
+    const navigated = previousPath.current !== pathname;
+    previousPath.current = pathname;
+    setCurtain(false);
+    // Never cover the initial server-rendered page after hydration.
+    if (reduce || !navigated) return;
     setCurtain(true);
     const id = setTimeout(() => setCurtain(false), 900);
     return () => clearTimeout(id);
@@ -31,7 +37,7 @@ export function PageTransition({ children }: { children: ReactNode }) {
   return (
     <>
       <AnimatePresence mode="wait" initial={false}>
-        <motion.div
+        <m.div
           key={pathname}
           initial={reduce ? false : { opacity: 0, y: 26 }}
           animate={reduce ? undefined : { opacity: 1, y: 0 }}
@@ -39,12 +45,12 @@ export function PageTransition({ children }: { children: ReactNode }) {
           transition={{ duration: 0.62, ease: [0.16, 1, 0.3, 1] }}
         >
           {children}
-        </motion.div>
+        </m.div>
       </AnimatePresence>
 
       <AnimatePresence>
         {curtain && (
-          <motion.div
+          <m.div
             key={`${pathname}-curtain`}
             aria-hidden="true"
             className="pointer-events-none fixed inset-0 z-[80] origin-bottom bg-forest"
@@ -64,7 +70,7 @@ export function PageTransition({ children }: { children: ReactNode }) {
                 Dr CM Ngwey-Sompo
               </span>
             </span>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </>

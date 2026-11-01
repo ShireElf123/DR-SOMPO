@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { m } from "framer-motion";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { ArrowUpRight, CalendarCheck, Check, Clock, Loader2, Phone, ShieldAlert } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { allServices, practice } from "@/lib/practice";
@@ -167,7 +168,7 @@ export function EnquiryForm({ defaultService = "" }: { defaultService?: string }
 
   if (state === "sent") {
     return (
-      <motion.div
+      <m.div
         initial={reduce ? undefined : { opacity: 0, y: 12 }}
         animate={reduce ? undefined : { opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
@@ -240,7 +241,7 @@ export function EnquiryForm({ defaultService = "" }: { defaultService?: string }
             </i>
           </button>
         </div>
-      </motion.div>
+      </m.div>
     );
   }
 

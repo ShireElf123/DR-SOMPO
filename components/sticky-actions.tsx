@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { ArrowUp } from "lucide-react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { practice } from "@/lib/practice";
 
 /**
@@ -27,7 +28,7 @@ export function StickyActions() {
       <div className="fixed inset-x-0 bottom-0 z-50 lg:hidden">
         <AnimatePresence>
           {visible && (
-            <motion.div
+            <m.div
               initial={reduce ? undefined : { y: 80 }}
               animate={reduce ? undefined : { y: 0 }}
               exit={reduce ? undefined : { y: 80 }}
@@ -48,7 +49,7 @@ export function StickyActions() {
                 Book
                 <span className="sr-only">an appointment</span>
               </a>
-            </motion.div>
+            </m.div>
           )}
         </AnimatePresence>
       </div>
@@ -56,7 +57,7 @@ export function StickyActions() {
       {/* Desktop back-to-top */}
       <AnimatePresence>
         {visible && (
-          <motion.button
+          <m.button
             type="button"
             initial={reduce ? undefined : { opacity: 0, scale: 0.9 }}
             animate={reduce ? undefined : { opacity: 1, scale: 1 }}
@@ -68,7 +69,7 @@ export function StickyActions() {
             className="fixed bottom-6 right-6 z-40 hidden h-11 w-11 items-center justify-center rounded-full border border-charcoal/10 bg-white/90 text-charcoal shadow-[0_16px_40px_-20px_rgba(0,0,0,0.4)] backdrop-blur-xl transition-colors hover:bg-white lg:flex"
           >
             <ArrowUp className="h-4 w-4" aria-hidden="true" />
-          </motion.button>
+          </m.button>
         )}
       </AnimatePresence>
     </>

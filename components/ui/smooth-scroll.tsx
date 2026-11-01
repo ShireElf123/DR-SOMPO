@@ -1,86 +1,112 @@
 "use client";
 
-import Lenis from "lenis";
+import type Lenis from "lenis";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
-/**
- * Momentum scrolling — the single biggest "feel" difference between a native
- * scrolling page and a Framer site. Lenis interpolates the scroll position so
- * every scroll-linked effect (parallax, the scroll-lit sentences) glides rather
- * than steps.
- *
- * Disabled entirely under `prefers-reduced-motion`, and it never hijacks
- * keyboard scrolling, focus rings or anchor links.
- */
 let instance: Lenis | null = null;
+let scrollLocked = false;
+let previousOverflow = "";
 
-/**
- * Pause page scrolling (used while the mobile menu sheet is open). Lenis drives
- * the scroll itself, so `overflow: hidden` alone is not enough — it has to be
- * stopped, and the fallback path covers browsers where Lenis never mounted.
- */
+/** Pause native scrolling too, even if the optional Lenis chunk has not loaded. */
 export function lockScroll() {
+  if (scrollLocked) return;
+  scrollLocked = true;
+  previousOverflow = document.body.style.overflow;
   instance?.stop();
   document.documentElement.classList.add("lenis-stopped");
   document.body.style.overflow = "hidden";
 }
 
 export function unlockScroll() {
+  if (!scrollLocked) return;
+  scrollLocked = false;
   instance?.start();
   document.documentElement.classList.remove("lenis-stopped");
-  document.body.style.overflow = "";
+  document.body.style.overflow = previousOverflow;
 }
 
+/**
+ * Optional desktop-wheel enhancement. Phones and reduced-motion users keep
+ * native scrolling and never download Lenis. Desktop loading waits for idle;
+ * native scrolling remains usable if that download is slow or fails.
+ */
 export function SmoothScroll() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (mq.matches) return;
-
-    const lenis = new Lenis({
-      duration: 1.05,
-      easing: (t) => 1 - Math.pow(1 - t, 3.2),
-      wheelMultiplier: 1,
-      touchMultiplier: 1.6,
-      // Native touch scrolling is better on mobile; keep the momentum there
-      // but never trap the page in a custom scroll container.
-      syncTouch: false,
-      // In-page anchor links (e.g. /services#obstetrics) glide instead of jump.
-      anchors: { offset: -88 },
-    });
-    instance = lenis;
-
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const pointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+    let generation = 0;
     let frame = 0;
-    const raf = (time: number) => {
-      lenis.raf(time);
-      frame = requestAnimationFrame(raf);
-    };
-    frame = requestAnimationFrame(raf);
+    let idle: number | undefined;
+    let timer: ReturnType<typeof setTimeout> | undefined;
 
-    const onChange = () => {
-      if (mq.matches) {
-        lenis.destroy();
-        cancelAnimationFrame(frame);
+    const stop = () => {
+      // An in-flight import must not mount after cleanup or a preference change.
+      generation += 1;
+      cancelAnimationFrame(frame);
+      if (idle !== undefined) window.cancelIdleCallback(idle);
+      clearTimeout(timer);
+      idle = undefined;
+      timer = undefined;
+      instance?.destroy();
+      instance = null;
+      if (scrollLocked) document.documentElement.classList.add("lenis-stopped");
+    };
+
+    const update = () => {
+      stop();
+      if (motion.matches || !pointer.matches) return;
+      const current = generation;
+
+      const start = () => {
+        idle = undefined;
+        timer = undefined;
+        void import("lenis").then(({ default: Lenis }) => {
+          if (current !== generation) return;
+          const lenis = new Lenis({
+            duration: 1.05,
+            easing: (t) => 1 - Math.pow(1 - t, 3.2),
+            wheelMultiplier: 1,
+            syncTouch: false,
+            anchors: { offset: -88 },
+          });
+          instance = lenis;
+          if (scrollLocked) lenis.stop();
+
+          const raf = (time: number) => {
+            lenis.raf(time);
+            frame = requestAnimationFrame(raf);
+          };
+          frame = requestAnimationFrame(raf);
+        }).catch(() => {
+          // Progressive enhancement only; never block native navigation/scroll.
+        });
+      };
+
+      if ("requestIdleCallback" in window) {
+        idle = window.requestIdleCallback(start, { timeout: 1500 });
+      } else {
+        timer = setTimeout(start, 0);
       }
     };
-    mq.addEventListener("change", onChange);
 
+    update();
+    motion.addEventListener("change", update);
+    pointer.addEventListener("change", update);
     return () => {
-      mq.removeEventListener("change", onChange);
-      cancelAnimationFrame(frame);
-      lenis.destroy();
-      instance = null;
+      motion.removeEventListener("change", update);
+      pointer.removeEventListener("change", update);
+      stop();
     };
   }, []);
 
-  // New route → start at the top, instantly, before the transition plays.
-  // A hash target (e.g. /services#obstetrics) keeps its own scroll position.
+  // Keep deep links in control of their own position.
   useEffect(() => {
     if (window.location.hash) return;
     if (instance) instance.scrollTo(0, { immediate: true });
-    else window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+    else window.scrollTo({ top: 0, behavior: "instant" });
   }, [pathname]);
 
   return null;

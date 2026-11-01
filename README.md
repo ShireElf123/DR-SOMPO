@@ -4,7 +4,7 @@ A premium editorial website for a specialist obstetrician and gynaecologist
 practising at Life Roseacres Hospital, Primrose, Germiston.
 
 **Stack:** Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4 ·
-Framer Motion · Lucide icons · self-hosted Inter Tight + Instrument Serif.
+Framer Motion (LazyMotion) · Lucide icons · self-hosted variable Figtree.
 
 ---
 
@@ -43,14 +43,36 @@ practice's palette.
 All tokens live in `app/globals.css` under `@theme`, so `bg-forest`,
 `text-sage/70`, `border-forest/10` etc. work out of the box.
 
-**Typography** — Inter Tight (variable) for everything structural, Instrument
-Serif italic for the single accent phrase in each headline. The pairing is what
-lifts the layout from "medical template" to "editorial healthcare brand".
+**Typography** — self-hosted variable Figtree, served locally by Fontsource.
 
-**Motion** — `components/ui/motion.tsx` exposes `Reveal`, `RevealGroup`,
-`RevealItem` and `WordsIn` (word-by-word masked headline rise). Every animation
-is gated behind `useReducedMotion()` **and** the global
-`prefers-reduced-motion` media query in `globals.css`.
+**Motion** — `components/ui/motion.tsx` exposes the shared reveal, heading,
+parallax and scroll-lit primitives. `MotionProvider` loads `domAnimation` with
+strict `m` components; adding layout or drag features requires an explicit
+bundle review. Static section markup stays on the server.
+
+The hydration-safe `useReducedMotion()` hook and the global
+`prefers-reduced-motion` CSS query handle motion preferences. Lenis is optional:
+it loads during idle only for fine-pointer, hover-capable devices without a
+reduced-motion preference. Native scrolling is the fallback.
+
+## Quality checks
+
+```bash
+npm run build
+npm run typecheck
+npm test                 # production bundle budgets, contrast and SSR assertions
+npm run analyze          # modern vs legacy scripts, optional scrolling, CSS and HTML/RSC
+npx playwright install chromium  # once per machine
+npm run test:e2e          # production browser checks; manages a local test server
+```
+
+To test an existing local production server, set `PLAYWRIGHT_BASE_URL`.
+`CHROMIUM_EXECUTABLE_PATH` optionally selects an installed Chromium binary.
+Test screenshots/traces are ignored by Git. Enquiry tests intercept submission
+requests; they never send patient details to a delivery provider.
+
+See [the quality upgrade notes](docs/quality-upgrade.md) for measurement scope,
+trade-offs and the correction to the original invisible-text diagnosis.
 
 ---
 

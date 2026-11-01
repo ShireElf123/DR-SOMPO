@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
+import { m, useScroll, useSpring, useTransform } from "framer-motion";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 
 /**
  * Hairline scroll-progress indicator pinned under the nav. Framer sites use this
@@ -16,7 +17,7 @@ export function ScrollProgress() {
   if (reduce) return null;
 
   return (
-    <motion.div
+    <m.div
       aria-hidden="true"
       style={{ scaleX }}
       className="pointer-events-none fixed inset-x-0 top-0 z-[75] h-[2px] origin-left bg-gradient-to-r from-forest via-fern to-gold"

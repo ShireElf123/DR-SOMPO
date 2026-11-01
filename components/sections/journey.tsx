@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import { ScrollWords, WordsIn } from "@/components/ui/motion";
 import { journey } from "@/lib/practice";

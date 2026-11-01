@@ -1,14 +1,14 @@
 "use client";
 
 import {
-  motion,
+  m,
   useInView,
-  useReducedMotion,
   useScroll,
   useTransform,
   type MotionValue,
   type Variants,
 } from "framer-motion";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 import Image from "next/image";
 import { useRef, type ElementType, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
@@ -39,7 +39,7 @@ export function Reveal({
   amount?: number;
 }) {
   const reduce = useReducedMotion();
-  const Tag = motion[as as keyof typeof motion] as typeof motion.div;
+  const Tag = m[as as keyof typeof m] as typeof m.div;
 
   if (reduce) return <div className={className}>{children}</div>;
 
@@ -79,7 +79,7 @@ export function RevealGroup({
   };
 
   return (
-    <motion.div
+    <m.div
       className={className}
       variants={variants}
       initial="hidden"
@@ -87,7 +87,7 @@ export function RevealGroup({
       viewport={{ once: true, amount }}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -114,9 +114,9 @@ export function RevealItem({
   };
 
   return (
-    <motion.div className={className} variants={variants}>
+    <m.div className={className} variants={variants}>
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -161,17 +161,11 @@ export function WordsIn({
   return (
     <span ref={ref} className={lineClass}>
       {words.map((word, i) => (
-        /* The travel is 112% of the word's own height but the clip only has
-           0.14em of padding underneath, so the incoming word is still being
-           painted while it clears the mask — and a browser re-rasterises text
-           that is mid-transform inside a clip. Translating the mask's contents
-           with `translateZ(0)` and easing the travel out sooner keeps it on
-           the compositor. */
         <span
           key={`${word}-${i}`}
           className="inline-block overflow-hidden align-bottom pb-[0.14em] -mb-[0.14em]"
         >
-          <motion.span
+          <m.span
             className={cn(
               "inline-block [backface-visibility:hidden]",
               near && "motion-safe:will-change-transform",
@@ -183,7 +177,7 @@ export function WordsIn({
           >
             {word}
             {i < words.length - 1 ? "\u00A0" : ""}
-          </motion.span>
+          </m.span>
         </span>
       ))}
     </span>
@@ -191,17 +185,9 @@ export function WordsIn({
 }
 
 /**
- * Scroll-lit sentence: muted words warm to full ink as the block scrolls
- * through the viewport. The reference's most distinctive reading moment.
- *
- * Accessibility note on the resting tint. The dim layer is the layer that is
- * always painted, and it is also the layer a search engine, a reader-mode
- * extraction or an accessibility overlay will pick up — the lit copy is hidden
- * behind `aria-hidden`. So the dim tint is a contrast requirement, not a
- * styling preference: it has to clear 4.5:1 on its own. The original greys did
- * not (`#c3c8c4` measured 1.70:1 on white and 1.58:1 on ivory; white at 34%
- * over forest measured 2.54:1 against forest). The values below measure
- * 4.67:1 and 4.98:1 — still clearly the quieter layer, but legible.
+ * A permanently readable base with a paint-only, scroll-lit copy. The light
+ * resting tint clears 4.5:1 on white and ivory. Forest text stays almost white
+ * because the forest gradient is lighter than the solid forest token.
  */
 export function ScrollWords({
   text,
@@ -213,35 +199,28 @@ export function ScrollWords({
   className?: string;
   /** Word indices that should render a soft avatar dot before them. */
   avatars?: number[];
-  /** `light` for white panels, `dark` for forest panels. */
+  /** `light` for white/ivory panels, `forest` for forest gradients. */
   tint?: "light" | "forest";
 }) {
   const ref = useRef<HTMLParagraphElement>(null);
   const reduce = useReducedMotion();
   const words = text.split(" ");
 
-  // Scroll position → per-word progress, handled by Motion's own scroll
-  // tracker so it can ride the compositor instead of firing a React render on
-  // every wheel event.
+  // Motion updates the paint layer without a React render per scroll frame.
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start 0.92", "end 0.42"],
   });
 
-  /* Scroll-linking is only worth paying for while the sentence can be seen.
-     Every word below owns a MotionValue, and those bindings are driven from
-     the page-wide scroll tracker — so a page carrying six of these sentences
-     was keeping every word of all six subscribed on every scroll frame, for
-     the whole length of the page. Off screen the words render as plain spans
-     at their current opacity; the observer flips them back to motion components
-     on approach, which is well before the reveal is visible. */
+  // Mount per-word MotionValues only near the viewport. The plain reading
+  // layer stays mounted, including on the server and with JavaScript disabled.
   const onScreen = useInView(ref, { margin: "15% 0px 15% 0px" });
 
   const lit = tint === "light" ? "var(--color-charcoal)" : "#ffffff";
-  const dim = tint === "light" ? "#6e7671" : "rgba(255,255,255,0.62)";
+  const dim = tint === "light" ? "#6a736e" : "rgba(255,255,255,0.96)";
 
   return (
-    <p ref={ref} className={className}>
+    <p ref={ref} className={className} data-scroll-words={tint}>
       {words.map((word, i) => (
         <span key={`${word}-${i}`}>
           {avatars.includes(i) && (
@@ -258,17 +237,19 @@ export function ScrollWords({
               />
             </span>
           )}
-          <ScrollWord
-            index={i}
-            total={words.length}
-            progress={scrollYProgress}
-            lit={lit}
-            dim={dim}
-            reduce={!!reduce}
-            onScreen={onScreen}
-          >
-            {word}
-          </ScrollWord>{" "}
+          <span className="relative inline-block">
+            <span style={{ color: reduce ? lit : dim }}>{word}</span>
+            {!reduce && onScreen && (
+              <ScrollWordOverlay
+                index={i}
+                total={words.length}
+                progress={scrollYProgress}
+                lit={lit}
+              >
+                {word}
+              </ScrollWordOverlay>
+            )}
+          </span>{" "}
         </span>
       ))}
     </p>
@@ -281,23 +262,18 @@ const avatarImages = [
   "/images/fertility.jpg",
 ];
 
-function ScrollWord({
+/** Mounted only while its paragraph is near the viewport. */
+function ScrollWordOverlay({
   index,
   total,
   progress,
   lit,
-  dim,
-  reduce,
-  onScreen,
   children,
 }: {
   index: number;
   total: number;
   progress: MotionValue<number>;
   lit: string;
-  dim: string;
-  reduce: boolean;
-  onScreen: boolean;
   children: ReactNode;
 }) {
   const start = index / total;
@@ -305,26 +281,13 @@ function ScrollWord({
   const opacity = useTransform(progress, [start, end], [0, 1]);
 
   return (
-    <span className="relative inline-block">
-      <span style={{ color: dim }}>{children}</span>
-      {reduce || !onScreen ? (
-        <span
-          aria-hidden="true"
-          className="absolute inset-0"
-          style={{ color: lit, opacity: reduce ? 1 : 0 }}
-        >
-          {children}
-        </span>
-      ) : (
-        <motion.span
-          aria-hidden="true"
-          className="absolute inset-0"
-          style={{ opacity, color: lit }}
-        >
-          {children}
-        </motion.span>
-      )}
-    </span>
+    <m.span
+      aria-hidden="true"
+      className="absolute inset-0"
+      style={{ opacity, color: lit }}
+    >
+      {children}
+    </m.span>
   );
 }
 
@@ -408,7 +371,7 @@ export function ParallaxImage({
 
   return (
     <div ref={ref} className={cn("relative overflow-hidden", className)}>
-      <motion.div
+      <m.div
         style={reduce ? undefined : { y }}
         /* Padded to comfortably exceed `strength`, and promoted up front so the
            compositor is not asked to create a layer mid-scroll. */
@@ -422,7 +385,7 @@ export function ParallaxImage({
           sizes={sizes}
           className={cn("object-cover", imageClassName)}
         />
-      </motion.div>
+      </m.div>
       {children}
     </div>
   );
@@ -451,13 +414,13 @@ export function HoverLift({
   if (reduce) return <div className={className}>{children}</div>;
 
   return (
-    <motion.div
+    <m.div
       className={className}
       whileHover={{ y: -lift }}
       transition={{ duration: 0.5, ease: EASE }}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -481,7 +444,7 @@ export function WipeText({
   const reduce = useReducedMotion();
 
   return (
-    <motion.div
+    <m.div
       className={className}
       initial={reduce ? undefined : { clipPath: "inset(0 100% 0 0)" }}
       whileInView={reduce ? undefined : { clipPath: "inset(0 0% 0 0)" }}
@@ -489,6 +452,6 @@ export function WipeText({
       transition={{ duration: 1.5, delay, ease: [0.6, 0, 0.2, 1] }}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }

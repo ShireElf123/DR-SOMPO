@@ -1,9 +1,8 @@
-"use client";
-
 import Image from "next/image";
-import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import { useRef, type ReactNode } from "react";
+import type { ReactNode } from "react";
+
+export { SignalBars } from "./signal-bars";
 import { cn } from "@/lib/utils";
 
 /**
@@ -35,10 +34,8 @@ export function Plate({
   sizes?: string;
   priority?: boolean;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-
   return (
-    <figure ref={ref} className={cn("group", className)}>
+    <figure className={cn("group", className)}>
       <div className={cn("relative overflow-hidden rounded-[1.1rem] bg-sage", ratio)}>
         <Image
           src={image}
@@ -135,31 +132,5 @@ export function IconDisc({
     >
       {children}
     </span>
-  );
-}
-
-/** Animated vertical bars — a quiet "data" motif for the research panels. */
-export function SignalBars({
-  values = [22, 38, 30, 54, 46, 68, 58],
-  className,
-}: {
-  values?: number[];
-  className?: string;
-}) {
-  const reduce = useReducedMotion();
-  return (
-    <div className={cn("flex items-end gap-1", className)} aria-hidden="true">
-      {values.map((v, i) => (
-        <motion.span
-          key={i}
-          className="w-2 rounded-[2px] bg-current opacity-70"
-          initial={reduce ? undefined : { height: 4 }}
-          whileInView={reduce ? undefined : { height: `${v}%` }}
-          viewport={{ once: true, amount: 0.6 }}
-          transition={{ duration: 0.9, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
-          style={reduce ? { height: `${v}%` } : undefined}
-        />
-      ))}
-    </div>
   );
 }

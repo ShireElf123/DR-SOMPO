@@ -3,7 +3,8 @@
 import Link from "next/link";
 
 import { ArrowUpRight } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
+import { m } from "framer-motion";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { Marquee, WipeText } from "@/components/ui/motion";
 import { nav, practice } from "@/lib/practice";
 
@@ -89,7 +90,7 @@ export function Footer() {
 
       {/* Oversized wordmark — clipped in from the left on scroll */}
       <div className="overflow-hidden pb-2">
-        <motion.p
+        <m.p
           initial={reduce ? undefined : { clipPath: "inset(0 100% 0 0)" }}
           whileInView={reduce ? undefined : { clipPath: "inset(0 0% 0 0)" }}
           viewport={{ once: true, amount: 0.4 }}
@@ -98,7 +99,7 @@ export function Footer() {
           className="whitespace-nowrap bg-[linear-gradient(180deg,#ffffff,rgba(255,255,255,0.08))] bg-clip-text text-center text-[clamp(2.6rem,13vw,11rem)] font-bold leading-[0.9] tracking-[-0.045em] text-transparent opacity-65"
         >
           DR SOMPO <span className="font-light">OBGYN</span>
-        </motion.p>
+        </m.p>
       </div>
     </footer>
   );

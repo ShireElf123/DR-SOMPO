@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { m, useScroll, useTransform } from "framer-motion";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 import Image from "next/image";
 import { useRef, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
@@ -50,7 +51,7 @@ export function PageHero({
           {/* The layer slides 12% of its own height, so it needs at least that
               much overflow on both edges; -8% left a visible sliver at the top
               whenever the image drifted furthest. */}
-          <motion.div
+          <m.div
             style={reduce ? undefined : { y }}
             className="absolute inset-[-14%_0] [backface-visibility:hidden] motion-safe:will-change-transform"
           >
@@ -85,7 +86,7 @@ export function PageHero({
                 className="object-cover"
               />
             )}
-          </motion.div>
+          </m.div>
 
           <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/75 via-forest-ink/25 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-forest-ink/45 to-transparent" />

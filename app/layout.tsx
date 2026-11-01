@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/figtree";
 import "./globals.css";
 
+import { MotionProvider } from "@/components/motion-provider";
 import { Navbar } from "@/components/navbar";
 import { PageTransition } from "@/components/page-transition";
 import { Ticker } from "@/components/ticker";
@@ -94,20 +95,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
 
-        <SmoothScroll />
-        <Cursor />
-        <ScrollProgress />
-        {/* The announcement bar scrolls away; only the nav docks. On a phone
-            that hands roughly 40px of viewport back the moment you scroll. */}
-        <Ticker />
-        <div className="sticky top-0 z-[70]">
-          <Navbar />
-        </div>
-        <main id="main">
-          <PageTransition>{children}</PageTransition>
-        </main>
-        <StickyActions />
-        <Footer />
+        <MotionProvider>
+          <SmoothScroll />
+          <Cursor />
+          <ScrollProgress />
+          {/* The announcement bar scrolls away; only the nav docks. On a phone
+              that hands roughly 40px of viewport back the moment you scroll. */}
+          <Ticker />
+          <div className="sticky top-0 z-[70]">
+            <Navbar />
+          </div>
+          <main id="main">
+            <PageTransition>{children}</PageTransition>
+          </main>
+          <StickyActions />
+          <Footer />
+        </MotionProvider>
       </body>
     </html>
   );
