@@ -42,6 +42,7 @@ export default function ServicesPage() {
         muted="fertility and surgery."
         intro="One practice, one standard of care — from a first consultation through pregnancy, surgery and long-term follow-up."
         image="/images/consultation.jpg"
+        mobileImage="/images/screening-room.jpg"
         alt="Dr Somp in consultation with a patient"
       />
 
@@ -69,11 +70,32 @@ export default function ServicesPage() {
       {/* Statement panel */}
       <section className="bg-white pt-10">
         <div className="shell">
-          <Panel tone="forest" className="p-6 sm:p-9 lg:p-12">
-            <div className="grid items-center gap-8 lg:grid-cols-[1.15fr_0.85fr]">
-              <div>
+          <Panel tone="forest" className="p-2.5 sm:p-3">
+            <div className="grid gap-2.5 lg:grid-cols-[1.02fr_0.98fr] lg:items-stretch">
+              <div className="relative min-h-[15rem] overflow-hidden rounded-[1.35rem] lg:min-h-[24rem]">
+                <ParallaxImage
+                  src="/images/screening-room.jpg"
+                  alt="A consulting and examination room in soft daylight"
+                  strength={34}
+                  sizes="(max-width: 1024px) 92vw, 46vw"
+                  className="absolute inset-0"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/70 via-forest-ink/15 to-transparent" />
+                <div className="absolute inset-x-4 bottom-4 flex flex-wrap gap-1.5">
+                  {serviceGroups.map((group) => (
+                    <span
+                      key={group.id}
+                      className="rounded-full bg-white/92 px-2.5 py-1 text-[10px] font-medium text-forest backdrop-blur-md"
+                    >
+                      {group.label}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="p-5 sm:p-8 lg:p-10">
                 <span className="tag tag-light">One practice</span>
-                <h2 className="max-w-[30rem] text-[clamp(1.5rem,3.2vw,2.3rem)] leading-[1.06]">
+                <h2 className="max-w-[26rem] text-[clamp(1.5rem,3.2vw,2.3rem)] leading-[1.06]">
                   <WordsIn text="Four disciplines, one continuous record of care." />
                 </h2>
                 <p className="mt-4 max-w-md text-[13px] leading-relaxed text-white/80">
@@ -82,25 +104,22 @@ export default function ServicesPage() {
                   specialist, which is why the plan you leave with is the plan
                   that gets carried out.
                 </p>
-              </div>
-              <div className="grid grid-cols-2 gap-2.5">
-                {serviceGroups.map((group, i) => (
-                  <div
-                    key={group.id}
-                    className="rounded-2xl border border-white/15 bg-white/8 p-4 backdrop-blur-sm"
-                  >
-                    <span className="text-[9.5px] uppercase tracking-[0.16em] text-white/60">
-                      Discipline
-                    </span>
-                    <p className="mt-1.5 text-[13px] font-medium leading-snug text-white">
-                      {group.label}
-                    </p>
-                    <SignalBars
-                      values={[26 + i * 8, 44, 34 + i * 6, 58, 48, 72, 62]}
-                      className="mt-3 h-8 text-lime"
-                    />
-                  </div>
-                ))}
+                <div className="mt-5 grid grid-cols-2 gap-2">
+                  {serviceGroups.map((group, i) => (
+                    <div
+                      key={group.id}
+                      className="rounded-xl border border-white/15 bg-white/8 p-3 backdrop-blur-sm"
+                    >
+                      <p className="text-[11.5px] font-medium leading-snug text-white">
+                        {group.label}
+                      </p>
+                      <SignalBars
+                        values={[26 + i * 8, 44, 34 + i * 6, 58, 48, 72]}
+                        className="mt-2 h-6 text-lime"
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </Panel>

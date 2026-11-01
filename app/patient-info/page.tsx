@@ -45,6 +45,7 @@ export default function PatientInfoPage() {
         muted="before your visit."
         intro="How booking works, what to bring, how your information is handled, and the questions patients ask most."
         image="/images/patient-quiet.jpg"
+        mobileImage="/images/waiting-room.jpg"
         alt="A patient sitting calmly in the clinic waiting area"
       />
 

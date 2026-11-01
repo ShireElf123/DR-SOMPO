@@ -4,8 +4,20 @@ import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
 import { PageHero, SectionHead } from "@/components/page-hero";
 import { IconDisc, Panel, Plate } from "@/components/ui/plate";
-import { ParallaxImage, Reveal, RevealGroup, RevealItem, ScrollWords } from "@/components/ui/motion";
-import { affiliations, biography, biographyAside, credentials, practice } from "@/lib/practice";
+import {
+  ParallaxImage,
+  Reveal,
+  RevealGroup,
+  RevealItem,
+  ScrollWords,
+} from "@/components/ui/motion";
+import {
+  affiliations,
+  biography,
+  biographyAside,
+  credentials,
+  practice,
+} from "@/lib/practice";
 
 export const metadata: Metadata = {
   title: "Meet Dr CM Ngwey-Sompo — Specialist Obstetrician & Gynaecologist",
@@ -24,14 +36,14 @@ const values = [
   {
     title: "Explained in plain language",
     body: "Options, investigations and procedures are described clearly — including what is not yet known.",
-    image: "/images/patient-quiet.jpg",
-    alt: "A patient in the clinic waiting area",
+    image: "/images/waiting-room.jpg",
+    alt: "The practice waiting area, with natural light and quiet seating",
   },
   {
     title: "Continuity of care",
     body: "From first consultation through pregnancy, surgery or follow-up, you are cared for by the same specialist.",
-    image: "/images/hospital-exterior.jpg",
-    alt: "Life Roseacres Hospital entrance",
+    image: "/images/corridor.jpg",
+    alt: "A quiet corridor leading to the consulting rooms",
   },
 ];
 
@@ -44,6 +56,7 @@ export default function AboutPage() {
         muted="personal understanding."
         intro={`${practice.title} · ${practice.entity}`}
         image="/images/portrait-somp.jpg"
+        mobileImage="/images/hero-doctor.jpg"
         alt="Portrait of Dr CM Ngwey-Sompo"
         aspect="aspect-[16/11] sm:aspect-[16/8] lg:aspect-[16/7]"
       />
@@ -82,7 +95,10 @@ export default function AboutPage() {
 
               <Reveal delay={0.16}>
                 <div className="mt-6 flex items-start gap-3 rounded-xl bg-mint p-4">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-forest" aria-hidden="true" />
+                  <Check
+                    className="mt-0.5 h-4 w-4 shrink-0 text-forest"
+                    aria-hidden="true"
+                  />
                   <div>
                     <p className="text-[12.5px] font-medium text-forest">
                       {biographyAside.title}
@@ -126,7 +142,9 @@ export default function AboutPage() {
                   <p className="mt-0.5 text-[12.5px] font-medium text-forest">
                     Life Roseacres Hospital
                   </p>
-                  <p className="text-[10.5px] text-ink-soft">Primrose, Germiston</p>
+                  <p className="text-[10.5px] text-ink-soft">
+                    Primrose, Germiston
+                  </p>
                 </div>
               </div>
             </Reveal>
@@ -144,52 +162,98 @@ export default function AboutPage() {
             intro="Verified with the practice before publication."
           />
 
-          <RevealGroup className="mt-8 grid gap-3 sm:grid-cols-2" stagger={0.07}>
-            {credentials.map((credential, i) => (
-              <RevealItem key={credential.code}>
-                <div className="group relative h-full overflow-hidden rounded-[1.25rem] bg-white p-5 ring-1 ring-charcoal/8 transition-colors duration-500 hover:ring-forest/25">
-                  <span
-                    aria-hidden="true"
-                    className="absolute -right-6 -top-6 grid h-20 w-20 place-items-center rounded-full bg-mint text-[26px] font-light text-forest/25 transition-transform duration-700 group-hover:scale-110"
-                  >
-                    0{i + 1}
-                  </span>
-                  <div className="relative flex items-start justify-between gap-3">
-                    <p className="text-[16px] font-medium tracking-[-0.02em] text-charcoal">
-                      {credential.code}
-                    </p>
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" aria-hidden="true" />
-                  </div>
-                  <p className="relative mt-2 max-w-[22rem] text-[12.5px] leading-relaxed text-ink-soft">
-                    {credential.title}
+          <div className="mt-8 grid gap-3.5 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <Reveal y={22}>
+              <div className="relative aspect-[4/3] overflow-hidden rounded-[1.35rem] bg-sage lg:aspect-[4/5]">
+                <Image
+                  src="/images/portrait-somp.jpg"
+                  alt="Dr CM Ngwey-Sompo"
+                  fill
+                  sizes="(max-width: 1024px) 92vw, 38vw"
+                  className="object-cover object-[center_22%]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/60 via-transparent to-transparent" />
+                <div className="absolute inset-x-4 bottom-4">
+                  <p className="text-[10px] uppercase tracking-[0.16em] text-white/80">
+                    Qualifications
                   </p>
-                  <p className="relative mt-2 text-[10px] uppercase tracking-[0.14em] text-ink-muted">
-                    {credential.institution}
+                  <p className="mt-1 text-[13.5px] font-medium text-white">
+                    FCOG (SA) · MMed (O&amp;G) · MBChB · BSc (Biomed)
                   </p>
-                  {credential.note && (
-                    <p className="relative mt-3 border-t border-charcoal/8 pt-2.5 text-[10.5px] leading-relaxed text-ink-soft">
-                      {credential.note}
-                    </p>
-                  )}
                 </div>
-              </RevealItem>
-            ))}
-          </RevealGroup>
+              </div>
+            </Reveal>
+
+            <RevealGroup className="grid gap-3 sm:grid-cols-2" stagger={0.07}>
+              {credentials.map((credential, i) => (
+                <RevealItem key={credential.code}>
+                  <div className="group relative h-full overflow-hidden rounded-[1.25rem] bg-white p-5 ring-1 ring-charcoal/8 transition-colors duration-500 hover:ring-forest/25">
+                    <span
+                      aria-hidden="true"
+                      className="absolute -right-6 -top-6 grid h-20 w-20 place-items-center rounded-full bg-mint text-[26px] font-light text-forest/25 transition-transform duration-700 group-hover:scale-110"
+                    >
+                      0{i + 1}
+                    </span>
+                    <div className="relative flex items-start justify-between gap-3">
+                      <p className="text-[16px] font-medium tracking-[-0.02em] text-charcoal">
+                        {credential.code}
+                      </p>
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold"
+                        aria-hidden="true"
+                      />
+                    </div>
+                    <p className="relative mt-2 max-w-[22rem] text-[12.5px] leading-relaxed text-ink-soft">
+                      {credential.title}
+                    </p>
+                    <p className="relative mt-2 text-[10px] uppercase tracking-[0.14em] text-ink-muted">
+                      {credential.institution}
+                    </p>
+                    {credential.note && (
+                      <p className="relative mt-3 border-t border-charcoal/8 pt-2.5 text-[10.5px] leading-relaxed text-ink-soft">
+                        {credential.note}
+                      </p>
+                    )}
+                  </div>
+                </RevealItem>
+              ))}
+            </RevealGroup>
+          </div>
         </div>
       </section>
 
       {/* Affiliations */}
       <section className="sec">
         <div className="shell">
-          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
-            <SectionHead
-              tag="Affiliations"
-              title="Professional and"
-              muted="hospital associations."
-            />
+          <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
+            <div>
+              <SectionHead
+                tag="Affiliations"
+                title="Professional and"
+                muted="hospital associations."
+              />
+              <Reveal delay={0.1} y={20}>
+                <div className="relative mt-6 aspect-[16/10] overflow-hidden rounded-[1.25rem] bg-sage">
+                  <Image
+                    src="/images/hospital-exterior.jpg"
+                    alt="Life Roseacres Hospital, Primrose"
+                    fill
+                    sizes="(max-width: 1024px) 92vw, 34vw"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/60 via-transparent to-transparent" />
+                  <p className="absolute inset-x-4 bottom-3.5 text-[11px] font-medium text-white">
+                    {practice.hospital}
+                  </p>
+                </div>
+              </Reveal>
+            </div>
 
             <div>
-              <RevealGroup className="divide-y divide-charcoal/8 border-y border-charcoal/8" stagger={0.05}>
+              <RevealGroup
+                className="divide-y divide-charcoal/8 border-y border-charcoal/8"
+                stagger={0.05}
+              >
                 {affiliations.map((affiliation) => (
                   <RevealItem key={affiliation.name}>
                     <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 py-3.5">
@@ -202,7 +266,9 @@ export default function AboutPage() {
                               : "h-1.5 w-1.5 rounded-full bg-gold ring-2 ring-gold/25"
                           }
                         />
-                        <p className="text-[13px] text-ink-soft">{affiliation.name}</p>
+                        <p className="text-[13px] text-ink-soft">
+                          {affiliation.name}
+                        </p>
                       </div>
                       <p className="pl-6 text-[10.5px] uppercase tracking-[0.1em] text-ink-soft sm:pl-0">
                         {affiliation.detail}
@@ -212,8 +278,12 @@ export default function AboutPage() {
                 ))}
               </RevealGroup>
               <p className="mt-3 flex items-center gap-2 text-[10.5px] text-ink-soft">
-                <span className="h-1.5 w-1.5 rounded-full bg-gold ring-2 ring-gold/25" aria-hidden="true" />
-                Marked items await confirmation from the practice before publication.
+                <span
+                  className="h-1.5 w-1.5 rounded-full bg-gold ring-2 ring-gold/25"
+                  aria-hidden="true"
+                />
+                Marked items await confirmation from the practice before
+                publication.
               </p>
             </div>
           </div>
@@ -270,7 +340,10 @@ export default function AboutPage() {
                   <ArrowUpRight className="h-3 w-3" />
                 </i>
               </Link>
-              <Link href="/research" className="btn btn-light border border-charcoal/12 shadow-none">
+              <Link
+                href="/research"
+                className="btn btn-light border border-charcoal/12 shadow-none"
+              >
                 Her research
                 <i aria-hidden="true">
                   <ArrowUpRight className="h-3 w-3" />

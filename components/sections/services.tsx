@@ -68,14 +68,43 @@ const tiles: Tile[] = [
 export function Services() {
   return (
     <>
-      {/* Scroll-lit statement */}
-      <section className="bg-white pb-14 pt-14 sm:pb-16 sm:pt-16">
+      {/* Scroll-lit statement, flanked by two plates so the block carries
+          photography rather than sitting as a bare paragraph. */}
+      <section className="bg-white pb-12 pt-12 sm:pb-16 sm:pt-16">
         <div className="shell">
-          <ScrollWords
-            text="Compassionate, personalised and evidence-informed care, supporting women through every stage of life with specialist expertise, empathy and dignity."
-            avatars={[9, 17]}
-            className="mx-auto max-w-[46rem] text-center text-[clamp(1.25rem,2.6vw,1.65rem)] leading-[1.35] tracking-[-0.02em]"
-          />
+          <div className="grid items-center gap-6 lg:grid-cols-[0.62fr_1.6fr_0.62fr] lg:gap-8">
+            <Reveal y={26} className="hidden lg:block">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-[1.25rem] bg-sage">
+                <Image
+                  src="/images/waiting-room.jpg"
+                  alt="The practice waiting area"
+                  fill
+                  sizes="20vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/40 to-transparent" />
+              </div>
+            </Reveal>
+
+            <ScrollWords
+              text="Compassionate, personalised and evidence-informed care, supporting women through every stage of life with specialist expertise, empathy and dignity."
+              avatars={[9, 17]}
+              className="mx-auto max-w-[40rem] text-center text-[clamp(1.15rem,2.4vw,1.55rem)] leading-[1.35] tracking-[-0.02em]"
+            />
+
+            <Reveal y={26} delay={0.1} className="hidden lg:block">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-[1.25rem] bg-sage">
+                <Image
+                  src="/images/screening-room.jpg"
+                  alt="A consultation room at the practice"
+                  fill
+                  sizes="20vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/40 to-transparent" />
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 

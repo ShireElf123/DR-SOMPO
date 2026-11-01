@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { AlertCircle, ArrowUpRight, BookOpen, FileText } from "lucide-react";
 import { PageHero, SectionHead } from "@/components/page-hero";
@@ -22,6 +23,7 @@ export default function ResearchPage() {
         muted="through research and education."
         intro="Cervical health, HPV prevention and patient education — approached through clinical research and plain-language care."
         image="/images/cervical-research.jpg"
+        mobileImage="/images/research-desk.jpg"
         alt="Laboratory microscope and research folders"
       />
 
@@ -170,20 +172,32 @@ export default function ResearchPage() {
           <div className="mt-8 grid gap-3.5 sm:grid-cols-3">
             {research.context.map((item, i) => (
               <Reveal key={item.title} delay={i * 0.07}>
-                <div className="group relative h-full overflow-hidden rounded-[1.25rem] bg-white p-5 ring-1 ring-charcoal/8 transition-shadow duration-500 hover:shadow-[0_28px_60px_-44px_rgba(23,77,60,0.45)]">
-                  <span
-                    aria-hidden="true"
-                    className="absolute inset-x-5 top-0 h-[2px] origin-left scale-x-0 bg-gradient-to-r from-forest to-gold transition-transform duration-700 group-hover:scale-x-100"
-                  />
-                  <div className="flex items-center gap-2.5">
-                    <IconDisc>
-                      <span className="text-[10px] font-medium text-forest">0{i + 1}</span>
-                    </IconDisc>
+                <div className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] bg-white ring-1 ring-charcoal/8 transition-shadow duration-500 hover:shadow-[0_28px_60px_-44px_rgba(23,77,60,0.45)]">
+                  <div className="relative aspect-[16/9] overflow-hidden bg-sage">
+                    <Image
+                      src={
+                        [
+                          "/images/cervical-research.jpg",
+                          "/images/research-desk.jpg",
+                          "/images/screening-room.jpg",
+                        ][i % 3]
+                      }
+                      alt=""
+                      fill
+                      sizes="(max-width: 640px) 92vw, 30vw"
+                      className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.045]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/45 to-transparent" />
+                    <span className="absolute left-3 top-3 grid h-7 w-7 place-items-center rounded-full bg-white/95 text-[10px] font-medium text-forest backdrop-blur-md">
+                      0{i + 1}
+                    </span>
+                  </div>
+                  <div className="flex flex-1 flex-col p-4">
                     <h3 className="text-[13.5px] font-medium tracking-[-0.01em] text-forest">
                       {item.title}
                     </h3>
+                    <p className="mt-2 text-[12px] leading-relaxed text-ink-soft">{item.body}</p>
                   </div>
-                  <p className="mt-2.5 text-[12px] leading-relaxed text-ink-soft">{item.body}</p>
                 </div>
               </Reveal>
             ))}

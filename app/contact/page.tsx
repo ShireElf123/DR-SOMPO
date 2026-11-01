@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Mail, MapPin, MessageCircle, Navigation, Phone } from "lucide-react";
 import { PageHero, SectionHead } from "@/components/page-hero";
+import { Plate } from "@/components/ui/plate";
 import { EnquiryForm } from "@/components/enquiry-form";
 import { ParallaxImage, Reveal, RevealGroup, RevealItem } from "@/components/ui/motion";
 import { practice } from "@/lib/practice";
@@ -27,6 +28,7 @@ export default function ContactPage() {
         muted="your visit."
         intro="Appointment enquiries are handled directly by the practice — telephone first, email for written requests, WhatsApp once the number is confirmed."
         image="/images/hospital-exterior.jpg"
+        mobileImage="/images/corridor.jpg"
         alt="Life Roseacres Hospital entrance in Primrose, Germiston"
         aspect="aspect-[16/11] sm:aspect-[16/7] lg:aspect-[16/6]"
       />
@@ -164,9 +166,36 @@ export default function ContactPage() {
             </div>
 
             {/* Form */}
-            <Reveal y={24} delay={0.06}>
-              <EnquiryForm />
-            </Reveal>
+            <div>
+              <Reveal y={24} delay={0.06}>
+                <EnquiryForm />
+              </Reveal>
+
+              <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                <Reveal y={18} delay={0.1}>
+                  <Plate
+                    image="/images/waiting-room.jpg"
+                    alt="The practice waiting area"
+                    index="01"
+                    label="Before you arrive"
+                    meta="Guide"
+                    ratio="aspect-[4/3]"
+                    body="Arrive a few minutes early — the rooms are quiet and unhurried."
+                  />
+                </Reveal>
+                <Reveal y={18} delay={0.16}>
+                  <Plate
+                    image="/images/corridor.jpg"
+                    alt="Corridor leading to the consulting rooms"
+                    index="02"
+                    label="Finding the rooms"
+                    meta="Directions"
+                    ratio="aspect-[4/3]"
+                    body="Enter at the main hospital entrance and follow the signs to the consulting suites."
+                  />
+                </Reveal>
+              </div>
+            </div>
           </div>
         </div>
       </section>

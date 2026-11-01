@@ -151,14 +151,30 @@ export function FaqTeaser() {
   return (
     <section className="sec sec-tint" aria-labelledby="faq-teaser-heading">
       <div className="shell">
-        <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
           <div>
             <SectionHead
               tag="Patient information"
               title="Before you visit"
               intro="Practical answers about booking, records, confidentiality and what to expect."
             />
-            <Reveal delay={0.12}>
+            <Reveal delay={0.1} y={22}>
+              <div className="relative mt-6 aspect-[16/10] overflow-hidden rounded-[1.35rem] bg-sage">
+                <ParallaxImage
+                  src="/images/waiting-room.jpg"
+                  alt="The practice waiting area, with quiet seating and natural light"
+                  strength={26}
+                  sizes="(max-width: 1024px) 92vw, 38vw"
+                  className="absolute inset-0"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/55 via-transparent to-transparent" />
+                <p className="absolute inset-x-4 bottom-3.5 text-[11px] leading-relaxed text-white/90">
+                  Arrive a few minutes early — the rooms are quiet and there is no
+                  need to rush.
+                </p>
+              </div>
+            </Reveal>
+            <Reveal delay={0.14}>
               <Link href="/patient-info" className="btn mt-6">
                 All questions
                 <i aria-hidden="true">

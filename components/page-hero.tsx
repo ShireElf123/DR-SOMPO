@@ -18,6 +18,7 @@ export function PageHero({
   image,
   alt,
   children,
+  mobileImage,
   aspect = "aspect-[16/10] sm:aspect-[16/8] lg:aspect-[16/7]",
 }: {
   tag: string;
@@ -26,6 +27,8 @@ export function PageHero({
   intro?: string;
   image: string;
   alt: string;
+  /** Alternative crop/photo used below `sm`, where the wide crop would lose the subject. */
+  mobileImage?: string;
   children?: ReactNode;
   aspect?: string;
 }) {
@@ -44,18 +47,38 @@ export function PageHero({
             aspect,
           )}
         >
-          <motion.div
-            style={reduce ? undefined : { y }}
-            className="absolute inset-[-6%_0]"
-          >
-            <Image
-              src={image}
-              alt={alt}
-              fill
-              priority
-              sizes="(max-width: 1180px) 96vw, 1180px"
-              className="object-cover"
-            />
+          <motion.div style={reduce ? undefined : { y }} className="absolute inset-[-6%_0]">
+            {/* Phones get their own crop: a wide landscape crop of a portrait
+                subject invariably cuts the head off on a narrow frame. */}
+            {mobileImage ? (
+              <>
+                <Image
+                  src={mobileImage}
+                  alt={alt}
+                  fill
+                  priority
+                  sizes="100vw"
+                  className="object-cover sm:hidden"
+                />
+                <Image
+                  src={image}
+                  alt=""
+                  fill
+                  priority
+                  sizes="(max-width: 1180px) 96vw, 1180px"
+                  className="hidden object-cover sm:block"
+                />
+              </>
+            ) : (
+              <Image
+                src={image}
+                alt={alt}
+                fill
+                priority
+                sizes="(max-width: 1180px) 96vw, 1180px"
+                className="object-cover"
+              />
+            )}
           </motion.div>
 
           <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/75 via-forest-ink/25 to-transparent" />
