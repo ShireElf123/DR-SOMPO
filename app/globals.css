@@ -385,6 +385,81 @@
   to { transform: translateY(260%); }
 }
 
+/* The complete journey is the default: readable on touch, reduced motion,
+   without JS, and without scroll-timeline support. Markers/line stay outside
+   the cards; the narrow layout has a quiet vertical connection in its gutter. */
+.journey-list { --journey-gap: 0.875rem; display: grid; gap: var(--journey-gap); }
+.journey-step { position: relative; padding-left: 2.5rem; }
+.journey-number { position: absolute; z-index: 1; left: 0; top: 0; }
+.journey-connector {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  bottom: calc(-1 * var(--journey-gap) - 14px);
+  width: 1px;
+  background: color-mix(in srgb, var(--color-forest) 26%, transparent);
+  transform-origin: left center;
+  pointer-events: none;
+}
+.journey-card:focus-visible {
+  outline: 2px solid var(--color-forest);
+  outline-offset: 4px;
+  border-color: var(--color-forest);
+  border-radius: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .journey-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .journey-step { padding-left: 0; padding-top: 2.75rem; }
+  .journey-number { left: calc(50% - 14px); }
+  .journey-connector {
+    left: 50%;
+    bottom: auto;
+    width: calc(100% + var(--journey-gap));
+    height: 1px;
+  }
+}
+
+@media (min-width: 640px) and (hover: hover) and (pointer: fine) and (not (any-pointer: coarse)) and (prefers-reduced-motion: no-preference) {
+  .journey-card { transition: transform 0.35s var(--ease-out-soft); }
+  .journey-photo { transition: transform 0.65s var(--ease-out-soft); }
+  .journey-card:is(:hover, :focus-visible) {
+    transform: translateY(-4px);
+    border-color: var(--color-forest);
+    box-shadow: var(--shadow-lift);
+  }
+  .journey-card:is(:hover, :focus-visible) .journey-photo { transform: scale(1.035); }
+
+  /* Native, entry-only timelines: no scroll handlers, MotionValues, animation
+     loop or JS payload. The range finishes before the card copy comes into view;
+     fill keeps the final state when scrolling farther down, not an exit effect. */
+  @supports (animation-timeline: view()) {
+    .journey-list { view-timeline-name: --journey-entry; view-timeline-axis: block; }
+    .journey-connector {
+      animation: journey-line-in 1s ease-out both;
+      animation-timeline: --journey-entry;
+      animation-range: entry calc(var(--step) * 20%) entry calc(45% + var(--step) * 20%);
+    }
+    .journey-step-reveal {
+      animation: journey-step-in 1s var(--ease-out-soft) both;
+      animation-timeline: --journey-entry;
+      animation-range: entry calc(5% + var(--step) * 10%) entry calc(40% + var(--step) * 10%);
+    }
+    /* Keyboard readers never have to scroll through a reveal to read/focus. */
+    .journey-list:focus-within .journey-connector,
+    .journey-list:focus-within .journey-step-reveal { animation: none; }
+  }
+}
+
+@keyframes journey-line-in {
+  from { transform: scaleX(0); }
+  to { transform: none; }
+}
+@keyframes journey-step-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
 /* Lenis: hand scroll-behaviour over to the library while it is running. */
 html.lenis,
 html.lenis body {

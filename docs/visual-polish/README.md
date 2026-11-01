@@ -63,5 +63,41 @@ fit the **existing** hero layout; a separate cold 390×844 touch test exercises
 the phone viewport. Offscreen tests assert no running hero animations and no
 continuing parallax updates. `evidence/bundle-hero.json` records this checkpoint.
 
-Journey, finish, final whole-site checks and final bundle comparison follow in
-their respective commits.
+## 2. Patient journey
+
+- A real ordered list with connected, numbered markers. The desktop line spans
+  the three steps; a static vertical line follows the phone layout's gutter.
+- Native CSS entry timelines draw the two line segments and stagger the three
+  cards, using only transform/opacity. All copy is fully revealed before it
+  needs to be read. Completed effects stay finished below the section.
+- **No additional client JavaScript, observers, scroll handlers or frame loop.**
+  Touch (including wide touch devices), reduced motion and unsupported browsers
+  get the finished state. The intro is plain readable copy, not a scroll-lit
+  paragraph that would keep working on touch or offscreen.
+- Hover lift/photo treatment is limited to a fine-pointer, non-touch desktop.
+  Keyboard focus immediately exposes the complete journey and provides a
+  high-contrast outline. The requested focusable steps are named, described
+  **articles**, not fake buttons; no new destinations/actions were invented.
+- The supplied three titles/bodies/meta strings and all image descriptions
+  remain unchanged. Existing fill/object-cover slots accept either very tall
+  or very wide replacement images without moving the cards.
+
+### Journey checkpoint
+
+Passed lint, typecheck, production build, **37 Node checks**, **10 new journey
+browser checks**, and both Home axe scans (390 / 1440 px, no violations).
+Desktop/phone screenshots were also inspected. Browser tests cover progression,
+keyboard Tab order, hover, four static device/preference profiles, a live
+reduced-motion switch, fallback CSS and arbitrary image ratios.
+
+The fallback test removes only the `@supports` enhancement. It checks the
+static fallback stylesheet; it is **not** represented as testing an actual
+older browser. A JS timeline polyfill was deliberately not added: it would
+cost payload/runtime work to animate a decorative, already-complete fallback.
+
+Home JavaScript remains **204,767 B gzip**, exactly the hero checkpoint;
+CSS is **15,585 B** and HTML/RSC **26,685 B**. Existing budgets still pass.
+See `evidence/bundle-journey.json`.
+
+Visual finish, final whole-site checks and final bundle comparison follow in
+the third commit.
