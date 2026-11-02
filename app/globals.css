@@ -22,7 +22,9 @@
   --color-rose: #f8bfb0; /* dusty rose feature wash, ~10:1 */
   --color-apricot: #f6b184; /* feature surfaces, 8.7:1 */
   --color-tangerine: #f3812b; /* hover + mid stops, 6.0:1 */
-  --color-ember: #eb6300; /* deepest step, 4.75:1 with charcoal */
+  --color-ember: #eb6300; /* the action stop, 4.75:1 with charcoal */
+  --color-ember-deep: #7a2e00; /* depth stop: 8.9:1 with cream */
+  --color-espresso: #2a1813; /* warm near-black for the two deep bands */
   --color-charcoal: #26221f;
 
   /* Accessible text ramps. These replace ad-hoc alpha values so every body
@@ -522,8 +524,18 @@
     background: linear-gradient(135deg, #f7ab84 0%, #fcc9b4 55%, #f6b7a6 100%);
   }
 
+  /* Tonal depth. The whole page used to sit above L 40, which is what made the
+     reskin read flat next to the release it replaced. Two deep warm surfaces
+     restore the value range: the announcement strip and the footer frame every
+     page, and the bento statement panel puts one deep block in the middle. All
+     three carry cream type (8.9:1 at the lightest deep stop) — no white, no
+     cool hue, no black. */
   .ticker-gradient {
-    background: linear-gradient(90deg, #fde6dd, #f7b795 40%, #ee8a5c);
+    background: linear-gradient(90deg, #2a1813, #4a2010 46%, #7a2e00);
+  }
+
+  .ember-deep-gradient {
+    background: linear-gradient(145deg, #2a1813 0%, #3f1a0d 52%, #7a2e00 100%);
   }
 
   /* Keep the existing sRGB recipes above as real fallbacks. Only the large
@@ -547,7 +559,13 @@
         linear-gradient(135deg in oklab, #f7ab84 0%, #fcc9b4 55%, #f6b7a6 100%);
     }
     .ticker-gradient {
-      background: linear-gradient(90deg in oklab, #fde6dd, #f7b795 40%, #ee8a5c);
+      background: linear-gradient(90deg in oklab, #2a1813, #4a2010 46%, #7a2e00);
+    }
+    .ember-deep-gradient {
+      background:
+        radial-gradient(90% 80% at 8% 0% in oklab, rgba(122, 46, 0, 0.55), transparent 62%),
+        radial-gradient(85% 90% at 100% 100% in oklab, rgba(122, 60, 30, 0.45), transparent 64%),
+        linear-gradient(145deg in oklab, #2a1813 0%, #3f1a0d 52%, #7a2e00 100%);
     }
   }
 }

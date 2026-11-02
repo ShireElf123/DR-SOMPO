@@ -229,7 +229,7 @@ export function ContactBand() {
           </Reveal>
 
           <Reveal y={20} delay={0.08}>
-            <div className="photo-depth relative flex h-full min-h-[16rem] flex-col justify-end overflow-hidden rounded-[1.5rem] bg-peach p-4 sm:p-5">
+            <div className="photo-depth relative flex h-full min-h-[19rem] flex-col justify-end overflow-hidden rounded-[1.5rem] bg-peach p-4 sm:p-5">
               <ParallaxImage
                 src="/images/hospital-exterior.jpg"
                 alt="Life Roseacres Hospital entrance"

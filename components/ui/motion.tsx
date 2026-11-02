@@ -207,7 +207,7 @@ export function ScrollWords({
   text: string;
   className?: string;
   /** Panel tone this paragraph sits on. */
-  tint?: "light";
+  tint?: "light" | "dark";
 }) {
   const ref = useRef<HTMLParagraphElement>(null);
   const reduce = useReducedMotion();
@@ -223,8 +223,11 @@ export function ScrollWords({
   // layer stays mounted, including on the server and with JavaScript disabled.
   const onScreen = useInView(ref, { margin: "15% 0px 15% 0px" });
 
-  const lit = "var(--color-charcoal)";
-  const dim = "#6f6255";
+  // Both ramps are measured against the surface they sit on: charcoal on the
+  // light panels, cream on the deep ones, with the un-lit copy at 0.72 alpha
+  // (6.4:1 on the lightest deep stop).
+  const lit = tint === "dark" ? "var(--color-cream)" : "var(--color-charcoal)";
+  const dim = tint === "dark" ? "rgba(253, 248, 242, 0.72)" : "#6f6255";
 
   return (
     <p ref={ref} className={className} data-scroll-words={tint}>

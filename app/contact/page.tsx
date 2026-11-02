@@ -148,7 +148,7 @@ export default async function ContactPage({
               </Reveal>
 
               <Reveal delay={0.1}>
-                <div className="photo-depth group relative mt-4 aspect-[16/9] overflow-hidden rounded-[1.35rem] bg-peach">
+                <div className="photo-depth group relative mt-4 aspect-[4/3] overflow-hidden rounded-[1.35rem] bg-peach sm:aspect-[16/9]">
                   <ParallaxImage
                     src="/images/hospital-exterior.jpg"
                     alt="Life Roseacres Hospital entrance"

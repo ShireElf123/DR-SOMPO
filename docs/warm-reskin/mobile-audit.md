@@ -98,3 +98,78 @@ which are exempt. Nothing on any route is under 24 px.
   pictures of people, anchored at 18–20 % of the frame height so the face stays centred.
 - **Caption plates** over photography. They are part of the language of the site and they
   are what keeps the type at AA contrast on a photograph.
+
+---
+
+# Second pass — the photographs still covered, and the missing tonal depth
+
+The first pass fixed the two structural bugs (hero plates and the closing call to action
+that swallowed the photograph). It did not catch everything, and the palette had a
+second problem that only showed up once the deep bands were measured: **the whole page
+sat in a narrow light band.** Everything from the ticker to the footer was apricot,
+cream or glass — no value anywhere below L 40 — so the warmth read as flatness rather
+than as depth. Both were fixed in the same pass.
+
+## A correction to how I measured the first time
+
+`plates.mjs` reports the caption plate's area as a share of **the card that contains
+it**, not of the photograph. On interior heroes the card also holds the copy block, so
+`/research` came back as "53 % of the picture covered" when the photograph above the
+copy is in fact uncovered. Those hero numbers (43–53 %) are measurement artefacts and
+are withdrawn. The numbers below are plate-area against **photograph frame**, read off
+screenshots, not off bounding boxes.
+
+## Fixed this pass
+
+| Where | Was | Now | What changed |
+| --- | --- | --- | --- |
+| Home, credentials portrait in the bento | 50 % plate over the frame | plate clears her face and coat; ~34 % of the frame | card floor raised to `min-h-[24rem]` so the portrait has room above the plate |
+| Home, hospital strip | 33 % visible (plate + a second line of address) | ~62 % visible | strip floor `min-h-[10.5rem]`, third address line hidden below `sm` |
+| `/contact`, directions photograph | 36 % visible | 64 % visible, plate now 27 % of the card | frame changed from `aspect-[16/9]` to `aspect-[4/3]` on phones |
+| `/contact`, card in the closing teaser | plate taller than the photo | photo holds | card floor `min-h-[19rem]` |
+
+The `/about` qualifications plate stayed at 21 % of the card: the portrait above it shows
+her face, shoulders and coat, and the plate carries the four credentials. That one is
+the design, not a defect.
+
+## Tonal depth — measured, not asserted
+
+The frames are now espresso. `.ticker-gradient` runs `#2a1813 → #4a2010 → #7a2e00` and
+`.ember-deep-gradient` runs `#2a1813 → #3f1a0d → #7a2e00` at 145°, both with an OKLab
+`radial` companion. The ticker, the footer frame and one statement tile in the home bento
+use them; all three sets cream type, and the `ScrollWords` inside the tile switched to a
+dark tint (cream lit, `rgba(253,248,242,0.72)` dim) so the scrim doesn't grey it out.
+
+Pixel histogram of the home page at 1280, area-weighted, sampled every fourth pixel:
+
+| | Before (light bands) | After (deep bands) |
+| --- | --- | --- |
+| share of page below L 40 | 7.7 % | **14.8 %** |
+| share between L 10–20 | 0 % | 7.0 % |
+| share between L 0–10 | 0 % | 0.7 % |
+| mean L | 84.5 | 79.9 |
+| share above L 80 | 72.5 % | 72.4 % |
+
+That is a genuine dark anchor — the page now has a bottom and a top — while the light
+middle is untouched: the same 72 % of the page is still cream and apricot, so the
+feminine read survives. Contrast is not traded away for it: cream on `#7a2e00` is 8.9:1,
+cream at 0.72 opacity on the lightest deep stop is 6.4:1, and the footer's own ink
+luminance is above 0.8.
+
+## What the tests now hold
+
+`tests/e2e/warm-theme.spec.ts` was rewritten rather than satisfied, because its old rules
+("no surface below L 0.35 anywhere", "footer ink is charcoal `rgb(38,34,31)`") describe
+the flat page this pass deliberately replaced:
+
+- exactly **one** section-level surface per page may sit below L 0.35 — the depth reads
+  as an ending, not as a theme;
+- every painted surface stays warm (`r ≥ b`), so no cool grey creeps in with the dark;
+- no `rgb(255,255,255)` type anywhere; footer ink luminance must exceed 0.8;
+- the ticker and footer are screenshotted and checked as **painted pixels** against their
+  own computed ink (≥ 4.5:1), with light fills inside the band — the cream booking pill —
+  excluded, since those carry their own dark ink.
+
+166/166 Playwright checks pass; `tsc`, `eslint --max-warnings=0` and `next build` are
+clean; gzip budgets hold at JS 204,625 / CSS 16,210 / HTML 27,330 against 204,800 /
+16,384 / 30,720.
