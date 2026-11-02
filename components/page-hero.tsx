@@ -2,10 +2,7 @@
 
 import { m, useScroll, useTransform } from "framer-motion";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
-import Image, {
-  PhotographyNotice,
-  PortraitLabel,
-} from "@/components/ui/practice-image";
+import Image from "@/components/ui/practice-image";
 import { ResponsivePhoto } from "@/components/ui/responsive-photo";
 import { useRef, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
@@ -102,7 +99,6 @@ export function PageHero({
             {children}
           </div>
         </div>
-        <PhotographyNotice />
       </div>
     </section>
   );
@@ -221,14 +217,9 @@ export function SplitHero({
                 className="object-cover object-[center_18%]"
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-forest-ink/45 via-transparent to-transparent" />
-              <p className="absolute inset-x-4 bottom-4 text-[10px] uppercase tracking-[0.16em] text-white/85">
-                AI-generated illustration · not a portrait of Dr Sompo
-              </p>
-              <PortraitLabel />
             </div>
           </div>
         </div>
-        <PhotographyNotice />
       </div>
     </section>
   );

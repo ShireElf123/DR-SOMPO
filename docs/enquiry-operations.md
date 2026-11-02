@@ -23,7 +23,7 @@ The practice owner must sign off all of these, not just the environment variable
 - [ ] With explicit practice permission, perform a controlled end-to-end receipt check, verify arrival with the intended recipient and delete the synthetic record under the agreed policy. **Mocked tests do not establish delivery.**
 - [ ] Assign an owner for outages, privacy requests, complaints, secret rotation and disabling collection. Record who approved activation and when outside the public repository.
 
-Approved real doctor/premises photographs and clinical/credential content approval are separate launch items. Generated-image labels must not be removed just to make placeholders appear genuine.
+Approved real doctor/premises photographs and clinical/credential content approval are separate launch items. Current images remain generated placeholders, not verified photographs of the doctor or practice. Visible image-provenance badges and notices are not part of the requested design; retain factual alternative text and replace placeholders with approved, licensed photography.
 
 ## Server-only configuration
 

@@ -347,8 +347,22 @@ test("sharing metadata matches each page and FAQ structured data is scoped to vi
   }
 });
 
+for (const width of [390, 1440]) {
+  test(`placeholder photos have no visible AI badges or notices at ${width}px`, async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.setViewportSize({ width, height: 900 });
+    for (const route of routes) {
+      await go(page, route);
+      await expect(page.locator("[data-photography-notice]")).toHaveCount(0);
+      // Check rendered copy, not factual image alternative text or metadata.
+      const visibleCopy = await page.locator("main").innerText();
+      expect(visibleCopy, route).not.toMatch(/AI(?:-generated| illustration)|not a portrait of Dr Sompo/);
+    }
+  });
+}
+
 for (const path of ["/", "/research", "/contact"]) {
-  test(`phone downloads one hero variant and discloses illustrative imagery on ${path}`, async ({
+  test(`phone downloads one hero variant with accurate alternative text on ${path}`, async ({
     page,
   }) => {
     await page.setViewportSize({ width: 390, height: 844 });
@@ -359,7 +373,7 @@ for (const path of ["/", "/research", "/contact"]) {
         ? 'img[src*="hero-doctor"]'
         : "picture[data-responsive-hero] img";
     await expect(hero.locator(selector)).toHaveCount(1);
-    await expect(hero.locator("[data-photography-notice]")).toBeVisible();
+    await expect(hero.locator("[data-photography-notice]")).toHaveCount(0);
     await expect(hero.locator(selector)).toHaveAttribute("alt", /AI-generated/);
     const selectedSource = await hero
       .locator(selector)

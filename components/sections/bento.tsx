@@ -1,4 +1,4 @@
-import Image, { PortraitLabel } from "@/components/ui/practice-image";
+import Image from "@/components/ui/practice-image";
 import Link from "next/link";
 import {
   ArrowUpRight,
@@ -69,7 +69,6 @@ export function BentoBand() {
                 sizes="(max-width: 1024px) 92vw, 46vw"
                 className="object-cover object-[center_18%] transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
               />
-              <PortraitLabel />
               <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/85 via-forest-ink/25 to-transparent" />
               <div className="relative">
                 <p className="text-[9.5px] uppercase tracking-[0.18em] text-white/75">

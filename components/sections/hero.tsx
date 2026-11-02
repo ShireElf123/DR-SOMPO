@@ -3,7 +3,7 @@
 import { m, useInView, useMotionValue, useMotionValueEvent, useScroll, type MotionValue } from "framer-motion";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { ArrowUpRight, Phone } from "lucide-react";
-import Image, { PhotographyNotice, PortraitLabel } from "@/components/ui/practice-image";
+import Image from "@/components/ui/practice-image";
 import { useEffect, useRef, useState, type RefObject } from "react";
 import { brand, practice } from "@/lib/practice";
 import { useDesktopMotion } from "@/lib/use-desktop-motion";
@@ -91,7 +91,6 @@ export function Hero() {
               </div>
             </m.div>
           </div>
-          <PortraitLabel />
 
           {/* Copy */}
           <m.div
@@ -194,7 +193,6 @@ export function Hero() {
             <Phone className="h-3.5 w-3.5 text-forest/60" aria-hidden="true" />
           </m.a>
         </div>
-        <PhotographyNotice />
       </div>
     </section>
   );

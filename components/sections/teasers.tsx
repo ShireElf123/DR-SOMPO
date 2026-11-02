@@ -1,4 +1,3 @@
-import { PortraitLabel } from "@/components/ui/practice-image";
 import { FaqList } from "@/components/ui/faq-list";
 import Link from "next/link";
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
@@ -25,7 +24,6 @@ export function AboutTeaser() {
                   className="absolute inset-0"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/40 via-transparent to-transparent" />
-                <PortraitLabel />
                 <div className="absolute inset-x-3 bottom-3 flex flex-wrap gap-1.5">
                   {["FCOG (SA)", "MMed (O&G)", "Wits"].map((chip) => (
                     <span

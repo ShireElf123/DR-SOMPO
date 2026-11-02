@@ -1,6 +1,6 @@
 import { pageMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
-import Image, { PortraitLabel } from "@/components/ui/practice-image";
+import Image from "@/components/ui/practice-image";
 import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
 import { SectionHead, SplitHero } from "@/components/page-hero";
@@ -199,7 +199,6 @@ export default function AboutPage() {
                   sizes="(max-width: 1024px) 92vw, 38vw"
                   className="object-cover object-[center_22%]"
                 />
-                <PortraitLabel />
                 <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/60 via-transparent to-transparent" />
                 <div className="absolute inset-x-4 bottom-4">
                   <p className="text-[10px] uppercase tracking-[0.16em] text-white/80">

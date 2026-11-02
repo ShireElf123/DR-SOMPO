@@ -146,8 +146,10 @@ would have had to be invented. The trust-building work is done instead with
 practice-supplied credentials, affiliations, research and clear contact routes.
 Source verification flags reflect the supplied brief, not independent medical
 or regulatory verification performed by this engineering change. The practice
-must approve the final content and replace the clearly labelled generated
-photography with approved, licensed real images.
+must approve the final content and replace the generated placeholder
+photography with approved, licensed real images. The requested design does not
+include visible image-provenance badges or notices; factual alternative text
+and internal provenance records remain.
 
 ---
 
