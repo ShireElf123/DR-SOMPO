@@ -193,7 +193,7 @@ export function EnquiryForm({
         tabIndex={-1}
         role="status"
         aria-live="polite"
-        className="scroll-mt-28 rounded-[1.35rem] bg-white p-6 ring-1 ring-charcoal/10 sm:p-8"
+        className="scroll-mt-28 rounded-[1.35rem] bg-cream p-6 ring-1 ring-charcoal/10 sm:p-8"
         initial={reduce ? undefined : { opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
@@ -262,7 +262,7 @@ export function EnquiryForm({
       {...(onlineEnabled
         ? { action: "/api/enquiry", method: "post", onSubmit, noValidate: true }
         : { role: "form" })}
-      className="min-w-0 max-w-full scroll-mt-6 rounded-[1.35rem] bg-white p-5 ring-1 ring-charcoal/10 sm:p-7"
+      className="min-w-0 max-w-full scroll-mt-6 rounded-[1.35rem] bg-cream p-5 ring-1 ring-charcoal/10 sm:p-7"
     >
       <h3 id="appointment-heading" className="flex items-center gap-2 text-[1.0625rem] font-medium tracking-[-0.02em] text-ink">
         <CalendarCheck className="h-4 w-4 text-ink" aria-hidden="true" />
@@ -736,7 +736,7 @@ export function EnquiryForm({
 function inputClass(hasError: boolean) {
   return cn(
     "min-h-12 w-full min-w-0 scroll-mt-28 rounded-xl border bg-cream/60 px-3.5 py-2.5 text-base text-ink placeholder:text-ink-muted lg:min-h-0 lg:text-[13px]",
-    "transition-colors duration-300 focus:bg-white focus:outline-none focus:ring-2 focus:ring-ember/30",
+    "transition-colors duration-300 focus:bg-cream focus:outline-none focus:ring-2 focus:ring-ember/30",
     hasError
       ? "border-[#c98a7a] focus:border-[#a8543f]"
       : "border-charcoal/10 focus:border-ember",

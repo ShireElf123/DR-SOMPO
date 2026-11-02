@@ -100,7 +100,7 @@ export function ConditionsTreated() {
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder="Search a symptom or condition"
-                className="w-full rounded-full border border-charcoal/12 bg-white py-2.5 pl-9 pr-4 text-[12px] text-ink outline-none transition-colors duration-300 placeholder:text-ink-muted focus:border-ember/45 focus:ring-2 focus:ring-ember/12"
+                className="w-full rounded-full border border-charcoal/12 bg-cream py-2.5 pl-9 pr-4 text-[12px] text-ink outline-none transition-colors duration-300 placeholder:text-ink-muted focus:border-ember/45 focus:ring-2 focus:ring-ember/12"
               />
               <p aria-live="polite" className="sr-only">
                 {term
@@ -131,7 +131,7 @@ export function ConditionsTreated() {
                 animate={reduce ? undefined : { opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.04, ease: [0.16, 1, 0.3, 1] }}
                 className={cn(
-                  "flex flex-col overflow-hidden rounded-[1.35rem] bg-white border-hairline border-charcoal/8",
+                  "flex flex-col overflow-hidden rounded-[1.35rem] bg-cream border-hairline border-charcoal/8",
                   isFiltering && "border-ember/20",
                 )}
               >
@@ -188,7 +188,7 @@ export function ConditionsTreated() {
         </div>
 
         {filtered.length === 0 && (
-          <div className="mt-8 rounded-[1.35rem] bg-white p-6 border-hairline border-charcoal/8">
+          <div className="mt-8 rounded-[1.35rem] bg-cream p-6 border-hairline border-charcoal/8">
             <p className="text-[13px] leading-relaxed text-ink-soft">
               This list covers the conditions the practice is most often asked
               about, not every condition it can assess. If you cannot find what you

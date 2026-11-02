@@ -21,7 +21,7 @@ export default function HomePage() {
       <Hero />
       {/* Credential band — the "press bar" beat Framer sites use to break up
           the hero and the first card section. */}
-      <section aria-label="Professional affiliations" className="bg-white py-6 sm:py-8">
+      <section aria-label="Professional affiliations" className="bg-cream py-6 sm:py-8">
         <div className="shell">
           <div className="flex items-center gap-6 overflow-hidden border-y-hairline border-charcoal/10 py-3">
             <span className="hidden shrink-0 text-[10px] uppercase tracking-[0.18em] text-ink-muted sm:block">

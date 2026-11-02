@@ -42,7 +42,7 @@ export default async function ContactPage({
         aspect="aspect-[16/11] sm:aspect-[16/7] lg:aspect-[16/6]"
       />
 
-      <section className="bg-white py-12 sm:py-16">
+      <section className="bg-cream py-12 sm:py-16">
         <div className="shell">
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-[0.95fr_1.05fr]">
             {/* Details */}
@@ -65,7 +65,7 @@ export default async function ContactPage({
                     <RevealItem>
                       <a
                         href={practice.phoneHref}
-                        className="group flex items-center gap-3 rounded-xl bg-white/70 p-3 transition-colors hover:bg-white"
+                        className="group flex items-center gap-3 rounded-xl bg-cream/70 p-3 transition-colors hover:bg-cream"
                       >
                         <span className="flex h-8 w-8 items-center justify-center rounded-full bg-ember text-ink">
                           <Phone className="h-3.5 w-3.5" aria-hidden="true" />
@@ -84,9 +84,9 @@ export default async function ContactPage({
                     <RevealItem>
                       <a
                         href={`mailto:${practice.email}`}
-                        className="group flex items-center gap-3 rounded-xl bg-white/70 p-3 transition-colors hover:bg-white"
+                        className="group flex items-center gap-3 rounded-xl bg-cream/70 p-3 transition-colors hover:bg-cream"
                       >
-                        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-ink">
+                        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-cream text-ink">
                           <Mail className="h-3.5 w-3.5" aria-hidden="true" />
                         </span>
                         <span className="min-w-0">
@@ -123,7 +123,7 @@ export default async function ContactPage({
                       href={directionsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-[11px] font-medium text-ink"
+                      className="inline-flex items-center gap-1.5 rounded-full bg-cream px-3 py-1.5 text-[11px] font-medium text-ink"
                     >
                       <Navigation className="h-3 w-3" aria-hidden="true" />
                       Directions
@@ -132,14 +132,14 @@ export default async function ContactPage({
                       href={mapsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-[11px] font-medium text-ink"
+                      className="inline-flex items-center gap-1.5 rounded-full bg-cream px-3 py-1.5 text-[11px] font-medium text-ink"
                     >
                       <MapPin className="h-3 w-3" aria-hidden="true" />
                       Open in Maps
                     </a>
                   </div>
 
-                  <p className="mt-4 rounded-lg bg-white/60 px-3 py-2 text-[10px] leading-relaxed text-ink-soft">
+                  <p className="mt-4 rounded-lg bg-cream/60 px-3 py-2 text-[10px] leading-relaxed text-ink-soft">
                     Consulting hours, practice number and medical aid arrangements
                     are confirmed directly by the practice. Emergencies: contact{" "}
                     {practice.hospital} or your nearest emergency department.
@@ -166,7 +166,7 @@ export default async function ContactPage({
                         {practice.hospital}, Primrose
                       </p>
                     </div>
-                    <span className="rounded-full bg-white/70 px-2.5 py-1 text-[10px] font-medium text-ink">
+                    <span className="rounded-full bg-cream/70 px-2.5 py-1 text-[10px] font-medium text-ink">
                       St Joseph &amp; Castor Rd
                     </span>
                   </div>

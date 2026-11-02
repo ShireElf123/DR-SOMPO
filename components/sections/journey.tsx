@@ -22,7 +22,7 @@ export function Journey() {
           {journey.map((step, index) => (
             <li key={step.step} className="journey-step" style={{ "--step": index } as CSSProperties}>
               {index < journey.length - 1 && <span aria-hidden="true" className="journey-connector" />}
-              <span aria-hidden="true" className="journey-number flex h-7 w-7 items-center justify-center rounded-full border border-ember/20 bg-white font-display text-[12px] leading-none text-ink tabular-nums">
+              <span aria-hidden="true" className="journey-number flex h-7 w-7 items-center justify-center rounded-full border border-ember/20 bg-cream font-display text-[12px] leading-none text-ink tabular-nums">
                 {step.step}
               </span>
               <div className="journey-step-reveal h-full">
@@ -30,7 +30,7 @@ export function Journey() {
                   tabIndex={0}
                   aria-labelledby={`journey-title-${step.step}`}
                   aria-describedby={`journey-body-${step.step} journey-meta-${step.step}`}
-                  className="journey-card flex h-full flex-col overflow-hidden rounded-[1.25rem] border-hairline border-charcoal/10 bg-white"
+                  className="journey-card flex h-full flex-col overflow-hidden rounded-[1.25rem] border-hairline border-charcoal/10 bg-cream"
                 >
                   <div className="photo-depth relative aspect-[4/3] overflow-hidden bg-peach">
                     <Image

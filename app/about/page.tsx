@@ -79,7 +79,7 @@ export default function AboutPage() {
       />
 
       {/* Scroll-lit statement */}
-      <section className="bg-white pb-4 pt-12 sm:pt-16">
+      <section className="bg-cream pb-4 pt-12 sm:pt-16">
         <div className="shell">
           <ScrollWords
             text="Having experienced difficult pregnancies herself, she brings a personal understanding to the women she cares for — alongside specialist training, research and a commitment to patient education."
@@ -90,7 +90,7 @@ export default function AboutPage() {
       </section>
 
       {/* Biography */}
-      <section className="bg-white py-10 sm:py-14">
+      <section className="bg-cream py-10 sm:py-14">
         <div className="shell">
           <div className="grid gap-9 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
             <div>
@@ -155,7 +155,7 @@ export default function AboutPage() {
                       {["MBChB", "FCOG (SA)", "MMed (O&G)"].map((code) => (
                         <span
                           key={code}
-                          className="rounded-full bg-white px-2.5 py-1 text-[10px] font-medium text-ink"
+                          className="rounded-full bg-cream px-2.5 py-1 text-[10px] font-medium text-ink"
                         >
                           {code}
                         </span>
@@ -163,7 +163,7 @@ export default function AboutPage() {
                     </div>
                   </div>
                 </Panel>
-                <div className="absolute -bottom-5 -left-2 hidden rounded-2xl bg-white px-4 py-3 shadow-float border-hairline border-charcoal/8 sm:block">
+                <div className="absolute -bottom-5 -left-2 hidden rounded-2xl bg-cream px-4 py-3 shadow-float border-hairline border-charcoal/8 sm:block">
                   <p className="text-[10px] uppercase tracking-[0.14em] text-ink-muted">
                     Consulting
                   </p>
@@ -215,7 +215,7 @@ export default function AboutPage() {
             <RevealGroup className="grid gap-3 sm:grid-cols-2" stagger={0.07}>
               {credentials.map((credential, i) => (
                 <RevealItem key={credential.code}>
-                  <div className="group relative h-full overflow-hidden rounded-[1.25rem] bg-white p-5 border-hairline border-charcoal/8 hover:border-ember/25">
+                  <div className="group relative h-full overflow-hidden rounded-[1.25rem] bg-cream p-5 border-hairline border-charcoal/8 hover:border-ember/25">
                     <span
                       aria-hidden="true"
                       className="absolute -right-6 -top-6 grid h-20 w-20 place-items-center rounded-full bg-blush text-[26px] font-light text-ink transition-transform duration-700 group-hover:scale-110"
@@ -339,7 +339,7 @@ export default function AboutPage() {
           <div className="mt-8 grid gap-3.5 sm:grid-cols-3">
             {values.map((value, i) => (
               <Reveal key={value.title} delay={i * 0.08} y={20}>
-                <div className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] bg-white border-hairline border-charcoal/8">
+                <div className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] bg-cream border-hairline border-charcoal/8">
                   <div className="relative aspect-[4/3] overflow-hidden bg-peach">
                     <Image
                       src={value.image}

@@ -51,7 +51,7 @@ export default function ServicesPage() {
       <ConditionsTreated />
 
       {/* Quick index — glass chips that invert on hover */}
-      <section className="bg-white pt-9">
+      <section className="bg-cream pt-9">
         <div className="shell">
           <div className="flex flex-wrap items-center gap-2">
             <span className="mr-1 text-[10px] uppercase tracking-[0.16em] text-ink-muted">
@@ -61,7 +61,7 @@ export default function ServicesPage() {
               <a
                 key={group.id}
                 href={`#${group.id}`}
-                className="group inline-flex items-center gap-1.5 rounded-full border border-charcoal/12 bg-white px-3.5 py-1.5 text-[11px] font-medium text-ink-soft transition-all duration-500 hover:-translate-y-0.5 hover:border-ember hover:bg-ember hover:text-ink"
+                className="group inline-flex items-center gap-1.5 rounded-full border border-charcoal/12 bg-cream px-3.5 py-1.5 text-[11px] font-medium text-ink-soft transition-all duration-500 hover:-translate-y-0.5 hover:border-ember hover:bg-ember hover:text-ink"
               >
                 {group.label}
                 <ArrowUpRight className="h-3 w-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -72,7 +72,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Statement panel */}
-      <section className="bg-white pt-10">
+      <section className="bg-cream pt-10">
         <div className="shell">
           <Panel tone="ember" className="p-2.5 sm:p-3">
             <div className="grid gap-2.5 lg:grid-cols-[1.02fr_0.98fr] lg:items-stretch">
@@ -131,7 +131,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Detail blocks */}
-      <section className="bg-white py-8 sm:py-10">
+      <section className="bg-cream py-8 sm:py-10">
         <div className="shell space-y-4">
           {serviceGroups.map((group, index) => {
             const meta = groupImages[group.id];
@@ -164,7 +164,7 @@ export default function ServicesPage() {
                     </span>
                   </div>
 
-                  <div className="rounded-[1.35rem] bg-white p-6 sm:p-8 lg:p-9">
+                  <div className="rounded-[1.35rem] bg-cream p-6 sm:p-8 lg:p-9">
                     <h2 className="text-[clamp(1.4rem,2.6vw,1.95rem)] leading-[1.08]">
                       <WordsIn text={group.headline} stagger={0.03} />
                     </h2>
@@ -258,7 +258,7 @@ export default function ServicesPage() {
               },
             ].map((step, i) => (
               <Reveal key={step.label} delay={i * 0.08} y={20}>
-                <div className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] bg-white border-hairline border-charcoal/8 hover:shadow-lift">
+                <div className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] bg-cream border-hairline border-charcoal/8 hover:shadow-lift">
                   <div className="photo-depth relative aspect-[4/3] overflow-hidden bg-peach">
                     <Image
                       src={step.image}

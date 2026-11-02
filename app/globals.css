@@ -10,12 +10,16 @@
   --font-serif: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-instrument), "Times New Roman", Georgia, serif;
 
-  /* Warm palette — peach/apricot light through to one orange stop.
-     #EB6300 is the deepest step in the ramp: nothing darker is introduced,
-     and every coloured surface carries charcoal type rather than white. */
+  /* Warm palette — rose-cream and petal into peach and apricot, with one
+     orange stop. The pink steps are what make the ramp read soft rather than
+     sporty; #EB6300 stays the deepest step and is used for actions and
+     accents, never as a large field. Every coloured surface carries charcoal
+     type rather than white. */
   --color-cream: #fdf8f2; /* page + card wash, 14.9:1 with charcoal */
-  --color-blush: #fdeade; /* soft callouts, 13.5:1 */
-  --color-peach: #fbd5b8; /* image backdrops, chips, 11.5:1 */
+  --color-blush: #fdede5; /* soft callouts, a rose-cream not an orange-cream */
+  --color-petal: #fbdcd2; /* the pink step between blush and peach */
+  --color-peach: #fbd4bd; /* image backdrops, chips */
+  --color-rose: #f8bfb0; /* dusty rose feature wash, ~10:1 */
   --color-apricot: #f6b184; /* feature surfaces, 8.7:1 */
   --color-tangerine: #f3812b; /* hover + mid stops, 6.0:1 */
   --color-ember: #eb6300; /* deepest step, 4.75:1 with charcoal */
@@ -257,7 +261,7 @@
     z-index: 1;
     border-radius: inherit;
     pointer-events: none;
-    background: linear-gradient(155deg, rgba(253, 231, 214, 0.26), rgba(235, 99, 0, 0.1) 58%, transparent 88%);
+    background: linear-gradient(155deg, rgba(253, 226, 216, 0.3), rgba(238, 138, 92, 0.1) 58%, transparent 88%);
     mix-blend-mode: soft-light;
   }
 
@@ -470,7 +474,7 @@
      surface has depth instead of a banded gradient. Charcoal type sits on a
      cream haze at every width; no white-on-photo copy survives this pass. */
   .sun-gradient {
-    background: linear-gradient(118deg, #f09a50 0%, #f5b184 38%, #fbd0ae 68%, #fdeee2 100%);
+    background: linear-gradient(118deg, #f2a67c 0%, #f7c0a2 38%, #fbd6c2 68%, #fdeee6 100%);
   }
 
   /* Phone: the portrait keeps the full frame, and the copy sits on a warm
@@ -502,13 +506,14 @@
     .sun-gradient::after { --hero-haze: 0.58; }
   }
   /* Feature wash for the research band, final call to action and footer.
-     Apricot base, ember at the low corner — never darker than #EB6300. */
+     A rose-apricot ramp: soft enough to read feminine at full-bleed width,
+     while #EB6300 stays reserved for the actions and accents on top of it. */
   .ember-gradient {
-    background: linear-gradient(135deg, #f7a969 0%, #fbd0ae 100%);
+    background: linear-gradient(135deg, #f7ab84 0%, #fcc9b4 55%, #f6b7a6 100%);
   }
 
   .ticker-gradient {
-    background: linear-gradient(90deg, #fdeade, #f6b184 34%, #eb6300);
+    background: linear-gradient(90deg, #fde6dd, #f7b795 40%, #ee8a5c);
   }
 
   /* Keep the existing sRGB recipes above as real fallbacks. Only the large
@@ -518,21 +523,21 @@
     .sun-gradient {
       background:
         radial-gradient(110% 90% at 86% 2% in oklab, rgba(255, 246, 236, 0.86), transparent 46%),
-        radial-gradient(95% 85% at 100% 62% in oklab, rgba(243, 129, 43, 0.95), transparent 62%),
-        radial-gradient(80% 75% at 0% 106% in oklab, rgba(235, 99, 0, 0.98), transparent 66%),
-        linear-gradient(118deg in oklab, #f09a50 0%, #f5b184 38%, #fbd0ae 68%, #fdeee2 100%);
+        radial-gradient(95% 85% at 100% 62% in oklab, rgba(246, 158, 110, 0.9), transparent 62%),
+        radial-gradient(80% 75% at 0% 106% in oklab, rgba(240, 132, 88, 0.88), transparent 66%),
+        linear-gradient(118deg in oklab, #f2a67c 0%, #f7c0a2 38%, #fbd6c2 68%, #fdeee6 100%);
     }
     .sun-gradient::after {
       background: linear-gradient(90deg in oklab, rgba(253, 248, 242, var(--hero-haze)) min(38.5rem, 80%), transparent calc(min(38.5rem, 80%) + 12rem));
     }
     .ember-gradient {
       background:
-        radial-gradient(100% 120% at 92% 0% in oklab, rgba(253, 248, 242, 0.8), transparent 58%),
-        radial-gradient(90% 90% at 0% 100% in oklab, rgba(235, 99, 0, 0.88), transparent 62%),
-        linear-gradient(135deg in oklab, #f7a969 0%, #fbd0ae 100%);
+        radial-gradient(100% 120% at 92% 0% in oklab, rgba(253, 248, 242, 0.86), transparent 60%),
+        radial-gradient(90% 90% at 0% 100% in oklab, rgba(246, 155, 120, 0.72), transparent 64%),
+        linear-gradient(135deg in oklab, #f7ab84 0%, #fcc9b4 55%, #f6b7a6 100%);
     }
     .ticker-gradient {
-      background: linear-gradient(90deg in oklab, #fdeade, #f6b184 34%, #eb6300);
+      background: linear-gradient(90deg in oklab, #fde6dd, #f7b795 40%, #ee8a5c);
     }
   }
 }
@@ -571,7 +576,7 @@
    The ember rail is drawn by a CSS scroll timeline, so the signature moment
    costs no client JavaScript; without support it stays a quiet hairline. */
 .stages-band {
-  background: linear-gradient(180deg, var(--color-cream), var(--color-blush) 42%, var(--color-peach) 88%, var(--color-cream));
+  background: linear-gradient(180deg, var(--color-cream), var(--color-petal) 30%, var(--color-blush) 58%, var(--color-peach) 88%, var(--color-cream));
 }
 .stages-list {
   position: relative;

@@ -19,12 +19,19 @@ near-black panel.
 
 | Token | Value | Role | Charcoal `#26221F` contrast |
 | --- | --- | --- | ---: |
-| `--color-cream` | `#FDF8F2` | page, cards | 14.94:1 |
-| `--color-blush` | `#FDEADE` | callouts, FAQ band | 13.52:1 |
-| `--color-peach` | `#FBD5B8` | image beds, chips | 11.50:1 |
+| `--color-cream` | `#FDF8F2` | page, every card surface | 14.94:1 |
+| `--color-blush` | `#FDEDE5` | callouts, FAQ band | 13.84:1 |
+| `--color-petal` | `#FBDCD2` | the pink step between blush and peach | 12.22:1 |
+| `--color-peach` | `#FBD4BD` | image beds, chips | 11.46:1 |
+| `--color-rose` | `#F8BFB0` | dusty-rose feature wash | 9.82:1 |
 | `--color-apricot` | `#F6B184` | feature surfaces | 8.67:1 |
 | `--color-tangerine` | `#F3812B` | hover + mid gradient stop | 6.00:1 |
-| `--color-ember` | `#EB6300` | **deepest step** | 4.75:1 |
+| `--color-ember` | `#EB6300` | **deepest step, actions only** | 4.75:1 |
+
+The ramp is deliberately rose-leaning: blush sits at OKLCh hue 48.5° and petal
+at 38.7°, so peach shades into pink before it turns orange. Pure white is not a
+token and no longer appears in the build — every surface is cream or warmer,
+which is what stops the palette reading as a cold site with warm panels on it.
 
 The ramp stops at `#EB6300`. Nothing in the theme is darker or more saturated
 than that orange, and no surface is brown or near-black: the footer, the
@@ -176,3 +183,29 @@ moving any budget ceiling.
   blur*, and that no more than two elements on the page carry any
   `backdrop-filter` at 390px and 1440px. That is stricter than the old
   "expect blur(14px)" assertion, not looser.
+
+## Third pass — softening the register
+
+The client's note was that the green read masculine, and that peach and orange
+are her colours. The greens were already gone; this pass moves the peach/orange
+system from "warm and sporty" toward "warm and feminine" without weakening the
+clinical framing.
+
+- **Two rose steps added** (`petal`, `rose`) and `blush`/`peach` retuned. In
+  OKLCh every surface rotated 5–25° toward rose: blush 54.6° → 48.5°, peach
+  59.3° → 52.3°, feature-wash end 60.1° → 35.6°. Chroma at the loudest stops
+  dropped 15–25% (feature wash 0.122 → 0.104, hero wash 0.136 → 0.106).
+- **`#EB6300` is now an accent, never a field.** The research band, footer,
+  patient-privacy band and the special-interest tile all run the rose-apricot
+  gradient; the CTA photo veil went from `ember/45` to `ember/28`; the ticker
+  ends on soft coral. Measured: footer chroma 0.109 → 0.081, research band
+  0.082 → 0.064, CTA 0.066 → 0.056.
+- **Pure white removed.** All 43 `bg-white` surfaces are cream, so the page is
+  one continuous warm field instead of white slabs with tinted panels.
+- **Accent discipline preserved:** buttons, the scroll rail, the ticker ends
+  and the small "Wits" research tile are the only places the full orange
+  appears, which keeps the peach from washing out into pastel.
+- Budgets: JS 204,417 / CSS 15,669 / HTML 27,206 gzip — all slightly *lower*
+  than the previous pass. 45 Node checks and 161 browser checks green (the
+  `hero-opening` timing probe flakes under parallel CPU load and passes 8/8
+  standalone, as documented).

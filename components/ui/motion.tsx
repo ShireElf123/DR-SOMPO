@@ -344,7 +344,7 @@ export function Marquee({
         onClick={() => setPaused((value) => !value)}
         aria-label={`${paused ? "Resume" : "Pause"} ${label.toLowerCase()}`}
         aria-pressed={paused}
-        className="marquee-toggle absolute right-1.5 top-1/2 z-10 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full border border-ember/20 bg-white text-ink shadow-soft"
+        className="marquee-toggle absolute right-1.5 top-1/2 z-10 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full border border-ember/20 bg-cream text-ink shadow-soft"
       >
         <span
           aria-hidden="true"

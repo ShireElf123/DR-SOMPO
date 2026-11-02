@@ -104,7 +104,7 @@ export function Panel({
         tone === "peach" && "bg-peach",
         tone === "cream" && "bg-cream",
         tone === "ember" && "ember-gradient text-ink",
-        tone === "outline" && "border-hairline border-charcoal/12 bg-white",
+        tone === "outline" && "border-hairline border-charcoal/12 bg-cream",
         className,
       )}
     >
@@ -126,7 +126,7 @@ export function IconDisc({
       className={cn(
         "grid h-9 w-9 place-items-center rounded-full border",
         tone === "light"
-          ? "border-charcoal/12 bg-white text-ink"
+          ? "border-charcoal/12 bg-cream text-ink"
           : "border-charcoal/15 bg-cream/70 text-ink",
       )}
     >

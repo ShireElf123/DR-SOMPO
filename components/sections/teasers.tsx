@@ -199,7 +199,7 @@ export function ContactBand() {
           <Reveal y={20}>
             <Panel tone="blush" className="flex h-full flex-col justify-between p-6 sm:p-8">
               <div>
-                <span className="tag bg-white">Appointments</span>
+                <span className="tag bg-cream">Appointments</span>
                 <h2
                   id="contact-band-heading"
                   className="text-[clamp(1.7rem,3.4vw,2.3rem)] leading-[1.04]"

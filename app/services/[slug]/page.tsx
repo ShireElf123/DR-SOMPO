@@ -105,7 +105,7 @@ export default async function ServiceDetailPage({ params }: Params) {
       {/* Agenda — a sticky contents rail beside the long-form copy. This is the
           structure Framer template service pages use, and it is what makes a
           page read as a reference document rather than marketing. */}
-      <section className="bg-white py-12 sm:py-16">
+      <section className="bg-cream py-12 sm:py-16">
         <div className="shell">
           <div className="grid gap-10 lg:grid-cols-[0.32fr_0.68fr] lg:gap-14">
             <aside className="lg:sticky lg:top-28 lg:self-start">
@@ -141,7 +141,7 @@ export default async function ServiceDetailPage({ params }: Params) {
                 </a>
                 <BookingLink
                   service={service.id}
-                  className="mt-2 flex items-center justify-between rounded-full border border-ember/20 px-3.5 py-2 text-[11px] font-medium text-ink transition-colors hover:border-ember hover:bg-white"
+                  className="mt-2 flex items-center justify-between rounded-full border border-ember/20 px-3.5 py-2 text-[11px] font-medium text-ink transition-colors hover:border-ember hover:bg-cream"
                 >
                   Request this appointment
                   <ArrowUpRight className="h-3 w-3" />
@@ -267,7 +267,7 @@ export default async function ServiceDetailPage({ params }: Params) {
                   <Link
                     href={`/services/${relService.id}`}
                     data-cursor="Open"
-                    className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] bg-white border-hairline border-charcoal/8 hover:shadow-lift"
+                    className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] bg-cream border-hairline border-charcoal/8 hover:shadow-lift"
                   >
                     <div className="photo-depth relative aspect-[16/9] overflow-hidden bg-peach">
                       <Image
@@ -303,7 +303,7 @@ export default async function ServiceDetailPage({ params }: Params) {
       )}
 
       {/* Every other service, so no page is a dead end */}
-      <section className="bg-white pb-16 pt-4">
+      <section className="bg-cream pb-16 pt-4">
         <div className="shell">
           <p className="text-[10px] uppercase tracking-[0.18em] text-ink-muted">
             All services

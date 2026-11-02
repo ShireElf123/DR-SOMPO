@@ -82,7 +82,7 @@ export function BentoBand() {
                   {["FCOG (SA)", "MMed (O&G) Wits", "MBChB"].map((chip) => (
                     <span
                       key={chip}
-                      className="rounded-full bg-white/70 px-2.5 py-1 text-[10px] font-medium text-ink ring-1 ring-charcoal/10"
+                      className="rounded-full bg-cream/70 px-2.5 py-1 text-[10px] font-medium text-ink ring-1 ring-charcoal/10"
                     >
                       {chip}
                     </span>
@@ -122,7 +122,7 @@ export function BentoBand() {
 
           {/* 3 — languages + hospital, compact */}
           <Reveal y={22} delay={0.1}>
-            <div className="flex h-full flex-col justify-between rounded-[1.35rem] bg-white p-4 border-hairline border-charcoal/8">
+            <div className="flex h-full flex-col justify-between rounded-[1.35rem] bg-cream p-4 border-hairline border-charcoal/8">
               <LanguageIcon className="h-4 w-4 text-ink/70" aria-hidden="true" />
               <div>
                 <p className="text-[1.6rem] font-light leading-none tracking-[-0.03em] text-ink">
@@ -196,7 +196,7 @@ export function BentoBand() {
           <Reveal y={22} delay={0.22}>
             <Link
               href="/patient-info"
-              className="group flex h-full flex-col justify-between rounded-[1.35rem] bg-white p-4 border-hairline border-charcoal/8"
+              className="group flex h-full flex-col justify-between rounded-[1.35rem] bg-cream p-4 border-hairline border-charcoal/8"
             >
               <ShieldCheck className="h-4 w-4 text-ink/70" aria-hidden="true" />
               <div>
@@ -214,7 +214,7 @@ export function BentoBand() {
           <Reveal y={22} delay={0.26}>
             <Link
               href="/research"
-              className="group flex h-full flex-col justify-between rounded-[1.35rem] bg-tangerine p-4 text-ink"
+              className="ember-gradient group flex h-full flex-col justify-between rounded-[1.35rem] p-4 text-ink"
             >
               <div className="flex items-start justify-between">
                 <Stethoscope className="h-4 w-4 text-ink/80" aria-hidden="true" />

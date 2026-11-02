@@ -20,7 +20,7 @@ export function FinalCta() {
   const y = useTransform(scrollYProgress, [0, 1], ["-6%", "6%"]);
 
   return (
-    <section className="bg-white pb-16 pt-8 sm:pb-20" aria-labelledby="cta-heading">
+    <section className="bg-cream pb-16 pt-8 sm:pb-20" aria-labelledby="cta-heading">
       <div className="shell">
         <Reveal y={22}>
           <div
@@ -39,8 +39,8 @@ export function FinalCta() {
                 className="object-cover"
               />
             </m.div>
-            <div className="absolute inset-0 bg-ember/45" />
-            <div className="absolute inset-0 bg-gradient-to-t from-ember/60 via-ember/10 to-transparent" />
+            <div className="absolute inset-0 bg-ember/28" />
+            <div className="absolute inset-0 bg-gradient-to-t from-ember/42 via-ember/8 to-transparent" />
 
             <div className="relative px-4 py-10 text-center sm:px-8 sm:py-16">
               <div className="glass mx-auto max-w-[40rem] rounded-[1.35rem] px-5 py-10 text-ink sm:px-10 sm:py-14">

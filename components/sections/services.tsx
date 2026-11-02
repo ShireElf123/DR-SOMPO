@@ -68,7 +68,7 @@ export function Services() {
     <>
       {/* Scroll-lit statement, flanked by two plates so the block carries
           photography rather than sitting as a bare paragraph. */}
-      <section className="bg-white pb-12 pt-12 sm:pb-16 sm:pt-16">
+      <section className="bg-cream pb-12 pt-12 sm:pb-16 sm:pt-16">
         <div className="shell">
           <div className="grid items-center gap-6 lg:grid-cols-[0.62fr_1.6fr_0.62fr] lg:gap-8">
             <Reveal y={26} className="hidden lg:block">

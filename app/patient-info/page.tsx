@@ -52,7 +52,7 @@ export default function PatientInfoPage() {
       />
 
       {/* Journey */}
-      <section className="bg-white py-12 sm:py-16">
+      <section className="bg-cream py-12 sm:py-16">
         <div className="shell">
           <SectionHead
             tag="How it works"
@@ -63,7 +63,7 @@ export default function PatientInfoPage() {
           <div className="mt-8 grid gap-3.5 sm:grid-cols-3">
             {journey.map((step, i) => (
               <Reveal key={step.step} delay={i * 0.08}>
-                <div className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] bg-white border-hairline border-charcoal/8">
+                <div className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] bg-cream border-hairline border-charcoal/8">
                   <div className="relative aspect-[4/3] overflow-hidden bg-peach">
                     <Image
                       src={
@@ -75,7 +75,7 @@ export default function PatientInfoPage() {
                       className="object-cover object-[center_18%] transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-ember/45 to-transparent" />
-                    <span className="absolute left-3 top-3 grid h-7 w-7 place-items-center rounded-full bg-white text-[10px] font-medium text-ink">
+                    <span className="absolute left-3 top-3 grid h-7 w-7 place-items-center rounded-full bg-cream text-[10px] font-medium text-ink">
                       {step.step}
                     </span>
                   </div>
@@ -174,7 +174,7 @@ export default function PatientInfoPage() {
       {/* FAQs */}
       <Faqs />
 
-      <section className="bg-white pb-16 pt-8">
+      <section className="bg-cream pb-16 pt-8">
         <div className="shell text-center">
           <RevealGroup className="inline-flex flex-wrap items-center justify-center gap-2.5" stagger={0.08}>
             <RevealItem>
