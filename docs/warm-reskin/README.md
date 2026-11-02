@@ -50,10 +50,15 @@ it is a surface and accent only.
   stay legible. Tailwind's utilities layer resets `backdrop-filter` on every
   element, so the two surviving frosts are restated outside the cascade layers
   and stripped again under `forced-colors`.
-- **Photography** gets a warm grade (`saturate(.9) sepia(.08)`), an inner
-  hairline, a warm floor wash and a soft vignette inside `.photo-depth`, so the
-  mixed green-and-cool source imagery sits inside the peach field without being
-  repainted into sepia. No photo labels were added.
+- **Photography** gets a warm grade (`saturate(.95) sepia(.045)`), an inner
+  hairline, a soft-light wash and a light floor shadow inside `.photo-depth`,
+  so the mixed green-and-cool source imagery sits inside the peach field
+  without being repainted into sepia. No photo labels were added. Measured in
+  OKLab: the grade rotates the images' colour mass 5–18° warmer while skin
+  chroma moves by ≤0.004 (a just-noticeable difference is ≈0.02), and the
+  floor shadow no longer drags the bottom eighth more than 12–22° off the
+  photograph's own hue. The earlier `sepia(.08)` + 40%-ember floor wash was
+  pushed to −49°, which read as an orange filter over the garments.
 - **Motion** is the existing vocabulary, kept and extended rather than stripped:
   the same springs on `Reveal`/`RevealItem`/`WordsIn` and the same CSS
   transitions on buttons, journey cards and glass lifts. Reduced motion removes
