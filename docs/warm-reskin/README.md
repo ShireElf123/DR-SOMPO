@@ -43,12 +43,13 @@ it is a surface and accent only.
   built from a tight contact layer plus wider ember-tinted ambient layers.
   There is no `rgba(0,0,0,…)` in the depth system, so shadows read as late
   afternoon light instead of soot. Primary actions add the single `--glow-warm`.
-- **Glass** is real frosting, not a translucent smear: an 86%-opaque cream pane
-  (now 76% for the large plates, still ≥ 4.5:1 over any photograph), a white
-  hairline and an inner highlight. Tailwind's utilities layer resets
-  `backdrop-filter` on every element, which silently flattened the panes; the
-  blur is restated outside the cascade layers and stripped again under
-  `forced-colors`.
+- **Glass is an accent with a budget of two.** Only the hero copy plate (phone)
+  and the sticky bar frost. Every other pane — photo captions, chips, the
+  credential note — is an opaque 87% cream surface with a white hairline and an
+  inner highlight, so charcoal type over photography never depends on a blur to
+  stay legible. Tailwind's utilities layer resets `backdrop-filter` on every
+  element, so the two surviving frosts are restated outside the cascade layers
+  and stripped again under `forced-colors`.
 - **Photography** gets a warm grade (`saturate(.9) sepia(.08)`), an inner
   hairline, a warm floor wash and a soft vignette inside `.photo-depth`, so the
   mixed green-and-cool source imagery sits inside the peach field without being
@@ -124,3 +125,49 @@ npm run build && npx next start -H 0.0.0.0 -p 3001
 Screenshots (Chromium 1440 / 390 / 320) are in `evidence/`: home hero, about,
 services, research, contact, patient info, footer, reduced motion and the
 dark-preference pass.
+
+## Second pass — closing the craft gap
+
+The first pass scored 7.0/10 against a good Framer site. This pass closes the
+five gaps that scorecard named, without adding a runtime dependency and without
+moving any budget ceiling.
+
+1. **A second type voice.** Instrument Serif 400 + 400 italic (SIL OFL) is
+   vendored as woff2 in `app/fonts/` and wired through `next/font/local` as
+   `--font-display`. The rule is structural, not decorative: measured, factual
+   clauses stay in Figtree; the *human* clause — the emotional half of a
+   headline, a pull-quote, a numeral — takes the serif. It appears in the hero
+   headline's second line, `SectionHead`'s muted phrase, the About pull-quote,
+   the stage heading, stage numerals (`01/02/03`), the journey intro and step
+   numbers, and the footer tagline.
+2. **Layout rhythm broken.** The home page no longer reads as rounded panels
+   stacked on cream. Two full-bleed `.ember-gradient` bands (the research
+   teaser and the patient-info privacy note) run edge to edge, and one new
+   quiet section — `.stages-band`, *Care across a lifetime* — sits between the
+   journey and the About teaser: a sticky editorial statement on the left, an
+   indexed list on the right, no card in sight.
+3. **One signature scroll moment.** `.stages-list` draws its ember rail with a
+   pure-CSS `animation-timeline: view()` range and a `@keyframes rail-draw`
+   fallback-free enhancement — scroll position drives the line, the numerals
+   light in sequence, and reduced motion gets the finished rail immediately.
+   No JavaScript was added for it.
+4. **Pill-free hierarchy.** Every section eyebrow is now a 1px rule plus
+   11px/0.17em micro-caps (`.tag`), so all sections open with the same
+   typographic gesture instead of a peach lozenge.
+5. **Photography carries itself.** The About portrait lost three glass
+   credential chips and a floating "consulting" card; the credentials and the
+   hospital now read as a single micro-caps caption under the frame. The image
+   is uncropped by UI, and the glass count drops by four on that section alone.
+
+### Gates after this pass
+
+- Budgets (gzip 9): JS 204,426 / CSS 15,809 / HTML 27,235 of 204,800 / 16,384 /
+  30,720.
+- `npm test`: 45/45 (13 quality + 32 visual-finish unit assertions).
+- Playwright: 161/161, including the 26 axe route × width scans and the painted
+  contrast probes at 320 / 390 / 768 / 1024 / 1440.
+- The glass contract changed on purpose, so its test changed with it:
+  `warm-theme.spec.ts` now asserts the caption pane is ≥ 85% opaque *with no
+  blur*, and that no more than two elements on the page carry any
+  `backdrop-filter` at 390px and 1440px. That is stricter than the old
+  "expect blur(14px)" assertion, not looser.

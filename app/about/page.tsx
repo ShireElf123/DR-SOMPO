@@ -99,7 +99,7 @@ export default function AboutPage() {
                   <p className="text-[clamp(1.05rem,2.1vw,1.35rem)] font-light leading-[1.45] tracking-[-0.02em] text-ink">
                     {brand.advocacy}
                   </p>
-                  <footer className="mt-2 text-[10.5px] uppercase tracking-[0.14em] text-ink-muted">
+                  <footer className="mt-2 text-[10px] uppercase tracking-[0.14em] text-ink-muted">
                     Her practice, in her words
                   </footer>
                 </blockquote>
@@ -112,7 +112,7 @@ export default function AboutPage() {
                       className={
                         i === 0
                           ? "max-w-2xl text-[15px] leading-[1.65] text-ink-soft"
-                          : "max-w-2xl text-[13.5px] leading-[1.7] text-ink-soft"
+                          : "max-w-2xl text-[13px] leading-[1.7] text-ink-soft"
                       }
                     >
                       {paragraph}
@@ -128,10 +128,10 @@ export default function AboutPage() {
                     aria-hidden="true"
                   />
                   <div>
-                    <p className="text-[12.5px] font-medium text-ink">
+                    <p className="text-[12px] font-medium text-ink">
                       {biographyAside.title}
                     </p>
-                    <p className="mt-1 text-[12.5px] leading-relaxed text-ink-soft">
+                    <p className="mt-1 text-[12px] leading-relaxed text-ink-soft">
                       {biographyAside.body} {biographyAside.languages}
                     </p>
                   </div>
@@ -155,7 +155,7 @@ export default function AboutPage() {
                       {["MBChB", "FCOG (SA)", "MMed (O&G)"].map((code) => (
                         <span
                           key={code}
-                          className="rounded-full bg-white/92 px-2.5 py-1 text-[10px] font-medium text-ink backdrop-blur-md"
+                          className="rounded-full bg-white px-2.5 py-1 text-[10px] font-medium text-ink"
                         >
                           {code}
                         </span>
@@ -164,13 +164,13 @@ export default function AboutPage() {
                   </div>
                 </Panel>
                 <div className="absolute -bottom-5 -left-2 hidden rounded-2xl bg-white px-4 py-3 shadow-float border-hairline border-charcoal/8 sm:block">
-                  <p className="text-[9.5px] uppercase tracking-[0.14em] text-ink-muted">
+                  <p className="text-[10px] uppercase tracking-[0.14em] text-ink-muted">
                     Consulting
                   </p>
-                  <p className="mt-0.5 text-[12.5px] font-medium text-ink">
+                  <p className="mt-0.5 text-[12px] font-medium text-ink">
                     Life Roseacres Hospital
                   </p>
-                  <p className="text-[10.5px] text-ink-soft">
+                  <p className="text-[10px] text-ink-soft">
                     Primrose, Germiston
                   </p>
                 </div>
@@ -205,7 +205,7 @@ export default function AboutPage() {
                   <p className="text-[10px] uppercase tracking-[0.16em] text-ink/75">
                     Qualifications
                   </p>
-                  <p className="mt-1 text-[13.5px] font-medium text-ink">
+                  <p className="mt-1 text-[13px] font-medium text-ink">
                     FCOG (SA) · MMed (O&amp;G) · MBChB · BSc (Biomed)
                   </p>
                 </div>
@@ -231,14 +231,14 @@ export default function AboutPage() {
                         aria-hidden="true"
                       />
                     </div>
-                    <p className="relative mt-2 max-w-[22rem] text-[12.5px] leading-relaxed text-ink-soft">
+                    <p className="relative mt-2 max-w-[22rem] text-[12px] leading-relaxed text-ink-soft">
                       {credential.title}
                     </p>
                     <p className="relative mt-2 text-[10px] uppercase tracking-[0.14em] text-ink-muted">
                       {credential.institution}
                     </p>
                     {credential.note && (
-                      <p className="relative mt-3 border-t-hairline border-charcoal/8 pt-2.5 text-[10.5px] leading-relaxed text-ink-soft">
+                      <p className="relative mt-3 border-t-hairline border-charcoal/8 pt-2.5 text-[10px] leading-relaxed text-ink-soft">
                         {credential.note}
                       </p>
                     )}
@@ -298,7 +298,7 @@ export default function AboutPage() {
                           {affiliation.name}
                         </p>
                       </div>
-                      <p className="pl-6 text-[10.5px] uppercase tracking-[0.1em] text-ink-soft sm:pl-0">
+                      <p className="pl-6 text-[10px] uppercase tracking-[0.1em] text-ink-soft sm:pl-0">
                         {affiliation.detail}
                       </p>
                     </div>
@@ -306,7 +306,7 @@ export default function AboutPage() {
                 ))}
               </RevealGroup>
               {affiliations.some((a) => a.state === "pending") ? (
-                <p className="mt-3 flex items-center gap-2 text-[10.5px] text-ink-soft">
+                <p className="mt-3 flex items-center gap-2 text-[10px] text-ink-soft">
                   <span
                     className="h-1.5 w-1.5 rounded-full bg-ember ring-2 ring-ember/25"
                     aria-hidden="true"
@@ -315,7 +315,7 @@ export default function AboutPage() {
                   publication.
                 </p>
               ) : (
-                <p className="mt-3 text-[10.5px] leading-relaxed text-ink-soft">
+                <p className="mt-3 text-[10px] leading-relaxed text-ink-soft">
                   Registration and memberships confirmed with the practice. Hospital
                   appointments vary — confirm where your procedure will take place
                   when you book.
@@ -355,7 +355,7 @@ export default function AboutPage() {
                       <IconDisc>
                         <span className="h-1.5 w-1.5 rounded-full bg-ember" />
                       </IconDisc>
-                      <p className="text-[13.5px] font-medium tracking-[-0.01em] text-ink">
+                      <p className="text-[13px] font-medium tracking-[-0.01em] text-ink">
                         {value.title}
                       </p>
                     </div>

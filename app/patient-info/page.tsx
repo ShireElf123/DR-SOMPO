@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowUpRight, ShieldCheck } from "lucide-react";
 import { PageHero, SectionHead } from "@/components/page-hero";
 import Image from "@/components/ui/practice-image";
-import { Panel, Plate } from "@/components/ui/plate";
+import { Plate } from "@/components/ui/plate";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/motion";
 import { Faqs } from "@/components/sections/faqs";
 import { journey, practice } from "@/lib/practice";
@@ -75,18 +75,18 @@ export default function PatientInfoPage() {
                       className="object-cover object-[center_18%] transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-ember/45 to-transparent" />
-                    <span className="absolute left-3 top-3 grid h-7 w-7 place-items-center rounded-full bg-white/95 text-[10.5px] font-medium text-ink backdrop-blur-md">
+                    <span className="absolute left-3 top-3 grid h-7 w-7 place-items-center rounded-full bg-white text-[10px] font-medium text-ink">
                       {step.step}
                     </span>
                   </div>
                   <div className="flex flex-1 flex-col p-4">
-                    <h3 className="text-[13.5px] font-medium tracking-[-0.01em] text-ink">
+                    <h3 className="text-[13px] font-medium tracking-[-0.01em] text-ink">
                       {step.title}
                     </h3>
                     <p className="mt-1.5 flex-1 text-[12px] leading-relaxed text-ink-soft">
                       {step.body}
                     </p>
-                    <p className="mt-3 text-[9.5px] uppercase tracking-[0.14em] text-ink-muted">
+                    <p className="mt-3 text-[10px] uppercase tracking-[0.14em] text-ink-muted">
                       {step.meta}
                     </p>
                   </div>
@@ -124,10 +124,10 @@ export default function PatientInfoPage() {
       </section>
 
       {/* Privacy */}
-      <section id="privacy" className="sec">
+      <section id="privacy" className="ember-gradient mt-16 overflow-hidden text-ink sm:mt-20">
         <div className="shell">
           <Reveal>
-            <Panel tone="ember" className="p-6 sm:p-9">
+            <div className="relative py-14 sm:py-20">
               <div
                 aria-hidden="true"
                 className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full border border-charcoal/15"
@@ -155,7 +155,7 @@ export default function PatientInfoPage() {
                     on the Contact page to ask about access, correction, retention
                     or deletion of your information under POPIA.
                   </p>
-                  <p className="mt-3 text-[11.5px] leading-relaxed text-ink">
+                  <p className="mt-3 text-[11px] leading-relaxed text-ink">
                     Please do not send symptoms, results or other sensitive medical
                     information through the enquiry form or by email. Urgent concerns
                     should go to {practice.hospital} or your nearest emergency
@@ -166,7 +166,7 @@ export default function PatientInfoPage() {
                   <ShieldCheck className="h-5 w-5" aria-hidden="true" />
                 </span>
               </div>
-            </Panel>
+            </div>
           </Reveal>
         </div>
       </section>

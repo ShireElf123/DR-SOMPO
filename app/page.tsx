@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/sections/hero";
 import { Services } from "@/components/sections/services";
 import { Journey } from "@/components/sections/journey";
+import { Stages } from "@/components/sections/stages";
 import { BentoBand } from "@/components/sections/bento";
 import { AboutTeaser, ResearchTeaser, FaqTeaser, ContactBand } from "@/components/sections/teasers";
 import { FinalCta } from "@/components/sections/final-cta";
@@ -23,7 +24,7 @@ export default function HomePage() {
       <section aria-label="Professional affiliations" className="bg-white py-6 sm:py-8">
         <div className="shell">
           <div className="flex items-center gap-6 overflow-hidden border-y-hairline border-charcoal/10 py-3">
-            <span className="hidden shrink-0 text-[9.5px] uppercase tracking-[0.18em] text-ink-muted sm:block">
+            <span className="hidden shrink-0 text-[10px] uppercase tracking-[0.18em] text-ink-muted sm:block">
               Registered &amp; affiliated
             </span>
             <div className="min-w-0 flex-1 opacity-70">
@@ -43,6 +44,7 @@ export default function HomePage() {
       <Services />
       <BentoBand />
       <Journey />
+      <Stages />
       <AboutTeaser />
       <ResearchTeaser />
       <FaqTeaser />

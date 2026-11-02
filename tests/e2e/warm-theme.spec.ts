@@ -135,7 +135,7 @@ test("a dark-mode preference keeps the audited light scheme and passes WCAG", as
   expect(results.violations.map((violation) => violation.id)).toEqual([]);
 });
 
-test("glass keeps an opaque warm pane and a no-blur fallback", async ({ page }) => {
+test("photograph panes stay opaque and only two surfaces are frosted", async ({ page }) => {
   await page.goto("/", { waitUntil: "networkidle" });
   const glass = page.locator(".glass").first();
   await expect(glass).toBeVisible();
@@ -144,11 +144,30 @@ test("glass keeps an opaque warm pane and a no-blur fallback", async ({ page }) 
     const channels = (style.backgroundColor.match(/[\d.]+/g) ?? []).map(Number);
     return { alpha: channels[3] ?? 1, blur: style.backdropFilter };
   });
-  expect(pane.alpha).toBeGreaterThanOrEqual(0.72);
-  expect(pane.blur).toContain("blur");
-  // The utilities layer resets backdrop-filter on every element, so the frost
-  // the design relies on has to survive the cascade as a painted value.
-  expect(pane.blur).toContain("blur(14px)");
+  // Caption panes sit on photography, so they carry their own opacity instead
+  // of relying on a blur to keep charcoal legible.
+  expect(pane.alpha).toBeGreaterThanOrEqual(0.85);
+  expect(pane.blur).toBe("none");
+
+  // Blur is a deliberate accent, never the default: at most the phone hero
+  // plate and the sticky bar may frost, and nothing else may carry a blur.
+  for (const width of [390, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto("/", { waitUntil: "networkidle" });
+    const frosted = await page.evaluate(() =>
+      [...document.querySelectorAll<HTMLElement>("body *")]
+        .filter((element) => {
+          const style = getComputedStyle(element);
+          return style.backdropFilter !== "none" && style.backdropFilter !== "";
+        })
+        .map((element) => element.className.toString()),
+    );
+    expect(frosted.length).toBeLessThanOrEqual(2);
+    expect(frosted.join(" ")).toContain("frost-bar");
+    for (const name of frosted) {
+      expect(name).toMatch(/hero-copy-plate|frost-bar/);
+    }
+  }
 });
 
 test("keyboard focus is visible on warm surfaces", async ({ page }) => {

@@ -14,7 +14,7 @@ export default function NotFound() {
       <h1 className="mt-5 max-w-lg text-[clamp(2rem,5vw,3rem)] leading-[1.05] text-ink">
         We couldn&apos;t find that page.
       </h1>
-      <p className="mt-4 max-w-md text-[13.5px] leading-relaxed text-ink-soft">
+      <p className="mt-4 max-w-md text-[13px] leading-relaxed text-ink-soft">
         The link may be out of date. You can return to the homepage, or contact
         the practice directly to enquire about an appointment.
       </p>

@@ -32,7 +32,7 @@ function Wordmark({
       className={cn(
         "group flex shrink-0 items-center gap-2 font-semibold uppercase text-ink",
         compact
-          ? "text-[11.5px] tracking-[0.1em]"
+          ? "text-[11px] tracking-[0.1em]"
           : "text-[13px] tracking-[0.14em] sm:text-[14px]",
       )}
     >
@@ -119,7 +119,7 @@ export function Navbar() {
 
   return (
     <>
-      <header className="relative bg-cream/88 backdrop-blur-xl">
+      <header className="relative bg-cream/88 frost-bar">
         <div className="shell">
           <div className="flex items-center justify-between gap-2 py-2.5 sm:gap-3 sm:py-3">
             <nav
@@ -193,7 +193,7 @@ export function Navbar() {
 
       {/*
         Portalled to <body>. This is essential: the header carries
-        `backdrop-blur`, and a filtered ancestor becomes the containing block
+        a blur, and a filtered ancestor becomes the containing block
         for every `position: fixed` descendant — which is why the sheet was
         rendering inside a 56px-tall header box and appearing to slide up out
         of the viewport. A portal escapes that entirely.
@@ -211,7 +211,7 @@ export function Navbar() {
                 transition={{ duration: 0.25 }}
               >
                 <div
-                  className="absolute inset-0 bg-charcoal/35 backdrop-blur-sm"
+                  className="absolute inset-0 bg-charcoal/35"
                   onClick={() => setOpen(false)}
                 />
 
@@ -290,7 +290,7 @@ export function Navbar() {
                       <Phone className="h-3.5 w-3.5" aria-hidden="true" />
                       {practice.phone}
                     </a>
-                    <p className="pt-1 text-center text-[10.5px] leading-relaxed text-ink-muted">
+                    <p className="pt-1 text-center text-[10px] leading-relaxed text-ink-muted">
                       {practice.hospital} · Primrose, Germiston
                     </p>
                   </div>

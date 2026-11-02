@@ -54,7 +54,7 @@ export function Plate({
         )}
 
         <figcaption className="absolute inset-x-3 bottom-3 z-[2] flex items-end justify-between gap-3">
-          <span className="glass rounded-full px-3 py-1 text-[10.5px] font-medium text-ink">
+          <span className="glass rounded-full px-3 py-1 text-[10px] font-medium text-ink">
             {label}
           </span>
           <span
@@ -72,7 +72,7 @@ export function Plate({
             <p className="max-w-[22rem] text-[12px] leading-relaxed text-ink-soft">{body}</p>
           )}
           {meta && (
-            <p className="shrink-0 text-[9.5px] uppercase tracking-[0.14em] text-ink-muted">
+            <p className="shrink-0 text-[10px] uppercase tracking-[0.14em] text-ink-muted">
               {meta}
             </p>
           )}

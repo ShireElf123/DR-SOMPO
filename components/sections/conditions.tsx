@@ -100,7 +100,7 @@ export function ConditionsTreated() {
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder="Search a symptom or condition"
-                className="w-full rounded-full border border-charcoal/12 bg-white py-2.5 pl-9 pr-4 text-[12.5px] text-ink outline-none transition-colors duration-300 placeholder:text-ink-muted focus:border-ember/45 focus:ring-2 focus:ring-ember/12"
+                className="w-full rounded-full border border-charcoal/12 bg-white py-2.5 pl-9 pr-4 text-[12px] text-ink outline-none transition-colors duration-300 placeholder:text-ink-muted focus:border-ember/45 focus:ring-2 focus:ring-ember/12"
               />
               <p aria-live="polite" className="sr-only">
                 {term
@@ -112,7 +112,7 @@ export function ConditionsTreated() {
         </div>
 
         {term && (
-          <p className="mt-4 text-[11.5px] text-ink-soft">
+          <p className="mt-4 text-[11px] text-ink-soft">
             {total === 0
               ? "Nothing here matches that wording — try a shorter phrase, or simply call the practice."
               : `${total} ${total === 1 ? "condition" : "conditions"} matching “${query}”.`}
@@ -147,27 +147,27 @@ export function ConditionsTreated() {
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/50 via-ember/10 to-transparent" />
                   <div className="glass absolute inset-x-3 bottom-3 z-[2] rounded-lg px-3 py-2">
-                    <p className="text-[9px] uppercase tracking-[0.16em] text-ink/75">
+                    <p className="text-[10px] uppercase tracking-[0.16em] text-ink/75">
                       {group.stage}
                     </p>
                     <h3 className="mt-1 text-[15px] font-light leading-tight tracking-[-0.02em] text-ink">
                       {group.label}
                     </h3>
                   </div>
-                  <span className="glass absolute right-3 top-3 z-[2] grid h-6 w-6 place-items-center rounded-full text-[9.5px] font-medium text-ink">
+                  <span className="glass absolute right-3 top-3 z-[2] grid h-6 w-6 place-items-center rounded-full text-[10px] font-medium text-ink">
                     {group.conditions.length}
                   </span>
                 </div>
 
                 <div className="flex flex-1 flex-col p-4">
-                  <p className="text-[11.5px] leading-relaxed text-ink-soft">
+                  <p className="text-[11px] leading-relaxed text-ink-soft">
                     {group.intro}
                   </p>
 
                   <RevealGroup className="mt-3 flex flex-1 flex-wrap content-start gap-1.5" stagger={0.02}>
                     {group.conditions.map((condition) => (
                       <RevealItem key={condition}>
-                        <span className="inline-block rounded-full bg-cream px-2.5 py-1 text-[10.5px] leading-snug text-ink-soft">
+                        <span className="inline-block rounded-full bg-cream px-2.5 py-1 text-[10px] leading-snug text-ink-soft">
                           {condition}
                         </span>
                       </RevealItem>
@@ -176,7 +176,7 @@ export function ConditionsTreated() {
 
                   <Link
                     href={`/services/${group.serviceId}`}
-                    className="group mt-4 inline-flex items-center gap-1.5 border-t-hairline border-charcoal/8 pt-2.5 text-[10.5px] font-medium text-ink"
+                    className="group mt-4 inline-flex items-center gap-1.5 border-t-hairline border-charcoal/8 pt-2.5 text-[10px] font-medium text-ink"
                   >
                     How this is handled
                     <ArrowUpRight className="h-2.5 w-2.5 transition-transform duration-500 group-hover:rotate-45" />

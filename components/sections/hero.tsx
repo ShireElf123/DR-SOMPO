@@ -94,18 +94,17 @@ export function Hero() {
           >
             <span
               data-hero-arrival="label"
-              className="hero-copy-arrival hero-label glass mb-5 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[11px] font-medium tracking-wide text-ink"
+              className="hero-copy-arrival hero-label mb-6 flex items-center gap-3 text-[10px] uppercase tracking-[0.16em] text-ink-muted"
             >
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ember/60 motion-reduce:hidden" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-ember" />
-              </span>
+              <span className="h-px w-8 bg-ember" aria-hidden="true" />
               Consulting at Life Roseacres Hospital
             </span>
 
-            <h1 data-hero-arrival="headline" className="hero-copy-arrival hero-headline text-[clamp(2.6rem,7.4vw,5.9rem)] font-light leading-[0.98] tracking-[-0.035em]">
+            <h1 data-hero-arrival="headline" className="hero-copy-arrival hero-headline text-[clamp(2.5rem,7vw,5.6rem)] font-light leading-[0.96] tracking-[-0.035em]">
               <span className="block">{"Women's Health."}</span>
-              <span className="block text-ink/70">Every Stage.</span>
+              <span className="block font-display text-[1.12em] italic leading-[0.9] tracking-[-0.015em]">
+                Every Stage.
+              </span>
               <span className="block">Every Journey.</span>
             </h1>
 
@@ -150,7 +149,7 @@ export function Hero() {
           {/* Existing cue: CSS is paused offscreen and absent under reduced motion. */}
           <span
             aria-hidden="true"
-            className="absolute bottom-6 left-6 z-20 hidden items-center gap-2 text-[9.5px] uppercase tracking-[0.18em] text-ink/70 lg:flex"
+            className="absolute bottom-6 left-6 z-20 hidden items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-ink/70 lg:flex"
           >
             <span className="relative block h-8 w-px overflow-hidden bg-charcoal/20">
               <span className="hero-scroll-cue absolute inset-x-0 top-0 block h-3 bg-charcoal" />

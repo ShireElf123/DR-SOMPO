@@ -72,7 +72,7 @@ export function StickyActions() {
               window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" })
             }
             aria-label="Back to top"
-            className="fixed bottom-6 right-6 z-40 hidden h-11 w-11 items-center justify-center rounded-full border border-charcoal/10 bg-white/90 text-ink shadow-float backdrop-blur-xl transition-colors hover:bg-white lg:flex"
+            className="fixed bottom-6 right-6 z-40 hidden h-11 w-11 items-center justify-center rounded-full border border-charcoal/10 bg-white text-ink shadow-float transition-colors hover:bg-white lg:flex"
           >
             <ArrowUp className="h-4 w-4" aria-hidden="true" />
           </m.button>

@@ -46,7 +46,7 @@ export function BentoBand() {
               </span>
             </h2>
           </div>
-          <p className="max-w-[22rem] text-[12.5px] leading-relaxed text-ink-soft">
+          <p className="max-w-[22rem] text-[12px] leading-relaxed text-ink-soft">
             One specialist, two hospital settings, consultations in two languages —
             and a consulting room where nothing is rushed.
           </p>
@@ -72,7 +72,7 @@ export function BentoBand() {
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/55 via-ember/10 to-transparent" />
               <div className="glass relative rounded-[1.1rem] p-3.5">
-                <p className="text-[9.5px] uppercase tracking-[0.18em] text-ink/75">
+                <p className="text-[10px] uppercase tracking-[0.18em] text-ink/75">
                   Specialist Obstetrician &amp; Gynaecologist
                 </p>
                 <p className="mt-1.5 text-[clamp(1.15rem,2.2vw,1.5rem)] font-light leading-tight tracking-[-0.03em] text-ink">
@@ -82,7 +82,7 @@ export function BentoBand() {
                   {["FCOG (SA)", "MMed (O&G) Wits", "MBChB"].map((chip) => (
                     <span
                       key={chip}
-                      className="rounded-full bg-white/70 px-2.5 py-1 text-[9.5px] font-medium text-ink ring-1 ring-charcoal/10"
+                      className="rounded-full bg-white/70 px-2.5 py-1 text-[10px] font-medium text-ink ring-1 ring-charcoal/10"
                     >
                       {chip}
                     </span>
@@ -100,7 +100,7 @@ export function BentoBand() {
           <Reveal y={22} delay={0.06} className="col-span-2 lg:col-span-2">
             <div className="ember-gradient relative flex h-full flex-col justify-between overflow-hidden rounded-[1.35rem] p-5 text-ink">
               <div className="flex items-start justify-between gap-3">
-                <span className="rounded-full bg-cream/70 px-2.5 py-1 text-[9.5px] uppercase tracking-[0.14em] ring-1 ring-charcoal/10">
+                <span className="rounded-full bg-cream/70 px-2.5 py-1 text-[10px] uppercase tracking-[0.14em] ring-1 ring-charcoal/10">
                   Special interest
                 </span>
                 <HeartPulse className="h-4 w-4 text-ink/80" aria-hidden="true" />
@@ -143,13 +143,13 @@ export function BentoBand() {
             >
               <CalendarCheck className="h-4 w-4 text-ink" aria-hidden="true" />
               <div>
-                <p className="text-[12.5px] font-medium leading-snug text-ink">
+                <p className="text-[12px] font-medium leading-snug text-ink">
                   Request an appointment
                 </p>
-                <p className="mt-1 text-[10.5px] leading-snug text-ink-soft">
+                <p className="mt-1 text-[10px] leading-snug text-ink-soft">
                   Choose a day and time that suits you
                 </p>
-                <span className="mt-2 inline-flex items-center gap-1 text-[10.5px] font-medium text-ink">
+                <span className="mt-2 inline-flex items-center gap-1 text-[10px] font-medium text-ink">
                   Start
                   <ArrowUpRight className="h-2.5 w-2.5 transition-transform duration-500 group-hover:rotate-45" />
                 </span>
@@ -174,11 +174,11 @@ export function BentoBand() {
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/55 via-ember/10 to-transparent" />
               <div className="glass relative flex w-full items-end justify-between gap-3 rounded-[1rem] p-3">
                 <div>
-                  <p className="flex items-center gap-1.5 text-[9.5px] uppercase tracking-[0.16em] text-ink/75">
+                  <p className="flex items-center gap-1.5 text-[10px] uppercase tracking-[0.16em] text-ink/75">
                     <MapPin className="h-2.5 w-2.5" aria-hidden="true" />
                     Consulting rooms
                   </p>
-                  <p className="mt-1 text-[12.5px] font-medium text-ink">
+                  <p className="mt-1 text-[12px] font-medium text-ink">
                     {practice.hospital}, Primrose
                   </p>
                   <p className="mt-0.5 text-[10px] text-ink-soft">
@@ -200,10 +200,10 @@ export function BentoBand() {
             >
               <ShieldCheck className="h-4 w-4 text-ink/70" aria-hidden="true" />
               <div>
-                <p className="text-[11.5px] font-medium leading-snug text-ink">
+                <p className="text-[11px] font-medium leading-snug text-ink">
                   POPIA-conscious
                 </p>
-                <p className="mt-1 text-[10.5px] leading-snug text-ink-soft">
+                <p className="mt-1 text-[10px] leading-snug text-ink-soft">
                   Details used to respond to your enquiry
                 </p>
               </div>
@@ -218,10 +218,10 @@ export function BentoBand() {
             >
               <div className="flex items-start justify-between">
                 <Stethoscope className="h-4 w-4 text-ink/80" aria-hidden="true" />
-                <span className="text-[9px] uppercase tracking-[0.12em] text-ink">Wits</span>
+                <span className="text-[10px] uppercase tracking-[0.12em] text-ink">Wits</span>
               </div>
               <div>
-                <p className="text-[11.5px] font-medium leading-snug">MMed research</p>
+                <p className="text-[11px] font-medium leading-snug">MMed research</p>
                 <SignalBars
                   values={[18, 34, 26, 48, 62, 54, 78]}
                   className="mt-2 h-6 text-ink/70"

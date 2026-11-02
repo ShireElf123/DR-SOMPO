@@ -42,7 +42,7 @@ export default function ResearchPage() {
                     </span>
                   </div>
 
-                  <blockquote className="mt-3.5 text-[15px] font-medium leading-snug tracking-[-0.02em] text-ink sm:text-[17px]">
+                  <blockquote className="mt-3.5 text-[15px] font-medium leading-snug tracking-[-0.02em] text-ink sm:text-[16px]">
                     {research.title}
                   </blockquote>
 
@@ -54,7 +54,7 @@ export default function ResearchPage() {
                       { k: "Institution", v: research.institution },
                     ].map((row) => (
                       <div key={row.k}>
-                        <dt className="text-[9.5px] font-semibold uppercase tracking-[0.16em] text-ink-soft">
+                        <dt className="text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-soft">
                           {row.k}
                         </dt>
                         <dd className="mt-1 text-[12px] leading-snug text-ink-soft">{row.v}</dd>
@@ -64,7 +64,7 @@ export default function ResearchPage() {
 
                   <div className="mt-4 flex items-start gap-2.5 rounded-xl bg-blush/80 p-3.5">
                     <FileText className="mt-0.5 h-3.5 w-3.5 shrink-0 text-ink/60" aria-hidden="true" />
-                    <p className="text-[11.5px] leading-relaxed text-ink-soft">{research.focus}</p>
+                    <p className="text-[11px] leading-relaxed text-ink-soft">{research.focus}</p>
                   </div>
                 </figure>
               </Reveal>
@@ -72,7 +72,7 @@ export default function ResearchPage() {
               <Reveal delay={0.1}>
                 <div className="mt-4 rounded-[1.35rem] bg-blush p-2.5">
                 <div className="rounded-[1.1rem] bg-white p-4 sm:p-5">
-                  <p className="text-[9.5px] font-semibold uppercase tracking-[0.16em] text-ink-soft">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-soft">
                     Presentation &amp; publication history
                   </p>
                   <ul className="mt-3 grid gap-2 sm:grid-cols-2">
@@ -82,10 +82,10 @@ export default function ResearchPage() {
                         className="flex items-start justify-between gap-2 rounded-xl border-hairline border-charcoal/8 bg-white px-3 py-2"
                       >
                         <div>
-                          <p className="text-[11.5px] font-medium leading-snug text-ink">
+                          <p className="text-[11px] font-medium leading-snug text-ink">
                             {item.label}
                           </p>
-                          <p className="mt-0.5 text-[10.5px] leading-snug text-ink-soft">
+                          <p className="mt-0.5 text-[10px] leading-snug text-ink-soft">
                             {item.detail}
                           </p>
                         </div>
@@ -100,7 +100,7 @@ export default function ResearchPage() {
                       </li>
                     ))}
                   </ul>
-                  <p className="mt-3 flex items-start gap-2 text-[10.5px] leading-relaxed text-ink-soft">
+                  <p className="mt-3 flex items-start gap-2 text-[10px] leading-relaxed text-ink-soft">
                     <AlertCircle className="mt-0.5 h-3 w-3 shrink-0" aria-hidden="true" />
                     {research.disclaimer}
                   </p>
@@ -129,7 +129,7 @@ export default function ResearchPage() {
               <Reveal delay={0.14}>
                 <Panel tone="ember" className="p-5">
                   <div className="flex items-start justify-between gap-3">
-                    <span className="text-[9.5px] uppercase tracking-[0.16em] text-ink/80">
+                    <span className="text-[10px] uppercase tracking-[0.16em] text-ink/80">
                       Presented at
                     </span>
                     <IconDisc tone="warm">
@@ -143,7 +143,7 @@ export default function ResearchPage() {
                         className="flex items-center justify-between gap-3 border-t-hairline border-charcoal/15 pt-2 first:border-0 first:pt-0"
                       >
                         <span className="text-[12px] font-medium text-ink">{item.label}</span>
-                        <span className="text-[9.5px] uppercase tracking-[0.12em] text-ink/80">
+                        <span className="text-[10px] uppercase tracking-[0.12em] text-ink/80">
                           {item.state === "pending" ? "Pending" : "Confirmed"}
                         </span>
                       </li>
@@ -194,7 +194,7 @@ export default function ResearchPage() {
                     </span>
                   </div>
                   <div className="flex flex-1 flex-col p-4">
-                    <h3 className="text-[13.5px] font-medium tracking-[-0.01em] text-ink">
+                    <h3 className="text-[13px] font-medium tracking-[-0.01em] text-ink">
                       {item.title}
                     </h3>
                     <p className="mt-2 text-[12px] leading-relaxed text-ink-soft">{item.body}</p>

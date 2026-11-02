@@ -654,7 +654,7 @@ export function EnquiryForm({
                   }
                   className="mt-0.5 h-4 w-4 shrink-0 rounded border-charcoal/30 accent-ember"
                 />
-                <span className="text-[13px] leading-relaxed text-ink-soft lg:text-[11.5px]">
+                <span className="text-[13px] leading-relaxed text-ink-soft lg:text-[11px]">
                   I agree that my details may be sent to the practice and used to
                   respond to this enquiry. *
                 </span>

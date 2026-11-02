@@ -23,6 +23,20 @@ const figtree = localFont({
   display: "optional",
 });
 
+// One display voice for quotations, numerals and the editorial statement band.
+// It is a compiled asset (SIL OFL, licence in app/fonts/OFL.txt), not a runtime
+// dependency; `optional` keeps the cold-load CLS guarantee.
+const instrument = localFont({
+  src: [
+    { path: "../app/fonts/instrument-serif-400.woff2", weight: "400", style: "normal" },
+    { path: "../app/fonts/instrument-serif-400-italic.woff2", weight: "400", style: "italic" },
+  ],
+  variable: "--font-instrument",
+  display: "optional",
+  adjustFontFallback: "Times New Roman",
+  preload: true,
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
@@ -85,7 +99,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-ZA" className={figtree.variable}>
+    <html lang="en-ZA" className={`${figtree.variable} ${instrument.variable}`}>
       <body className="bg-cream antialiased">
         {/* JSON-LD is generated from typed, verified content — never user input. */}
         <script

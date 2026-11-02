@@ -9,7 +9,7 @@ export function Journey() {
     <section id="journey" className="sec" aria-labelledby="journey-heading">
       <div className="shell">
         <p className="mx-auto mb-10 max-w-[38rem] text-center text-[clamp(1.15rem,2.2vw,1.4rem)] leading-[1.35] tracking-[-0.02em] text-ink">
-          Your path to care{" "}
+          <span className="font-display text-[1.12em] italic tracking-[-0.015em]">Your path to care</span>{" "}
           <span aria-hidden="true" className="mr-1 inline-block h-[1.05em] w-[1.05em] translate-y-[0.12em] overflow-hidden rounded-full bg-peach align-baseline ring-2 ring-cream/80">
             <Image src="/images/consultation.jpg" alt="" width={40} height={40} className="h-full w-full object-cover" />
           </span>
@@ -22,7 +22,7 @@ export function Journey() {
           {journey.map((step, index) => (
             <li key={step.step} className="journey-step" style={{ "--step": index } as CSSProperties}>
               {index < journey.length - 1 && <span aria-hidden="true" className="journey-connector" />}
-              <span aria-hidden="true" className="journey-number flex h-7 w-7 items-center justify-center rounded-full border border-ember/20 bg-white text-[10.5px] font-medium text-ink">
+              <span aria-hidden="true" className="journey-number flex h-7 w-7 items-center justify-center rounded-full border border-ember/20 bg-white font-display text-[12px] leading-none text-ink tabular-nums">
                 {step.step}
               </span>
               <div className="journey-step-reveal h-full">
@@ -49,13 +49,13 @@ export function Journey() {
                   </div>
 
                   <div className="flex flex-1 flex-col p-4">
-                    <h3 id={`journey-title-${step.step}`} className="text-[13.5px] font-medium tracking-[-0.01em] text-ink">
+                    <h3 id={`journey-title-${step.step}`} className="text-[13px] font-medium tracking-[-0.01em] text-ink">
                       {step.title}
                     </h3>
                     <p id={`journey-body-${step.step}`} className="mt-1.5 flex-1 text-[12px] leading-relaxed text-ink-soft">
                       {step.body}
                     </p>
-                    <p id={`journey-meta-${step.step}`} className="mt-3 text-[9.5px] uppercase tracking-[0.14em] text-ink-soft">
+                    <p id={`journey-meta-${step.step}`} className="mt-3 text-[10px] uppercase tracking-[0.14em] text-ink-soft">
                       {step.meta}
                     </p>
                   </div>

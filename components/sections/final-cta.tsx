@@ -44,7 +44,7 @@ export function FinalCta() {
 
             <div className="relative px-4 py-10 text-center sm:px-8 sm:py-16">
               <div className="glass mx-auto max-w-[40rem] rounded-[1.35rem] px-5 py-10 text-ink sm:px-10 sm:py-14">
-              <p className="text-[10.5px] uppercase tracking-[0.2em] text-ink/75">
+              <p className="text-[10px] uppercase tracking-[0.2em] text-ink/75">
                 New patients welcome
               </p>
               <h2
@@ -72,7 +72,7 @@ export function FinalCta() {
                 </a>
               </div>
 
-              <p className="mt-5 text-[10.5px] text-ink-soft">
+              <p className="mt-5 text-[10px] text-ink-soft">
                 Enquiries are not confirmed appointments · Not for emergencies
               </p>
               </div>

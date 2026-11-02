@@ -157,7 +157,7 @@ export function Services() {
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/50 via-ember/10 to-transparent" />
 
                   <div className="glass relative z-[2] rounded-[0.9rem] px-3 py-2.5">
-                    <p className="text-[12.5px] font-medium text-ink">{tile.title}</p>
+                    <p className="text-[12px] font-medium text-ink">{tile.title}</p>
                     <p className="mt-0.5 max-w-[14rem] text-[11px] leading-snug text-ink-soft">
                       {tile.blurb}
                     </p>

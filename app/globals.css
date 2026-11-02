@@ -1,8 +1,14 @@
 @import "tailwindcss";
 
+/* Audit evidence and screenshots are committed markdown/JSON, not UI source.
+   Without this, Tailwind harvests class names out of historical audit dumps and
+   ships their utilities in the CSS. */
+@source not "../docs";
+
 @theme {
   --font-sans: var(--font-figtree), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-serif: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-instrument), "Times New Roman", Georgia, serif;
 
   /* Warm palette — peach/apricot light through to one orange stop.
      #EB6300 is the deepest step in the ramp: nothing darker is introduced,
@@ -20,9 +26,6 @@
   --color-ink: #26221f; /* 15.8:1 on white */
   --color-ink-soft: #5b5049; /* 7.8:1 on white, 6.7:1 on blush */
   --color-ink-muted: #655a52; /* 6.7:1 on white, 4.9:1 on peach */
-
-  --radius-xl2: 1.75rem;
-  --radius-xl3: 2.25rem;
 
   /* Four depths only, each a warm multi-layer stack: a tight contact shadow,
      a mid diffusion and a wide, low-alpha ember ambient. Black is never used,
@@ -58,8 +61,7 @@
   --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out-soft: cubic-bezier(0.76, 0, 0.24, 1);
   --ease-spring: linear(
-    0, 0.049 2.6%, 0.353 8.6%, 0.803 15.9%, 1.052 23.2%,
-    1.111 30.6%, 1.1 34.6%, 1.021 44.6%, 0.988 56.8%, 0.997 65.9%, 1
+    0, 0.353 8.6%, 0.803 15.9%, 1.111 30.6%, 1.021 44.6%, 0.988 56.8%, 1
   );
 }
 
@@ -206,30 +208,35 @@
     }
   }
 
+  /* Section eyebrows are set as an editorial rule + micro-caps rather than a
+     pill, so every section opens with the same typographic gesture. */
   .tag {
-    display: inline-block;
-    background: var(--color-peach);
-    color: var(--color-charcoal);
-    border-radius: 999px;
-    padding: 0.35rem 0.9rem;
-    font-size: 0.75rem;
-    letter-spacing: 0.01em;
+    display: inline-flex;
+    align-items: center;
+    align-self: start;
+    gap: 0.7rem;
     margin-bottom: 0.9rem;
+    color: var(--color-charcoal);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
   }
 
-  .tag-light {
-    background: rgba(253, 248, 242, 0.72);
-    border: 1px solid rgba(255, 255, 255, 0.55);
-    color: var(--color-charcoal);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
-    --glass-blur: blur(10px);
+  .tag::before {
+    content: "";
+    width: 1.6rem;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.5;
   }
 
   /* Warm glass. The fill is opaque enough that charcoal always clears AA over
      whatever photograph or gradient is behind it; without backdrop-filter the
      panel becomes solid cream instead of turning into a transparent smear. */
   .glass {
-    background: #fdf8f2c2;
+    background: #fdf8f2dd;
     border: 1px solid rgba(255, 255, 255, 0.6);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75), var(--shadow-soft);
     --glass-blur: blur(14px) saturate(1.2);
@@ -370,8 +377,7 @@
     @media (prefers-reduced-motion: no-preference) {
       .btn,
       .btn i,
-      .journey-card,
-      .glass-lift {
+      .journey-card {
         transition-timing-function: var(--ease-spring);
       }
     }
@@ -464,11 +470,7 @@
      surface has depth instead of a banded gradient. Charcoal type sits on a
      cream haze at every width; no white-on-photo copy survives this pass. */
   .sun-gradient {
-    background:
-      radial-gradient(110% 90% at 86% 2%, rgba(255, 246, 236, 0.86), transparent 46%),
-      radial-gradient(95% 85% at 100% 62%, rgba(243, 129, 43, 0.95), transparent 62%),
-      radial-gradient(80% 75% at 0% 106%, rgba(235, 99, 0, 0.98), transparent 66%),
-      linear-gradient(118deg, #f09a50 0%, #f5b184 38%, #fbd0ae 68%, #fdeee2 100%);
+    background: linear-gradient(118deg, #f09a50 0%, #f5b184 38%, #fbd0ae 68%, #fdeee2 100%);
   }
 
   /* Phone: the portrait keeps the full frame, and the copy sits on a warm
@@ -502,10 +504,7 @@
   /* Feature wash for the research band, final call to action and footer.
      Apricot base, ember at the low corner — never darker than #EB6300. */
   .ember-gradient {
-    background:
-      radial-gradient(100% 120% at 92% 0%, rgba(253, 248, 242, 0.8), transparent 58%),
-      radial-gradient(90% 90% at 0% 100%, rgba(235, 99, 0, 0.88), transparent 62%),
-      linear-gradient(135deg, #f7a969 0%, #fbd0ae 100%);
+    background: linear-gradient(135deg, #f7a969 0%, #fbd0ae 100%);
   }
 
   .ticker-gradient {
@@ -536,13 +535,81 @@
       background: linear-gradient(90deg in oklab, #fdeade, #f6b184 34%, #eb6300);
     }
   }
+}
 
-  /* Masked line reveal — used where a heading needs to wipe up from nothing. */
-  .mask-line {
-    display: inline-block;
-    overflow: hidden;
-    vertical-align: bottom;
+
+  /* Scroll progress: a CSS scroll timeline, not a JS subscription. */
+  .scroll-progress {
+    position: fixed;
+    inset-inline: 0;
+    top: 0;
+    z-index: 75;
+    height: 2px;
+    transform-origin: 0 50%;
+    pointer-events: none;
+    background: linear-gradient(90deg, var(--color-peach), var(--color-apricot), var(--color-ember));
+    scale: 0 1;
   }
+  @supports not (animation-timeline: scroll()) {
+    .scroll-progress { display: none; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: scroll()) {
+      .scroll-progress {
+        animation: progress-sweep linear both;
+        animation-timeline: scroll(root block);
+      }
+    }
+  }
+  @keyframes progress-sweep {
+    from { scale: 0 1; }
+    to { scale: 1 1; }
+  }
+
+
+/* Life-stage band: a full-bleed editorial break between the card sections.
+   The ember rail is drawn by a CSS scroll timeline, so the signature moment
+   costs no client JavaScript; without support it stays a quiet hairline. */
+.stages-band {
+  background: linear-gradient(180deg, var(--color-cream), var(--color-blush) 42%, var(--color-peach) 88%, var(--color-cream));
+}
+.stages-list {
+  position: relative;
+  padding-left: 1.5rem;
+}
+.stages-list::before,
+.stages-list::after {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  left: 0;
+  width: 1px;
+}
+.stages-list::before { background: rgba(38, 34, 31, 0.16); }
+.stages-list::after {
+  background: var(--color-ember);
+  transform-origin: 0 0;
+  scale: 1 0;
+}
+.stage-row {
+  display: grid;
+  grid-template-columns: 3.25rem 1fr;
+  gap: 1.25rem;
+  padding-block: 1.7rem;
+  border-top: 1px solid rgba(38, 34, 31, 0.12);
+}
+.stage-row:first-child { border-top: 0; padding-top: 0; }
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .stages-list::after {
+      animation: rail-draw linear both;
+      animation-timeline: view();
+      animation-range: cover 18% cover 88%;
+    }
+  }
+}
+@keyframes rail-draw {
+  to { scale: 1 1; }
 }
 
 /* Forced-colors (Windows High Contrast): glass and photo depth are stripped by
@@ -736,8 +803,10 @@ html.lenis body {
 }
 
 /* Tailwind's utilities layer resets `backdrop-filter` on every element; restate
-   the frost outside the layers, or the warm glass silently flattens. */
-.glass,
-.btn-glass,
-.tag-light,
-.hero-copy-plate { backdrop-filter: var(--glass-blur); }
+   the frost outside the layers, or the warm panes silently flatten. Only two
+   surfaces are genuinely frosted: the hero copy plate and the sticky bar.
+   Everything else is an opaque warm pane, so nothing smears over photography. */
+.hero-copy-plate,
+.frost-bar { backdrop-filter: var(--glass-blur); }
+
+.frost-bar { --glass-blur: blur(16px) saturate(1.15); }

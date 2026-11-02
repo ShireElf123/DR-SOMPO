@@ -61,7 +61,7 @@ export default function ServicesPage() {
               <a
                 key={group.id}
                 href={`#${group.id}`}
-                className="group inline-flex items-center gap-1.5 rounded-full border border-charcoal/12 bg-white px-3.5 py-1.5 text-[11.5px] font-medium text-ink-soft transition-all duration-500 hover:-translate-y-0.5 hover:border-ember hover:bg-ember hover:text-ink"
+                className="group inline-flex items-center gap-1.5 rounded-full border border-charcoal/12 bg-white px-3.5 py-1.5 text-[11px] font-medium text-ink-soft transition-all duration-500 hover:-translate-y-0.5 hover:border-ember hover:bg-ember hover:text-ink"
               >
                 {group.label}
                 <ArrowUpRight className="h-3 w-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -114,7 +114,7 @@ export default function ServicesPage() {
                       key={group.id}
                       className="glass rounded-xl p-3"
                     >
-                      <p className="text-[11.5px] font-medium leading-snug text-ink">
+                      <p className="text-[11px] font-medium leading-snug text-ink">
                         {group.label}
                       </p>
                       <SignalBars
@@ -159,7 +159,7 @@ export default function ServicesPage() {
                     <span className="glass absolute left-3 top-3 z-[2] rounded-full px-2.5 py-1 text-[10px] font-medium tracking-[0.08em] text-ink">
                       0{index + 1}
                     </span>
-                    <span className="glass absolute bottom-3 left-3 z-[2] rounded-full px-3.5 py-1 text-[10.5px] font-medium text-ink">
+                    <span className="glass absolute bottom-3 left-3 z-[2] rounded-full px-3.5 py-1 text-[10px] font-medium text-ink">
                       {group.label}
                     </span>
                   </div>
@@ -179,7 +179,7 @@ export default function ServicesPage() {
                             <Link
                               href={`/services/${service.id}`}
                               data-cursor="Open"
-                              className="inline-flex items-center gap-1.5 text-[13.5px] font-medium tracking-[-0.01em] text-ink"
+                              className="inline-flex items-center gap-1.5 text-[13px] font-medium tracking-[-0.01em] text-ink"
                             >
                               {service.title}
                               <ArrowUpRight className="h-3 w-3 opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:opacity-100" />
@@ -191,7 +191,7 @@ export default function ServicesPage() {
                               {service.items.map((item) => (
                                 <li
                                   key={item}
-                                  className="rounded-full bg-cream px-2.5 py-1 text-[10.5px] text-ink-soft"
+                                  className="rounded-full bg-cream px-2.5 py-1 text-[10px] text-ink-soft"
                                 >
                                   {item}
                                 </li>
@@ -199,7 +199,7 @@ export default function ServicesPage() {
                             </ul>
                             <Link
                               href={`/services/${service.id}`}
-                              className="mt-2.5 inline-flex items-center gap-1 text-[10.5px] font-medium text-ink/80 hover:text-ink"
+                              className="mt-2.5 inline-flex items-center gap-1 text-[10px] font-medium text-ink/80 hover:text-ink"
                             >
                               Full details
                               <ArrowUpRight className="h-2.5 w-2.5" />
@@ -277,7 +277,7 @@ export default function ServicesPage() {
                       <IconDisc tone="light">
                         <span className="h-1.5 w-1.5 rounded-full bg-ember" />
                       </IconDisc>
-                      <p className="text-[13.5px] font-medium tracking-[-0.01em] text-ink">
+                      <p className="text-[13px] font-medium tracking-[-0.01em] text-ink">
                         {step.label}
                       </p>
                     </div>

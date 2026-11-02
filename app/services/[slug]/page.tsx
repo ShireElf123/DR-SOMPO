@@ -82,7 +82,7 @@ export default async function ServiceDetailPage({ params }: Params) {
         aspect="aspect-[16/11] sm:aspect-[16/8] lg:aspect-[16/6]"
       >
         <nav aria-label="Breadcrumb" className="mt-4">
-          <ol className="flex flex-wrap items-center gap-1.5 text-[10.5px] text-ink/70">
+          <ol className="flex flex-wrap items-center gap-1.5 text-[10px] text-ink/70">
             <li>
               <Link href="/services" className="hover:text-ink hover:underline">
                 Services
@@ -117,9 +117,9 @@ export default async function ServiceDetailPage({ params }: Params) {
                   <li key={section.heading}>
                     <a
                       href={`#section-${i}`}
-                      className="group flex items-start gap-2 text-[12.5px] leading-snug text-ink-soft transition-colors hover:text-ink"
+                      className="group flex items-start gap-2 text-[12px] leading-snug text-ink-soft transition-colors hover:text-ink"
                     >
-                      <span className="mt-[3px] text-[9.5px] tabular-nums text-ink-muted">
+                      <span className="mt-[3px] text-[10px] tabular-nums text-ink-muted">
                         0{i + 1}
                       </span>
                       <span>{section.heading}</span>
@@ -149,7 +149,7 @@ export default async function ServiceDetailPage({ params }: Params) {
               </div>
 
               {detail.verifiedNotes && (
-                <p className="mt-4 border-l-2 border-ember pl-3 text-[10.5px] leading-relaxed text-ink-muted">
+                <p className="mt-4 border-l-2 border-ember pl-3 text-[10px] leading-relaxed text-ink-muted">
                   <span className="font-medium text-ink">To confirm:</span>{" "}
                   {detail.verifiedNotes}
                 </p>
@@ -171,7 +171,7 @@ export default async function ServiceDetailPage({ params }: Params) {
                   </div>
                   <div className="mt-3 space-y-3 pl-6">
                     {section.body.map((paragraph) => (
-                      <p key={paragraph.slice(0, 24)} className="text-[13.5px] leading-[1.7] text-ink-soft">
+                      <p key={paragraph.slice(0, 24)} className="text-[13px] leading-[1.7] text-ink-soft">
                         {paragraph}
                       </p>
                     ))}
@@ -194,14 +194,14 @@ export default async function ServiceDetailPage({ params }: Params) {
                               : "bg-cream border-hairline border-charcoal/8"
                         }`}
                       >
-                        <p className="text-[9.5px] uppercase tracking-[0.16em] text-ink-muted">
+                        <p className="text-[10px] uppercase tracking-[0.16em] text-ink-muted">
                           {phase.label}
                         </p>
                         <ul className="mt-2.5 space-y-2">
                           {items.map((item) => (
                             <li
                               key={item.slice(0, 20)}
-                              className="flex gap-2 text-[11.5px] leading-relaxed text-ink-soft"
+                              className="flex gap-2 text-[11px] leading-relaxed text-ink-soft"
                             >
                               <span
                                 aria-hidden="true"
@@ -237,7 +237,7 @@ export default async function ServiceDetailPage({ params }: Params) {
                     <dt className="text-[14px] font-medium tracking-[-0.01em] text-ink">
                       {item.q}
                     </dt>
-                    <dd className="mt-1.5 max-w-[38rem] text-[12.5px] leading-relaxed text-ink-soft">
+                    <dd className="mt-1.5 max-w-[38rem] text-[12px] leading-relaxed text-ink-soft">
                       {item.a}
                     </dd>
                 </Reveal>

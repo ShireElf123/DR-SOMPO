@@ -52,7 +52,7 @@ export function Footer() {
           </ul>
 
           <div className="sm:px-4">
-            <p className="text-[15px] leading-snug tracking-[-0.02em] sm:text-[17px]">
+            <p className="font-display text-[17px] italic leading-snug tracking-[-0.01em] sm:text-[19px]">
               Women&apos;s Health. Every Stage. Every Journey.
             </p>
             <BookingLink className="btn btn-light mx-auto mt-4">
@@ -61,7 +61,7 @@ export function Footer() {
                 <ArrowUpRight className="h-3 w-3" />
               </i>
             </BookingLink>
-            <p className="mt-4 text-[10.5px] leading-relaxed text-ink">
+            <p className="mt-4 text-[10px] leading-relaxed text-ink">
               General information only — not medical advice. In an emergency
               contact your nearest emergency department.
             </p>

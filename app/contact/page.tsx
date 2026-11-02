@@ -51,7 +51,7 @@ export default async function ContactPage({
                 <div className="rounded-[1.35rem] bg-blush p-6 border-hairline border-ember/8 sm:p-7">
                   <SectionHead tag="Reach the practice" title="Details" />
 
-                  <address className="mt-4 not-italic text-[13.5px] leading-[1.75] text-ink-soft">
+                  <address className="mt-4 not-italic text-[13px] leading-[1.75] text-ink-soft">
                     {practice.entity}
                     <br />
                     {practice.hospital}
@@ -71,10 +71,10 @@ export default async function ContactPage({
                           <Phone className="h-3.5 w-3.5" aria-hidden="true" />
                         </span>
                         <span>
-                          <span className="block text-[9.5px] uppercase tracking-[0.14em] text-ink-soft">
+                          <span className="block text-[10px] uppercase tracking-[0.14em] text-ink-soft">
                             Telephone · primary
                           </span>
-                          <span className="block text-[13.5px] font-medium text-ink">
+                          <span className="block text-[13px] font-medium text-ink">
                             {practice.phone}
                           </span>
                         </span>
@@ -90,10 +90,10 @@ export default async function ContactPage({
                           <Mail className="h-3.5 w-3.5" aria-hidden="true" />
                         </span>
                         <span className="min-w-0">
-                          <span className="block text-[9.5px] uppercase tracking-[0.14em] text-ink-soft">
+                          <span className="block text-[10px] uppercase tracking-[0.14em] text-ink-soft">
                             Email
                           </span>
-                          <span className="block break-all text-[12.5px] font-medium text-ink">
+                          <span className="block break-all text-[12px] font-medium text-ink">
                             {practice.email}
                           </span>
                         </span>
@@ -106,10 +106,10 @@ export default async function ContactPage({
                           <MessageCircle className="h-3.5 w-3.5" aria-hidden="true" />
                         </span>
                         <span>
-                          <span className="block text-[9.5px] uppercase tracking-[0.14em] text-ink-soft">
+                          <span className="block text-[10px] uppercase tracking-[0.14em] text-ink-soft">
                             WhatsApp · awaiting confirmation
                           </span>
-                          <span className="mt-0.5 block text-[11.5px] leading-snug text-ink-soft">
+                          <span className="mt-0.5 block text-[11px] leading-snug text-ink-soft">
                             A WhatsApp enquiry channel will appear here once the
                             practice confirms a WhatsApp-enabled number.
                           </span>
@@ -139,7 +139,7 @@ export default async function ContactPage({
                     </a>
                   </div>
 
-                  <p className="mt-4 rounded-lg bg-white/60 px-3 py-2 text-[10.5px] leading-relaxed text-ink-soft">
+                  <p className="mt-4 rounded-lg bg-white/60 px-3 py-2 text-[10px] leading-relaxed text-ink-soft">
                     Consulting hours, practice number and medical aid arrangements
                     are confirmed directly by the practice. Emergencies: contact{" "}
                     {practice.hospital} or your nearest emergency department.
@@ -159,14 +159,14 @@ export default async function ContactPage({
                   <div className="absolute inset-0 bg-gradient-to-t from-ember/35 via-transparent to-transparent" />
                   <div className="glass absolute inset-x-3 bottom-3 z-[2] flex items-end justify-between gap-3 rounded-lg px-3 py-2">
                     <div>
-                      <p className="text-[9.5px] uppercase tracking-[0.16em] text-ink/75">
+                      <p className="text-[10px] uppercase tracking-[0.16em] text-ink/75">
                         Consulting rooms
                       </p>
                       <p className="mt-0.5 text-[13px] font-medium text-ink">
                         {practice.hospital}, Primrose
                       </p>
                     </div>
-                    <span className="rounded-full bg-white/70 px-2.5 py-1 text-[10.5px] font-medium text-ink">
+                    <span className="rounded-full bg-white/70 px-2.5 py-1 text-[10px] font-medium text-ink">
                       St Joseph &amp; Castor Rd
                     </span>
                   </div>

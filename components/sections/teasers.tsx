@@ -25,39 +25,34 @@ export function AboutTeaser() {
                   className="absolute inset-0"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ember/25 via-transparent to-transparent" />
-                <div className="absolute inset-x-3 bottom-3 z-[2] flex flex-wrap gap-1.5">
-                  {["FCOG (SA)", "MMed (O&G)", "Wits"].map((chip) => (
-                    <span
-                      key={chip}
-                      className="glass rounded-full px-2.5 py-1 text-[10px] font-medium text-ink"
-                    >
-                      {chip}
-                    </span>
-                  ))}
-                </div>
               </div>
-              <div className="glass absolute -bottom-4 right-3 rounded-xl px-3.5 py-2.5 sm:-right-5">
-                <p className="text-[9.5px] uppercase tracking-[0.14em] text-ink-soft">
-                  Consulting
-                </p>
-                <p className="mt-0.5 text-[12px] font-medium text-ink">
-                  Life Roseacres Hospital
-                </p>
-              </div>
+              <p className="mt-4 text-[10px] uppercase leading-relaxed tracking-[0.15em] text-ink-muted">
+                FCOG (SA) · MMed (O&amp;G) · Wits
+                <span className="mx-2 opacity-40">/</span>
+                Life Roseacres Hospital, Primrose
+              </p>
             </div>
           </Reveal>
 
           <div>
-            <SectionHead
-              id="about-teaser-heading"
-              tag="Meet Dr Sompo"
-              title="An advocate first,"
-              muted="then a specialist."
-              intro={biography[0]}
-            />
+            <h2 id="about-teaser-heading" className="sr-only">
+              Meet Dr Sompo
+            </h2>
+            <p className="flex items-center gap-3 text-[10px] uppercase tracking-[0.2em] text-ink-muted">
+              <span className="h-px w-7 bg-charcoal/40" aria-hidden="true" />
+              Meet Dr Sompo
+            </p>
+            <Reveal delay={0.06}>
+              <blockquote className="mt-5 max-w-[33rem] font-display text-[clamp(1.8rem,3.1vw,2.6rem)] italic leading-[1.08] tracking-[-0.015em] text-ink">
+                “{biography[4].replace(/^Having experienced /, "Having experienced ")}”
+              </blockquote>
+              <p className="mt-4 text-[10px] uppercase tracking-[0.16em] text-ink-soft">
+                Dr CM Ngwey-Sompo
+              </p>
+            </Reveal>
             <Reveal delay={0.1}>
-              <p className="mt-4 max-w-lg text-[13.5px] leading-[1.65] text-ink-soft">
-                {biography[2]}
+              <p className="mt-6 max-w-lg text-[13px] leading-[1.7] text-ink-soft">
+                {biography[0]}
               </p>
             </Reveal>
             <Reveal delay={0.16}>
@@ -72,7 +67,7 @@ export function AboutTeaser() {
                   {["MBChB", "FCOG (SA)", "MMed (O&G)"].map((code) => (
                     <span
                       key={code}
-                      className="rounded-full bg-cream px-2.5 py-1 text-[10.5px] font-medium text-ink-soft"
+                      className="rounded-full bg-cream px-2.5 py-1 text-[10px] font-medium text-ink-soft"
                     >
                       {code}
                     </span>
@@ -90,12 +85,12 @@ export function AboutTeaser() {
 /** Home page teaser for the Research & cervical health page. */
 export function ResearchTeaser() {
   return (
-    <section className="sec" aria-labelledby="research-teaser-heading">
-      <div className="shell">
+    <section className="ember-gradient mt-16 text-ink sm:mt-20" aria-labelledby="research-teaser-heading">
+      <div className="shell py-12 sm:py-16 lg:py-20">
         <Reveal y={24}>
-          <div className="ember-gradient relative overflow-hidden rounded-[1.75rem] text-ink">
-            <div className="grid lg:grid-cols-[1.05fr_0.95fr]">
-              <div className="p-6 sm:p-9 lg:p-11">
+          <div>
+            <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-12">
+              <div className="lg:pr-4">
                 <span className="tag tag-light">Cervical health</span>
                 <h2
                   id="research-teaser-heading"
@@ -121,7 +116,7 @@ export function ResearchTeaser() {
                   </i>
                 </Link>
               </div>
-              <div className="relative min-h-[15rem] overflow-hidden lg:min-h-full">
+              <div className="photo-depth relative min-h-[16rem] overflow-hidden rounded-[1.5rem] sm:min-h-[20rem] lg:min-h-[24rem]">
                 <ParallaxImage
                   src="/images/cervical-research.jpg"
                   alt="Laboratory microscope and research folders"
@@ -131,7 +126,7 @@ export function ResearchTeaser() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-apricot via-ember/15 to-transparent lg:from-ember/55 lg:via-transparent" />
                 <div className="absolute inset-x-4 bottom-4 z-[2] flex items-end justify-between gap-3">
-                  <p className="glass max-w-[16rem] rounded-lg px-2.5 py-1.5 text-[10.5px] leading-relaxed text-ink">
+                  <p className="glass max-w-[16rem] rounded-lg px-2.5 py-1.5 text-[10px] leading-relaxed text-ink">
                     LLETZ margin status · Wits MMed · 2025
                   </p>
                   <span className="glass rounded-full px-2.5 py-1 text-[10px] font-medium text-ink">
@@ -248,7 +243,7 @@ export function ContactBand() {
                   Consulting rooms
                 </p>
                 <p className="mt-1 text-[14px] font-medium">{practice.hospital}</p>
-                <p className="mt-0.5 text-[11.5px] text-ink-soft">
+                <p className="mt-0.5 text-[11px] text-ink-soft">
                   {practice.addressLines[0]}, {practice.addressLines[1]}
                 </p>
                 <div className="mt-3 flex gap-3 text-[11px] text-ink-soft">

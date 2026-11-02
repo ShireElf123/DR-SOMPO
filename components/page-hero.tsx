@@ -96,7 +96,7 @@ export function PageHero({
               )}
             </h1>
             {intro && (
-              <p className="mt-3 max-w-[34rem] text-[12.5px] leading-relaxed text-ink-soft sm:text-[13.5px]">
+              <p className="mt-3 max-w-[34rem] text-[12px] leading-relaxed text-ink-soft sm:text-[13px]">
                 {intro}
               </p>
             )}
@@ -132,7 +132,7 @@ export function SectionHead({
         {muted && (
           <>
             {" "}
-            <span className="text-ink-soft">
+            <span className="font-display text-[1.06em] italic tracking-[-0.015em] text-ink/85">
               <WordsIn text={muted} delay={0.15} />
             </span>
           </>
@@ -200,7 +200,7 @@ export function SplitHero({
                 {chips.map((chip) => (
                   <span
                     key={chip}
-                    className="rounded-full bg-white px-2.5 py-1 text-[10.5px] font-medium text-ink border-hairline border-charcoal/8"
+                    className="rounded-full bg-white px-2.5 py-1 text-[10px] font-medium text-ink border-hairline border-charcoal/8"
                   >
                     {chip}
                   </span>

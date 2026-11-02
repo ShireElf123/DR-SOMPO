@@ -106,7 +106,7 @@ test("warm glass keeps charcoal readable over the deepest surface and over photo
     assert.ok(ratio >= 4.5, `Charcoal on glass over ${behind}: ${ratio}`);
   }
   // The frost is restated outside the cascade layers, and forced colours strip it.
-  assert.match(css, /\.hero-copy-plate { backdrop-filter: var\(--glass-blur\); }/);
+  assert.match(css, /\.hero-copy-plate[\s\S]{0,120}?\{[^}]*backdrop-filter: var\(--glass-blur\)/);
   assert.match(css, /--glass-blur: none/);
 });
 
