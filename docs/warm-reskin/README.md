@@ -256,7 +256,7 @@ two widths, and geometry probes at 320/390/430/1440.
 | Warm / cool cast | 11% / 24% | 81% / 0.5% |
 | Mobile hero: photo under copy | 45.1% | 7.3% |
 | Axe (6 routes × 2 widths) | 0 violations | 0 violations |
-| JS / CSS / HTML gzip | 204,789 / 15,982 / 26,249 | 204,484 / 15,741 / 27,243 |
+| JS / CSS / HTML gzip | 204,789 / 15,982 / 26,249 | 204,425 / 15,749 / 27,072 |
 | Page height at 1440 | 7,529px | 8,124px |
 
 The honest trade: the green release has **tonal depth** — a third of it sits
@@ -270,7 +270,18 @@ Screenshots: `evidence/comparison-green-vs-rose.jpg` (heroes + scorecard) and
 
 ## The identity
 
-The practice's WhatsApp card was redrawn as a monogram-and-wordmark system and
-fitted to the site: header on every page, the tab icon, the iOS home screen, the
-share card and the schema.org `logo`. See `docs/brand/README.md` for the rules and
+The mark is her own illustration — mother in profile, protea, heart on the belly —
+cropped out of its cream ground and set in ember and peach, then fitted to the
+site: header on every page, the tab icon, the iOS home screen, the share card and
+the schema.org `logo`. See `docs/brand/README.md` for the rules and
 `docs/brand/brand-sheet.jpg` for the one-page presentation.
+
+An earlier pass drew a monogram instead; it was rejected because the picture is
+the practice. It is not part of this build.
+
+## Reference comparison
+
+`reference-comparison.md` measures this site against the Framer "doctor template"
+class (Doctr X, Medicard, MediPro) and records what is worth copying, what is not
+— invented statistics and testimonial walls are advertising-rules problems for a
+doctor, not design options — and the five defects that comparison exposed.

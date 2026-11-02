@@ -182,7 +182,7 @@ export function BentoBand() {
                     {practice.hospital}, Primrose
                   </p>
                   <p className="mt-0.5 text-[10px] text-ink-soft">
-                    Operates at Dr Phakisa Mokhesi Hospital, Sebokeng
+                    Theatre lists at Dr Phakisa Mokhesi, Sebokeng
                   </p>
                 </div>
                 <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-charcoal text-cream transition-transform duration-500 group-hover:rotate-45">

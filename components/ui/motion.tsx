@@ -202,13 +202,10 @@ export function WordsIn({
 export function ScrollWords({
   text,
   className,
-  avatars = [],
   tint = "light",
 }: {
   text: string;
   className?: string;
-  /** Word indices that should render a soft avatar dot before them. */
-  avatars?: number[];
   /** Panel tone this paragraph sits on. */
   tint?: "light";
 }) {
@@ -233,20 +230,6 @@ export function ScrollWords({
     <p ref={ref} className={className} data-scroll-words={tint}>
       {words.map((word, i) => (
         <span key={`${word}-${i}`}>
-          {avatars.includes(i) && (
-            <span
-              aria-hidden="true"
-              className="mr-1 inline-block h-[1.05em] w-[1.05em] translate-y-[0.12em] overflow-hidden rounded-full bg-gradient-to-br from-apricot to-blush align-baseline ring-2 ring-cream/80"
-            >
-              <Image
-                src={avatarImages[i % avatarImages.length]}
-                alt=""
-                width={40}
-                height={40}
-                className="h-full w-full object-cover"
-              />
-            </span>
-          )}
           <span className="relative inline-block">
             <span style={{ color: reduce ? lit : dim }}>{word}</span>
             {!reduce && onScreen && (
@@ -265,12 +248,6 @@ export function ScrollWords({
     </p>
   );
 }
-
-const avatarImages = [
-  "/images/patient-quiet.jpg",
-  "/images/consultation.jpg",
-  "/images/fertility.jpg",
-];
 
 /** Mounted only while its paragraph is near the viewport. */
 function ScrollWordOverlay({

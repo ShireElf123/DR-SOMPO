@@ -5,7 +5,7 @@ import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import { ParallaxImage, Reveal, WordsIn } from "@/components/ui/motion";
 import { Panel, SignalBars } from "@/components/ui/plate";
 import { SectionHead } from "@/components/page-hero";
-import { biography, faqs, practice, research } from "@/lib/practice";
+import { biography, faqs, practice } from "@/lib/practice";
 
 /** Home page teaser for the dedicated About page. */
 export function AboutTeaser() {
@@ -259,11 +259,6 @@ export function ContactBand() {
           </Reveal>
         </div>
 
-        <Reveal delay={0.12}>
-          <p className="mt-4 text-[11px] leading-relaxed text-ink-soft">
-            {research.disclaimer}
-          </p>
-        </Reveal>
       </div>
     </section>
   );

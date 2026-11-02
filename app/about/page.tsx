@@ -83,7 +83,6 @@ export default function AboutPage() {
         <div className="shell">
           <ScrollWords
             text="Having experienced difficult pregnancies herself, she brings a personal understanding to the women she cares for — alongside specialist training, research and a commitment to patient education."
-            avatars={[2]}
             className="mx-auto max-w-[44rem] text-center text-[clamp(1.15rem,2.4vw,1.55rem)] leading-[1.4] tracking-[-0.02em]"
           />
         </div>

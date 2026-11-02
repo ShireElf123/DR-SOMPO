@@ -38,15 +38,30 @@ for (const path of ["/", "/about", "/services", "/services/antenatal", "/patient
 test("scroll-lit copy mounts paint overlays only near the viewport", async ({ page }) => {
   await go(page);
   const paragraphs = page.locator("[data-scroll-words]");
-  const first = paragraphs.first();
-  await expect(first.locator('[aria-hidden="true"].absolute')).toHaveCount(0);
-  await first.scrollIntoViewIfNeeded();
-  await expect.poll(() => first.locator('[aria-hidden="true"].absolute').count()).toBeGreaterThan(0);
+  // Anchor to the statement inside the practice bento, not the first paragraph
+  // on the page: the contract under test is proximity, and the first one drifts
+  // into the viewport whenever the hero is retuned.
+  const target = paragraphs.nth(1);
+  await expect(target.locator('[aria-hidden="true"].absolute')).toHaveCount(0);
+  await target.scrollIntoViewIfNeeded();
+  await expect.poll(() => target.locator('[aria-hidden="true"].absolute').count()).toBeGreaterThan(0);
   // The paint layer resolves to actual ink, rather than merely existing.
-  await expect.poll(() => first.locator('[aria-hidden="true"].absolute').first().evaluate((element) => Number(getComputedStyle(element).opacity))).toBeGreaterThan(0.5);
+  await expect.poll(() => target.locator('[aria-hidden="true"].absolute').first().evaluate((element) => Number(getComputedStyle(element).opacity))).toBeGreaterThan(0.5);
   await page.locator("h1").scrollIntoViewIfNeeded();
-  await expect(first.locator('[aria-hidden="true"].absolute')).toHaveCount(0);
-  await expect(first).toContainText("women's health advocate");
+  await expect(target.locator('[aria-hidden="true"].absolute')).toHaveCount(0);
+  // The readable layer is the accessibility contract: with the paint copy
+  // mounted, textContent concatenates each word twice, so read the words that
+  // are not inside the aria-hidden overlay.
+  await expect
+    .poll(() =>
+      paragraphs.first().evaluate((el) =>
+        Array.from(el.querySelectorAll("span"))
+          .filter((span) => span.children.length === 0 && !span.closest('[aria-hidden="true"]'))
+          .map((span) => span.textContent)
+          .join(" "),
+      ),
+    )
+    .toContain("women's health advocate");
 });
 
 test("condition filtering, empty state and reset still work", async ({ page }) => {

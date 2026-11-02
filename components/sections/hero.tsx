@@ -123,7 +123,7 @@ export function Hero() {
               Consulting at Life Roseacres Hospital
             </span>
 
-            <h1 data-hero-arrival="headline" className="hero-copy-arrival hero-headline text-[clamp(2.5rem,7vw,5.6rem)] font-light leading-[0.96] tracking-[-0.035em]">
+            <h1 data-hero-arrival="headline" className="hero-copy-arrival hero-headline text-[clamp(2.4rem,6.4vw,4.9rem)] font-light leading-[0.98] tracking-[-0.035em]">
               <span className="block">{"Women's Health."}</span>
               <span className="block font-display text-[1.12em] italic leading-[0.9] tracking-[-0.015em]">
                 Every Stage.
