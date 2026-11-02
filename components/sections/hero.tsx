@@ -52,20 +52,20 @@ export function Hero() {
           {/* Botanical light shapes */}
           <span
             aria-hidden="true"
-            className="absolute right-[42%] top-[6%] h-32 w-32 rounded-[0_85%_0_85%] bg-cream/45 motion-safe:animate-[sway_9s_ease-in-out_infinite_alternate]"
+            className="absolute right-[42%] top-[6%] hidden h-32 w-32 rounded-[0_85%_0_85%] bg-cream/45 sm:block motion-safe:animate-[sway_9s_ease-in-out_infinite_alternate]"
           />
           <span
             aria-hidden="true"
-            className="absolute right-[6%] top-[20%] h-20 w-20 rounded-[0_85%_0_85%] bg-cream/40 motion-safe:animate-[sway_9s_ease-in-out_infinite_alternate_-4s]"
+            className="absolute right-[6%] top-[20%] hidden h-20 w-20 rounded-[0_85%_0_85%] bg-cream/40 sm:block motion-safe:animate-[sway_9s_ease-in-out_infinite_alternate_-4s]"
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-ember/35 to-transparent"
+            className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-28 bg-gradient-to-t from-ember/35 to-transparent sm:block"
           />
 
           {/* One image request. On phones the motion layer is static; the desktop
               crop retains its independent scroll parallax without scaling the hero. */}
-          <div className="pointer-events-none absolute inset-0 sm:inset-auto sm:bottom-0 sm:right-0 sm:h-[88%] sm:w-[52%] lg:w-[46%]">
+          <div className="pointer-events-none relative h-[clamp(11rem,30vh,16rem)] w-full sm:absolute sm:inset-auto sm:bottom-0 sm:right-0 sm:h-[88%] sm:w-[52%] lg:w-[46%]">
             <m.div
               data-hero-image-layer
               style={desktopMotion ? { y: imageY, scale: imageScale } : undefined}
@@ -83,14 +83,37 @@ export function Hero() {
                 />
                 <div className="absolute inset-0 hidden bg-gradient-to-r from-apricot/20 via-transparent to-transparent sm:block" />
                 <div className="absolute inset-0 hidden bg-gradient-to-t from-ember/25 via-transparent to-transparent sm:block" />
+                <div className="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-cream to-transparent sm:hidden" />
               </div>
             </m.div>
+            {/* Contact chip */}
+            <m.a
+              href={practice.phoneHref}
+              data-hero-call
+              style={desktopMotion ? { y: chipY } : undefined}
+              className="glass group pointer-events-auto absolute bottom-3 right-3 z-20 flex items-center gap-2.5 rounded-2xl p-2 pr-4 text-ink transition-transform duration-500 hover:-translate-y-1 sm:bottom-6 sm:right-6"
+            >
+              <span className="relative hidden h-11 w-11 overflow-hidden rounded-xl bg-peach sm:block">
+                <Image
+                  src="/images/consultation.jpg"
+                  alt=""
+                  fill
+                  sizes="44px"
+                  className="object-cover"
+                />
+              </span>
+              <span className="text-[11px] leading-tight">
+                <span className="block font-medium">Specialist OBGYN</span>
+                <span className="mt-0.5 block text-ink-muted">{practice.phone}</span>
+              </span>
+              <Phone className="h-3.5 w-3.5 text-ink/60" aria-hidden="true" />
+            </m.a>
           </div>
 
           {/* Copy */}
           <m.div
             style={desktopMotion ? { y: copyY } : undefined}
-            className="hero-copy-plate relative z-10 max-w-[42rem] px-6 pb-24 pt-16 text-ink sm:px-10 sm:pb-20 sm:pt-20 lg:px-14 lg:pb-24 lg:pt-24"
+            className="hero-copy-plate relative z-10 max-w-[42rem] px-4 pb-20 pt-8 text-ink sm:px-10 sm:pb-20 sm:pt-20 lg:px-14 lg:pb-24 lg:pt-24"
           >
             <span
               data-hero-arrival="label"
@@ -110,14 +133,14 @@ export function Hero() {
 
             <p
               data-hero-arrival="support"
-              className="hero-copy-arrival hero-support mt-6 max-w-[26rem] text-[0.875rem] leading-relaxed text-ink sm:text-[15px]"
+              className="hero-copy-arrival hero-support mt-5 max-w-[26rem] sm:mt-6 text-[0.875rem] leading-relaxed text-ink sm:text-[15px]"
             >
               {brand.heroCopy}
             </p>
 
             <div
               data-hero-arrival="credentials"
-              className="hero-copy-arrival hero-credentials mt-7 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-[10px] uppercase tracking-[0.16em] text-ink"
+              className="hero-copy-arrival hero-credentials mt-5 flex flex-wrap sm:mt-7 items-center gap-x-3 gap-y-1.5 text-[10px] uppercase tracking-[0.16em] text-ink"
             >
               {["MBChB", "FCOG (SA)", "MMed (O&G) Wits"].map((item, i) => (
                 <span key={item} className="flex items-center gap-3">
@@ -129,7 +152,7 @@ export function Hero() {
 
             <div
               data-hero-arrival="actions"
-              className="hero-actions mt-6 flex flex-wrap items-center gap-2.5"
+              className="hero-actions mt-5 flex flex-wrap items-center gap-2 sm:mt-6 sm:gap-2.5"
             >
               <a href="/contact#appointment-request" className="btn" data-cursor="Book">
                 Book an appointment
@@ -164,28 +187,6 @@ export function Hero() {
             </span>
           </span>
 
-          {/* Contact chip */}
-          <m.a
-            href={practice.phoneHref}
-            data-hero-call
-            style={desktopMotion ? { y: chipY } : undefined}
-            className="glass group absolute bottom-4 right-4 z-20 flex items-center gap-2.5 rounded-2xl p-2 pr-4 text-ink transition-transform duration-500 hover:-translate-y-1 sm:bottom-6 sm:right-6"
-          >
-            <span className="relative h-11 w-11 overflow-hidden rounded-xl bg-peach">
-              <Image
-                src="/images/consultation.jpg"
-                alt=""
-                fill
-                sizes="44px"
-                className="object-cover"
-              />
-            </span>
-            <span className="text-[11px] leading-tight">
-              <span className="block font-medium">Specialist OBGYN</span>
-              <span className="mt-0.5 block text-ink-muted">{practice.phone}</span>
-            </span>
-            <Phone className="h-3.5 w-3.5 text-ink/60" aria-hidden="true" />
-          </m.a>
         </div>
       </div>
     </section>

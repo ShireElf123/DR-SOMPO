@@ -50,13 +50,13 @@ it is a surface and accent only.
   built from a tight contact layer plus wider ember-tinted ambient layers.
   There is no `rgba(0,0,0,…)` in the depth system, so shadows read as late
   afternoon light instead of soot. Primary actions add the single `--glow-warm`.
-- **Glass is an accent with a budget of two.** Only the hero copy plate (phone)
-  and the sticky bar frost. Every other pane — photo captions, chips, the
-  credential note — is an opaque 87% cream surface with a white hairline and an
-  inner highlight, so charcoal type over photography never depends on a blur to
-  stay legible. Tailwind's utilities layer resets `backdrop-filter` on every
-  element, so the two surviving frosts are restated outside the cascade layers
-  and stripped again under `forced-colors`.
+- **Glass is an accent with a budget of one.** Only the sticky bar frosts. Every
+  other pane — photo captions, chips, the credential note, the phone hero copy
+  — is an opaque cream or cream-gradient surface with a hairline, so charcoal
+  type over photography never depends on a blur to stay legible. Tailwind's
+  utilities layer resets `backdrop-filter` on every element, so the surviving
+  frost is restated outside the cascade layers and stripped again under
+  `forced-colors`.
 - **Photography** gets a warm grade (`saturate(.95) sepia(.045)`), an inner
   hairline, a soft-light wash and a light floor shadow inside `.photo-depth`,
   so the mixed green-and-cool source imagery sits inside the peach field
@@ -209,3 +209,31 @@ clinical framing.
   than the previous pass. 45 Node checks and 161 browser checks green (the
   `hero-opening` timing probe flakes under parallel CPU load and passes 8/8
   standalone, as documented).
+
+## Fourth pass — the phone hero no longer covers the portrait
+
+The phone hero used to paint the copy on a `.hero-copy-plate`: 84% cream plus
+`blur(16px)` over a full-bleed portrait. Measured at 320, 390 and 430px, that
+plate covered **89–91% of the photograph** — the portrait was, for practical
+purposes, not on the page.
+
+It now runs as two bands inside the same rounded frame:
+
+- the portrait is a real `relative` band, `clamp(11rem, 30vh, 16rem)` tall, full
+  width, with the same `object-position` so nothing is recropped;
+- the copy follows in normal flow on a cream gradient (`60% → 100%` over the
+  first 18%), with no blur at all;
+- the phone contact chip moved from the bottom of the frame onto the photograph
+  itself, and drops its thumbnail under `sm` so it reads as a caption, not a card;
+- both hero actions sit on one row above the fold at 390×844 (761–799px) by
+  trimming `.btn` padding and its arrow disc by ~11px on phones only.
+
+Measured after the change: **0% photo coverage** at 320/390/430, portrait band
+238–253px tall, primary and secondary actions both inside the 844px viewport,
+cold-load CLS still 0. Desktop geometry is untouched.
+
+The acceptance check was rewritten rather than relaxed: `warm-theme.spec.ts`
+now asserts the copy covers **less than 2%** of the photograph, that the photo
+band is taller than 160px, that the copy wash is a cream gradient with
+`backdrop-filter: none`, plus the previous overflow, ink and type-size checks.
+The painted-contrast probe still runs at 320, 390, 640, 1024 and 1440.

@@ -216,26 +216,41 @@ test("reduced motion removes the springs instead of slowing them", async ({ page
 });
 
 for (const width of [320, 390]) {
-  test(`the warm hero reads at ${width}px without overflow`, async ({ page }) => {
+  test(`the warm hero reads at ${width}px and keeps the portrait visible`, async ({ page }) => {
     await page.setViewportSize({ width, height: 780 });
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto("/", { waitUntil: "networkidle" });
     const layout = await page.evaluate(() => {
       const hero = document.querySelector("#top .sun-gradient") as HTMLElement;
       const plate = document.querySelector(".hero-copy-plate") as HTMLElement;
+      const photo = document.querySelector<HTMLImageElement>('#top img[src*="hero-doctor"]')!;
       const support = document.querySelector(".hero-support") as HTMLElement;
-      const pane = plate ? getComputedStyle(plate).backgroundColor.match(/[\d.]+/g)!.map(Number) : null;
+      const p = plate.getBoundingClientRect();
+      const i = photo.getBoundingClientRect();
+      const overlap =
+        Math.max(0, Math.min(p.right, i.right) - Math.max(p.left, i.left)) *
+        Math.max(0, Math.min(p.bottom, i.bottom) - Math.max(p.top, i.top));
       return {
         overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
         heroHeight: hero?.getBoundingClientRect().height ?? 0,
-        plateAlpha: pane ? (pane[3] ?? 1) : null,
+        photoHeight: i.height,
+        photoCoveredByCopy: overlap / (i.width * i.height),
+        copyWash: getComputedStyle(plate).backgroundImage,
+        copyBlur: getComputedStyle(plate).backdropFilter,
         supportColor: support ? getComputedStyle(support).color : null,
         supportSize: support ? parseFloat(getComputedStyle(support).fontSize) : 0,
       };
     });
     expect(layout.overflow).toBeLessThanOrEqual(1);
     expect(layout.heroHeight).toBeGreaterThan(320);
-    expect(layout.plateAlpha).toBeGreaterThanOrEqual(0.8);
+    // The phone photographs are the point of the hero: the copy must never sit
+    // on top of the portrait (it used to cover ~90% of it behind an 84% plate).
+    expect(layout.photoHeight).toBeGreaterThan(160);
+    expect(layout.photoCoveredByCopy).toBeLessThan(0.02);
+    // The copy runs on a cream wash in normal flow, with no second frosted pane.
+    expect(layout.copyWash).toContain("linear-gradient");
+    expect(layout.copyWash).toContain("rgb(253, 248, 242)");
+    expect(layout.copyBlur).toBe("none");
     expect(layout.supportColor).toBe("rgb(38, 34, 31)");
     expect(layout.supportSize).toBeGreaterThanOrEqual(14);
   });

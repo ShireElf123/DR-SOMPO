@@ -481,12 +481,22 @@
      glass plate. The plate, not the photograph, is the contrast surface — the
      measured fill stays above 88% opacity even over the brightest highlight. */
   @media (max-width: 639px) {
+    /* The phone keeps the portrait as a real band above the copy instead of a
+       blurred plate over it, so the photograph is never covered. */
     .hero-copy-plate {
-      margin: 0.75rem;
-      border-radius: 1.15rem;
-      background: rgba(253, 248, 242, 0.84);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75), var(--shadow-soft);
-      --glass-blur: blur(16px) saturate(1.1);
+      background: linear-gradient(180deg, rgba(253, 248, 242, 0.6), var(--color-cream) 18%);
+    }
+
+    /* Two actions, one row: the phone hero has to show the photograph, the
+       headline and both buttons without the pair wrapping below the fold. */
+    .btn {
+      gap: 0.5rem;
+      padding-left: 0.85rem;
+    }
+
+    .btn i {
+      width: 1.55rem;
+      height: 1.55rem;
     }
   }
 
