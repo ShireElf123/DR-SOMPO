@@ -1,25 +1,26 @@
 import { expect, test } from "@playwright/test";
 
 /**
- * The identity: one monogram, one wordmark, one accent colour — and the files
- * that carry them off the site. These are the checks that would have caught the
- * old card: a green tile in the tab, a logo that only exists at 700 px, a header
- * descriptor that fails contrast at 7.5 px.
+ * The identity: the illustrated mark plus the outlined wordmark, on the site and
+ * in the files that carry it off the site. These checks would have caught the
+ * old card — a forest-green tab icon, a logo that only exists at 700 px, a
+ * header descriptor that fails contrast, and the monogram that was replaced.
  */
 
 test.describe("brand", () => {
-  test("the header carries the monogram, the name and a legible descriptor", async ({ page }) => {
+  test("the header carries the mark, the name and a legible descriptor", async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto("/", { waitUntil: "networkidle" });
 
     const logo = page.locator("header a.group[href='/']");
     await expect(logo).toHaveCount(1);
 
-    // The outline is defined once by the layout sprite and referenced, not copied.
-    const monogram = logo.locator("svg use[href='#brand-monogram']");
-    await expect(monogram).toHaveCount(1);
-    await expect(page.locator("symbol#brand-monogram")).toHaveCount(1);
-    await expect(logo.locator("svg")).toHaveCSS("color", "rgb(235, 99, 0)");
+    const mark = logo.locator('img[src="/brand/mark-132.webp"]');
+    await expect(mark).toHaveCount(1);
+    await expect(mark).toBeVisible();
+    await expect(mark).toHaveAttribute("alt", "");
+    const box = await mark.boundingBox();
+    expect(box!.height).toBeGreaterThanOrEqual(32);
 
     // The accessible name stays the doctor's name — the descriptor is decorative.
     await expect(logo).toHaveAccessibleName("Dr CM Ngwey-Sompo");
@@ -49,55 +50,50 @@ test.describe("brand", () => {
     await page.goto("/", { waitUntil: "networkidle" });
     const logo = page.locator("header a.group[href='/']");
     await expect(logo).toHaveAccessibleName("Dr Sompo");
-    await expect(logo.locator("svg use[href='#brand-monogram']")).toBeVisible();
+    await expect(logo.locator("img")).toBeVisible();
     // The descriptor is desktop-only; on a phone the mark and the name are enough.
     await expect(logo.getByText("Obstetrician & Gynaecologist")).toBeHidden();
   });
 
-  test("the tab icon is the ember tile, not the old forest one", async ({ request }) => {
-    const response = await request.get("/icon.svg");
-    expect(response.status()).toBe(200);
-    const body = await response.text();
-    expect(body).toContain("#EB6300");
-    expect(body).not.toMatch(/#174D3C|#0F3A2D|#0A2A20|#DCEBE1/i);
-    expect(body).toContain("brand-N");
+  test("the tab icon is the mark on cream, not the old forest square", async ({ request }) => {
+    const icon = await request.get("/icon.png");
+    expect(icon.status()).toBe(200);
+    expect(icon.headers()["content-type"]).toContain("image/png");
+    expect((await icon.body()).byteLength).toBeGreaterThan(5_000);
 
     const apple = await request.get("/apple-icon.png");
     expect(apple.status()).toBe(200);
     expect(apple.headers()["content-type"]).toContain("image/png");
+
+    // The green release's tile is gone for good.
+    expect((await request.get("/icon.svg")).status()).toBe(404);
+    expect((await request.get("/brand/monogram.svg")).status()).toBe(404);
   });
 
-  test("every lockup is present, outlined and free of the old illustration", async ({ request }) => {
+  test("every lockup ships as a file the printer can use", async ({ request }) => {
     const files = [
-      "logo-stacked.svg",
-      "logo-stacked-inverse.svg",
-      "logo-horizontal.svg",
-      "logo-horizontal-short.svg",
-      "monogram.svg",
-      "app-icon.svg",
+      "logo-stacked.png",
+      "logo-stacked-inverse.png",
+      "logo-horizontal.png",
+      "logo-horizontal-short.png",
+      "mark-1024.png",
+      "mark-132.webp",
+      "avatar-1024.png",
       "app-icon-512.png",
-      "logo-stacked-1200.png",
+      "app-icon-192.png",
     ];
     for (const file of files) {
       const response = await request.get(`/brand/${file}`);
       expect(response.status(), file).toBe(200);
-      if (!file.endsWith(".png")) {
-        const body = await response.text();
-        // Outlines, not <text>: a printer may not have Instrument Serif.
-        expect(body, file).not.toContain("<text");
-        expect(body, file).toContain("<path");
-      }
+      expect(response.headers()["content-type"], file).toMatch(/image\/(png|webp)/);
+      expect((await response.body()).byteLength, file).toBeGreaterThan(2_000);
     }
-
-    const stacked = await (await request.get("/brand/logo-stacked.svg")).text();
-    expect(stacked).toContain('aria-label="Dr CM Ngwey-Sompo');
   });
 
   test("the share card starts with the real lockup", async ({ request }) => {
     const response = await request.get("/opengraph-image");
     expect(response.status()).toBe(200);
     expect(response.headers()["content-type"]).toContain("image/png");
-    const body = await response.body();
-    expect(body.byteLength).toBeGreaterThan(20_000);
+    expect((await response.body()).byteLength).toBeGreaterThan(20_000);
   });
 });

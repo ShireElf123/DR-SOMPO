@@ -35,18 +35,19 @@ function Wordmark({
       onClick={onClick}
       className="group flex shrink-0 items-center gap-2 font-semibold uppercase text-ink sm:gap-2.5"
     >
-      {/* Outline lives in the layout sprite: <use> keeps it out of the bundle. */}
-      <svg
-        viewBox="0 0 917 720"
-        aria-hidden="true"
-        focusable="false"
+      {/* The mark is the illustration itself: a cropped, keyed-out PNG. */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/brand/mark-132.webp"
+        alt=""
+        width={132}
+        height={273}
+        decoding="async"
         className={cn(
-          "w-auto text-ember transition-transform duration-500 group-hover:-translate-y-px",
-          compact ? "h-[22px]" : "h-[24px] sm:h-[27px]",
+          "block w-auto shrink-0 transition-transform duration-500 group-hover:-translate-y-px",
+          compact ? "h-[28px]" : "h-[32px] sm:h-[38px]",
         )}
-      >
-        <use href="#brand-monogram" />
-      </svg>
+      />
       <span className="flex flex-col justify-center">
         <span
           className={cn(

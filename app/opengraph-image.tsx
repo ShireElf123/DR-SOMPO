@@ -24,8 +24,8 @@ export default async function OpengraphImage() {
       >
         <img
           alt="Dr CM Ngwey-Sompo — Obstetrician & Gynaecologist"
-          width={316}
-          height={70}
+          width={357}
+          height={64}
           src={brandLockupDataUri}
         />
 

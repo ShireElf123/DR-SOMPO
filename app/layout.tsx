@@ -4,7 +4,6 @@ import "./globals.css";
 
 import { MotionProvider } from "@/components/motion-provider";
 import { Navbar } from "@/components/navbar";
-import { MonogramSprite } from "@/components/brand-monogram-sprite";
 import { PageTransition } from "@/components/page-transition";
 import { Ticker } from "@/components/ticker";
 import { Footer } from "@/components/footer";
@@ -111,10 +110,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd()) }}
         />
-
-        {/* The monogram outline is defined once here so the header can reference
-            it without shipping the path in the client bundle. */}
-        <MonogramSprite />
 
         <a
           href="#main"
