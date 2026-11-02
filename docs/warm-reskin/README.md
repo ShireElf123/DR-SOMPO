@@ -267,3 +267,10 @@ branch's puts 7%.
 
 Screenshots: `evidence/comparison-green-vs-rose.jpg` (heroes + scorecard) and
 `evidence/comparison-full-page.jpg` (7,529px vs 8,124px full pages).
+
+## The identity
+
+The practice's WhatsApp card was redrawn as a monogram-and-wordmark system and
+fitted to the site: header on every page, the tab icon, the iOS home screen, the
+share card and the schema.org `logo`. See `docs/brand/README.md` for the rules and
+`docs/brand/brand-sheet.jpg` for the one-page presentation.

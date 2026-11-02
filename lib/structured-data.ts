@@ -44,6 +44,8 @@ export function practiceJsonLd() {
     name: practice.entity,
     alternateName: "Dr CM Ngwey-Sompo — Obstetrics & Gynaecology",
     url: siteUrl,
+    logo: `${siteUrl}/brand/app-icon-512.png`,
+    image: `${siteUrl}/opengraph-image`,
     telephone: practice.phone,
     email: practice.email,
     medicalSpecialty: ["Obstetric", "Gynecologic"],

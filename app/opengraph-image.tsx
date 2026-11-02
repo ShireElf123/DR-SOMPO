@@ -1,5 +1,7 @@
 import { ImageResponse } from "next/og";
 
+import { brandLockupDataUri } from "@/lib/brand-og";
+
 export const alt = "Dr CM Ngwey-Sompo — Specialist Obstetrician & Gynaecologist";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -20,35 +22,12 @@ export default async function OpengraphImage() {
           fontFamily: "sans-serif",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-          <div
-            style={{
-              width: 44,
-              height: 44,
-              borderRadius: 999,
-              border: "1px solid rgba(38,34,31,0.35)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <div style={{ width: 14, height: 14, borderRadius: 999, background: "#26221F" }} />
-          </div>
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <span style={{ fontSize: 24, letterSpacing: -0.5 }}>Dr Ngwey-Sompo</span>
-            <span
-              style={{
-                fontSize: 12,
-                letterSpacing: 3,
-                textTransform: "uppercase",
-                color: "rgba(38,34,31,0.7)",
-                marginTop: 4,
-              }}
-            >
-              Obstetrics &amp; Gynaecology
-            </span>
-          </div>
-        </div>
+        <img
+          alt="Dr CM Ngwey-Sompo — Obstetrician & Gynaecologist"
+          width={316}
+          height={70}
+          src={brandLockupDataUri}
+        />
 
         <div style={{ display: "flex", flexDirection: "column" }}>
           <span style={{ fontSize: 64, lineHeight: 1.05, letterSpacing: -2.4, maxWidth: 900 }}>

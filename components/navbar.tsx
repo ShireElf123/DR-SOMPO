@@ -17,7 +17,11 @@ const left = nav.slice(0, 3);
 const right = nav.slice(3);
 const EASE = [0.16, 1, 0.3, 1] as const;
 
-/** Wordmark: the reference's logotype, centred between two link clusters. */
+/**
+ * Wordmark: the monogram and the name, set in the practice's two typefaces.
+ * The descriptor is decorative here — the accessible name stays the doctor's
+ * name, so screen readers and the "logo" test locator agree with the old header.
+ */
 function Wordmark({
   onClick,
   compact = false,
@@ -29,19 +33,39 @@ function Wordmark({
     <Link
       href="/"
       onClick={onClick}
-      className={cn(
-        "group flex shrink-0 items-center gap-2 font-semibold uppercase text-ink",
-        compact
-          ? "text-[11px] tracking-[0.1em]"
-          : "text-[13px] tracking-[0.14em] sm:text-[14px]",
-      )}
+      className="group flex shrink-0 items-center gap-2 font-semibold uppercase text-ink sm:gap-2.5"
     >
-      <span className="relative block h-4 w-4 shrink-0">
-        <span className="absolute inset-0 rounded-[50%_14%_50%_14%] bg-ember transition-transform duration-500 group-hover:rotate-45" />
-        <span className="absolute left-[7px] top-[7px] h-3 w-3 rounded-[50%_14%_50%_14%] bg-ember/80" />
+      {/* Outline lives in the layout sprite: <use> keeps it out of the bundle. */}
+      <svg
+        viewBox="0 0 917 720"
+        aria-hidden="true"
+        focusable="false"
+        className={cn(
+          "w-auto text-ember transition-transform duration-500 group-hover:-translate-y-px",
+          compact ? "h-[22px]" : "h-[24px] sm:h-[27px]",
+        )}
+      >
+        <use href="#brand-monogram" />
+      </svg>
+      <span className="flex flex-col justify-center">
+        <span
+          className={cn(
+            "font-display uppercase leading-none tracking-[0.005em] text-ink",
+            compact ? "text-[15px]" : "text-[15px] sm:text-[18px]",
+          )}
+        >
+          <span className="hidden sm:inline">Dr CM Ngwey-Sompo</span>
+          <span className="sm:hidden">Dr Sompo</span>
+        </span>
+        {!compact && (
+          <span
+            aria-hidden="true"
+            className="mt-[5px] hidden text-[8px] font-medium uppercase leading-none tracking-[0.24em] text-ink/70 sm:block"
+          >
+            Obstetrician &amp; Gynaecologist
+          </span>
+        )}
       </span>
-      <span className="hidden sm:inline">Dr CM Ngwey-Sompo</span>
-      <span className="sm:hidden">Dr Sompo</span>
     </Link>
   );
 }
