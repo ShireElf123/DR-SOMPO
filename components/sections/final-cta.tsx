@@ -63,7 +63,7 @@ export function FinalCta() {
                     <ArrowUpRight className="h-3 w-3" />
                   </i>
                 </a>
-                <a href="/contact" className="btn btn-glass" data-cursor="Enquire">
+                <a href="/contact#appointment-request" className="btn btn-glass" data-cursor="Enquire">
                   Send an enquiry
                   <i aria-hidden="true">
                     <ArrowUpRight className="h-3 w-3" />

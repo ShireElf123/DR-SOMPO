@@ -1,3 +1,4 @@
+import { BookingLink } from "@/components/booking-link";
 import { FaqList } from "@/components/ui/faq-list";
 import Link from "next/link";
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
@@ -222,12 +223,12 @@ export function ContactBand() {
                     <Phone className="h-3 w-3" />
                   </i>
                 </a>
-                <Link href="/contact" className="btn btn-light border border-charcoal/12 shadow-none">
+                <BookingLink className="btn btn-light border border-charcoal/12 shadow-none">
                   Enquiry form
                   <i aria-hidden="true">
                     <ArrowUpRight className="h-3 w-3" />
                   </i>
-                </Link>
+                </BookingLink>
               </div>
             </Panel>
           </Reveal>

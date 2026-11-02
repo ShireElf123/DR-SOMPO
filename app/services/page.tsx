@@ -1,3 +1,4 @@
+import { BookingLink } from "@/components/booking-link";
 import { pageMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 import Image from "@/components/ui/practice-image";
@@ -208,15 +209,15 @@ export default function ServicesPage() {
                       ))}
                     </RevealGroup>
 
-                    <Link
-                      href={`/contact?service=${group.services[0].id}`}
+                    <BookingLink
+                      service={group.services[0].id}
                       className="btn mt-6"
                     >
                       Enquire about this
                       <i aria-hidden="true">
                         <ArrowUpRight className="h-3 w-3" />
                       </i>
-                    </Link>
+                    </BookingLink>
                   </div>
                 </div>
               </article>

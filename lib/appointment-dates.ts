@@ -22,6 +22,14 @@ export function parseCalendarDate(iso: string): Date | null {
     : null;
 }
 
+/** Add calendar days without browser-timezone or daylight-saving shifts. */
+export function addCalendarDays(iso: string, days: number): string {
+  const date = parseCalendarDate(iso);
+  if (!date || !Number.isInteger(days)) return "";
+  date.setUTCDate(date.getUTCDate() + days);
+  return date.toISOString().slice(0, 10);
+}
+
 export function upcomingWeekdays(today: string, count = 10): string[] {
   const cursor = parseCalendarDate(today);
   if (!cursor) return [];

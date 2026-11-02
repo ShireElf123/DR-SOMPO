@@ -13,7 +13,7 @@ import {
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { useHydrated } from "@/lib/use-hydrated";
-import { formatAppointmentDate } from "@/lib/appointment-dates";
+import { addCalendarDays, formatAppointmentDate, isValidPreferredDate } from "@/lib/appointment-dates";
 import {
   CONTACT_METHODS,
   isContactMethodAvailable,
@@ -63,10 +63,12 @@ function ContactLinks() {
 export function EnquiryForm({
   defaultService = "",
   days,
+  today,
   onlineEnabled,
 }: {
   defaultService?: string;
   days: string[];
+  today: string;
   onlineEnabled: boolean;
 }) {
   const initialValues = (): EnquiryFields => ({
@@ -91,6 +93,14 @@ export function EnquiryForm({
   const sending = useRef(false);
   const hydrated = useHydrated();
   const reduce = useReducedMotion();
+  const selectedSlot = SLOTS.find((slot) => slot.value === values.preferredSlot);
+  const selectedService = allServices.find((service) => service.id === values.service);
+
+  useEffect(() => {
+    if (hydrated && window.location.hash === "#appointment-request") {
+      document.getElementById("appointment-request")?.focus({ preventScroll: true });
+    }
+  }, [hydrated]);
 
   useEffect(() => {
     if (!failedAttempts) return;
@@ -119,15 +129,21 @@ export function EnquiryForm({
     setValues((current) => ({ ...current, [key]: value }));
     setErrors((current) => ({ ...current, [key]: undefined }));
   }
+  function chooseDate(date: string) {
+    update("preferredDate", date);
+    if (date && !isValidPreferredDate(date, today)) {
+      setErrors((current) => ({ ...current, preferredDate: "Please choose a real date within the next 90 days." }));
+    }
+  }
   function showErrors(next: EnquiryErrors) {
     setErrors(next);
     setFailedAttempts((count) => count + 1);
   }
 
-  async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: React.FormEvent<HTMLElement>) {
     event.preventDefault();
     if (!onlineEnabled || !hydrated || sending.current) return;
-    const next = validateEnquiry(values);
+    const next = validateEnquiry(values, today);
     setNotice(null);
     if (Object.keys(next).length) {
       showErrors(next);
@@ -167,38 +183,6 @@ export function EnquiryForm({
     } finally {
       sending.current = false;
     }
-  }
-
-  if (!onlineEnabled) {
-    return (
-      <section
-        id="appointment-request"
-        tabIndex={-1}
-        aria-labelledby="enquiry-unavailable"
-        className="scroll-mt-28 rounded-[1.35rem] bg-white p-5 ring-1 ring-charcoal/10 sm:p-7"
-        data-enquiry-unavailable
-      >
-        <CalendarCheck className="h-6 w-6 text-forest" aria-hidden="true" />
-        <h3 id="enquiry-unavailable" className="mt-4 text-xl text-charcoal">
-          Arrange an appointment
-        </h3>
-        <p className="mt-3 text-[13px] leading-relaxed text-ink-soft">
-          Online requests are not connected yet. Please telephone or email the
-          practice directly; no details are collected through a form while
-          delivery is unavailable.
-        </p>
-        <ContactLinks />
-        <p className="mt-4 text-[12px] leading-relaxed text-ink-soft">
-          Confirm consulting hours and appointment availability with the
-          practice. Please do not include symptoms, results or other sensitive
-          medical information in an email.
-        </p>
-        <p className="mt-4 rounded-xl bg-ivory p-3 text-[12px] leading-relaxed text-ink-soft">
-          An enquiry is not a confirmed booking. For urgent concerns, contact
-          your nearest emergency department.
-        </p>
-      </section>
-    );
   }
 
   if (state === "sent") {
@@ -262,20 +246,25 @@ export function EnquiryForm({
     );
   }
 
+  // Direct-contact mode is a local planner, not a submitting HTML form.
+  // Its controls remain usable, but even a later JS failure cannot send them.
+  const Container = onlineEnabled ? "form" : "section";
   const errorEntries = Object.entries(errors).filter(
     (entry): entry is [keyof EnquiryFields, string] =>
       Boolean(entry[1]) && Object.hasOwn(fields, entry[0]),
   );
   return (
-    <form
+    <Container
       id="appointment-request"
-      action="/api/enquiry"
-      method="post"
-      onSubmit={onSubmit}
-      noValidate
-      className="min-w-0 max-w-full scroll-mt-28 rounded-[1.35rem] bg-white p-5 ring-1 ring-charcoal/10 sm:p-7"
+      tabIndex={-1}
+      aria-labelledby="appointment-heading"
+      data-enquiry-mode={onlineEnabled ? "online" : "direct"}
+      {...(onlineEnabled
+        ? { action: "/api/enquiry", method: "post", onSubmit, noValidate: true }
+        : { role: "form" })}
+      className="min-w-0 max-w-full scroll-mt-6 rounded-[1.35rem] bg-white p-5 ring-1 ring-charcoal/10 sm:p-7"
     >
-      <h3 className="flex items-center gap-2 text-[1.0625rem] font-medium tracking-[-0.02em] text-charcoal">
+      <h3 id="appointment-heading" className="flex items-center gap-2 text-[1.0625rem] font-medium tracking-[-0.02em] text-charcoal">
         <CalendarCheck className="h-4 w-4 text-forest" aria-hidden="true" />
         Request an appointment
       </h3>
@@ -287,6 +276,16 @@ export function EnquiryForm({
         Times are in South African Standard Time (SAST). Please confirm
         consulting hours and availability directly with the practice.
       </p>
+      {!onlineEnabled && (
+        <div className="mt-4 rounded-xl border border-forest/20 bg-mint/45 px-3 py-3 text-[12px] leading-relaxed text-ink-soft" data-direct-booking-notice>
+          <p className="font-medium text-forest">Book directly with the practice</p>
+          <p className="mt-1">
+            The calendar and details below are available to plan your visit.
+            Online sending is not connected yet: your draft stays on this page
+            and is not submitted to the practice. Call or email to arrange your appointment.
+          </p>
+        </div>
+      )}
       {!hydrated && (
         <p className="mt-3 text-[12px] text-ink-soft">
           The online form needs JavaScript to load. You can also{" "}
@@ -310,7 +309,7 @@ export function EnquiryForm({
           className="mt-4 scroll-mt-28 rounded-xl border border-[#c98a7a] bg-[#fdf3ef] p-3 text-[13px] text-[#7d3627]"
         >
           <p id="enq-error-heading" className="font-medium">
-            Please check the following before sending:
+            {onlineEnabled ? "Please check the following before sending:" : "Please check your appointment preferences:"}
           </p>
           <ul className="mt-2 list-inside list-disc">
             {errorEntries.map(([key]) => (
@@ -341,7 +340,7 @@ export function EnquiryForm({
           label="Full name"
           htmlFor="enq-name"
           error={errors.name}
-          required
+          required={onlineEnabled}
         >
           <input
             id="enq-name"
@@ -377,10 +376,10 @@ export function EnquiryForm({
                   key={iso}
                   type="button"
                   data-date={iso}
-                  onClick={() => update("preferredDate", selected ? "" : iso)}
+                  onClick={() => chooseDate(selected ? "" : iso)}
                   aria-pressed={selected}
                   className={cn(
-                    "flex min-w-[3.1rem] shrink-0 flex-col items-center rounded-xl border px-2 py-2 transition-colors duration-300",
+                    "relative flex min-w-[3.1rem] shrink-0 flex-col items-center rounded-xl border px-2 py-2 transition-colors duration-300",
                     selected
                       ? "border-forest bg-forest text-white"
                       : "border-charcoal/12 text-ink-soft hover:border-forest/40 hover:text-forest",
@@ -395,9 +394,30 @@ export function EnquiryForm({
                   <span className="mt-0.5 text-[10px] uppercase tracking-[0.08em]">
                     {formatAppointmentDate(iso, { month: "short" })}
                   </span>
+                  <span className="sr-only">{formatAppointmentDate(iso, { year: "numeric" })}</span>
                 </button>
               );
             })}
+          </div>
+          <div className="mt-3">
+            <label htmlFor="enq-other-date" className="mb-1.5 block text-[12px] font-medium text-ink-soft">
+              Choose another date
+            </label>
+            <input
+              id="enq-other-date"
+              name="preferredDate"
+              type="date"
+              min={today}
+              max={addCalendarDays(today, 90)}
+              value={values.preferredDate}
+              onChange={(event) => chooseDate(event.target.value)}
+              aria-invalid={Boolean(errors.preferredDate)}
+              aria-describedby={`enq-date-hint${errors.preferredDate ? " enq-date-error" : ""}`}
+              className={inputClass(Boolean(errors.preferredDate))}
+            />
+            <p id="enq-date-hint" className="mt-1.5 text-[12px] leading-relaxed text-ink-soft">
+              Choose a preference within the next 90 days. Dates shown are not confirmed availability.
+            </p>
           </div>
           <FieldError id="enq-date-error" error={errors.preferredDate} />
         </fieldset>
@@ -472,6 +492,31 @@ export function EnquiryForm({
           </select>
         </Field>
 
+        <div className="rounded-xl bg-mint/45 p-3.5" data-appointment-summary>
+          <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
+            <h4 className="text-[12px] font-medium text-forest">Your appointment preferences</h4>
+            <button
+              type="button"
+              disabled={!values.preferredDate && !values.preferredSlot}
+              className="min-h-11 text-[12px] text-forest underline underline-offset-4 disabled:cursor-default disabled:text-ink-muted disabled:no-underline"
+              onClick={() => {
+                setValues((current) => ({ ...current, preferredDate: "", preferredSlot: "" }));
+                setErrors((current) => ({ ...current, preferredDate: undefined, preferredSlot: undefined }));
+              }}
+            >
+              Clear date and time
+            </button>
+          </div>
+          <div aria-live="polite" aria-atomic="true" className="space-y-1 text-[12px] leading-relaxed text-ink-soft">
+            <p>{selectedService?.title ?? "General consultation — not sure yet"}</p>
+            <p>{values.preferredDate && isValidPreferredDate(values.preferredDate, today)
+              ? formatAppointmentDate(values.preferredDate, { weekday: "short", day: "numeric", month: "long", year: "numeric" })
+              : "Date to agree with the practice"}</p>
+            <p>{selectedSlot ? `${selectedSlot.label} · ${selectedSlot.time} SAST` : "Time to agree with the practice"}</p>
+          </div>
+          <p className="mt-2 text-[11px] text-ink-soft">A preference, not a reserved appointment.</p>
+        </div>
+
         <fieldset
           id="enq-method"
           tabIndex={-1}
@@ -481,7 +526,7 @@ export function EnquiryForm({
           }
         >
           <legend className="mb-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-soft">
-            How should we confirm? *
+            How should the practice contact you? {onlineEnabled && "*"}
           </legend>
           <div
             className="flex flex-wrap gap-2"
@@ -533,7 +578,7 @@ export function EnquiryForm({
           }
           htmlFor="enq-contact"
           error={errors.contact}
-          required
+          required={onlineEnabled}
         >
           <input
             id="enq-contact"
@@ -594,25 +639,29 @@ export function EnquiryForm({
           />
         </div>
         <div>
-          <label className="flex min-h-11 cursor-pointer items-start gap-2.5 lg:min-h-0">
-            <input
-              id="enq-consent"
-              type="checkbox"
-              name="consent"
-              checked={values.consent}
-              onChange={(e) => update("consent", e.target.checked)}
-              aria-invalid={Boolean(errors.consent)}
-              aria-describedby={
-                errors.consent ? "enq-consent-error" : undefined
-              }
-              className="mt-0.5 h-4 w-4 shrink-0 rounded border-charcoal/30 accent-forest"
-            />
-            <span className="text-[13px] leading-relaxed text-ink-soft lg:text-[11.5px]">
-              I agree that my details may be sent to the practice and used to
-              respond to this enquiry. *
-            </span>
-          </label>
-          <FieldError id="enq-consent-error" error={errors.consent} />
+          {onlineEnabled && (
+            <>
+              <label className="flex min-h-11 cursor-pointer items-start gap-2.5 lg:min-h-0">
+                <input
+                  id="enq-consent"
+                  type="checkbox"
+                  name="consent"
+                  checked={values.consent}
+                  onChange={(e) => update("consent", e.target.checked)}
+                  aria-invalid={Boolean(errors.consent)}
+                  aria-describedby={
+                    errors.consent ? "enq-consent-error" : undefined
+                  }
+                  className="mt-0.5 h-4 w-4 shrink-0 rounded border-charcoal/30 accent-forest"
+                />
+                <span className="text-[13px] leading-relaxed text-ink-soft lg:text-[11.5px]">
+                  I agree that my details may be sent to the practice and used to
+                  respond to this enquiry. *
+                </span>
+              </label>
+              <FieldError id="enq-consent-error" error={errors.consent} />
+            </>
+          )}
           <p className="mt-2 text-[12px] leading-relaxed text-ink-soft">
             <a
               href="/patient-info#privacy"
@@ -642,16 +691,17 @@ export function EnquiryForm({
             {notice}
           </p>
         )}
-        <button
-          type="submit"
-          disabled={!hydrated || state === "sending"}
-          className="btn btn-forest min-h-12 w-full justify-between disabled:cursor-not-allowed disabled:opacity-70 lg:min-h-0"
-        >
-          {state === "sending" ? (
-            <span className="flex items-center gap-2">
-              <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
-              Sending request
-            </span>
+        {onlineEnabled ? (
+          <button
+            type="submit"
+            disabled={!hydrated || state === "sending"}
+            className="btn btn-forest min-h-12 w-full justify-between disabled:cursor-not-allowed disabled:opacity-70 lg:min-h-0"
+          >
+            {state === "sending" ? (
+              <span className="flex items-center gap-2">
+                <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
+                Sending request
+              </span>
           ) : (
             "Request this appointment"
           )}
@@ -659,6 +709,16 @@ export function EnquiryForm({
             <ArrowUpRight className="h-3 w-3" />
           </i>
         </button>
+        ) : (
+          <div data-direct-booking-actions>
+            <p className="text-[12px] leading-relaxed text-ink-soft">
+              Ready to arrange your visit? Call or email the practice with your
+              preferred date and time. Nothing has been sent from this page.
+              Please do not include symptoms or results in an email.
+            </p>
+            <ContactLinks />
+          </div>
+        )}
       </fieldset>
       <p className="mt-4 text-center text-[12px] text-ink-soft">
         Prefer to talk?{" "}
@@ -669,7 +729,7 @@ export function EnquiryForm({
           Call {practice.phone}
         </a>
       </p>
-    </form>
+    </Container>
   );
 }
 

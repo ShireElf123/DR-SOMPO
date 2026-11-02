@@ -145,9 +145,9 @@ export default function PatientInfoPage() {
                   <p className="mt-3 text-[13px] leading-relaxed text-white/85">
                     When online enquiries are enabled, your name, chosen contact
                     details and appointment preferences are sent to the practice
-                    through its configured delivery provider. The form is unavailable
-                    until that connection is approved. Telephone and email remain
-                    available directly.
+                    through its configured delivery provider. Until that connection
+                    is approved, the calendar and form are a local planner only:
+                    your draft is not submitted. Telephone and email remain available directly.
                   </p>
                   <p className="mt-3 text-[12px] leading-relaxed text-white/85">
                     Delivery providers and website hosting may retain messages or

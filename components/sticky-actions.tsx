@@ -1,7 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { BookingLink } from "@/components/booking-link";
 import { useEffect, useState } from "react";
 import { ArrowUp } from "lucide-react";
 import { AnimatePresence, m } from "framer-motion";
@@ -16,7 +15,6 @@ import { practice } from "@/lib/practice";
 export function StickyActions() {
   const [visible, setVisible] = useState(false);
   const reduce = useReducedMotion();
-  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 700);
@@ -51,28 +49,12 @@ export function StickyActions() {
                 />
                 Call
               </a>
-              <Link
-                href={
-                  pathname === "/contact"
-                    ? "#appointment-request"
-                    : "/contact#appointment-request"
-                }
-                onClick={(event) => {
-                  if (pathname !== "/contact") return;
-                  event.preventDefault();
-                  const target = document.getElementById("appointment-request");
-                  target?.scrollIntoView({
-                    block: "center",
-                    behavior: reduce ? "instant" : "smooth",
-                  });
-                  const field = document.getElementById("enq-name") ?? target;
-                  field?.focus({ preventScroll: true });
-                }}
+              <BookingLink
                 className="flex flex-[1.4] items-center justify-center gap-2 rounded-full bg-forest py-3 text-[12px] font-medium text-white"
               >
                 Book
                 <span className="sr-only">an appointment</span>
-              </Link>
+              </BookingLink>
             </m.div>
           )}
         </AnimatePresence>

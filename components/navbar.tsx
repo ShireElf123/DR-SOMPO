@@ -1,5 +1,6 @@
 "use client";
 
+import { BookingLink } from "@/components/booking-link";
 import { AnimatePresence, m } from "framer-motion";
 import { useHydrated } from "@/lib/use-hydrated";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
@@ -155,15 +156,14 @@ export function Navbar() {
                   </Link>
                 ))}
               </nav>
-              <Link
-                href="/contact"
+              <BookingLink
                 className="btn ml-1 hidden shrink-0 sm:inline-flex"
               >
                 Book an appointment
                 <i aria-hidden="true">
                   <ArrowUpRight className="h-3 w-3" />
                 </i>
-              </Link>
+              </BookingLink>
               {/* One-thumb call button — the single most useful control on a
                 practice's phone header. */}
               <a
@@ -274,8 +274,7 @@ export function Navbar() {
                   </div>
 
                   <div className="flex flex-col gap-2 border-t-hairline border-charcoal/8 px-5 pb-[calc(1rem+env(safe-area-inset-bottom))] pt-4">
-                    <Link
-                      href="/contact"
+                    <BookingLink
                       onClick={() => setOpen(false)}
                       className="btn justify-between"
                     >
@@ -283,7 +282,7 @@ export function Navbar() {
                       <i aria-hidden="true">
                         <ArrowUpRight className="h-3 w-3" />
                       </i>
-                    </Link>
+                    </BookingLink>
                     <a
                       href={practice.phoneHref}
                       className="flex items-center justify-center gap-2 rounded-full border border-charcoal/15 py-3 text-[13px] font-medium text-charcoal"

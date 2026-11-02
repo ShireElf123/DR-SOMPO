@@ -1,3 +1,4 @@
+import { BookingLink } from "@/components/booking-link";
 import { pageMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 import Image from "@/components/ui/practice-image";
@@ -61,12 +62,12 @@ export default function AboutPage() {
         chips={["MBChB", "FCOG (SA)", "MMed (O&G) Wits", "English & French"]}
         footer={
           <div className="flex flex-wrap items-center gap-2.5">
-            <Link href="/contact" className="btn">
+            <BookingLink className="btn">
               Request a consultation
               <i aria-hidden="true">
                 <ArrowUpRight className="h-3 w-3" />
               </i>
-            </Link>
+            </BookingLink>
             <Link href="/research" className="btn btn-light shadow-none ring-1 ring-charcoal/12">
               Her research
               <i aria-hidden="true">
@@ -369,12 +370,12 @@ export default function AboutPage() {
 
           <Reveal delay={0.1}>
             <div className="mt-8 flex flex-wrap items-center gap-2.5">
-              <Link href="/contact" className="btn">
+              <BookingLink className="btn">
                 Request a consultation
                 <i aria-hidden="true">
                   <ArrowUpRight className="h-3 w-3" />
                 </i>
-              </Link>
+              </BookingLink>
               <Link
                 href="/research"
                 className="btn btn-light border border-charcoal/12 shadow-none"

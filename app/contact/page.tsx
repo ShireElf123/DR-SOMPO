@@ -27,6 +27,7 @@ export default async function ContactPage({
   searchParams: Promise<{ service?: string }>;
 }) {
   const { service } = await searchParams;
+  const today = practiceToday();
 
   return (
     <>
@@ -175,9 +176,7 @@ export default async function ContactPage({
 
             {/* Form */}
             <div className="min-w-0">
-              <Reveal y={24} delay={0.06}>
-                <EnquiryForm defaultService={service ?? ""} days={upcomingWeekdays(practiceToday())} onlineEnabled={enquiryDeliveryEnabled()} />
-              </Reveal>
+              <EnquiryForm defaultService={service ?? ""} today={today} days={upcomingWeekdays(today)} onlineEnabled={enquiryDeliveryEnabled()} />
 
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 <Reveal y={18} delay={0.1}>

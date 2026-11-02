@@ -152,7 +152,7 @@ test("mobile Book scrolls to the existing request and preserves its draft and se
   await expect(page.locator("#enq-message")).toHaveValue(
     "Synthetic appointment note",
   );
-  await expect(page.locator("#enq-name")).toBeFocused();
+  await expect(page.locator("#appointment-request")).toBeFocused();
   await expect(page).toHaveURL(/contact\?service=antenatal$/);
   expect(documents).toEqual([]);
 });
@@ -169,7 +169,7 @@ test("overview and detail links resolve to the same displayed and submitted serv
     });
   });
   await go(page, "/services");
-  await page.locator('main a[href="/contact?service=antenatal"]').click();
+  await page.locator('main a[href="/contact?service=antenatal#appointment-request"]').click();
   await expect(page.locator("#enq-service")).toHaveValue("antenatal");
   await expect(page.locator("#enq-service option:checked")).toContainText(
     "Antenatal care",

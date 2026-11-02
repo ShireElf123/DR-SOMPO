@@ -2,7 +2,7 @@
 
 ## Current safe state
 
-Online collection is **off by default**. With no approved delivery configuration, Contact renders telephone/email alternatives instead of personal-data fields. The endpoint cannot report success or forward an enquiry without an explicit enable flag and a valid credential-free HTTPS receiver URL. A syntactically valid URL does **not** prove that the receiver works or that processing is approved.
+Online collection is **off by default**. With no approved delivery configuration, Contact still renders the calendar and form interface as a local-only planner. It uses a non-submitting container, does not send or persist drafts, and provides telephone/email actions. The endpoint cannot report success or forward an enquiry without an explicit enable flag and a valid credential-free HTTPS receiver URL. A syntactically valid URL does **not** prove that the receiver works or that processing is approved.
 
 No real enquiries were sent during the repair work. Browser tests intercept submissions; route tests mock `fetch`. The `.invalid` receiver in Playwright configuration is a test fixture, never a production receiver. No provider, retention schedule, legal approval or distributed rate-limiting service was commissioned by this change.
 
@@ -42,9 +42,9 @@ The local viewer uses `ARENA_PREVIEW=true` **at build time** to omit the frame-e
 
 ## Data flow and receiver contract
 
-1. When disabled, the page offers direct contact; it does not render a data-entry form.
+1. When delivery is disabled, the calendar and fields remain usable after hydration, inside a named section rather than a submitting HTML form. There is no submit control, native form action, storage, or API call; entered details stay in client memory. Telephone/email links do not embed draft values.
 2. When configured, server-rendered form fields remain disabled until hydration. The explicit native action is POST, never GET. Without JavaScript, users can telephone/email instead; a native POST is rejected with 415 rather than putting their details in a URL.
-3. The client and API share service, contact and date/slot validation. Dates are strict `YYYY-MM-DD`, interpreted against the practice's SAST date; preferred days are weekday preferences, **not calendar availability**. Optional date and time must be supplied together. WhatsApp remains unavailable until the practice's availability setting is confirmed.
+3. The client and API share service, contact and date/slot validation. Dates are strict `YYYY-MM-DD`, interpreted against the practice's SAST date; quick-pick days are weekdays, with a native picker for any valid date within 90 days; both are preferences, **not calendar availability**. Optional date and time must be supplied together. WhatsApp remains unavailable until the practice's availability setting is confirmed.
 4. The API caps the incoming stream at 8 KiB even if Content-Length is absent or dishonest. It rejects malformed root objects, wrong field types, invalid/impossible dates, invalid contact values, unapproved contact methods, unknown services, excessive field lengths and missing consent. Optional text fields may be omitted; non-string values are not silently converted to a general consultation or no preference.
 5. A non-empty honeypot is rejected. This is only a soft spam filter; see the mandatory abuse-control checklist.
 6. The server forwards JSON to the configured endpoint. It has an eight-second outbound timeout, refuses redirects and uses `cache: no-store`. The API sets `Cache-Control: no-store` and does not log enquiry bodies or receiver exceptions.
@@ -95,7 +95,7 @@ npx playwright install --with-deps chromium
 npm run test:e2e
 ```
 
-The Playwright-owned server supplies test-only delivery variables. Tests must continue intercepting all valid browser submissions; unit tests mock the actual route's `fetch`. When using `PLAYWRIGHT_BASE_URL`, Playwright does **not** configure that external server. Do not run the active-form suite against production or enable real collection merely to make tests pass.
+Playwright owns an enabled server on 3010 with test-only delivery variables and a delivery-off server on 3012. Tests must continue intercepting all valid browser submissions; unit tests mock the actual route's `fetch`. When using `PLAYWRIGHT_BASE_URL`, Playwright does **not** configure external servers; also set `PLAYWRIGHT_DIRECT_BASE_URL` to a separately managed delivery-off instance. Do not run the active-form suite against production or enable real collection merely to make tests pass.
 
 For a safe ordinary local preview, keep collection explicitly off:
 
@@ -112,4 +112,4 @@ Before publishing, separately verify the disabled fallback, the configured synth
 3. Investigate receiver queues and logs with the authorised operator. Revoke/rotate affected credentials and follow the practice's incident and notification process where applicable.
 4. Fix and retest the entire path in a separate preview. Obtain approval before re-enabling. Never merge PR #1 as a shortcut to deployment.
 
-For a presentation regression, redeploy an approved known-good site revision. Do not restore the old false-receipt behaviour, unsafe native GET submission or an unconfigured live collection form as part of a visual rollback.
+For a presentation regression, redeploy an approved known-good site revision. Do not restore the old false-receipt behaviour, unsafe native GET submission or an unconfigured submitting form as part of a visual rollback.

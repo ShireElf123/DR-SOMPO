@@ -1,3 +1,4 @@
+import { BookingLink } from "@/components/booking-link";
 import Image from "@/components/ui/practice-image";
 import Link from "next/link";
 import {
@@ -136,8 +137,7 @@ export function BentoBand() {
 
           {/* 4 — appointment tile, the conversion beat */}
           <Reveal y={22} delay={0.14}>
-            <Link
-              href="/contact"
+            <BookingLink
               data-cursor="Book"
               className="group flex h-full flex-col justify-between rounded-[1.35rem] bg-mint p-4 border-hairline border-forest/10 hover:shadow-lift"
             >
@@ -154,7 +154,7 @@ export function BentoBand() {
                   <ArrowUpRight className="h-2.5 w-2.5 transition-transform duration-500 group-hover:rotate-45" />
                 </span>
               </div>
-            </Link>
+            </BookingLink>
           </Reveal>
 
           {/* 5 — hospital / location, wide and short */}

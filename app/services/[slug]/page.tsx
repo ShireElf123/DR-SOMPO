@@ -1,3 +1,4 @@
+import { BookingLink } from "@/components/booking-link";
 import { siteUrl, faqJsonLd } from "@/lib/structured-data";
 import { pageMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
@@ -138,13 +139,13 @@ export default async function ServiceDetailPage({ params }: Params) {
                     <Phone className="h-3 w-3" />
                   </i>
                 </a>
-                <Link
-                  href={`/contact?service=${service.id}`}
+                <BookingLink
+                  service={service.id}
                   className="mt-2 flex items-center justify-between rounded-full border border-forest/20 px-3.5 py-2 text-[11px] font-medium text-forest transition-colors hover:border-forest hover:bg-white"
                 >
                   Request this appointment
                   <ArrowUpRight className="h-3 w-3" />
-                </Link>
+                </BookingLink>
               </div>
 
               {detail.verifiedNotes && (

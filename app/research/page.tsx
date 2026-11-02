@@ -1,3 +1,4 @@
+import { BookingLink } from "@/components/booking-link";
 import { pageMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 import Image from "@/components/ui/practice-image";
@@ -253,12 +254,12 @@ export default function ResearchPage() {
 
           <RevealGroup className="mt-8 flex flex-wrap items-center gap-2.5" stagger={0.08}>
             <RevealItem>
-              <Link href="/contact" className="btn">
+              <BookingLink className="btn">
                 Book a consultation
                 <i aria-hidden="true">
                   <ArrowUpRight className="h-3 w-3" />
                 </i>
-              </Link>
+              </BookingLink>
             </RevealItem>
             <RevealItem>
               <Link href="/services" className="btn btn-light border border-charcoal/12 shadow-none">

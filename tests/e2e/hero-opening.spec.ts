@@ -51,7 +51,7 @@ async function observeOpening(page: Page) {
             start = arrival.startTime;
             alignedToPaint = true;
           }
-          const targets = ['a[href="/contact"]', 'a[href="/about"]', "[data-hero-call]"].map((selector) => {
+          const targets = ['a[href*="appointment-request"]', 'a[href="/about"]', "[data-hero-call]"].map((selector) => {
             const element = root.querySelector<HTMLAnchorElement>(selector)!;
             const rect = element.getBoundingClientRect();
             let opacity = 1;
@@ -157,7 +157,7 @@ test("real call and enquiry clicks work at every controlled animation checkpoint
     // Prevent actual navigation / dialling only after capturing a trusted click.
     // The separate navigation test below exercises the unmodified booking link.
     document.addEventListener("click", (event) => {
-      const target = (event.target as Element).closest<HTMLAnchorElement>('#top a[href="/contact"], #top [data-hero-call]');
+      const target = (event.target as Element).closest<HTMLAnchorElement>('#top a[href*="appointment-request"], #top [data-hero-call]');
       if (!target) return;
       window.heroTestClicks.push({ href: target.getAttribute("href")!, trusted: event.isTrusted, time: performance.now() });
       event.preventDefault();
@@ -171,7 +171,7 @@ test("real call and enquiry clicks work at every controlled animation checkpoint
         for (const animation of element.getAnimations()) animation.currentTime = time;
       }
     }, checkpoint);
-    for (const selector of ['#top a[href="/contact"]', "#top [data-hero-call]"]) {
+    for (const selector of ['#top a[href*="appointment-request"]', "#top [data-hero-call]"]) {
       const box = await page.locator(selector).boundingBox();
       expect(box).not.toBeNull();
       await page.mouse.click(box!.x + box!.width / 2, box!.y + box!.height / 2);
@@ -180,14 +180,14 @@ test("real call and enquiry clicks work at every controlled animation checkpoint
   const clicks = await page.evaluate(() => window.heroTestClicks);
   expect(clicks).toHaveLength(10);
   expect(clicks.every((click) => click.trusted)).toBe(true);
-  expect(clicks.filter((click) => click.href === "/contact")).toHaveLength(5);
+  expect(clicks.filter((click) => click.href === "/contact#appointment-request")).toHaveLength(5);
   expect(clicks.filter((click) => click.href.startsWith("tel:"))).toHaveLength(5);
 });
 
 test("enquiry navigation is not held for the hero animation", async ({ page }) => {
   await page.goto("/", { waitUntil: "domcontentloaded" });
-  await page.locator('#top a[href="/contact"]').click();
-  await expect(page).toHaveURL(/\/contact$/);
+  await page.locator('#top a[href*="appointment-request"]').click();
+  await expect(page).toHaveURL(/\/contact#appointment-request$/);
 });
 
 test("Home re-entry has no obscuring curtain and does not replay the portrait zoom", async ({ page }) => {
@@ -208,7 +208,7 @@ test("reduced motion is final even when hydration scripts are blocked", async ({
     await expect(part).toHaveCSS("transform", "none");
     await expect(part).toHaveCSS("filter", "none");
   }
-  await expect(page.locator('#top a[href="/contact"]')).toBeVisible();
+  await expect(page.locator('#top a[href*="appointment-request"]')).toBeVisible();
   await expect(page.locator("#top [data-hero-call]")).toBeVisible();
 });
 

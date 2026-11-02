@@ -137,7 +137,7 @@ export function Hero() {
               data-hero-arrival="actions"
               className="hero-actions mt-6 flex flex-wrap items-center gap-2.5"
             >
-              <a href="/contact" className="btn btn-light" data-cursor="Book">
+              <a href="/contact#appointment-request" className="btn btn-light" data-cursor="Book">
                 Book an appointment
                 <i aria-hidden="true">
                   <ArrowUpRight className="h-3 w-3" />

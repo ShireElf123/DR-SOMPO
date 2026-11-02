@@ -43,9 +43,9 @@ test("one subtle inline grain layer cannot intercept controls and disappears und
   expect(normal.image).toContain("feTurbulence");
   expect(normal.display).not.toBe("none");
   await expect(page.locator(".noise-soft")).toHaveCount(0);
-  const action = page.locator('header a[href="/contact"]').last();
+  const action = page.locator('header a[href*="appointment-request"]').last();
   await action.click();
-  await expect(page).toHaveURL(/\/contact$/);
+  await expect(page).toHaveURL(/\/contact#appointment-request$/);
   await page.emulateMedia({ reducedMotion: "reduce" });
   expect((await grain()).display).toBe("none");
   expect((await grain()).image).toBe("none");

@@ -26,6 +26,22 @@ export function unlockScroll() {
   document.body.style.overflow = previousOverflow;
 }
 
+/** Stop any existing wheel easing before following an in-page booking link. */
+export function scrollToElement(target: HTMLElement) {
+  // The instance exists only while motion is permitted. The native fallback
+  // follows the existing CSS scroll-behavior / reduced-motion rules.
+  if (instance) {
+    // Sync after native focus/scrollbar scrolling, even during previous easing.
+    instance.stop();
+    instance.start();
+    // Lenis already honours CSS scroll-margin / scroll-padding.
+    instance.scrollTo(target, { force: true });
+  } else {
+    target.scrollIntoView({ block: "start" });
+  }
+  target.focus({ preventScroll: true });
+}
+
 /**
  * Optional desktop-wheel enhancement. Phones and reduced-motion users keep
  * native scrolling and never download Lenis. Desktop loading waits for idle;

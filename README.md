@@ -155,12 +155,14 @@ and internal provenance records remain.
 
 ## Privacy and delivery
 
-- No personal-data form is rendered unless collection is explicitly enabled and
-  an HTTPS receiver is configured. Otherwise the page offers telephone/email.
+- The calendar and form remain visible when online delivery is off. In that mode
+  they are a local-only planner, rendered without a submitting HTML form. Drafts
+  are not sent or persisted by the app; call/email actions remain available.
+- Online submission requires explicit activation and an approved HTTPS receiver.
 - A configured form asks for contact details, optional date/time/service
   preferences and an optional **non-clinical** note, with consent and a privacy
   notice link. Users may still enter sensitive information despite the warning.
-- Server HTML keeps fields disabled until hydration; the native action is POST,
+- Server HTML keeps fields disabled until hydration; the enabled form uses POST,
   never GET. The API validates a bounded request and only acknowledges success
   after the configured receiver accepts it. This is not a confirmed booking.
 - The application does not log enquiry bodies or implement a patient-record

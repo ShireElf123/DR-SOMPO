@@ -241,19 +241,27 @@ test("client/server validation shares date/slot keys and meaningful telephone di
     assert.equal(isPhone(value), true);
 });
 
-test("unconfigured form collects no personal information and offers direct contact", () => {
+test("unconfigured booking stays visible as a non-submitting local planner", () => {
   const html = renderToStaticMarkup(
-    createElement(EnquiryForm, { onlineEnabled: false, days: [] }),
+    createElement(EnquiryForm, { onlineEnabled: false, today: "2026-11-01", days: ["2026-11-02"] }),
   );
-  assert.match(html, /Online requests are not connected/);
+  assert.match(html, /Online sending is not connected/);
   assert.match(html, /tel:/);
   assert.match(html, /mailto:/);
-  assert.doesNotMatch(html, /<form|<input|<textarea|<select/);
+  assert.match(html, /data-enquiry-mode="direct"/);
+  assert.match(html, /data-date="2026-11-02"/);
+  assert.match(html, /id="enq-name"/);
+  assert.match(html, /type="date"/);
+  // Sunday is still a valid preference: do not infer today from Monday's rail.
+  assert.match(html, /min="2026-11-01"/);
+  assert.match(html, /max="2027-01-30"/);
+  assert.match(html, /<fieldset[^>]*disabled=""/);
+  assert.doesNotMatch(html, /<form|action=|type="submit"|Request received/);
 });
 
 test("configured form has a safe POST action and is disabled before hydration", () => {
   const html = renderToStaticMarkup(
-    createElement(EnquiryForm, { onlineEnabled: true, days: ["2026-11-02"] }),
+    createElement(EnquiryForm, { onlineEnabled: true, today: "2026-11-02", days: ["2026-11-02"] }),
   );
   assert.match(html, /method="post"/);
   assert.match(html, /action="\/api\/enquiry"/);

@@ -27,7 +27,7 @@ export default defineConfig({
   // managed by the caller; otherwise Playwright owns and cleans up this server.
   webServer: process.env.PLAYWRIGHT_BASE_URL
     ? undefined
-    : {
+    : [{
         command: "npx next start -H 0.0.0.0 -p 3010",
         // The reserved .invalid receiver is test-only. Browser submissions are
         // intercepted; no test can deliver to the practice. Production stays gated.
@@ -38,5 +38,13 @@ export default defineConfig({
         url: baseURL,
         reuseExistingServer: !process.env.CI,
         timeout: 60_000,
-      },
+      }, {
+        // Exercise the actual production delivery-off mode too; never disguise
+        // the unavailable receiver by only testing the configured fixture.
+        command: "npx next start -H 0.0.0.0 -p 3012",
+        env: { ENQUIRY_ENABLED: "false", ENQUIRY_WEBHOOK_URL: "" },
+        url: "http://127.0.0.1:3012",
+        reuseExistingServer: !process.env.CI,
+        timeout: 60_000,
+      }],
 });

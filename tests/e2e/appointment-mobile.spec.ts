@@ -89,8 +89,8 @@ test.describe("mobile appointment request", () => {
   test("Home's appointment tile keeps the contact page at phone width", async ({ page }) => {
     await go(page, "/");
     await expectPageFits(page);
-    await page.locator('a[href="/contact"]').filter({ hasText: "Request an appointment" }).click();
-    await expect(page).toHaveURL(/\/contact$/);
+    await page.locator('a[href*="appointment-request"]').filter({ hasText: "Request an appointment" }).click();
+    await expect(page).toHaveURL(/\/contact#appointment-request$/);
     await expect(page.locator("main form")).toBeVisible();
     await expectPageFits(page);
     await expectWithinPhone(page, page.locator("main form"));
@@ -184,4 +184,27 @@ test.describe("appointment form before JavaScript", () => {
     await expectPageFits(page);
     await expectWithinPhone(page, page.locator("main form"));
   });
+});
+
+
+test("the configured flow submits the alternate date and selected time, not an assumed slot", async ({ page }) => {
+  const payloads: Record<string, unknown>[] = [];
+  await page.route("**/api/enquiry", route => {
+    payloads.push(route.request().postDataJSON());
+    return route.fulfill({ status: 503, json: { ok: false, error: "Synthetic delivery disabled." } });
+  });
+  await go(page);
+  const date = page.locator("#enq-other-date");
+  const lastAllowed = (await date.getAttribute("max"))!;
+  await date.fill(lastAllowed);
+  await page.getByRole("group", { name: "Preferred time (optional)" }).getByRole("button", { name: /Late morning/ }).click();
+  await page.locator("#enq-name").fill("Synthetic Alternate Date");
+  await page.locator('label:has(input[value="Email"])').click();
+  await page.locator("#enq-contact").fill("alternate@example.invalid");
+  await page.locator("#enq-consent").check();
+  await page.locator('main button[type="submit"]').click();
+  await expect.poll(() => payloads.length).toBe(1);
+  expect(payloads[0]).toMatchObject({ preferredDate: lastAllowed, preferredSlot: "Late morning" });
+  await expect(date).toHaveValue(lastAllowed);
+  await expect(page.getByText("Request received", { exact: true })).toHaveCount(0);
 });
