@@ -47,7 +47,7 @@ export function PageHero({
       <div className="mx-auto w-full max-w-[1180px]">
         <div
           ref={ref}
-          className="relative grid overflow-hidden rounded-[1.4rem] bg-sage sm:rounded-[1.75rem]"
+          className="relative grid overflow-hidden rounded-[1.4rem] bg-peach sm:rounded-[1.75rem]"
         >
           {/* The aspect spacer and copy share a grid cell. The row grows to the
               larger of the image ratio or the complete text, including zoom. */}
@@ -72,27 +72,31 @@ export function PageHero({
             />
           </m.div>
 
-          <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/75 via-forest-ink/25 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-forest-ink/45 to-transparent" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/50 via-ember/8 to-transparent" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ember/30 to-transparent" />
 
+          {/* The copy sits on a warm glass plate rather than on the photograph
+              itself: contrast is measured against a known cream surface at
+              every frame of the parallax, and the glass keeps the image legible
+              underneath instead of flattening it with a black scrim. */}
           <div
-            className="relative col-start-1 row-start-1 min-w-0 self-end p-5 text-white [overflow-wrap:anywhere] sm:p-8 lg:p-10"
+            className="relative col-start-1 row-start-1 m-3 min-w-0 self-end rounded-[1.15rem] p-5 text-ink [overflow-wrap:anywhere] glass sm:m-5 sm:p-7 lg:m-7 lg:p-9"
             data-hero-copy
           >
-            <span className="tag tag-light">{tag}</span>
+            <span className="tag self-start">{tag}</span>
             <h1 className="max-w-[46rem] text-[clamp(2rem,5.2vw,3.9rem)] leading-[1.02]">
               <WordsIn text={title} delay={0.15} stagger={0.03} />
               {muted && (
                 <>
                   {" "}
-                  <span className="text-white/80">
+                  <span className="text-ink/65">
                     <WordsIn text={muted} delay={0.3} stagger={0.03} />
                   </span>
                 </>
               )}
             </h1>
             {intro && (
-              <p className="mt-3 max-w-[34rem] text-[12.5px] leading-relaxed text-white/80 sm:text-[13.5px]">
+              <p className="mt-3 max-w-[34rem] text-[12.5px] leading-relaxed text-ink-soft sm:text-[13.5px]">
                 {intro}
               </p>
             )}
@@ -122,7 +126,7 @@ export function SectionHead({
 }) {
   return (
     <div className={cn("max-w-2xl", className)}>
-      {tag && <span className="tag">{tag}</span>}
+      {tag && <span className="tag self-start">{tag}</span>}
       <h2 id={id} className="text-[clamp(1.6rem,3.4vw,2.35rem)] leading-[1.06]">
         <WordsIn text={title} />
         {muted && (
@@ -172,9 +176,9 @@ export function SplitHero({
   return (
     <section className="px-3 pt-3 sm:px-4 sm:pt-4">
       <div className="mx-auto w-full max-w-[1180px]">
-        <div className="grid gap-2.5 rounded-[1.4rem] bg-mint p-2.5 sm:rounded-[1.75rem] sm:p-3 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch">
+        <div className="grid gap-2.5 rounded-[1.4rem] bg-blush p-2.5 shadow-soft sm:rounded-[1.75rem] sm:p-3 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch">
           <div className="order-2 flex flex-col justify-center px-3 pb-6 pt-4 sm:px-6 sm:pb-8 lg:order-1 lg:px-8 lg:py-10">
-            <span className="tag">{tag}</span>
+            <span className="tag self-start">{tag}</span>
             <h1 className="text-[clamp(2rem,5vw,3.6rem)] leading-[1.02]">
               <WordsIn text={title} delay={0.1} stagger={0.04} />
               {muted && (
@@ -196,7 +200,7 @@ export function SplitHero({
                 {chips.map((chip) => (
                   <span
                     key={chip}
-                    className="rounded-full bg-white px-2.5 py-1 text-[10.5px] font-medium text-forest border-hairline border-charcoal/8"
+                    className="rounded-full bg-white px-2.5 py-1 text-[10.5px] font-medium text-ink border-hairline border-charcoal/8"
                   >
                     {chip}
                   </span>
@@ -206,7 +210,7 @@ export function SplitHero({
             {footer && <div className="mt-6">{footer}</div>}
           </div>
 
-          <div className="relative order-1 overflow-hidden rounded-[1.1rem] bg-sage lg:order-2 lg:rounded-[1.35rem]">
+          <div className="photo-depth relative order-1 overflow-hidden rounded-[1.1rem] bg-peach lg:order-2 lg:rounded-[1.35rem]">
             <div className="relative aspect-[4/5] w-full">
               <Image
                 src={image}
@@ -216,7 +220,7 @@ export function SplitHero({
                 sizes="(max-width: 1024px) 96vw, 560px"
                 className="object-cover object-[center_18%]"
               />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-forest-ink/45 via-transparent to-transparent" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/45 via-ember/5 to-transparent" />
             </div>
           </div>
         </div>

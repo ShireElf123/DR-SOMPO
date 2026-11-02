@@ -15,7 +15,7 @@ export function AboutTeaser() {
         <div className="grid items-center gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
           <Reveal y={26}>
             <div className="relative">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[1.35rem] bg-sage">
+              <div className="photo-depth relative aspect-[4/5] overflow-hidden rounded-[1.35rem] bg-peach">
                 <ParallaxImage
                   src="/images/portrait-somp-card.jpg"
                   alt="Portrait of Dr CM Ngwey-Sompo"
@@ -24,23 +24,23 @@ export function AboutTeaser() {
                   imageClassName="object-[center_16%]"
                   className="absolute inset-0"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/40 via-transparent to-transparent" />
-                <div className="absolute inset-x-3 bottom-3 flex flex-wrap gap-1.5">
+                <div className="absolute inset-0 bg-gradient-to-t from-ember/25 via-transparent to-transparent" />
+                <div className="absolute inset-x-3 bottom-3 z-[2] flex flex-wrap gap-1.5">
                   {["FCOG (SA)", "MMed (O&G)", "Wits"].map((chip) => (
                     <span
                       key={chip}
-                      className="rounded-full bg-white/92 px-2.5 py-1 text-[10px] font-medium text-forest backdrop-blur-md"
+                      className="glass rounded-full px-2.5 py-1 text-[10px] font-medium text-ink"
                     >
                       {chip}
                     </span>
                   ))}
                 </div>
               </div>
-              <div className="absolute -bottom-4 right-3 rounded-xl bg-white px-3.5 py-2.5 shadow-float sm:-right-5">
+              <div className="glass absolute -bottom-4 right-3 rounded-xl px-3.5 py-2.5 sm:-right-5">
                 <p className="text-[9.5px] uppercase tracking-[0.14em] text-ink-soft">
                   Consulting
                 </p>
-                <p className="mt-0.5 text-[12px] font-medium text-forest">
+                <p className="mt-0.5 text-[12px] font-medium text-ink">
                   Life Roseacres Hospital
                 </p>
               </div>
@@ -72,7 +72,7 @@ export function AboutTeaser() {
                   {["MBChB", "FCOG (SA)", "MMed (O&G)"].map((code) => (
                     <span
                       key={code}
-                      className="rounded-full bg-ivory px-2.5 py-1 text-[10.5px] font-medium text-ink-soft"
+                      className="rounded-full bg-cream px-2.5 py-1 text-[10.5px] font-medium text-ink-soft"
                     >
                       {code}
                     </span>
@@ -93,7 +93,7 @@ export function ResearchTeaser() {
     <section className="sec" aria-labelledby="research-teaser-heading">
       <div className="shell">
         <Reveal y={24}>
-          <div className="forest-gradient relative overflow-hidden rounded-[1.75rem] text-white">
+          <div className="ember-gradient relative overflow-hidden rounded-[1.75rem] text-ink">
             <div className="grid lg:grid-cols-[1.05fr_0.95fr]">
               <div className="p-6 sm:p-9 lg:p-11">
                 <span className="tag tag-light">Cervical health</span>
@@ -102,17 +102,17 @@ export function ResearchTeaser() {
                   className="text-[clamp(1.7rem,3.6vw,2.5rem)] leading-[1.04]"
                 >
                   <WordsIn text="Advancing women's health through" />{" "}
-                  <span className="text-lime/90">
+                  <span className="text-ink/70">
                     <WordsIn text="research and education." delay={0.18} />
                   </span>
                 </h2>
-                <p className="mt-4 max-w-md text-[13px] leading-relaxed text-white/80">
+                <p className="mt-4 max-w-md text-[13px] leading-relaxed text-ink">
                   A Master of Medicine study on margin status after LLETZ in women
                   living with HIV, presented at SASOG 2025, FIGO 2025 and in Dubai.
                 </p>
                 <SignalBars
                   values={[20, 34, 28, 46, 58, 50, 72, 64, 84]}
-                  className="mt-5 h-9 text-lime/75"
+                  className="mt-5 h-9 text-ink/70"
                 />
                 <Link href="/research" className="btn btn-light mt-6">
                   Explore the research
@@ -129,12 +129,12 @@ export function ResearchTeaser() {
                   sizes="(max-width: 1024px) 92vw, 46vw"
                   className="absolute inset-0"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-forest via-forest/25 to-transparent lg:from-forest/80 lg:via-transparent" />
-                <div className="absolute inset-x-4 bottom-4 flex items-end justify-between gap-3">
-                  <p className="max-w-[16rem] text-[10.5px] leading-relaxed text-white/85">
+                <div className="absolute inset-0 bg-gradient-to-r from-apricot via-ember/15 to-transparent lg:from-ember/55 lg:via-transparent" />
+                <div className="absolute inset-x-4 bottom-4 z-[2] flex items-end justify-between gap-3">
+                  <p className="glass max-w-[16rem] rounded-lg px-2.5 py-1.5 text-[10.5px] leading-relaxed text-ink">
                     LLETZ margin status · Wits MMed · 2025
                   </p>
-                  <span className="rounded-full bg-white/92 px-2.5 py-1 text-[10px] font-medium text-forest backdrop-blur-md">
+                  <span className="glass rounded-full px-2.5 py-1 text-[10px] font-medium text-ink">
                     Research
                   </span>
                 </div>
@@ -161,7 +161,7 @@ export function FaqTeaser() {
               intro="Practical answers about booking, records, confidentiality and what to expect."
             />
             <Reveal delay={0.1} y={22}>
-              <div className="relative mt-6 aspect-[16/10] overflow-hidden rounded-[1.35rem] bg-sage">
+              <div className="photo-depth relative mt-6 aspect-[16/10] overflow-hidden rounded-[1.35rem] bg-peach">
                 <ParallaxImage
                   src="/images/waiting-room.jpg"
                   alt="The practice waiting area, with quiet seating and natural light"
@@ -169,8 +169,8 @@ export function FaqTeaser() {
                   sizes="(max-width: 1024px) 92vw, 38vw"
                   className="absolute inset-0"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/55 via-transparent to-transparent" />
-                <p className="absolute inset-x-4 bottom-3.5 text-[11px] leading-relaxed text-white/90">
+                <div className="absolute inset-0 bg-gradient-to-t from-ember/40 via-transparent to-transparent" />
+                <p className="glass absolute inset-x-4 bottom-3.5 z-[2] rounded-lg px-3 py-2 text-[11px] leading-relaxed text-ink">
                   Arrive a few minutes early — the rooms are quiet and there is no
                   need to rush.
                 </p>
@@ -202,7 +202,7 @@ export function ContactBand() {
       <div className="shell">
         <div className="grid gap-3.5 lg:grid-cols-[1.1fr_0.9fr]">
           <Reveal y={20}>
-            <Panel tone="mint" className="flex h-full flex-col justify-between p-6 sm:p-8">
+            <Panel tone="blush" className="flex h-full flex-col justify-between p-6 sm:p-8">
               <div>
                 <span className="tag bg-white">Appointments</span>
                 <h2
@@ -217,7 +217,7 @@ export function ContactBand() {
                 </p>
               </div>
               <div className="mt-6 flex flex-wrap items-center gap-2.5">
-                <a href={practice.phoneHref} className="btn btn-forest">
+                <a href={practice.phoneHref} className="btn btn">
                   {practice.phone}
                   <i aria-hidden="true">
                     <Phone className="h-3 w-3" />
@@ -234,7 +234,7 @@ export function ContactBand() {
           </Reveal>
 
           <Reveal y={20} delay={0.08}>
-            <div className="relative flex h-full min-h-[16rem] flex-col justify-end overflow-hidden rounded-[1.5rem] bg-sage p-6 text-white sm:p-7">
+            <div className="photo-depth relative flex h-full min-h-[16rem] flex-col justify-end overflow-hidden rounded-[1.5rem] bg-peach p-4 sm:p-5">
               <ParallaxImage
                 src="/images/hospital-exterior.jpg"
                 alt="Life Roseacres Hospital entrance"
@@ -242,16 +242,16 @@ export function ContactBand() {
                 sizes="(max-width: 1024px) 92vw, 40vw"
                 className="absolute inset-0"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/80 via-forest-ink/20 to-transparent" />
-              <div className="relative">
-                <p className="text-[10px] uppercase tracking-[0.16em] text-white/80">
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/55 via-ember/10 to-transparent" />
+              <div className="glass relative z-[2] rounded-[1.1rem] p-4 text-ink">
+                <p className="text-[10px] uppercase tracking-[0.16em] text-ink/75">
                   Consulting rooms
                 </p>
                 <p className="mt-1 text-[14px] font-medium">{practice.hospital}</p>
-                <p className="mt-0.5 text-[11.5px] text-white/80">
+                <p className="mt-0.5 text-[11.5px] text-ink-soft">
                   {practice.addressLines[0]}, {practice.addressLines[1]}
                 </p>
-                <div className="mt-3 flex gap-3 text-[11px] text-white/80">
+                <div className="mt-3 flex gap-3 text-[11px] text-ink-soft">
                   <span className="flex items-center gap-1.5">
                     <MapPin className="h-3 w-3" aria-hidden="true" /> Primrose
                   </span>

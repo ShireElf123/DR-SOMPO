@@ -14,9 +14,9 @@ export default async function OpengraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "linear-gradient(140deg, #174D3C 0%, #0F3A2D 55%, #0A2A20 100%)",
+          background: "linear-gradient(140deg, #FDEFE3 0%, #F6B184 46%, #EB6300 100%)",
           padding: "72px",
-          color: "#F8F7F2",
+          color: "#26221F",
           fontFamily: "sans-serif",
         }}
       >
@@ -26,13 +26,13 @@ export default async function OpengraphImage() {
               width: 44,
               height: 44,
               borderRadius: 999,
-              border: "1px solid rgba(220,235,225,0.4)",
+              border: "1px solid rgba(38,34,31,0.35)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
-            <div style={{ width: 14, height: 14, borderRadius: 999, background: "#D6C6A2" }} />
+            <div style={{ width: 14, height: 14, borderRadius: 999, background: "#26221F" }} />
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <span style={{ fontSize: 24, letterSpacing: -0.5 }}>Dr Ngwey-Sompo</span>
@@ -41,7 +41,7 @@ export default async function OpengraphImage() {
                 fontSize: 12,
                 letterSpacing: 3,
                 textTransform: "uppercase",
-                color: "rgba(220,235,225,0.6)",
+                color: "rgba(38,34,31,0.7)",
                 marginTop: 4,
               }}
             >
@@ -59,7 +59,7 @@ export default async function OpengraphImage() {
               fontSize: 64,
               lineHeight: 1.05,
               letterSpacing: -2.4,
-              color: "#DCEBE1",
+              color: "rgba(38,34,31,0.72)",
               marginTop: 8,
             }}
           >
@@ -68,7 +68,7 @@ export default async function OpengraphImage() {
           <span
             style={{
               fontSize: 22,
-              color: "rgba(220,235,225,0.65)",
+              color: "rgba(38,34,31,0.8)",
               marginTop: 28,
               maxWidth: 780,
               lineHeight: 1.4,
@@ -84,7 +84,7 @@ export default async function OpengraphImage() {
             display: "flex",
             gap: 32,
             fontSize: 16,
-            color: "rgba(220,235,225,0.55)",
+            color: "rgba(38,34,31,0.75)",
           }}
         >
           <span>011 842 7651</span>

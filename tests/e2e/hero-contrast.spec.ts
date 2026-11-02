@@ -6,7 +6,7 @@ import { test, expect, type Page } from "@playwright/test";
  * declared text colour. This is a targeted lab check, not WCAG certification. */
 async function paintedContrast(page: Page) {
   const targets = await page.evaluate(() => {
-    const area = document.querySelector("#top .fig-gradient")!.getBoundingClientRect();
+    const area = document.querySelector("#top .sun-gradient")!.getBoundingClientRect();
     const canvas = document.createElement("canvas");
     canvas.width = canvas.height = 1;
     const context = canvas.getContext("2d")!;
@@ -27,9 +27,9 @@ async function paintedContrast(page: Page) {
       return { text: element.textContent!.trim(), foreground, rects, required: element.closest("h1") ? 3 : 4.5 };
     });
   });
-  const visible = await page.locator("#top .fig-gradient").screenshot();
+  const visible = await page.locator("#top .sun-gradient").screenshot();
   const style = await page.addStyleTag({ content: "[data-contrast-probe],[data-contrast-probe] *{color:transparent!important}" });
-  const background = await page.locator("#top .fig-gradient").screenshot();
+  const background = await page.locator("#top .sun-gradient").screenshot();
   await style.evaluate((element) => element.parentNode?.removeChild(element));
   return page.evaluate(async ({ a, b, targets }) => {
     const pixels = async (base64: string) => {

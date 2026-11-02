@@ -61,7 +61,7 @@ export default function ServicesPage() {
               <a
                 key={group.id}
                 href={`#${group.id}`}
-                className="group inline-flex items-center gap-1.5 rounded-full border border-charcoal/12 bg-white px-3.5 py-1.5 text-[11.5px] font-medium text-ink-soft transition-all duration-500 hover:-translate-y-0.5 hover:border-forest hover:bg-forest hover:text-white"
+                className="group inline-flex items-center gap-1.5 rounded-full border border-charcoal/12 bg-white px-3.5 py-1.5 text-[11.5px] font-medium text-ink-soft transition-all duration-500 hover:-translate-y-0.5 hover:border-ember hover:bg-ember hover:text-ink"
               >
                 {group.label}
                 <ArrowUpRight className="h-3 w-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -74,9 +74,9 @@ export default function ServicesPage() {
       {/* Statement panel */}
       <section className="bg-white pt-10">
         <div className="shell">
-          <Panel tone="forest" className="p-2.5 sm:p-3">
+          <Panel tone="ember" className="p-2.5 sm:p-3">
             <div className="grid gap-2.5 lg:grid-cols-[1.02fr_0.98fr] lg:items-stretch">
-              <div className="relative min-h-[15rem] overflow-hidden rounded-[1.35rem] lg:min-h-[24rem]">
+              <div className="photo-depth relative min-h-[15rem] overflow-hidden rounded-[1.35rem] lg:min-h-[24rem]">
                 <ParallaxImage
                   src="/images/screening-room.jpg"
                   alt="A consulting and examination room in soft daylight"
@@ -84,12 +84,12 @@ export default function ServicesPage() {
                   sizes="(max-width: 1024px) 92vw, 46vw"
                   className="absolute inset-0"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/70 via-forest-ink/15 to-transparent" />
-                <div className="absolute inset-x-4 bottom-4 flex flex-wrap gap-1.5">
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/45 via-ember/10 to-transparent" />
+                <div className="absolute inset-x-4 bottom-4 z-[2] flex flex-wrap gap-1.5">
                   {serviceGroups.map((group) => (
                     <span
                       key={group.id}
-                      className="rounded-full bg-white/92 px-2.5 py-1 text-[10px] font-medium text-forest backdrop-blur-md"
+                      className="glass rounded-full px-2.5 py-1 text-[10px] font-medium text-ink"
                     >
                       {group.label}
                     </span>
@@ -102,7 +102,7 @@ export default function ServicesPage() {
                 <h2 className="max-w-[26rem] text-[clamp(1.5rem,3.2vw,2.3rem)] leading-[1.06]">
                   <WordsIn text="Four disciplines, one continuous record of care." />
                 </h2>
-                <p className="mt-4 max-w-md text-[13px] leading-relaxed text-white/80">
+                <p className="mt-4 max-w-md text-[13px] leading-relaxed text-ink">
                   Obstetrics and gynaecology share a patient, not a department.
                   Consultations, surgery and follow-up stay with the same
                   specialist, which is why the plan you leave with is the plan
@@ -112,14 +112,14 @@ export default function ServicesPage() {
                   {serviceGroups.map((group, i) => (
                     <div
                       key={group.id}
-                      className="rounded-xl border-hairline border-white/15 bg-white/8 p-3 backdrop-blur-sm"
+                      className="glass rounded-xl p-3"
                     >
-                      <p className="text-[11.5px] font-medium leading-snug text-white">
+                      <p className="text-[11.5px] font-medium leading-snug text-ink">
                         {group.label}
                       </p>
                       <SignalBars
                         values={[26 + i * 8, 44, 34 + i * 6, 58, 48, 72]}
-                        className="mt-2 h-6 text-lime"
+                        className="mt-2 h-6 text-ink"
                       />
                     </div>
                   ))}
@@ -141,11 +141,11 @@ export default function ServicesPage() {
               <article
                 key={group.id}
                 id={group.id}
-                className="scroll-mt-24 overflow-hidden rounded-[1.75rem] bg-mint p-2.5 sm:p-3"
+                className="scroll-mt-24 overflow-hidden rounded-[1.75rem] bg-blush p-2.5 sm:p-3"
               >
                 <div className="grid gap-2.5 lg:grid-cols-[1.02fr_0.98fr] lg:items-stretch">
                   <div
-                    className={`relative min-h-[16rem] overflow-hidden rounded-[1.35rem] bg-sage lg:min-h-[26rem] ${
+                    className={`relative min-h-[16rem] overflow-hidden rounded-[1.35rem] bg-peach lg:min-h-[26rem] ${
                       reversed ? "lg:order-2" : ""
                     }`}
                   >
@@ -156,10 +156,10 @@ export default function ServicesPage() {
                       sizes="(max-width: 1024px) 92vw, 46vw"
                       className="absolute inset-0"
                     />
-                    <span className="absolute left-3 top-3 rounded-full bg-white/92 px-2.5 py-1 text-[10px] font-medium tracking-[0.08em] text-forest backdrop-blur-md">
+                    <span className="glass absolute left-3 top-3 z-[2] rounded-full px-2.5 py-1 text-[10px] font-medium tracking-[0.08em] text-ink">
                       0{index + 1}
                     </span>
-                    <span className="absolute bottom-3 left-3 rounded-full bg-white/95 px-3.5 py-1 text-[10.5px] font-medium text-charcoal backdrop-blur-md">
+                    <span className="glass absolute bottom-3 left-3 z-[2] rounded-full px-3.5 py-1 text-[10.5px] font-medium text-ink">
                       {group.label}
                     </span>
                   </div>
@@ -179,7 +179,7 @@ export default function ServicesPage() {
                             <Link
                               href={`/services/${service.id}`}
                               data-cursor="Open"
-                              className="inline-flex items-center gap-1.5 text-[13.5px] font-medium tracking-[-0.01em] text-forest"
+                              className="inline-flex items-center gap-1.5 text-[13.5px] font-medium tracking-[-0.01em] text-ink"
                             >
                               {service.title}
                               <ArrowUpRight className="h-3 w-3 opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:opacity-100" />
@@ -191,7 +191,7 @@ export default function ServicesPage() {
                               {service.items.map((item) => (
                                 <li
                                   key={item}
-                                  className="rounded-full bg-ivory px-2.5 py-1 text-[10.5px] text-ink-soft"
+                                  className="rounded-full bg-cream px-2.5 py-1 text-[10.5px] text-ink-soft"
                                 >
                                   {item}
                                 </li>
@@ -199,7 +199,7 @@ export default function ServicesPage() {
                             </ul>
                             <Link
                               href={`/services/${service.id}`}
-                              className="mt-2.5 inline-flex items-center gap-1 text-[10.5px] font-medium text-forest/80 hover:text-forest"
+                              className="mt-2.5 inline-flex items-center gap-1 text-[10.5px] font-medium text-ink/80 hover:text-ink"
                             >
                               Full details
                               <ArrowUpRight className="h-2.5 w-2.5" />
@@ -259,7 +259,7 @@ export default function ServicesPage() {
             ].map((step, i) => (
               <Reveal key={step.label} delay={i * 0.08} y={20}>
                 <div className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] bg-white border-hairline border-charcoal/8 hover:shadow-lift">
-                  <div className="relative aspect-[4/3] overflow-hidden bg-sage">
+                  <div className="photo-depth relative aspect-[4/3] overflow-hidden bg-peach">
                     <Image
                       src={step.image}
                       alt={step.alt}
@@ -267,17 +267,17 @@ export default function ServicesPage() {
                       sizes="(max-width: 640px) 92vw, 30vw"
                       className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/45 to-transparent" />
-                    <span className="absolute left-3 top-3 grid h-7 w-7 place-items-center rounded-full bg-white/95 text-[10px] font-medium text-forest backdrop-blur-md">
+                    <div className="absolute inset-0 bg-gradient-to-t from-ember/30 to-transparent" />
+                    <span className="glass absolute left-3 top-3 z-[2] grid h-7 w-7 place-items-center rounded-full text-[10px] font-medium text-ink">
                       0{i + 1}
                     </span>
                   </div>
                   <div className="flex flex-1 flex-col p-4">
                     <div className="flex items-center gap-2">
                       <IconDisc tone="light">
-                        <span className="h-1.5 w-1.5 rounded-full bg-forest" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-ember" />
                       </IconDisc>
-                      <p className="text-[13.5px] font-medium tracking-[-0.01em] text-charcoal">
+                      <p className="text-[13.5px] font-medium tracking-[-0.01em] text-ink">
                         {step.label}
                       </p>
                     </div>

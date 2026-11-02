@@ -11,7 +11,7 @@ export default function NotFound() {
   return (
     <section className="shell flex min-h-[70vh] flex-col items-center justify-center py-24 text-center">
       <span className="tag">404</span>
-      <h1 className="mt-5 max-w-lg text-[clamp(2rem,5vw,3rem)] leading-[1.05] text-charcoal">
+      <h1 className="mt-5 max-w-lg text-[clamp(2rem,5vw,3rem)] leading-[1.05] text-ink">
         We couldn&apos;t find that page.
       </h1>
       <p className="mt-4 max-w-md text-[13.5px] leading-relaxed text-ink-soft">

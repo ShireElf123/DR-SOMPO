@@ -4,49 +4,74 @@
   --font-sans: var(--font-figtree), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-serif: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
 
-  /* Brand palette — supplied by the practice */
-  --color-forest: #174d3c;
-  --color-forest-deep: #0f3a2d;
-  --color-forest-ink: #0a2a20;
-  --color-sage: #dcebe1;
-  --color-mint: #eaf4ee;
-  --color-ivory: #f8f7f2;
-  --color-charcoal: #222722;
-  --color-gold: #d6c6a2;
-
-  /* Editorial accents sampled from the reference composition */
-  --color-lime: #cfe3a6;
-  --color-fern: #6ea58f;
-  --color-clay: #d9a98c;
-  --color-sand: #e8d5b0;
-  --color-mist: #9cc7b2;
+  /* Warm palette — peach/apricot light through to one orange stop.
+     #EB6300 is the deepest step in the ramp: nothing darker is introduced,
+     and every coloured surface carries charcoal type rather than white. */
+  --color-cream: #fdf8f2; /* page + card wash, 14.9:1 with charcoal */
+  --color-blush: #fdeade; /* soft callouts, 13.5:1 */
+  --color-peach: #fbd5b8; /* image backdrops, chips, 11.5:1 */
+  --color-apricot: #f6b184; /* feature surfaces, 8.7:1 */
+  --color-tangerine: #f3812b; /* hover + mid stops, 6.0:1 */
+  --color-ember: #eb6300; /* deepest step, 4.75:1 with charcoal */
+  --color-charcoal: #26221f;
 
   /* Accessible text ramps. These replace ad-hoc alpha values so every body
-     colour in the build clears WCAG AA (4.5:1) on white. */
-  --color-ink: #222722; /* 15.7:1  */
-  --color-ink-soft: #555c56; /* 7.3:1   */
-  --color-ink-muted: #626963; /* 5.7:1  */
+     colour in the build clears WCAG AA (4.5:1) on white, cream and blush. */
+  --color-ink: #26221f; /* 15.8:1 on white */
+  --color-ink-soft: #5b5049; /* 7.8:1 on white, 6.7:1 on blush */
+  --color-ink-muted: #655a52; /* 6.7:1 on white, 4.9:1 on peach */
 
   --radius-xl2: 1.75rem;
   --radius-xl3: 2.25rem;
 
-  /* Four depths only: resting controls, raised cards, floating callouts,
-     and the existing stacked-section edge. Consumers share these tokens. */
-  --shadow-soft: 0 1px 2px rgba(23, 77, 60, 0.04), 0 8px 24px -12px rgba(23, 77, 60, 0.18);
-  --shadow-layer: 0 -24px 60px rgba(23, 77, 60, 0.07);
-  --shadow-lift: 0 1px 2px rgba(23, 77, 60, 0.04), 0 18px 44px -24px rgba(23, 77, 60, 0.28);
-  --shadow-float: 0 2px 6px rgba(23, 77, 60, 0.05), 0 30px 70px -34px rgba(23, 77, 60, 0.4);
+  /* Four depths only, each a warm multi-layer stack: a tight contact shadow,
+     a mid diffusion and a wide, low-alpha ember ambient. Black is never used,
+     so shadows read as late-afternoon light rather than soot. */
+  --shadow-soft:
+    0 1px 1px rgba(122, 55, 12, 0.06),
+    0 2px 5px -1px rgba(168, 78, 18, 0.05),
+    0 9px 20px -10px rgba(190, 92, 24, 0.16);
+  --shadow-layer:
+    0 -2px 4px rgba(122, 55, 12, 0.03),
+    0 -22px 60px rgba(168, 78, 18, 0.07);
+  --shadow-lift:
+    0 1px 2px rgba(122, 55, 12, 0.05),
+    0 4px 9px -2px rgba(168, 78, 18, 0.05),
+    0 16px 34px -16px rgba(190, 92, 24, 0.2),
+    0 36px 64px -44px rgba(235, 99, 0, 0.22);
+  --shadow-float:
+    0 2px 5px rgba(122, 55, 12, 0.05),
+    0 8px 18px -6px rgba(168, 78, 18, 0.07),
+    0 28px 52px -26px rgba(190, 92, 24, 0.22),
+    0 60px 100px -60px rgba(235, 99, 0, 0.26);
 
-  /* One easing voice across the whole site: a long, soft expo-out. */
+  /* The one warm glow, shared by primary actions and floating glass. */
+  --glow-warm:
+    0 0 0 1px rgba(235, 99, 0, 0.14),
+    0 6px 18px -6px rgba(235, 99, 0, 0.35),
+    0 18px 44px -20px rgba(235, 99, 0, 0.42);
+
+  /* One easing voice across the whole site: a long, soft expo-out, plus a
+     real sampled spring for hover/physical controls. The spring never applies
+     to controls that are about to be clicked into place, and the reduced-motion
+     block at the end of this file removes it entirely. */
   --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out-soft: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-spring: linear(
+    0, 0.049 2.6%, 0.353 8.6%, 0.803 15.9%, 1.052 23.2%,
+    1.111 30.6%, 1.1 34.6%, 1.021 44.6%, 0.988 56.8%, 0.997 65.9%, 1
+  );
 }
 
 @layer base {
   :root {
     --shell: 1200px;
     --surface-edge: 1px;
-    color-scheme: light;
+    /* Opt out of UA auto-darkening (Chrome Auto Dark Theme, some Android
+       browsers). The reference's dark mode inverted panels without inverting
+       type, which is where its contrast failures came from; this build ships
+       one audited warm light scheme instead of an unverified inversion. */
+    color-scheme: only light;
   }
 
   html {
@@ -60,7 +85,7 @@
   }
 
   body {
-    background-color: #ffffff;
+    background-color: var(--color-cream);
     color: var(--color-charcoal);
     font-family: var(--font-sans);
     font-feature-settings: "ss01" 1;
@@ -78,24 +103,45 @@
     inset: 0;
     pointer-events: none;
     z-index: 90;
-    opacity: 0.045;
-    mix-blend-mode: overlay;
+    opacity: 0.048;
+    mix-blend-mode: soft-light;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
   ::selection {
-    background: var(--color-forest);
-    color: #fff;
+    background: var(--color-ember);
+    color: var(--color-charcoal);
   }
 
+  /* Charcoal clears 3:1 against every surface in the palette, including the
+     deepest orange, so one ring colour covers the whole site. */
   :focus-visible {
-    outline: 2px solid var(--color-forest);
+    outline: 2px solid var(--color-charcoal);
     outline-offset: 3px;
     border-radius: 4px;
   }
 
-  /* A green outline disappears on a forest panel; inverse surfaces need white. */
-  .text-white :focus-visible { outline-color: #fff; }
+  /* Native controls stay in the light scheme. This is the dark-mode fix that
+     matters most in practice: date pickers, selects and autofilled fields can
+     otherwise inherit a dark UA paint while the warm surface stays light. */
+  input,
+  select,
+  textarea,
+  button {
+    color-scheme: only light;
+    accent-color: var(--color-ember);
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill {
+    -webkit-text-fill-color: var(--color-charcoal);
+    -webkit-box-shadow: 0 0 0 1000px #fff inset;
+    caret-color: var(--color-charcoal);
+  }
+
+  ::placeholder { color: var(--color-ink-muted); opacity: 1; }
 
   /* Display type: light, tightly tracked, with a hint of optical tightness at
      large sizes. `font-synthesis: none` stops the browser faking a lighter
@@ -150,7 +196,7 @@
   }
 
   .sec-tint {
-    background: var(--color-ivory);
+    background: var(--color-blush);
   }
 
   @media (min-width: 768px) {
@@ -162,8 +208,8 @@
 
   .tag {
     display: inline-block;
-    background: var(--color-sage);
-    color: var(--color-forest);
+    background: var(--color-peach);
+    color: var(--color-charcoal);
     border-radius: 999px;
     padding: 0.35rem 0.9rem;
     font-size: 0.75rem;
@@ -172,11 +218,52 @@
   }
 
   .tag-light {
-    background: rgba(255, 255, 255, 0.16);
-    border: 1px solid rgba(255, 255, 255, 0.32);
-    color: #fff;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: rgba(253, 248, 242, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    color: var(--color-charcoal);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    --glass-blur: blur(10px);
+  }
+
+  /* Warm glass. The fill is opaque enough that charcoal always clears AA over
+     whatever photograph or gradient is behind it; without backdrop-filter the
+     panel becomes solid cream instead of turning into a transparent smear. */
+  .glass {
+    background: #fdf8f2c2;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75), var(--shadow-soft);
+    --glass-blur: blur(14px) saturate(1.2);
+  }
+
+  /* Photography keeps its own depth: a gentle warm grade, an inner hairline, a
+     warm floor glow and a soft lens vignette, all paint-only so nothing
+     intercepts a control. The grade keeps cool-green interiors from fighting
+     the peach field without flattening the image into a sepia print. */
+  .photo-depth img {
+    filter: saturate(0.9) sepia(0.08);
+  }
+
+  .photo-depth::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(155deg, rgba(253, 231, 214, 0.32), rgba(235, 99, 0, 0.14) 58%, transparent 88%);
+    mix-blend-mode: soft-light;
+  }
+
+  .photo-depth::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.24),
+      inset 0 -70px 80px -60px rgba(235, 99, 0, 0.4);
   }
 
   /* Pill button with the arrow disc that the reference uses everywhere. */
@@ -184,27 +271,27 @@
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    background: #000;
-    color: #fff;
+    background: var(--color-ember);
+    color: var(--color-charcoal);
     padding: 0.4rem 0.4rem 0.4rem 1rem;
     border-radius: 999px;
     font-size: 0.8125rem;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: -0.01em;
     white-space: nowrap;
-    box-shadow: var(--shadow-soft);
-    transition: transform 0.45s var(--ease-out-soft);
+    box-shadow: var(--glow-warm);
+    transition: transform 0.45s var(--ease-out-soft), box-shadow 0.45s var(--ease-out-soft);
   }
 
   .btn:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-lift);
+    box-shadow: var(--shadow-lift), var(--glow-warm);
   }
 
   .btn i {
     width: 1.65rem;
     height: 1.65rem;
-    border: 1.5px solid rgba(255, 255, 255, 0.9);
+    border: 1.5px solid rgba(38, 34, 31, 0.55);
     border-radius: 999px;
     display: grid;
     place-items: center;
@@ -214,45 +301,41 @@
 
   .btn:hover i {
     transform: translateX(3px);
-    background: #fff;
-    color: #000;
+    background: var(--color-charcoal);
+    color: var(--color-cream);
   }
 
   .btn-light {
-    background: #fff;
-    color: #000;
+    background: var(--color-cream);
+    color: var(--color-charcoal);
+    box-shadow: var(--shadow-soft);
   }
 
   .btn-light i {
-    border-color: #000;
+    border-color: rgba(38, 34, 31, 0.55);
   }
 
   .btn-light:hover i {
-    background: #000;
-    color: #fff;
+    background: var(--color-charcoal);
+    color: var(--color-cream);
   }
 
   .btn-glass {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: none;
-  }
-
-  .btn-forest {
-    background: var(--color-forest);
+    background: #fdf8f2bd;
+    --glass-blur: blur(12px) saturate(1.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), var(--shadow-soft);
   }
 
   /* Understated bordered pill used for secondary actions on tinted panels. */
   .btn-ghost {
     background: transparent;
     color: var(--color-charcoal);
-    border: 1px solid rgba(34, 39, 34, 0.16);
+    border: 1px solid rgba(38, 34, 31, 0.16);
     box-shadow: none;
   }
 
   .btn-ghost i {
-    border-color: rgba(34, 39, 34, 0.28);
+    border-color: rgba(38, 34, 31, 0.28);
   }
 
   .btn-ghost:hover i {
@@ -280,6 +363,19 @@
     height: var(--surface-edge);
     background: color-mix(in oklab, var(--color-charcoal) 10%, transparent);
   }
+
+  /* Physical controls settle with a real damped spring. Painted controls only:
+     the spring is never applied to a panel that is about to receive a click. */
+  @supports (transition-timing-function: linear(0, 1)) {
+    @media (prefers-reduced-motion: no-preference) {
+      .btn,
+      .btn i,
+      .journey-card,
+      .glass-lift {
+        transition-timing-function: var(--ease-spring);
+      }
+    }
+  }
 }
 
 /* Physical one-pixel edges on 2× displays, without thinning form controls,
@@ -297,16 +393,14 @@
   .divide-y-hairline > :not(:last-child) { border-bottom-width: 1px; }
 
   /* Share the existing edge colours with the paint-only retina strokes. */
-  .border-charcoal\/8, .divide-charcoal\/8 { --surface-stroke: color-mix(in srgb, var(--color-charcoal) 8%, transparent); }
-  .border-charcoal\/10 { --surface-stroke: color-mix(in srgb, var(--color-charcoal) 10%, transparent); }
-  .border-charcoal\/12 { --surface-stroke: color-mix(in srgb, var(--color-charcoal) 12%, transparent); }
-  .border-forest\/8 { --surface-stroke: color-mix(in srgb, var(--color-forest) 8%, transparent); }
-  .border-forest\/10 { --surface-stroke: color-mix(in srgb, var(--color-forest) 10%, transparent); }
-  .border-forest\/20 { --surface-stroke: color-mix(in srgb, var(--color-forest) 20%, transparent); }
-  .border-white\/12 { --surface-stroke: rgb(255 255 255 / 12%); }
-  .border-white\/15 { --surface-stroke: rgb(255 255 255 / 15%); }
+  .border-charcoal\/8, .divide-charcoal\/8 { --surface-stroke: #26221f14; }
+  .border-charcoal\/10 { --surface-stroke: #26221f1a; }
+  .border-charcoal\/12 { --surface-stroke: #26221f1f; }
+  .border-ember\/8 { --surface-stroke: #eb630014; }
+  .border-ember\/10 { --surface-stroke: #eb63001a; }
+  .border-ember\/20 { --surface-stroke: #eb630033; }
   @media (hover: hover) {
-    .hover\:border-forest\/25:hover { --surface-stroke: color-mix(in srgb, var(--color-forest) 25%, transparent); }
+    .hover\:border-ember\/25:hover { --surface-stroke: #eb630040; }
   }
 
   /* Chromium rounds fractional border-width up to 1 CSS px even at 2×.
@@ -366,72 +460,80 @@
     .marquee-group:hover .marquee-track { animation-play-state: paused; }
   }
 
-  /* Hero wash. Layered radial light rather than a flat three-stop gradient, so
-     there is depth in the surface instead of a banded ramp. */
-  .fig-gradient {
+  /* Hero wash: three warm radial lights over a peach-to-cream ramp, so the
+     surface has depth instead of a banded gradient. Charcoal type sits on a
+     cream haze at every width; no white-on-photo copy survives this pass. */
+  .sun-gradient {
     background:
-      radial-gradient(120% 90% at 78% 8%, rgba(246, 231, 200, 0.92), transparent 46%),
-      radial-gradient(90% 80% at 96% 62%, rgba(156, 199, 178, 0.75), transparent 52%),
-      radial-gradient(80% 70% at 4% 104%, rgba(23, 77, 60, 0.95), transparent 58%),
-      linear-gradient(118deg, #2f7a62 0%, #6ea58f 42%, #b9d3c3 68%, #e8d5b0 100%);
+      radial-gradient(110% 90% at 86% 2%, rgba(255, 246, 236, 0.86), transparent 46%),
+      radial-gradient(95% 85% at 100% 62%, rgba(243, 129, 43, 0.95), transparent 62%),
+      radial-gradient(80% 75% at 0% 106%, rgba(235, 99, 0, 0.98), transparent 66%),
+      linear-gradient(118deg, #f09a50 0%, #f5b184 38%, #fbd0ae 68%, #fdeee2 100%);
   }
 
-  /* Keep white hero copy readable over the wash without flattening the
-     sage/gold light or darkening the portrait on the right. */
+  /* Phone: the portrait keeps the full frame, and the copy sits on a warm
+     glass plate. The plate, not the photograph, is the contrast surface — the
+     measured fill stays above 88% opacity even over the brightest highlight. */
+  @media (max-width: 639px) {
+    .hero-copy-plate {
+      margin: 0.75rem;
+      border-radius: 1.15rem;
+      background: rgba(253, 248, 242, 0.84);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75), var(--shadow-soft);
+      --glass-blur: blur(16px) saturate(1.1);
+    }
+  }
+
+  /* Desktop: a warm haze carries the copy column while the portrait on the
+     right keeps its light and its scroll parallax. */
   @media (min-width: 640px) {
-    .fig-gradient::after {
-      --hero-shade: 0.72;
+    .sun-gradient::after {
+      --hero-haze: 0.68;
       content: "";
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background: linear-gradient(90deg, rgba(10, 42, 32, var(--hero-shade)) min(38.5rem, 80%), transparent calc(min(38.5rem, 80%) + 12rem));
+      background: linear-gradient(90deg, rgba(253, 248, 242, var(--hero-haze)) min(38.5rem, 80%), transparent calc(min(38.5rem, 80%) + 12rem));
     }
   }
   @media (min-width: 1024px) {
-    .fig-gradient::after { --hero-shade: 0.56; }
+    .sun-gradient::after { --hero-haze: 0.58; }
   }
-  .hero-photo-scrim {
-    background: linear-gradient(180deg, rgba(10, 42, 32, 0.62) 0%, rgba(10, 42, 32, 0.68) 45%, rgba(10, 42, 32, 0.78) 100%);
-  }
-
-  /* Deep forest wash for the research panel. */
-  .forest-gradient {
+  /* Feature wash for the research band, final call to action and footer.
+     Apricot base, ember at the low corner — never darker than #EB6300. */
+  .ember-gradient {
     background:
-      radial-gradient(100% 120% at 92% 0%, rgba(110, 165, 143, 0.55), transparent 55%),
-      radial-gradient(90% 90% at 0% 100%, rgba(10, 42, 32, 0.9), transparent 60%),
-      linear-gradient(135deg, #174d3c 0%, #0f3a2d 100%);
+      radial-gradient(100% 120% at 92% 0%, rgba(253, 248, 242, 0.8), transparent 58%),
+      radial-gradient(90% 90% at 0% 100%, rgba(235, 99, 0, 0.88), transparent 62%),
+      linear-gradient(135deg, #f7a969 0%, #fbd0ae 100%);
   }
 
   .ticker-gradient {
-    background: linear-gradient(90deg, #d8f2a8, #cfe3a6 28%, #3f9a78);
+    background: linear-gradient(90deg, #fdeade, #f6b184 34%, #eb6300);
   }
 
   /* Keep the existing sRGB recipes above as real fallbacks. Only the large
      colour washes opt in; legibility overlays keep the same endpoints in
      both interpolation modes. */
   @supports (background: linear-gradient(0deg in oklab, #000, #fff)) {
-    .fig-gradient {
+    .sun-gradient {
       background:
-        radial-gradient(120% 90% at 78% 8% in oklab, rgba(246, 231, 200, 0.92), transparent 46%),
-        radial-gradient(90% 80% at 96% 62% in oklab, rgba(156, 199, 178, 0.75), transparent 52%),
-        radial-gradient(80% 70% at 4% 104% in oklab, rgba(23, 77, 60, 0.95), transparent 58%),
-        linear-gradient(118deg in oklab, #2f7a62 0%, #6ea58f 42%, #b9d3c3 68%, #e8d5b0 100%);
+        radial-gradient(110% 90% at 86% 2% in oklab, rgba(255, 246, 236, 0.86), transparent 46%),
+        radial-gradient(95% 85% at 100% 62% in oklab, rgba(243, 129, 43, 0.95), transparent 62%),
+        radial-gradient(80% 75% at 0% 106% in oklab, rgba(235, 99, 0, 0.98), transparent 66%),
+        linear-gradient(118deg in oklab, #f09a50 0%, #f5b184 38%, #fbd0ae 68%, #fdeee2 100%);
     }
-    .fig-gradient::after {
-      background: linear-gradient(90deg in oklab, rgba(10, 42, 32, var(--hero-shade)) min(38.5rem, 80%), transparent calc(min(38.5rem, 80%) + 12rem));
+    .sun-gradient::after {
+      background: linear-gradient(90deg in oklab, rgba(253, 248, 242, var(--hero-haze)) min(38.5rem, 80%), transparent calc(min(38.5rem, 80%) + 12rem));
     }
-    .hero-photo-scrim {
-      background: linear-gradient(180deg in oklab, rgba(10, 42, 32, 0.62) 0%, rgba(10, 42, 32, 0.68) 45%, rgba(10, 42, 32, 0.78) 100%);
-    }
-    .forest-gradient {
+    .ember-gradient {
       background:
-        radial-gradient(100% 120% at 92% 0% in oklab, rgba(110, 165, 143, 0.55), transparent 55%),
-        radial-gradient(90% 90% at 0% 100% in oklab, rgba(10, 42, 32, 0.9), transparent 60%),
-        linear-gradient(135deg in oklab, #174d3c 0%, #0f3a2d 100%);
+        radial-gradient(100% 120% at 92% 0% in oklab, rgba(253, 248, 242, 0.8), transparent 58%),
+        radial-gradient(90% 90% at 0% 100% in oklab, rgba(235, 99, 0, 0.88), transparent 62%),
+        linear-gradient(135deg in oklab, #f7a969 0%, #fbd0ae 100%);
     }
     .ticker-gradient {
-      background: linear-gradient(90deg in oklab, #d8f2a8, #cfe3a6 28%, #3f9a78);
+      background: linear-gradient(90deg in oklab, #fdeade, #f6b184 34%, #eb6300);
     }
   }
 
@@ -441,6 +543,21 @@
     overflow: hidden;
     vertical-align: bottom;
   }
+}
+
+/* Forced-colors (Windows High Contrast): glass and photo depth are stripped by
+   the UA, so structure has to survive on borders and system colours alone. */
+@media (forced-colors: active) {
+  .glass,
+  .tag-light,
+  .btn-glass {
+    border: 1px solid CanvasText;
+    background: Canvas;
+    color: CanvasText;
+    --glass-blur: none;
+  }
+  .photo-depth::after { display: none; }
+  :focus-visible { outline: 2px solid Highlight; }
 }
 
 /* One opening sequence, finishing at 1.4s. Only copy moves; the photograph
@@ -492,15 +609,15 @@
   top: 14px;
   bottom: calc(-1 * var(--journey-gap) - 14px);
   width: var(--surface-edge);
-  background: color-mix(in srgb, var(--color-forest) 26%, transparent);
+  background: color-mix(in srgb, var(--color-ember) 40%, transparent);
   transform-origin: left center;
   pointer-events: none;
 }
 .journey-card:focus-visible {
-  --surface-stroke: var(--color-forest);
-  outline: 2px solid var(--color-forest);
+  --surface-stroke: var(--color-ember);
+  outline: 2px solid var(--color-ember);
   outline-offset: 4px;
-  border-color: var(--color-forest);
+  border-color: var(--color-ember);
   border-radius: 1.25rem;
 }
 
@@ -520,9 +637,9 @@
   .journey-card { transition: transform 0.35s var(--ease-out-soft); }
   .journey-photo { transition: transform 0.65s var(--ease-out-soft); }
   .journey-card:is(:hover, :focus-visible) {
-    --surface-stroke: var(--color-forest);
+    --surface-stroke: var(--color-ember);
     transform: translateY(-4px);
-    border-color: var(--color-forest);
+    border-color: var(--color-ember);
     box-shadow: var(--shadow-lift);
   }
   .journey-card:is(:hover, :focus-visible) .journey-photo { transform: scale(1.035); }
@@ -617,3 +734,10 @@ html.lenis body {
 @media (max-width: 639px) {
   .home-portrait-motion { transform: none !important; }
 }
+
+/* Tailwind's utilities layer resets `backdrop-filter` on every element; restate
+   the frost outside the layers, or the warm glass silently flattens. */
+.glass,
+.btn-glass,
+.tag-light,
+.hero-copy-plate { backdrop-filter: var(--glass-blur); }

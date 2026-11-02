@@ -11,15 +11,15 @@ const items = [
 ];
 
 /**
- * The slim gradient announcement bar. Pale lime to fern, dark green type,
- * floaty rounded bar rather than a full-bleed strip — exactly the reference's
- * opening gesture.
+ * The slim gradient announcement bar. Blush to apricot to ember, charcoal type,
+ * floaty rounded bar rather than a full-bleed strip — the reference's opening
+ * gesture, re-skinned so the darkest stop still clears AA with charcoal.
  */
 export function Ticker() {
   return (
-    <div className="bg-white px-3 pt-[calc(0.35rem+env(safe-area-inset-top))] pb-1.5 sm:px-4 sm:pb-2">
+    <div className="bg-cream px-3 pt-[calc(0.35rem+env(safe-area-inset-top))] pb-1.5 sm:px-4 sm:pb-2">
       <div className="mx-auto w-full max-w-[1180px] overflow-hidden rounded-md ticker-gradient">
-        <Marquee label="Practice announcements" trackClassName="py-1.5 text-[11px] font-medium text-[#082317]">
+        <Marquee label="Practice announcements" trackClassName="py-1.5 text-[11px] font-semibold text-ink">
           {items.map((item) => (
             <span key={item} className="mx-6 inline-block">
               {item}

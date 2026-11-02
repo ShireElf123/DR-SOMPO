@@ -42,7 +42,7 @@ export default function ResearchPage() {
                     </span>
                   </div>
 
-                  <blockquote className="mt-3.5 text-[15px] font-medium leading-snug tracking-[-0.02em] text-forest sm:text-[17px]">
+                  <blockquote className="mt-3.5 text-[15px] font-medium leading-snug tracking-[-0.02em] text-ink sm:text-[17px]">
                     {research.title}
                   </blockquote>
 
@@ -62,15 +62,15 @@ export default function ResearchPage() {
                     ))}
                   </dl>
 
-                  <div className="mt-4 flex items-start gap-2.5 rounded-xl bg-mint/80 p-3.5">
-                    <FileText className="mt-0.5 h-3.5 w-3.5 shrink-0 text-forest/60" aria-hidden="true" />
+                  <div className="mt-4 flex items-start gap-2.5 rounded-xl bg-blush/80 p-3.5">
+                    <FileText className="mt-0.5 h-3.5 w-3.5 shrink-0 text-ink/60" aria-hidden="true" />
                     <p className="text-[11.5px] leading-relaxed text-ink-soft">{research.focus}</p>
                   </div>
                 </figure>
               </Reveal>
 
               <Reveal delay={0.1}>
-                <div className="mt-4 rounded-[1.35rem] bg-mint p-2.5">
+                <div className="mt-4 rounded-[1.35rem] bg-blush p-2.5">
                 <div className="rounded-[1.1rem] bg-white p-4 sm:p-5">
                   <p className="text-[9.5px] font-semibold uppercase tracking-[0.16em] text-ink-soft">
                     Presentation &amp; publication history
@@ -82,7 +82,7 @@ export default function ResearchPage() {
                         className="flex items-start justify-between gap-2 rounded-xl border-hairline border-charcoal/8 bg-white px-3 py-2"
                       >
                         <div>
-                          <p className="text-[11.5px] font-medium leading-snug text-charcoal">
+                          <p className="text-[11.5px] font-medium leading-snug text-ink">
                             {item.label}
                           </p>
                           <p className="mt-0.5 text-[10.5px] leading-snug text-ink-soft">
@@ -93,8 +93,8 @@ export default function ResearchPage() {
                           aria-hidden="true"
                           className={
                             item.state === "pending"
-                              ? "mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-gold ring-2 ring-gold/25"
-                              : "mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-forest/45"
+                              ? "mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-ember ring-2 ring-ember/25"
+                              : "mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-ember/45"
                           }
                         />
                       </li>
@@ -111,7 +111,7 @@ export default function ResearchPage() {
 
             <div className="space-y-3.5">
               <Reveal y={26} delay={0.08}>
-                <div className="relative aspect-[4/5] overflow-hidden rounded-[1.35rem] bg-sage">
+                <div className="photo-depth relative aspect-[4/5] overflow-hidden rounded-[1.35rem] bg-peach">
                   <ParallaxImage
                     src="/images/patient-quiet.jpg"
                     alt="A patient in the clinic waiting area"
@@ -119,31 +119,31 @@ export default function ResearchPage() {
                     sizes="(max-width: 1024px) 92vw, 42vw"
                     className="absolute inset-0"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/45 via-transparent to-transparent" />
-                  <p className="absolute inset-x-4 bottom-4 text-[11px] leading-relaxed text-white/90">
+                  <div className="absolute inset-0 bg-gradient-to-t from-ember/30 via-transparent to-transparent" />
+                  <p className="glass absolute inset-x-4 bottom-4 z-[2] rounded-lg px-3 py-2 text-[11px] leading-relaxed text-ink">
                     Research is only useful if it reaches the consultation room.
                   </p>
                 </div>
               </Reveal>
 
               <Reveal delay={0.14}>
-                <Panel tone="forest" className="p-5">
+                <Panel tone="ember" className="p-5">
                   <div className="flex items-start justify-between gap-3">
-                    <span className="text-[9.5px] uppercase tracking-[0.16em] text-white/70">
+                    <span className="text-[9.5px] uppercase tracking-[0.16em] text-ink/80">
                       Presented at
                     </span>
-                    <IconDisc tone="forest">
-                      <span className="h-1.5 w-1.5 rounded-full bg-lime" />
+                    <IconDisc tone="warm">
+                      <span className="h-1.5 w-1.5 rounded-full bg-ember" />
                     </IconDisc>
                   </div>
                   <ul className="mt-3 space-y-2">
                     {research.presentations.map((item) => (
                       <li
                         key={item.label}
-                        className="flex items-center justify-between gap-3 border-t-hairline border-white/12 pt-2 first:border-0 first:pt-0"
+                        className="flex items-center justify-between gap-3 border-t-hairline border-charcoal/15 pt-2 first:border-0 first:pt-0"
                       >
-                        <span className="text-[12px] font-medium text-white">{item.label}</span>
-                        <span className="text-[9.5px] uppercase tracking-[0.12em] text-white/70">
+                        <span className="text-[12px] font-medium text-ink">{item.label}</span>
+                        <span className="text-[9.5px] uppercase tracking-[0.12em] text-ink/80">
                           {item.state === "pending" ? "Pending" : "Confirmed"}
                         </span>
                       </li>
@@ -151,7 +151,7 @@ export default function ResearchPage() {
                   </ul>
                   <SignalBars
                     values={[18, 32, 26, 48, 60, 52, 74, 66, 82]}
-                    className="mt-4 h-10 text-lime/80"
+                    className="mt-4 h-10 text-ink/80"
                   />
                 </Panel>
               </Reveal>
@@ -174,7 +174,7 @@ export default function ResearchPage() {
             {research.context.map((item, i) => (
               <Reveal key={item.title} delay={i * 0.07}>
                 <div className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] bg-white border-hairline border-charcoal/8 hover:shadow-lift">
-                  <div className="relative aspect-[16/9] overflow-hidden bg-sage">
+                  <div className="photo-depth relative aspect-[16/9] overflow-hidden bg-peach">
                     <Image
                       src={
                         [
@@ -188,13 +188,13 @@ export default function ResearchPage() {
                       sizes="(max-width: 640px) 92vw, 30vw"
                       className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.045]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/45 to-transparent" />
-                    <span className="absolute left-3 top-3 grid h-7 w-7 place-items-center rounded-full bg-white/95 text-[10px] font-medium text-forest backdrop-blur-md">
+                    <div className="absolute inset-0 bg-gradient-to-t from-ember/30 to-transparent" />
+                    <span className="glass absolute left-3 top-3 z-[2] grid h-7 w-7 place-items-center rounded-full text-[10px] font-medium text-ink">
                       0{i + 1}
                     </span>
                   </div>
                   <div className="flex flex-1 flex-col p-4">
-                    <h3 className="text-[13.5px] font-medium tracking-[-0.01em] text-forest">
+                    <h3 className="text-[13.5px] font-medium tracking-[-0.01em] text-ink">
                       {item.title}
                     </h3>
                     <p className="mt-2 text-[12px] leading-relaxed text-ink-soft">{item.body}</p>

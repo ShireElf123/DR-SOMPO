@@ -14,7 +14,11 @@ import { useRef, useState, type ElementType, type ReactNode } from "react";
 import { useHydrated } from "@/lib/use-hydrated";
 import { cn } from "@/lib/utils";
 
-const EASE = [0.16, 1, 0.3, 1] as const;
+/* One spring voice for entrance motion. Damping stays high so the settle reads
+   as weight rather than bounce; the masked word rise keeps its own spring so
+   the two never fight. Reduced motion bypasses both (see Reveal/WordsIn). */
+const SPRING = { type: "spring", stiffness: 120, damping: 24 } as const;
+const WORD_SPRING = { type: "spring", stiffness: 170, damping: 26, mass: 0.7 } as const;
 
 /* -------------------------------------------------------------------------- */
 /* Entrance                                                                    */
@@ -51,7 +55,7 @@ export function Reveal({
       initial={{ opacity: 0, y, x }}
       whileInView={{ opacity: 1, y: 0, x: 0 }}
       viewport={{ once, amount }}
-      transition={{ duration: 1, delay, ease: EASE }}
+      transition={{ ...SPRING, delay }}
     >
       {children}
     </Tag>
@@ -117,7 +121,7 @@ export function RevealItem({
       y: 0,
       x: 0,
       scale: 1,
-      transition: { duration: 1, ease: EASE },
+      transition: { ...SPRING },
     },
   };
 
@@ -144,7 +148,6 @@ export function WordsIn({
   stagger = 0.06,
   once = true,
   amount = 0.4,
-  gray = false,
 }: {
   text: string;
   className?: string;
@@ -152,13 +155,11 @@ export function WordsIn({
   stagger?: number;
   once?: boolean;
   amount?: number;
-  /** Render this line in the softer tint used for the middle hero line. */
-  gray?: boolean;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
   const reduce = useReducedMotion();
   const words = text.split(" ");
-  const lineClass = cn("inline", gray && "text-white/80", className);
+  const lineClass = cn("inline", className);
   /* A heading is on screen for a moment, not a page length. Promotion is cheap
      to add on approach and expensive to hold, so it is tied to visibility
      instead of sitting on the element for the life of the document. */
@@ -181,7 +182,7 @@ export function WordsIn({
             initial={{ y: "115%" }}
             whileInView={{ y: "0%" }}
             viewport={{ once, amount }}
-            transition={{ duration: 1, delay: delay + i * stagger, ease: EASE }}
+            transition={{ ...WORD_SPRING, delay: delay + i * stagger }}
           >
             {word}
             {i < words.length - 1 ? "\u00A0" : ""}
@@ -193,9 +194,10 @@ export function WordsIn({
 }
 
 /**
- * A permanently readable base with a paint-only, scroll-lit copy. The light
- * resting tint clears 4.5:1 on white and ivory. Forest text stays almost white
- * because the forest gradient is lighter than the solid forest token.
+ * A permanently readable base with a paint-only, scroll-lit copy. The resting
+ * tint clears 4.5:1 on white, cream and blush; the lit words are charcoal. On
+ * the deepest orange a dimmed word would fall under AA, so the effect runs on
+ * the light apricot surface instead of buying contrast with opacity.
  */
 export function ScrollWords({
   text,
@@ -207,8 +209,8 @@ export function ScrollWords({
   className?: string;
   /** Word indices that should render a soft avatar dot before them. */
   avatars?: number[];
-  /** `light` for white/ivory panels, `forest` for forest gradients. */
-  tint?: "light" | "forest";
+  /** Panel tone this paragraph sits on. */
+  tint?: "light";
 }) {
   const ref = useRef<HTMLParagraphElement>(null);
   const reduce = useReducedMotion();
@@ -224,8 +226,8 @@ export function ScrollWords({
   // layer stays mounted, including on the server and with JavaScript disabled.
   const onScreen = useInView(ref, { margin: "15% 0px 15% 0px" });
 
-  const lit = tint === "light" ? "var(--color-charcoal)" : "#ffffff";
-  const dim = tint === "light" ? "#6a736e" : "rgba(255,255,255,0.96)";
+  const lit = "var(--color-charcoal)";
+  const dim = "#6f6255";
 
   return (
     <p ref={ref} className={className} data-scroll-words={tint}>
@@ -234,7 +236,7 @@ export function ScrollWords({
           {avatars.includes(i) && (
             <span
               aria-hidden="true"
-              className="mr-1 inline-block h-[1.05em] w-[1.05em] translate-y-[0.12em] overflow-hidden rounded-full bg-gradient-to-br from-clay to-mint align-baseline ring-2 ring-white/70"
+              className="mr-1 inline-block h-[1.05em] w-[1.05em] translate-y-[0.12em] overflow-hidden rounded-full bg-gradient-to-br from-apricot to-blush align-baseline ring-2 ring-cream/80"
             >
               <Image
                 src={avatarImages[i % avatarImages.length]}
@@ -342,7 +344,7 @@ export function Marquee({
         onClick={() => setPaused((value) => !value)}
         aria-label={`${paused ? "Resume" : "Pause"} ${label.toLowerCase()}`}
         aria-pressed={paused}
-        className="marquee-toggle absolute right-1.5 top-1/2 z-10 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full border border-forest/20 bg-white text-forest shadow-soft"
+        className="marquee-toggle absolute right-1.5 top-1/2 z-10 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full border border-ember/20 bg-white text-ink shadow-soft"
       >
         <span
           aria-hidden="true"

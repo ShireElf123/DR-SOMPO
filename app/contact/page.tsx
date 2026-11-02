@@ -48,7 +48,7 @@ export default async function ContactPage({
             {/* Details */}
             <div className="min-w-0">
               <Reveal>
-                <div className="rounded-[1.35rem] bg-mint p-6 border-hairline border-forest/8 sm:p-7">
+                <div className="rounded-[1.35rem] bg-blush p-6 border-hairline border-ember/8 sm:p-7">
                   <SectionHead tag="Reach the practice" title="Details" />
 
                   <address className="mt-4 not-italic text-[13.5px] leading-[1.75] text-ink-soft">
@@ -67,14 +67,14 @@ export default async function ContactPage({
                         href={practice.phoneHref}
                         className="group flex items-center gap-3 rounded-xl bg-white/70 p-3 transition-colors hover:bg-white"
                       >
-                        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-forest text-white">
+                        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-ember text-ink">
                           <Phone className="h-3.5 w-3.5" aria-hidden="true" />
                         </span>
                         <span>
                           <span className="block text-[9.5px] uppercase tracking-[0.14em] text-ink-soft">
                             Telephone · primary
                           </span>
-                          <span className="block text-[13.5px] font-medium text-charcoal">
+                          <span className="block text-[13.5px] font-medium text-ink">
                             {practice.phone}
                           </span>
                         </span>
@@ -86,14 +86,14 @@ export default async function ContactPage({
                         href={`mailto:${practice.email}`}
                         className="group flex items-center gap-3 rounded-xl bg-white/70 p-3 transition-colors hover:bg-white"
                       >
-                        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-forest">
+                        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-ink">
                           <Mail className="h-3.5 w-3.5" aria-hidden="true" />
                         </span>
                         <span className="min-w-0">
                           <span className="block text-[9.5px] uppercase tracking-[0.14em] text-ink-soft">
                             Email
                           </span>
-                          <span className="block break-all text-[12.5px] font-medium text-charcoal">
+                          <span className="block break-all text-[12.5px] font-medium text-ink">
                             {practice.email}
                           </span>
                         </span>
@@ -123,7 +123,7 @@ export default async function ContactPage({
                       href={directionsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-[11px] font-medium text-forest"
+                      className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-[11px] font-medium text-ink"
                     >
                       <Navigation className="h-3 w-3" aria-hidden="true" />
                       Directions
@@ -132,7 +132,7 @@ export default async function ContactPage({
                       href={mapsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-[11px] font-medium text-forest"
+                      className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-[11px] font-medium text-ink"
                     >
                       <MapPin className="h-3 w-3" aria-hidden="true" />
                       Open in Maps
@@ -148,7 +148,7 @@ export default async function ContactPage({
               </Reveal>
 
               <Reveal delay={0.1}>
-                <div className="group relative mt-4 aspect-[16/9] overflow-hidden rounded-[1.35rem] bg-sage">
+                <div className="photo-depth group relative mt-4 aspect-[16/9] overflow-hidden rounded-[1.35rem] bg-peach">
                   <ParallaxImage
                     src="/images/hospital-exterior.jpg"
                     alt="Life Roseacres Hospital entrance"
@@ -156,17 +156,17 @@ export default async function ContactPage({
                     sizes="(max-width: 1024px) 92vw, 42vw"
                     className="absolute inset-0"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/65 via-transparent to-transparent" />
-                  <div className="absolute inset-x-4 bottom-3 flex items-end justify-between gap-3">
+                  <div className="absolute inset-0 bg-gradient-to-t from-ember/35 via-transparent to-transparent" />
+                  <div className="glass absolute inset-x-3 bottom-3 z-[2] flex items-end justify-between gap-3 rounded-lg px-3 py-2">
                     <div>
-                      <p className="text-[9.5px] uppercase tracking-[0.16em] text-white/75">
+                      <p className="text-[9.5px] uppercase tracking-[0.16em] text-ink/75">
                         Consulting rooms
                       </p>
-                      <p className="mt-0.5 text-[13px] font-medium text-white">
+                      <p className="mt-0.5 text-[13px] font-medium text-ink">
                         {practice.hospital}, Primrose
                       </p>
                     </div>
-                    <span className="rounded-full bg-white/95 px-3 py-1 text-[10.5px] font-medium text-charcoal backdrop-blur-md">
+                    <span className="rounded-full bg-white/70 px-2.5 py-1 text-[10.5px] font-medium text-ink">
                       St Joseph &amp; Castor Rd
                     </span>
                   </div>

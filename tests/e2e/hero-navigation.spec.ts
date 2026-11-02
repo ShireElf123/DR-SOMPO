@@ -33,7 +33,7 @@ async function recordHomeEntrance(page: Page) {
     let firstFrame: number | undefined;
     window.heroReturnProbe = new Promise<HeroProbe>((resolve) => {
       const sample = (time: number) => {
-        const hero = document.querySelector("#top .fig-gradient");
+        const hero = document.querySelector("#top .sun-gradient");
         const image = hero && [...hero.querySelectorAll("img")].find((element) =>
           element.src.includes("hero-doctor") && element.getBoundingClientRect().width > 0,
         );

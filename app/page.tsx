@@ -27,7 +27,7 @@ export default function HomePage() {
               Registered &amp; affiliated
             </span>
             <div className="min-w-0 flex-1 opacity-70">
-              <Marquee label="Professional organisations" trackClassName="text-[13px] font-medium tracking-[0.06em] text-charcoal">
+              <Marquee label="Professional organisations" trackClassName="text-[13px] font-medium tracking-[0.06em] text-ink">
                 {["HPCSA", "SASOG", "CMSA", "SAMA", "FIGO 2025", "Wits", "Life Roseacres"].map(
                   (item) => (
                     <span key={item} className="mx-7 inline-block whitespace-nowrap">

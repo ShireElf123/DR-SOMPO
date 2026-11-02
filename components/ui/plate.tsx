@@ -36,7 +36,7 @@ export function Plate({
 }) {
   return (
     <figure className={cn("group", className)}>
-      <div className={cn("relative overflow-hidden rounded-[1.1rem] bg-sage", ratio)}>
+      <div className={cn("photo-depth relative overflow-hidden rounded-[1.1rem] bg-peach", ratio)}>
         <Image
           src={image}
           alt={alt}
@@ -45,21 +45,21 @@ export function Plate({
           sizes={sizes}
           className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.035]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/50 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ember/45 via-ember/5 to-transparent" />
 
         {index && (
-          <span className="absolute left-3 top-3 rounded-full bg-white/92 px-2.5 py-1 text-[10px] font-medium tracking-[0.06em] text-forest">
+          <span className="glass absolute left-3 top-3 z-[2] rounded-full px-2.5 py-1 text-[10px] font-medium tracking-[0.06em] text-ink">
             {index}
           </span>
         )}
 
-        <figcaption className="absolute inset-x-3 bottom-3 flex items-end justify-between gap-3">
-          <span className="rounded-full bg-white px-3 py-1 text-[10.5px] font-medium text-charcoal">
+        <figcaption className="absolute inset-x-3 bottom-3 z-[2] flex items-end justify-between gap-3">
+          <span className="glass rounded-full px-3 py-1 text-[10.5px] font-medium text-ink">
             {label}
           </span>
           <span
             aria-hidden="true"
-            className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white text-black transition-transform duration-500 group-hover:rotate-45"
+            className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-charcoal text-cream transition-transform duration-500 group-hover:rotate-45"
           >
             <ArrowUpRight className="h-3 w-3" />
           </span>
@@ -88,11 +88,11 @@ export function Plate({
  * column on desktop. Nothing is gated behind hover.
  */
 export function Panel({
-  tone = "mint",
+  tone = "blush",
   className,
   children,
 }: {
-  tone?: "mint" | "ivory" | "forest" | "sage" | "outline";
+  tone?: "blush" | "cream" | "ember" | "peach" | "outline";
   className?: string;
   children: ReactNode;
 }) {
@@ -100,10 +100,10 @@ export function Panel({
     <div
       className={cn(
         "relative overflow-hidden rounded-[1.5rem] sm:rounded-[1.75rem]",
-        tone === "mint" && "bg-mint",
-        tone === "sage" && "bg-sage",
-        tone === "ivory" && "bg-ivory",
-        tone === "forest" && "forest-gradient text-white",
+        tone === "blush" && "bg-blush",
+        tone === "peach" && "bg-peach",
+        tone === "cream" && "bg-cream",
+        tone === "ember" && "ember-gradient text-ink",
         tone === "outline" && "border-hairline border-charcoal/12 bg-white",
         className,
       )}
@@ -119,15 +119,15 @@ export function IconDisc({
   tone = "light",
 }: {
   children: ReactNode;
-  tone?: "light" | "forest";
+  tone?: "light" | "warm";
 }) {
   return (
     <span
       className={cn(
         "grid h-9 w-9 place-items-center rounded-full border",
         tone === "light"
-          ? "border-charcoal/12 bg-white text-forest"
-          : "border-white/25 bg-white/10 text-white",
+          ? "border-charcoal/12 bg-white text-ink"
+          : "border-charcoal/15 bg-cream/70 text-ink",
       )}
     >
       {children}

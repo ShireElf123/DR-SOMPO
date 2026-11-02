@@ -64,7 +64,7 @@ export default function PatientInfoPage() {
             {journey.map((step, i) => (
               <Reveal key={step.step} delay={i * 0.08}>
                 <div className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] bg-white border-hairline border-charcoal/8">
-                  <div className="relative aspect-[4/3] overflow-hidden bg-sage">
+                  <div className="relative aspect-[4/3] overflow-hidden bg-peach">
                     <Image
                       src={
                         ["/images/consultation.jpg", "/images/portrait-somp-card.jpg", "/images/patient-quiet.jpg"][i % 3]
@@ -74,13 +74,13 @@ export default function PatientInfoPage() {
                       sizes="(max-width: 640px) 92vw, 30vw"
                       className="object-cover object-[center_18%] transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/45 to-transparent" />
-                    <span className="absolute left-3 top-3 grid h-7 w-7 place-items-center rounded-full bg-white/95 text-[10.5px] font-medium text-forest backdrop-blur-md">
+                    <div className="absolute inset-0 bg-gradient-to-t from-ember/45 to-transparent" />
+                    <span className="absolute left-3 top-3 grid h-7 w-7 place-items-center rounded-full bg-white/95 text-[10.5px] font-medium text-ink backdrop-blur-md">
                       {step.step}
                     </span>
                   </div>
                   <div className="flex flex-1 flex-col p-4">
-                    <h3 className="text-[13.5px] font-medium tracking-[-0.01em] text-charcoal">
+                    <h3 className="text-[13.5px] font-medium tracking-[-0.01em] text-ink">
                       {step.title}
                     </h3>
                     <p className="mt-1.5 flex-1 text-[12px] leading-relaxed text-ink-soft">
@@ -127,14 +127,14 @@ export default function PatientInfoPage() {
       <section id="privacy" className="sec">
         <div className="shell">
           <Reveal>
-            <Panel tone="forest" className="p-6 sm:p-9">
+            <Panel tone="ember" className="p-6 sm:p-9">
               <div
                 aria-hidden="true"
-                className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full border border-white/15"
+                className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full border border-charcoal/15"
               />
               <div
                 aria-hidden="true"
-                className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full border border-white/10"
+                className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full border border-charcoal/10"
               />
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div className="max-w-xl">
@@ -142,27 +142,27 @@ export default function PatientInfoPage() {
                   <h2 className="text-[clamp(1.4rem,2.8vw,1.9rem)] leading-[1.08]">
                     Your information is handled with care.
                   </h2>
-                  <p className="mt-3 text-[13px] leading-relaxed text-white/85">
+                  <p className="mt-3 text-[13px] leading-relaxed text-ink">
                     When online enquiries are enabled, your name, chosen contact
                     details and appointment preferences are sent to the practice
                     through its configured delivery provider. Until that connection
                     is approved, the calendar and form are a local planner only:
                     your draft is not submitted. Telephone and email remain available directly.
                   </p>
-                  <p className="mt-3 text-[12px] leading-relaxed text-white/85">
+                  <p className="mt-3 text-[12px] leading-relaxed text-ink">
                     Delivery providers and website hosting may retain messages or
                     technical access logs. Contact the practice using the details
                     on the Contact page to ask about access, correction, retention
                     or deletion of your information under POPIA.
                   </p>
-                  <p className="mt-3 text-[11.5px] leading-relaxed text-white/85">
+                  <p className="mt-3 text-[11.5px] leading-relaxed text-ink">
                     Please do not send symptoms, results or other sensitive medical
                     information through the enquiry form or by email. Urgent concerns
                     should go to {practice.hospital} or your nearest emergency
                     department.
                   </p>
                 </div>
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white/12 text-white ring-1 ring-white/25">
+                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-cream/70 text-ink ring-1 ring-charcoal/15">
                   <ShieldCheck className="h-5 w-5" aria-hidden="true" />
                 </span>
               </div>

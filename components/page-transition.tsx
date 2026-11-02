@@ -56,7 +56,7 @@ export function PageTransition({ children }: { children: ReactNode }) {
           <m.div
             key={`${pathname}-curtain`}
             aria-hidden="true"
-            className="pointer-events-none fixed inset-0 z-[80] origin-bottom bg-forest"
+            className="pointer-events-none fixed inset-0 z-[80] origin-bottom bg-ember"
             initial={{ scaleY: 0 }}
             animate={{ scaleY: [0, 1, 1, 0] }}
             exit={{ opacity: 0 }}
@@ -69,7 +69,7 @@ export function PageTransition({ children }: { children: ReactNode }) {
           >
             {/* Wordmark ghosted on the curtain so the wipe has a subject. */}
             <span className="absolute inset-0 grid place-items-center">
-              <span className="text-[clamp(1.4rem,4vw,2.6rem)] font-light tracking-[-0.04em] text-white/25">
+              <span className="text-[clamp(1.4rem,4vw,2.6rem)] font-light tracking-[-0.04em] text-ink/40">
                 Dr CM Ngwey-Sompo
               </span>
             </span>

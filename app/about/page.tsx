@@ -95,8 +95,8 @@ export default function AboutPage() {
           <div className="grid gap-9 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
             <div>
               <Reveal y={18}>
-                <blockquote className="mb-6 max-w-2xl border-l-2 border-forest/30 pl-4">
-                  <p className="text-[clamp(1.05rem,2.1vw,1.35rem)] font-light leading-[1.45] tracking-[-0.02em] text-forest">
+                <blockquote className="mb-6 max-w-2xl border-l-2 border-ember/30 pl-4">
+                  <p className="text-[clamp(1.05rem,2.1vw,1.35rem)] font-light leading-[1.45] tracking-[-0.02em] text-ink">
                     {brand.advocacy}
                   </p>
                   <footer className="mt-2 text-[10.5px] uppercase tracking-[0.14em] text-ink-muted">
@@ -122,13 +122,13 @@ export default function AboutPage() {
               </div>
 
               <Reveal delay={0.16}>
-                <div className="mt-6 flex items-start gap-3 rounded-xl bg-mint p-4">
+                <div className="mt-6 flex items-start gap-3 rounded-xl bg-blush p-4">
                   <Check
-                    className="mt-0.5 h-4 w-4 shrink-0 text-forest"
+                    className="mt-0.5 h-4 w-4 shrink-0 text-ink"
                     aria-hidden="true"
                   />
                   <div>
-                    <p className="text-[12.5px] font-medium text-forest">
+                    <p className="text-[12.5px] font-medium text-ink">
                       {biographyAside.title}
                     </p>
                     <p className="mt-1 text-[12.5px] leading-relaxed text-ink-soft">
@@ -141,7 +141,7 @@ export default function AboutPage() {
 
             <Reveal y={26} delay={0.1}>
               <div className="relative">
-                <Panel tone="sage" className="p-2">
+                <Panel tone="peach" className="p-2">
                   <div className="relative aspect-[4/5] overflow-hidden rounded-[1.35rem]">
                     <ParallaxImage
                       src="/images/consultation.jpg"
@@ -150,12 +150,12 @@ export default function AboutPage() {
                       sizes="(max-width: 1024px) 92vw, 42vw"
                       className="absolute inset-0 rounded-[1.35rem]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/45 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ember/45 via-transparent to-transparent" />
                     <div className="absolute inset-x-3 bottom-3 flex flex-wrap gap-1.5">
                       {["MBChB", "FCOG (SA)", "MMed (O&G)"].map((code) => (
                         <span
                           key={code}
-                          className="rounded-full bg-white/92 px-2.5 py-1 text-[10px] font-medium text-forest backdrop-blur-md"
+                          className="rounded-full bg-white/92 px-2.5 py-1 text-[10px] font-medium text-ink backdrop-blur-md"
                         >
                           {code}
                         </span>
@@ -167,7 +167,7 @@ export default function AboutPage() {
                   <p className="text-[9.5px] uppercase tracking-[0.14em] text-ink-muted">
                     Consulting
                   </p>
-                  <p className="mt-0.5 text-[12.5px] font-medium text-forest">
+                  <p className="mt-0.5 text-[12.5px] font-medium text-ink">
                     Life Roseacres Hospital
                   </p>
                   <p className="text-[10.5px] text-ink-soft">
@@ -192,7 +192,7 @@ export default function AboutPage() {
 
           <div className="mt-8 grid gap-3.5 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <Reveal y={22}>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-[1.35rem] bg-sage lg:aspect-[4/5]">
+              <div className="photo-depth relative aspect-[4/3] overflow-hidden rounded-[1.35rem] bg-peach lg:aspect-[4/5]">
                 <Image
                   src="/images/portrait-somp-card.jpg"
                   alt="Dr CM Ngwey-Sompo"
@@ -200,12 +200,12 @@ export default function AboutPage() {
                   sizes="(max-width: 1024px) 92vw, 38vw"
                   className="object-cover object-[center_22%]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/60 via-transparent to-transparent" />
-                <div className="absolute inset-x-4 bottom-4">
-                  <p className="text-[10px] uppercase tracking-[0.16em] text-white/80">
+                <div className="absolute inset-0 bg-gradient-to-t from-ember/35 via-transparent to-transparent" />
+                <div className="glass absolute inset-x-3 bottom-3 z-[2] rounded-lg px-3 py-2">
+                  <p className="text-[10px] uppercase tracking-[0.16em] text-ink/75">
                     Qualifications
                   </p>
-                  <p className="mt-1 text-[13.5px] font-medium text-white">
+                  <p className="mt-1 text-[13.5px] font-medium text-ink">
                     FCOG (SA) · MMed (O&amp;G) · MBChB · BSc (Biomed)
                   </p>
                 </div>
@@ -215,19 +215,19 @@ export default function AboutPage() {
             <RevealGroup className="grid gap-3 sm:grid-cols-2" stagger={0.07}>
               {credentials.map((credential, i) => (
                 <RevealItem key={credential.code}>
-                  <div className="group relative h-full overflow-hidden rounded-[1.25rem] bg-white p-5 border-hairline border-charcoal/8 hover:border-forest/25">
+                  <div className="group relative h-full overflow-hidden rounded-[1.25rem] bg-white p-5 border-hairline border-charcoal/8 hover:border-ember/25">
                     <span
                       aria-hidden="true"
-                      className="absolute -right-6 -top-6 grid h-20 w-20 place-items-center rounded-full bg-mint text-[26px] font-light text-forest transition-transform duration-700 group-hover:scale-110"
+                      className="absolute -right-6 -top-6 grid h-20 w-20 place-items-center rounded-full bg-blush text-[26px] font-light text-ink transition-transform duration-700 group-hover:scale-110"
                     >
                       0{i + 1}
                     </span>
                     <div className="relative flex items-start justify-between gap-3">
-                      <p className="text-[16px] font-medium tracking-[-0.02em] text-charcoal">
+                      <p className="text-[16px] font-medium tracking-[-0.02em] text-ink">
                         {credential.code}
                       </p>
                       <span
-                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold"
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-ember"
                         aria-hidden="true"
                       />
                     </div>
@@ -261,7 +261,7 @@ export default function AboutPage() {
                 muted="hospital associations."
               />
               <Reveal delay={0.1} y={20}>
-                <div className="relative mt-6 aspect-[16/10] overflow-hidden rounded-[1.25rem] bg-sage">
+                <div className="photo-depth relative mt-6 aspect-[16/10] overflow-hidden rounded-[1.25rem] bg-peach">
                   <Image
                     src="/images/hospital-exterior.jpg"
                     alt="Life Roseacres Hospital, Primrose"
@@ -269,8 +269,8 @@ export default function AboutPage() {
                     sizes="(max-width: 1024px) 92vw, 34vw"
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/60 via-transparent to-transparent" />
-                  <p className="absolute inset-x-4 bottom-3.5 text-[11px] font-medium text-white">
+                  <div className="absolute inset-0 bg-gradient-to-t from-ember/30 via-transparent to-transparent" />
+                  <p className="glass absolute inset-x-3 bottom-3 z-[2] rounded-lg px-3 py-1.5 text-[11px] font-medium text-ink">
                     {practice.hospital}
                   </p>
                 </div>
@@ -290,8 +290,8 @@ export default function AboutPage() {
                           aria-hidden="true"
                           className={
                             affiliation.state === "verified"
-                              ? "h-1.5 w-1.5 rounded-full bg-forest/50"
-                              : "h-1.5 w-1.5 rounded-full bg-gold ring-2 ring-gold/25"
+                              ? "h-1.5 w-1.5 rounded-full bg-ember/50"
+                              : "h-1.5 w-1.5 rounded-full bg-ember ring-2 ring-ember/25"
                           }
                         />
                         <p className="text-[13px] text-ink-soft">
@@ -308,7 +308,7 @@ export default function AboutPage() {
               {affiliations.some((a) => a.state === "pending") ? (
                 <p className="mt-3 flex items-center gap-2 text-[10.5px] text-ink-soft">
                   <span
-                    className="h-1.5 w-1.5 rounded-full bg-gold ring-2 ring-gold/25"
+                    className="h-1.5 w-1.5 rounded-full bg-ember ring-2 ring-ember/25"
                     aria-hidden="true"
                   />
                   Marked items await confirmation from the practice before
@@ -340,7 +340,7 @@ export default function AboutPage() {
             {values.map((value, i) => (
               <Reveal key={value.title} delay={i * 0.08} y={20}>
                 <div className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] bg-white border-hairline border-charcoal/8">
-                  <div className="relative aspect-[4/3] overflow-hidden bg-sage">
+                  <div className="relative aspect-[4/3] overflow-hidden bg-peach">
                     <Image
                       src={value.image}
                       alt={value.alt}
@@ -348,14 +348,14 @@ export default function AboutPage() {
                       sizes="(max-width: 640px) 92vw, 30vw"
                       className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/40 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ember/40 to-transparent" />
                   </div>
                   <div className="flex flex-1 flex-col p-4">
                     <div className="flex items-center gap-2.5">
                       <IconDisc>
-                        <span className="h-1.5 w-1.5 rounded-full bg-forest" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-ember" />
                       </IconDisc>
-                      <p className="text-[13.5px] font-medium tracking-[-0.01em] text-charcoal">
+                      <p className="text-[13.5px] font-medium tracking-[-0.01em] text-ink">
                         {value.title}
                       </p>
                     </div>

@@ -61,7 +61,7 @@ export function BentoBand() {
             <Link
               href="/about"
               data-cursor="Meet"
-              className="group relative flex h-full min-h-[19rem] flex-col justify-end overflow-hidden rounded-[1.35rem] bg-sage p-5 sm:min-h-[23rem]"
+              className="group relative flex h-full min-h-[19rem] flex-col justify-end overflow-hidden rounded-[1.35rem] bg-peach p-5 sm:min-h-[23rem]"
             >
               <Image
                 src="/images/portrait-somp-card.jpg"
@@ -70,25 +70,25 @@ export function BentoBand() {
                 sizes="(max-width: 1024px) 92vw, 46vw"
                 className="object-cover object-[center_18%] transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/85 via-forest-ink/25 to-transparent" />
-              <div className="relative">
-                <p className="text-[9.5px] uppercase tracking-[0.18em] text-white/75">
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/55 via-ember/10 to-transparent" />
+              <div className="glass relative rounded-[1.1rem] p-3.5">
+                <p className="text-[9.5px] uppercase tracking-[0.18em] text-ink/75">
                   Specialist Obstetrician &amp; Gynaecologist
                 </p>
-                <p className="mt-1.5 text-[clamp(1.15rem,2.2vw,1.5rem)] font-light leading-tight tracking-[-0.03em] text-white">
+                <p className="mt-1.5 text-[clamp(1.15rem,2.2vw,1.5rem)] font-light leading-tight tracking-[-0.03em] text-ink">
                   Dr CM Ngwey-Sompo
                 </p>
                 <div className="mt-3 flex flex-wrap gap-1.5">
                   {["FCOG (SA)", "MMed (O&G) Wits", "MBChB"].map((chip) => (
                     <span
                       key={chip}
-                      className="rounded-full bg-white/15 px-2.5 py-1 text-[9.5px] font-medium text-white ring-1 ring-white/25 backdrop-blur-md"
+                      className="rounded-full bg-white/70 px-2.5 py-1 text-[9.5px] font-medium text-ink ring-1 ring-charcoal/10"
                     >
                       {chip}
                     </span>
                   ))}
                 </div>
-                <span className="mt-4 inline-flex items-center gap-1.5 text-[11px] font-medium text-white">
+                <span className="mt-3.5 inline-flex items-center gap-1.5 text-[11px] font-medium text-ink">
                   Her story
                   <ArrowUpRight className="h-3 w-3 transition-transform duration-500 group-hover:rotate-45" />
                 </span>
@@ -98,21 +98,21 @@ export function BentoBand() {
 
           {/* 2 — dark statement tile */}
           <Reveal y={22} delay={0.06} className="col-span-2 lg:col-span-2">
-            <div className="forest-gradient relative flex h-full flex-col justify-between overflow-hidden rounded-[1.35rem] p-5 text-white">
+            <div className="ember-gradient relative flex h-full flex-col justify-between overflow-hidden rounded-[1.35rem] p-5 text-ink">
               <div className="flex items-start justify-between gap-3">
-                <span className="rounded-full bg-white/12 px-2.5 py-1 text-[9.5px] uppercase tracking-[0.14em] ring-1 ring-white/20">
+                <span className="rounded-full bg-cream/70 px-2.5 py-1 text-[9.5px] uppercase tracking-[0.14em] ring-1 ring-charcoal/10">
                   Special interest
                 </span>
-                <HeartPulse className="h-4 w-4 text-lime/80" aria-hidden="true" />
+                <HeartPulse className="h-4 w-4 text-ink/80" aria-hidden="true" />
               </div>
               <ScrollWords
-                tint="forest"
+                tint="light"
                 text="Fertility and cervical health — the two areas she has built her practice and her research around."
                 className="mt-6 max-w-[24rem] text-[clamp(0.95rem,1.8vw,1.15rem)] leading-[1.4] tracking-[-0.015em]"
               />
               <Link
                 href="/research"
-                className="mt-5 inline-flex items-center gap-1.5 text-[11px] font-medium text-lime"
+                className="mt-5 inline-flex items-center gap-1.5 rounded-full border border-charcoal/20 px-3 py-1 text-[11px] font-medium text-ink"
               >
                 The research behind it
                 <ArrowUpRight className="h-3 w-3" />
@@ -123,9 +123,9 @@ export function BentoBand() {
           {/* 3 — languages + hospital, compact */}
           <Reveal y={22} delay={0.1}>
             <div className="flex h-full flex-col justify-between rounded-[1.35rem] bg-white p-4 border-hairline border-charcoal/8">
-              <LanguageIcon className="h-4 w-4 text-forest/70" aria-hidden="true" />
+              <LanguageIcon className="h-4 w-4 text-ink/70" aria-hidden="true" />
               <div>
-                <p className="text-[1.6rem] font-light leading-none tracking-[-0.03em] text-forest">
+                <p className="text-[1.6rem] font-light leading-none tracking-[-0.03em] text-ink">
                   02
                 </p>
                 <p className="mt-1 text-[11px] leading-snug text-ink-soft">
@@ -139,17 +139,17 @@ export function BentoBand() {
           <Reveal y={22} delay={0.14}>
             <BookingLink
               data-cursor="Book"
-              className="group flex h-full flex-col justify-between rounded-[1.35rem] bg-mint p-4 border-hairline border-forest/10 hover:shadow-lift"
+              className="group flex h-full flex-col justify-between rounded-[1.35rem] bg-blush p-4 border-hairline border-ember/10 hover:shadow-lift"
             >
-              <CalendarCheck className="h-4 w-4 text-forest" aria-hidden="true" />
+              <CalendarCheck className="h-4 w-4 text-ink" aria-hidden="true" />
               <div>
-                <p className="text-[12.5px] font-medium leading-snug text-forest">
+                <p className="text-[12.5px] font-medium leading-snug text-ink">
                   Request an appointment
                 </p>
                 <p className="mt-1 text-[10.5px] leading-snug text-ink-soft">
                   Choose a day and time that suits you
                 </p>
-                <span className="mt-2 inline-flex items-center gap-1 text-[10.5px] font-medium text-forest">
+                <span className="mt-2 inline-flex items-center gap-1 text-[10.5px] font-medium text-ink">
                   Start
                   <ArrowUpRight className="h-2.5 w-2.5 transition-transform duration-500 group-hover:rotate-45" />
                 </span>
@@ -162,7 +162,7 @@ export function BentoBand() {
             <Link
               href="/contact"
               data-cursor="Directions"
-              className="group relative flex h-full min-h-[7.5rem] items-end overflow-hidden rounded-[1.35rem] bg-sage p-4"
+              className="group relative flex h-full min-h-[7.5rem] items-end overflow-hidden rounded-[1.35rem] bg-peach p-4"
             >
               <Image
                 src="/images/hospital-exterior.jpg"
@@ -171,21 +171,21 @@ export function BentoBand() {
                 sizes="(max-width: 1024px) 92vw, 46vw"
                 className="object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/80 via-forest-ink/20 to-transparent" />
-              <div className="relative flex w-full items-end justify-between gap-3">
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/55 via-ember/10 to-transparent" />
+              <div className="glass relative flex w-full items-end justify-between gap-3 rounded-[1rem] p-3">
                 <div>
-                  <p className="flex items-center gap-1.5 text-[9.5px] uppercase tracking-[0.16em] text-white/75">
+                  <p className="flex items-center gap-1.5 text-[9.5px] uppercase tracking-[0.16em] text-ink/75">
                     <MapPin className="h-2.5 w-2.5" aria-hidden="true" />
                     Consulting rooms
                   </p>
-                  <p className="mt-1 text-[12.5px] font-medium text-white">
+                  <p className="mt-1 text-[12.5px] font-medium text-ink">
                     {practice.hospital}, Primrose
                   </p>
-                  <p className="mt-0.5 text-[10px] text-white/70">
+                  <p className="mt-0.5 text-[10px] text-ink-soft">
                     Operates at Dr Phakisa Mokhesi Hospital, Sebokeng
                   </p>
                 </div>
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white text-black transition-transform duration-500 group-hover:rotate-45">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-charcoal text-cream transition-transform duration-500 group-hover:rotate-45">
                   <ArrowUpRight className="h-3 w-3" />
                 </span>
               </div>
@@ -198,9 +198,9 @@ export function BentoBand() {
               href="/patient-info"
               className="group flex h-full flex-col justify-between rounded-[1.35rem] bg-white p-4 border-hairline border-charcoal/8"
             >
-              <ShieldCheck className="h-4 w-4 text-forest/70" aria-hidden="true" />
+              <ShieldCheck className="h-4 w-4 text-ink/70" aria-hidden="true" />
               <div>
-                <p className="text-[11.5px] font-medium leading-snug text-charcoal">
+                <p className="text-[11.5px] font-medium leading-snug text-ink">
                   POPIA-conscious
                 </p>
                 <p className="mt-1 text-[10.5px] leading-snug text-ink-soft">
@@ -214,17 +214,17 @@ export function BentoBand() {
           <Reveal y={22} delay={0.26}>
             <Link
               href="/research"
-              className="group flex h-full flex-col justify-between rounded-[1.35rem] bg-forest p-4 text-white"
+              className="group flex h-full flex-col justify-between rounded-[1.35rem] bg-tangerine p-4 text-ink"
             >
               <div className="flex items-start justify-between">
-                <Stethoscope className="h-4 w-4 text-lime/80" aria-hidden="true" />
-                <span className="text-[9px] uppercase tracking-[0.12em] text-white/60">Wits</span>
+                <Stethoscope className="h-4 w-4 text-ink/80" aria-hidden="true" />
+                <span className="text-[9px] uppercase tracking-[0.12em] text-ink">Wits</span>
               </div>
               <div>
                 <p className="text-[11.5px] font-medium leading-snug">MMed research</p>
                 <SignalBars
                   values={[18, 34, 26, 48, 62, 54, 78]}
-                  className="mt-2 h-6 text-lime/70"
+                  className="mt-2 h-6 text-ink/70"
                 />
               </div>
             </Link>

@@ -20,7 +20,7 @@ export function ScrollProgress() {
     <m.div
       aria-hidden="true"
       style={{ scaleX }}
-      className="pointer-events-none fixed inset-x-0 top-0 z-[75] h-[2px] origin-left bg-gradient-to-r from-forest via-fern to-gold"
+      className="pointer-events-none fixed inset-x-0 top-0 z-[75] h-[2px] origin-left bg-gradient-to-r from-peach via-apricot to-ember"
     />
   );
 }

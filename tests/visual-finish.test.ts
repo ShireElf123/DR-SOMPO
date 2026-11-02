@@ -19,7 +19,7 @@ test("surfaces share four named depths, not per-component shadow recipes", () =>
 test("hairline widths survive class merging with colours and respect width overrides", () => {
   for (const utility of ["border-hairline", "border-t-hairline", "border-b-hairline", "border-l-hairline", "border-y-hairline"]) {
     assert.equal(cn(utility, "border-charcoal/8"), `${utility} border-charcoal/8`);
-    assert.equal(cn(utility, "border-charcoal/8", "border-forest/20"), `${utility} border-forest/20`);
+    assert.equal(cn(utility, "border-charcoal/8", "border-ember/20"), `${utility} border-ember/20`);
     assert.equal(cn(utility, "border-charcoal/8", "border-0"), "border-charcoal/8 border-0");
   }
   assert.equal(cn("divide-y-hairline", "divide-charcoal/8"), "divide-y-hairline divide-charcoal/8");

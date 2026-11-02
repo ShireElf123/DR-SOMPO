@@ -39,11 +39,12 @@ export function FinalCta() {
                 className="object-cover"
               />
             </m.div>
-            <div className="absolute inset-0 bg-forest-ink/62" />
-            <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/80 via-forest-ink/35 to-transparent" />
+            <div className="absolute inset-0 bg-ember/45" />
+            <div className="absolute inset-0 bg-gradient-to-t from-ember/60 via-ember/10 to-transparent" />
 
-            <div className="relative px-6 py-14 text-center text-white sm:px-10 sm:py-20">
-              <p className="text-[10.5px] uppercase tracking-[0.2em] text-white/80">
+            <div className="relative px-4 py-10 text-center sm:px-8 sm:py-16">
+              <div className="glass mx-auto max-w-[40rem] rounded-[1.35rem] px-5 py-10 text-ink sm:px-10 sm:py-14">
+              <p className="text-[10.5px] uppercase tracking-[0.2em] text-ink/75">
                 New patients welcome
               </p>
               <h2
@@ -51,19 +52,19 @@ export function FinalCta() {
                 className="mx-auto mt-4 max-w-[32rem] text-[clamp(1.9rem,4.4vw,3.1rem)] leading-[1.02]"
               >
                 <WordsIn text="Your health deserves" />{" "}
-                <span className="text-white/70">
+                <span className="text-ink/75">
                   <WordsIn text="specialist attention." delay={0.2} />
                 </span>
               </h2>
 
               <div className="mt-8 flex flex-wrap items-center justify-center gap-2.5">
-                <a href={practice.phoneHref} className="btn btn-light" data-cursor="Call">
+                <a href={practice.phoneHref} className="btn" data-cursor="Call">
                   Call to book
                   <i aria-hidden="true">
                     <ArrowUpRight className="h-3 w-3" />
                   </i>
                 </a>
-                <a href="/contact#appointment-request" className="btn btn-glass" data-cursor="Enquire">
+                <a href="/contact#appointment-request" className="btn btn-light" data-cursor="Enquire">
                   Send an enquiry
                   <i aria-hidden="true">
                     <ArrowUpRight className="h-3 w-3" />
@@ -71,9 +72,10 @@ export function FinalCta() {
                 </a>
               </div>
 
-              <p className="mt-5 text-[10.5px] text-white/70">
+              <p className="mt-5 text-[10.5px] text-ink-soft">
                 Enquiries are not confirmed appointments · Not for emergencies
               </p>
+              </div>
             </div>
           </div>
         </Reveal>

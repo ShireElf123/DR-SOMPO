@@ -35,9 +35,9 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 }
 
 const phases = [
-  { key: "beforeVisit", label: "Before your visit", tone: "mint" },
-  { key: "atVisit", label: "At the appointment", tone: "sage" },
-  { key: "afterVisit", label: "Afterwards", tone: "ivory" },
+  { key: "beforeVisit", label: "Before your visit", tone: "blush" },
+  { key: "atVisit", label: "At the appointment", tone: "peach" },
+  { key: "afterVisit", label: "Afterwards", tone: "cream" },
 ] as const;
 
 export default async function ServiceDetailPage({ params }: Params) {
@@ -82,20 +82,20 @@ export default async function ServiceDetailPage({ params }: Params) {
         aspect="aspect-[16/11] sm:aspect-[16/8] lg:aspect-[16/6]"
       >
         <nav aria-label="Breadcrumb" className="mt-4">
-          <ol className="flex flex-wrap items-center gap-1.5 text-[10.5px] text-white/75">
+          <ol className="flex flex-wrap items-center gap-1.5 text-[10.5px] text-ink/70">
             <li>
-              <Link href="/services" className="hover:text-white">
+              <Link href="/services" className="hover:text-ink hover:underline">
                 Services
               </Link>
             </li>
             <ChevronRight className="h-2.5 w-2.5" aria-hidden="true" />
             <li>
-              <Link href={`/services#${parentGroup}`} className="hover:text-white">
+              <Link href={`/services#${parentGroup}`} className="hover:text-ink hover:underline">
                 {service.groupLabel}
               </Link>
             </li>
             <ChevronRight className="h-2.5 w-2.5" aria-hidden="true" />
-            <li aria-current="page" className="text-white">
+            <li aria-current="page" className="font-medium text-ink">
               {service.title}
             </li>
           </ol>
@@ -117,7 +117,7 @@ export default async function ServiceDetailPage({ params }: Params) {
                   <li key={section.heading}>
                     <a
                       href={`#section-${i}`}
-                      className="group flex items-start gap-2 text-[12.5px] leading-snug text-ink-soft transition-colors hover:text-forest"
+                      className="group flex items-start gap-2 text-[12.5px] leading-snug text-ink-soft transition-colors hover:text-ink"
                     >
                       <span className="mt-[3px] text-[9.5px] tabular-nums text-ink-muted">
                         0{i + 1}
@@ -128,12 +128,12 @@ export default async function ServiceDetailPage({ params }: Params) {
                 ))}
               </ul>
 
-              <div className="mt-6 rounded-[1.25rem] bg-mint p-4">
-                <p className="text-[11px] font-medium text-forest">Ready to book?</p>
+              <div className="mt-6 rounded-[1.25rem] bg-blush p-4">
+                <p className="text-[11px] font-medium text-ink">Ready to book?</p>
                 <p className="mt-1 text-[11px] leading-relaxed text-ink-soft">
                   Appointments are arranged by telephone.
                 </p>
-                <a href={practice.phoneHref} className="btn btn-forest mt-3 w-full justify-between">
+                <a href={practice.phoneHref} className="btn btn mt-3 w-full justify-between">
                   {practice.phone}
                   <i aria-hidden="true">
                     <Phone className="h-3 w-3" />
@@ -141,7 +141,7 @@ export default async function ServiceDetailPage({ params }: Params) {
                 </a>
                 <BookingLink
                   service={service.id}
-                  className="mt-2 flex items-center justify-between rounded-full border border-forest/20 px-3.5 py-2 text-[11px] font-medium text-forest transition-colors hover:border-forest hover:bg-white"
+                  className="mt-2 flex items-center justify-between rounded-full border border-ember/20 px-3.5 py-2 text-[11px] font-medium text-ink transition-colors hover:border-ember hover:bg-white"
                 >
                   Request this appointment
                   <ArrowUpRight className="h-3 w-3" />
@@ -149,8 +149,8 @@ export default async function ServiceDetailPage({ params }: Params) {
               </div>
 
               {detail.verifiedNotes && (
-                <p className="mt-4 border-l-2 border-gold pl-3 text-[10.5px] leading-relaxed text-ink-muted">
-                  <span className="font-medium text-charcoal">To confirm:</span>{" "}
+                <p className="mt-4 border-l-2 border-ember pl-3 text-[10.5px] leading-relaxed text-ink-muted">
+                  <span className="font-medium text-ink">To confirm:</span>{" "}
                   {detail.verifiedNotes}
                 </p>
               )}
@@ -187,11 +187,11 @@ export default async function ServiceDetailPage({ params }: Params) {
                     <Reveal key={phase.key} delay={i * 0.07} y={18}>
                       <div
                         className={`h-full rounded-[1.25rem] p-4 ${
-                          phase.tone === "mint"
-                            ? "bg-mint"
-                            : phase.tone === "sage"
-                              ? "bg-sage"
-                              : "bg-ivory border-hairline border-charcoal/8"
+                          phase.tone === "blush"
+                            ? "bg-blush"
+                            : phase.tone === "peach"
+                              ? "bg-peach"
+                              : "bg-cream border-hairline border-charcoal/8"
                         }`}
                       >
                         <p className="text-[9.5px] uppercase tracking-[0.16em] text-ink-muted">
@@ -205,7 +205,7 @@ export default async function ServiceDetailPage({ params }: Params) {
                             >
                               <span
                                 aria-hidden="true"
-                                className="mt-[6px] h-1 w-1 shrink-0 rounded-full bg-forest/50"
+                                className="mt-[6px] h-1 w-1 shrink-0 rounded-full bg-ember/50"
                               />
                               {item}
                             </li>
@@ -234,7 +234,7 @@ export default async function ServiceDetailPage({ params }: Params) {
             <dl className="border-t-hairline border-charcoal/12">
               {detail.questions.map((item, i) => (
                 <Reveal key={item.q} delay={i * 0.05} y={14} className="border-b-hairline border-charcoal/12 py-4">
-                    <dt className="text-[14px] font-medium tracking-[-0.01em] text-charcoal">
+                    <dt className="text-[14px] font-medium tracking-[-0.01em] text-ink">
                       {item.q}
                     </dt>
                     <dd className="mt-1.5 max-w-[38rem] text-[12.5px] leading-relaxed text-ink-soft">
@@ -269,7 +269,7 @@ export default async function ServiceDetailPage({ params }: Params) {
                     data-cursor="Open"
                     className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] bg-white border-hairline border-charcoal/8 hover:shadow-lift"
                   >
-                    <div className="relative aspect-[16/9] overflow-hidden bg-sage">
+                    <div className="photo-depth relative aspect-[16/9] overflow-hidden bg-peach">
                       <Image
                         src={relDetail.image}
                         alt={relDetail.imageAlt}
@@ -277,19 +277,19 @@ export default async function ServiceDetailPage({ params }: Params) {
                         sizes="(max-width: 640px) 92vw, 46vw"
                         className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/55 via-transparent to-transparent" />
-                      <span className="absolute left-3 top-3 rounded-full bg-white/92 px-2.5 py-1 text-[10px] font-medium text-forest backdrop-blur-md">
+                      <div className="absolute inset-0 bg-gradient-to-t from-ember/30 via-transparent to-transparent" />
+                      <span className="glass absolute left-3 top-3 z-[2] rounded-full px-2.5 py-1 text-[10px] font-medium text-ink">
                         {relDetail.eyebrow}
                       </span>
                     </div>
                     <div className="flex flex-1 flex-col p-5">
-                      <h3 className="text-[15px] font-medium leading-snug tracking-[-0.015em] text-charcoal">
+                      <h3 className="text-[15px] font-medium leading-snug tracking-[-0.015em] text-ink">
                         {relService.title}
                       </h3>
                       <p className="mt-2 flex-1 text-[12px] leading-relaxed text-ink-soft">
                         {relDetail.standfirst.slice(0, 130)}…
                       </p>
-                      <span className="mt-4 inline-flex items-center gap-1.5 text-[11px] font-medium text-forest">
+                      <span className="mt-4 inline-flex items-center gap-1.5 text-[11px] font-medium text-ink">
                         Read more
                         <ArrowUpRight className="h-3 w-3 transition-transform duration-500 group-hover:rotate-45" />
                       </span>
@@ -315,7 +315,7 @@ export default async function ServiceDetailPage({ params }: Params) {
                 <RevealItem key={item.id}>
                   <Link
                     href={`/services/${item.id}`}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-charcoal/12 px-3 py-1.5 text-[11px] text-ink-soft transition-colors hover:border-forest hover:text-forest"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-charcoal/12 px-3 py-1.5 text-[11px] text-ink-soft transition-colors hover:border-ember hover:text-ink"
                   >
                     {item.title}
                   </Link>

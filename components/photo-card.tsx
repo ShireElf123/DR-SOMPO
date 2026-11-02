@@ -32,7 +32,7 @@ export function PhotoCard({
 }) {
   const content = (
     <>
-      <div className={cn("relative overflow-hidden rounded-[1.25rem] bg-sage", ratio)}>
+      <div className={cn("photo-depth relative overflow-hidden rounded-[1.25rem] bg-peach", ratio)}>
         <Image
           src={image}
           alt={alt}
@@ -43,19 +43,19 @@ export function PhotoCard({
             imageClassName,
           )}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/55 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ember/45 via-ember/5 to-transparent" />
 
-        <span className="absolute bottom-3 left-3 rounded-full bg-black/80 px-3.5 py-1 text-[10.5px] font-medium text-white backdrop-blur-sm">
+        <span className="glass absolute bottom-3 left-3 z-[2] rounded-full px-3.5 py-1 text-[10.5px] font-medium text-ink">
           {label}
         </span>
         {meta && (
-          <span className="absolute bottom-3 right-12 text-[10px] uppercase tracking-[0.12em] text-white/75">
+          <span className="glass absolute bottom-3 right-12 z-[2] rounded-full px-2.5 py-1 text-[10px] uppercase tracking-[0.12em] text-ink">
             {meta}
           </span>
         )}
         <span
           aria-hidden="true"
-          className="absolute bottom-3 right-3 flex h-6 w-6 items-center justify-center rounded-full bg-white text-black transition-transform duration-500 group-hover:rotate-45"
+          className="absolute bottom-3 right-3 z-[2] flex h-6 w-6 items-center justify-center rounded-full bg-charcoal text-cream transition-transform duration-500 group-hover:rotate-45"
         >
           <ArrowUpRight className="h-3 w-3" />
         </span>

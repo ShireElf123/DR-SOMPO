@@ -72,7 +72,7 @@ export function Services() {
         <div className="shell">
           <div className="grid items-center gap-6 lg:grid-cols-[0.62fr_1.6fr_0.62fr] lg:gap-8">
             <Reveal y={26} className="hidden lg:block">
-              <div className="relative aspect-[3/4] overflow-hidden rounded-[1.25rem] bg-sage">
+              <div className="photo-depth relative aspect-[3/4] overflow-hidden rounded-[1.25rem] bg-peach">
                 <Image
                   src="/images/waiting-room.jpg"
                   alt="The practice waiting area"
@@ -80,7 +80,7 @@ export function Services() {
                   sizes="20vw"
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-ember/25 to-transparent" />
               </div>
             </Reveal>
 
@@ -91,7 +91,7 @@ export function Services() {
             />
 
             <Reveal y={26} delay={0.1} className="hidden lg:block">
-              <div className="relative aspect-[3/4] overflow-hidden rounded-[1.25rem] bg-sage">
+              <div className="photo-depth relative aspect-[3/4] overflow-hidden rounded-[1.25rem] bg-peach">
                 <Image
                   src="/images/screening-room.jpg"
                   alt="A consultation room at the practice"
@@ -99,7 +99,7 @@ export function Services() {
                   sizes="20vw"
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-ember/25 to-transparent" />
               </div>
             </Reveal>
           </div>
@@ -145,7 +145,7 @@ export function Services() {
                 <Link
                   href={tile.href}
                   data-cursor="View"
-                  className="group relative flex h-full min-h-[13rem] flex-col justify-end overflow-hidden rounded-[1.25rem] bg-sage p-4"
+                  className="photo-depth group relative flex h-full min-h-[13rem] flex-col justify-end overflow-hidden rounded-[1.25rem] bg-peach p-3"
                 >
                   <Image
                     src={tile.image}
@@ -154,18 +154,18 @@ export function Services() {
                     sizes="(max-width: 640px) 46vw, (max-width: 1024px) 46vw, 30vw"
                     className="object-cover transition-transform duration-[1100ms] ease-out group-hover:scale-[1.05]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/80 via-forest-ink/20 to-transparent" />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/50 via-ember/10 to-transparent" />
 
-                  <div className="relative">
-                    <p className="text-[12.5px] font-medium text-white">{tile.title}</p>
-                    <p className="mt-0.5 max-w-[14rem] text-[11px] leading-snug text-white/80">
+                  <div className="glass relative z-[2] rounded-[0.9rem] px-3 py-2.5">
+                    <p className="text-[12.5px] font-medium text-ink">{tile.title}</p>
+                    <p className="mt-0.5 max-w-[14rem] text-[11px] leading-snug text-ink-soft">
                       {tile.blurb}
                     </p>
                   </div>
 
                   <span
                     aria-hidden="true"
-                    className="absolute right-3 top-3 flex h-6 w-6 items-center justify-center rounded-full bg-white/90 text-black transition-transform duration-500 group-hover:rotate-45"
+                    className="absolute right-3 top-3 z-[2] flex h-6 w-6 items-center justify-center rounded-full bg-charcoal text-cream transition-transform duration-500 group-hover:rotate-45"
                   >
                     <ArrowUpRight className="h-3 w-3" />
                   </span>

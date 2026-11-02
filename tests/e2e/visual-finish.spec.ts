@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-const gradients = [".fig-gradient", ".forest-gradient", ".ticker-gradient"];
+const gradients = [".sun-gradient", ".ember-gradient", ".ticker-gradient"];
 
 test("large colour washes opt into OKLab and retain working sRGB fallbacks", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
@@ -109,14 +109,14 @@ for (const density of [1, 2]) {
     const edge = () => cards.first().evaluate((node, retina) =>
       retina ? getComputedStyle(node, "::after").boxShadow : getComputedStyle(node).borderTopColor,
     density === 2);
-    expect(await edge()).toContain("/ 0.08)");
+    expect(await edge()).toContain("0.08)");
     const search = page.getByRole("searchbox", { name: "Search conditions treated" });
     await search.fill("PCOS");
     await expect(cards).toHaveCount(2);
-    expect(await edge()).toContain("/ 0.2)");
+    expect(await edge()).toContain("0.2)");
     await search.clear();
     await expect(cards).toHaveCount(5);
-    expect(await edge()).toContain("/ 0.08)");
+    expect(await edge()).toContain("0.08)");
     await page.goto("/about", { waitUntil: "networkidle" });
     await expect(page.locator(".divide-y-hairline > :not(:last-child)").first()).toHaveCSS("border-bottom-width", nativeWidth);
     if (density === 2) await expect(page.locator(".divide-y-hairline > :not(:last-child)").first()).toHaveCSS("box-shadow", /-0\.5px/);

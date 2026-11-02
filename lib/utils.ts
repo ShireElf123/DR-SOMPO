@@ -4,7 +4,7 @@ import { extendTailwindMerge } from "tailwind-merge";
  * Tailwind class conflict resolution.
  *
  * The design system registers custom colour tokens (ink, ink-soft, ink-muted,
- * forest, sage …). Without teaching tailwind-merge about them it treats
+ * cream, peach, apricot, ember …). Without teaching tailwind-merge about them it treats
  * `text-ink-soft` as an arbitrary unknown class and would not let a later
  * `text-white` win — so the theme is declared here explicitly.
  */
@@ -22,19 +22,13 @@ const merge = extendTailwindMerge({
     },
     theme: {
       color: [
-        "forest",
-        "forest-deep",
-        "forest-ink",
-        "sage",
-        "mint",
-        "ivory",
+        "cream",
+        "blush",
+        "peach",
+        "apricot",
+        "tangerine",
+        "ember",
         "charcoal",
-        "gold",
-        "lime",
-        "fern",
-        "clay",
-        "sand",
-        "mist",
         "ink",
         "ink-soft",
         "ink-muted",

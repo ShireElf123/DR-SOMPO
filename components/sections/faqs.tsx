@@ -19,7 +19,7 @@ export function Faqs() {
             </p>
           </div>
           <Reveal y={18} className="mx-auto w-full max-w-[16rem] sm:mx-0">
-            <div className="relative aspect-[16/11] overflow-hidden rounded-[1.15rem] bg-sage">
+            <div className="relative aspect-[16/11] overflow-hidden rounded-[1.15rem] bg-peach">
               <Image
                 src="/images/waiting-room.jpg"
                 alt="The practice waiting area"
@@ -38,7 +38,7 @@ export function Faqs() {
             Still unsure? Call{" "}
             <a
               href={practice.phoneHref}
-              className="font-medium text-forest underline decoration-forest/25 underline-offset-4"
+              className="font-medium text-ink underline decoration-ember/25 underline-offset-4"
             >
               {practice.phone}
             </a>

@@ -100,7 +100,7 @@ export function ConditionsTreated() {
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder="Search a symptom or condition"
-                className="w-full rounded-full border border-charcoal/12 bg-white py-2.5 pl-9 pr-4 text-[12.5px] text-charcoal outline-none transition-colors duration-300 placeholder:text-ink-muted focus:border-forest/45 focus:ring-2 focus:ring-forest/12"
+                className="w-full rounded-full border border-charcoal/12 bg-white py-2.5 pl-9 pr-4 text-[12.5px] text-ink outline-none transition-colors duration-300 placeholder:text-ink-muted focus:border-ember/45 focus:ring-2 focus:ring-ember/12"
               />
               <p aria-live="polite" className="sr-only">
                 {term
@@ -132,12 +132,12 @@ export function ConditionsTreated() {
                 transition={{ duration: 0.5, delay: index * 0.04, ease: [0.16, 1, 0.3, 1] }}
                 className={cn(
                   "flex flex-col overflow-hidden rounded-[1.35rem] bg-white border-hairline border-charcoal/8",
-                  isFiltering && "border-forest/20",
+                  isFiltering && "border-ember/20",
                 )}
               >
                 {/* Photography first — the plate carries the stage of life, not
                     a service code. */}
-                <div className="relative aspect-[16/9] overflow-hidden bg-sage">
+                <div className="photo-depth relative aspect-[16/9] overflow-hidden bg-peach">
                   <Image
                     src={media.image}
                     alt={media.alt}
@@ -145,16 +145,16 @@ export function ConditionsTreated() {
                     sizes="(max-width: 768px) 92vw, (max-width: 1024px) 46vw, 30vw"
                     className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.04]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-forest-ink/78 via-forest-ink/20 to-transparent" />
-                  <div className="absolute inset-x-4 bottom-3.5">
-                    <p className="text-[9px] uppercase tracking-[0.16em] text-white/70">
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/50 via-ember/10 to-transparent" />
+                  <div className="glass absolute inset-x-3 bottom-3 z-[2] rounded-lg px-3 py-2">
+                    <p className="text-[9px] uppercase tracking-[0.16em] text-ink/75">
                       {group.stage}
                     </p>
-                    <h3 className="mt-1 text-[15px] font-light leading-tight tracking-[-0.02em] text-white">
+                    <h3 className="mt-1 text-[15px] font-light leading-tight tracking-[-0.02em] text-ink">
                       {group.label}
                     </h3>
                   </div>
-                  <span className="absolute right-3 top-3 grid h-6 w-6 place-items-center rounded-full bg-white/92 text-[9.5px] font-medium text-forest backdrop-blur-md">
+                  <span className="glass absolute right-3 top-3 z-[2] grid h-6 w-6 place-items-center rounded-full text-[9.5px] font-medium text-ink">
                     {group.conditions.length}
                   </span>
                 </div>
@@ -167,7 +167,7 @@ export function ConditionsTreated() {
                   <RevealGroup className="mt-3 flex flex-1 flex-wrap content-start gap-1.5" stagger={0.02}>
                     {group.conditions.map((condition) => (
                       <RevealItem key={condition}>
-                        <span className="inline-block rounded-full bg-ivory px-2.5 py-1 text-[10.5px] leading-snug text-ink-soft">
+                        <span className="inline-block rounded-full bg-cream px-2.5 py-1 text-[10.5px] leading-snug text-ink-soft">
                           {condition}
                         </span>
                       </RevealItem>
@@ -176,7 +176,7 @@ export function ConditionsTreated() {
 
                   <Link
                     href={`/services/${group.serviceId}`}
-                    className="group mt-4 inline-flex items-center gap-1.5 border-t-hairline border-charcoal/8 pt-2.5 text-[10.5px] font-medium text-forest"
+                    className="group mt-4 inline-flex items-center gap-1.5 border-t-hairline border-charcoal/8 pt-2.5 text-[10.5px] font-medium text-ink"
                   >
                     How this is handled
                     <ArrowUpRight className="h-2.5 w-2.5 transition-transform duration-500 group-hover:rotate-45" />
@@ -195,7 +195,7 @@ export function ConditionsTreated() {
               are looking for, that does not mean it cannot be helped — call the
               practice and ask.
             </p>
-            <Link href="/contact" className="btn btn-forest mt-4">
+            <Link href="/contact" className="btn btn mt-4">
               Contact the practice
               <i aria-hidden="true">
                 <ArrowUpRight className="h-3 w-3" />

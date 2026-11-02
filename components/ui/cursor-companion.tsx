@@ -101,10 +101,10 @@ export default function CursorCompanion() {
           "absolute left-0 top-0 flex items-center justify-center rounded-full border text-[9px] font-medium uppercase tracking-[0.16em] transition-[width,height,background-color,border-color,opacity] duration-300 ease-out",
           visible ? "opacity-100" : "opacity-0",
           label
-            ? "h-16 w-16 border-transparent bg-forest text-white"
+            ? "h-16 w-16 border-transparent bg-ember text-ink"
             : active
-              ? "h-10 w-10 border-forest/45 bg-forest/8 backdrop-blur-[2px]"
-              : "h-7 w-7 border-forest/30 bg-transparent",
+              ? "h-10 w-10 border-ember/45 bg-ember/8 backdrop-blur-[2px]"
+              : "h-7 w-7 border-ember/30 bg-transparent",
         )}
       >
         {label && (
@@ -114,7 +114,7 @@ export default function CursorCompanion() {
       <div
         ref={dot}
         className={cn(
-          "absolute left-0 top-0 h-1 w-1 rounded-full bg-forest transition-opacity duration-300",
+          "absolute left-0 top-0 h-1 w-1 rounded-full bg-ember transition-opacity duration-300",
           visible && !label ? "opacity-70" : "opacity-0",
         )}
       />

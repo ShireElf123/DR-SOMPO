@@ -41,7 +41,7 @@ const fields: Record<keyof EnquiryFields, { id: string; label: string }> = {
 function ContactLinks() {
   return (
     <div className="mt-5 flex flex-wrap gap-2">
-      <a href={practice.phoneHref} className="btn btn-forest min-h-12">
+      <a href={practice.phoneHref} className="btn btn min-h-12">
         <Phone className="h-3.5 w-3.5" aria-hidden="true" />
         {practice.phone}
         <i aria-hidden="true">
@@ -198,10 +198,10 @@ export function EnquiryForm({
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
       >
-        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-sage text-forest">
+        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-peach text-ink">
           <Check className="h-5 w-5" aria-hidden="true" />
         </span>
-        <h3 className="mt-4 text-xl text-forest">Request received</h3>
+        <h3 className="mt-4 text-xl text-ink">Request received</h3>
         <p className="mt-2 text-[13px] leading-relaxed text-ink-soft">
           Your enquiry has been sent to the practice. They will contact you to
           discuss availability.
@@ -218,7 +218,7 @@ export function EnquiryForm({
             </>
           )}
         </p>
-        <p className="mt-3 rounded-xl bg-ivory p-3 text-[12px] leading-relaxed text-ink-soft">
+        <p className="mt-3 rounded-xl bg-cream p-3 text-[12px] leading-relaxed text-ink-soft">
           This is not a confirmed appointment. Please contact the practice if
           you need to follow up; no response deadline is promised.
         </p>
@@ -264,21 +264,21 @@ export function EnquiryForm({
         : { role: "form" })}
       className="min-w-0 max-w-full scroll-mt-6 rounded-[1.35rem] bg-white p-5 ring-1 ring-charcoal/10 sm:p-7"
     >
-      <h3 id="appointment-heading" className="flex items-center gap-2 text-[1.0625rem] font-medium tracking-[-0.02em] text-charcoal">
-        <CalendarCheck className="h-4 w-4 text-forest" aria-hidden="true" />
+      <h3 id="appointment-heading" className="flex items-center gap-2 text-[1.0625rem] font-medium tracking-[-0.02em] text-ink">
+        <CalendarCheck className="h-4 w-4 text-ink" aria-hidden="true" />
         Request an appointment
       </h3>
       <p className="mt-1 text-[12px] leading-relaxed text-ink-soft">
         Choose your preferences. These are not available slots; the practice
         confirms the exact appointment with you.
       </p>
-      <p className="mt-4 rounded-xl bg-ivory px-3 py-2.5 text-[12px] leading-relaxed text-ink-soft">
+      <p className="mt-4 rounded-xl bg-cream px-3 py-2.5 text-[12px] leading-relaxed text-ink-soft">
         Times are in South African Standard Time (SAST). Please confirm
         consulting hours and availability directly with the practice.
       </p>
       {!onlineEnabled && (
-        <div className="mt-4 rounded-xl border border-forest/20 bg-mint/45 px-3 py-3 text-[12px] leading-relaxed text-ink-soft" data-direct-booking-notice>
-          <p className="font-medium text-forest">Book directly with the practice</p>
+        <div className="mt-4 rounded-xl border border-ember/20 bg-blush/70 px-3 py-3 text-[12px] leading-relaxed text-ink-soft" data-direct-booking-notice>
+          <p className="font-medium text-ink">Book directly with the practice</p>
           <p className="mt-1">
             The calendar and details below are available to plan your visit.
             Online sending is not connected yet: your draft stays on this page
@@ -381,8 +381,8 @@ export function EnquiryForm({
                   className={cn(
                     "relative flex min-w-[3.1rem] shrink-0 flex-col items-center rounded-xl border px-2 py-2 transition-colors duration-300",
                     selected
-                      ? "border-forest bg-forest text-white"
-                      : "border-charcoal/12 text-ink-soft hover:border-forest/40 hover:text-forest",
+                      ? "border-ember bg-ember text-ink"
+                      : "border-charcoal/12 text-ink-soft hover:border-ember/40 hover:text-ink",
                   )}
                 >
                   <span className="text-[10px] uppercase tracking-[0.08em]">
@@ -447,8 +447,8 @@ export function EnquiryForm({
                   className={cn(
                     "min-h-12 rounded-xl border px-2.5 py-2 text-left transition-colors duration-300",
                     selected
-                      ? "border-forest bg-forest text-white"
-                      : "border-charcoal/12 text-ink-soft hover:border-forest/40 hover:text-forest",
+                      ? "border-ember bg-ember text-ink"
+                      : "border-charcoal/12 text-ink-soft hover:border-ember/40 hover:text-ink",
                   )}
                 >
                   <span className="block text-[12px] font-medium leading-tight">
@@ -457,7 +457,7 @@ export function EnquiryForm({
                   <span
                     className={cn(
                       "mt-0.5 block text-[10px] tabular-nums",
-                      selected ? "text-white" : "text-ink-muted",
+                      selected ? "text-ink" : "text-ink-muted",
                     )}
                   >
                     {option.time}
@@ -492,13 +492,13 @@ export function EnquiryForm({
           </select>
         </Field>
 
-        <div className="rounded-xl bg-mint/45 p-3.5" data-appointment-summary>
+        <div className="rounded-xl bg-blush/70 p-3.5" data-appointment-summary>
           <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
-            <h4 className="text-[12px] font-medium text-forest">Your appointment preferences</h4>
+            <h4 className="text-[12px] font-medium text-ink">Your appointment preferences</h4>
             <button
               type="button"
               disabled={!values.preferredDate && !values.preferredSlot}
-              className="min-h-11 text-[12px] text-forest underline underline-offset-4 disabled:cursor-default disabled:text-ink-muted disabled:no-underline"
+              className="min-h-11 text-[12px] text-ink underline underline-offset-4 disabled:cursor-default disabled:text-ink-muted disabled:no-underline"
               onClick={() => {
                 setValues((current) => ({ ...current, preferredDate: "", preferredSlot: "" }));
                 setErrors((current) => ({ ...current, preferredDate: undefined, preferredSlot: undefined }));
@@ -541,13 +541,13 @@ export function EnquiryForm({
                 <label
                   key={method}
                   className={cn(
-                    "inline-flex min-h-11 items-center rounded-full border px-3.5 py-1.5 text-[13px] font-medium transition-colors duration-300 has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-4 has-[:focus-visible]:outline-forest lg:min-h-0 lg:text-[11px]",
+                    "inline-flex min-h-11 items-center rounded-full border px-3.5 py-1.5 text-[13px] font-medium transition-colors duration-300 has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-4 has-[:focus-visible]:outline-charcoal lg:min-h-0 lg:text-[11px]",
                     available
                       ? "cursor-pointer"
                       : "cursor-not-allowed border-dashed",
                     selected
-                      ? "border-forest bg-forest text-white"
-                      : "border-forest/20 text-ink-soft",
+                      ? "border-ember bg-ember text-ink"
+                      : "border-ember/20 text-ink-soft",
                   )}
                 >
                   <input
@@ -652,7 +652,7 @@ export function EnquiryForm({
                   aria-describedby={
                     errors.consent ? "enq-consent-error" : undefined
                   }
-                  className="mt-0.5 h-4 w-4 shrink-0 rounded border-charcoal/30 accent-forest"
+                  className="mt-0.5 h-4 w-4 shrink-0 rounded border-charcoal/30 accent-ember"
                 />
                 <span className="text-[13px] leading-relaxed text-ink-soft lg:text-[11.5px]">
                   I agree that my details may be sent to the practice and used to
@@ -667,15 +667,15 @@ export function EnquiryForm({
               href="/patient-info#privacy"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-forest underline underline-offset-2"
+              className="text-ink underline underline-offset-2"
             >
               How your enquiry is handled (opens a new tab)
             </a>
           </p>
         </div>
-        <p className="flex items-start gap-2 rounded-xl bg-ivory px-3 py-2.5 text-[12px] leading-relaxed text-ink-soft">
+        <p className="flex items-start gap-2 rounded-xl bg-cream px-3 py-2.5 text-[12px] leading-relaxed text-ink-soft">
           <ShieldAlert
-            className="mt-0.5 h-3.5 w-3.5 shrink-0 text-forest"
+            className="mt-0.5 h-3.5 w-3.5 shrink-0 text-ink"
             aria-hidden="true"
           />
           A request is not a confirmed appointment, and this is not a channel
@@ -695,7 +695,7 @@ export function EnquiryForm({
           <button
             type="submit"
             disabled={!hydrated || state === "sending"}
-            className="btn btn-forest min-h-12 w-full justify-between disabled:cursor-not-allowed disabled:opacity-70 lg:min-h-0"
+            className="btn btn min-h-12 w-full justify-between disabled:cursor-not-allowed disabled:opacity-70 lg:min-h-0"
           >
             {state === "sending" ? (
               <span className="flex items-center gap-2">
@@ -724,7 +724,7 @@ export function EnquiryForm({
         Prefer to talk?{" "}
         <a
           href={practice.phoneHref}
-          className="font-medium text-forest underline underline-offset-2"
+          className="font-medium text-ink underline underline-offset-2"
         >
           Call {practice.phone}
         </a>
@@ -735,11 +735,11 @@ export function EnquiryForm({
 
 function inputClass(hasError: boolean) {
   return cn(
-    "min-h-12 w-full min-w-0 scroll-mt-28 rounded-xl border bg-ivory/60 px-3.5 py-2.5 text-base text-charcoal placeholder:text-ink-muted lg:min-h-0 lg:text-[13px]",
-    "transition-colors duration-300 focus:bg-white focus:outline-none focus:ring-2 focus:ring-forest/30",
+    "min-h-12 w-full min-w-0 scroll-mt-28 rounded-xl border bg-cream/60 px-3.5 py-2.5 text-base text-ink placeholder:text-ink-muted lg:min-h-0 lg:text-[13px]",
+    "transition-colors duration-300 focus:bg-white focus:outline-none focus:ring-2 focus:ring-ember/30",
     hasError
       ? "border-[#c98a7a] focus:border-[#a8543f]"
-      : "border-charcoal/10 focus:border-forest",
+      : "border-charcoal/10 focus:border-ember",
   );
 }
 function FieldError({ id, error }: { id: string; error?: string }) {

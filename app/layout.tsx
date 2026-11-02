@@ -70,11 +70,15 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
+  // Both preferences report the warm cream chrome. The document is
+  // `color-scheme: only light` (see globals.css): a user in dark mode gets this
+  // audited scheme rather than a half-inverted one, which is the contrast
+  // failure the reference site exhibits in dark mode.
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#F8F7F2" },
-    { media: "(prefers-color-scheme: dark)", color: "#174D3C" },
+    { media: "(prefers-color-scheme: light)", color: "#FDF8F2" },
+    { media: "(prefers-color-scheme: dark)", color: "#FDF8F2" },
   ],
-  colorScheme: "light",
+  colorScheme: "only light",
   width: "device-width",
   initialScale: 1,
 };
@@ -82,7 +86,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-ZA" className={figtree.variable}>
-      <body className="bg-white antialiased">
+      <body className="bg-cream antialiased">
         {/* JSON-LD is generated from typed, verified content — never user input. */}
         <script
           type="application/ld+json"
@@ -95,7 +99,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-forest focus:px-4 focus:py-2 focus:text-sm focus:text-ivory"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-ember focus:px-4 focus:py-2 focus:text-sm focus:text-ink"
         >
           Skip to content
         </a>
