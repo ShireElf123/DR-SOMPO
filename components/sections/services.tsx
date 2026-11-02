@@ -23,7 +23,7 @@ const tiles: Tile[] = [
     blurb: "Monitoring and support through every trimester.",
     image: "/images/antenatal.jpg",
     href: "/services/antenatal",
-    span: "col-span-2 lg:row-span-2",
+    span: "col-span-full lg:col-span-2 lg:row-span-2",
   },
   {
     title: "Delivery",
@@ -134,7 +134,11 @@ export function Services() {
             </div>
           </div>
 
-          <div className="grid auto-rows-[13rem] grid-cols-2 gap-3 sm:gap-3.5 lg:grid-cols-4">
+          {/* One card per row on phones. Two 169px columns forced a 2.18:1
+              photograph of the hospital into a 0.81 frame — 63% of the picture
+              was cropped away — so the phone layout gives every photograph the
+              full column and a 1.56 frame instead. */}
+          <div className="grid grid-cols-1 auto-rows-[14rem] gap-3 sm:grid-cols-2 sm:auto-rows-[11rem] sm:gap-3.5 lg:auto-rows-[13rem] lg:grid-cols-4">
             {tiles.map((tile, i) => (
               <Reveal
                 key={tile.title}
@@ -145,13 +149,13 @@ export function Services() {
                 <Link
                   href={tile.href}
                   data-cursor="View"
-                  className="photo-depth group relative flex h-full min-h-[13rem] flex-col justify-end overflow-hidden rounded-[1.25rem] bg-peach p-3"
+                  className="photo-depth group relative flex h-full flex-col justify-end overflow-hidden rounded-[1.25rem] bg-peach p-3"
                 >
                   <Image
                     src={tile.image}
                     alt={tile.title}
                     fill
-                    sizes="(max-width: 640px) 46vw, (max-width: 1024px) 46vw, 30vw"
+                    sizes="(max-width: 639px) 92vw, (max-width: 1023px) 46vw, 30vw"
                     className="object-cover transition-transform duration-[1100ms] ease-out group-hover:scale-[1.05]"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/50 via-ember/10 to-transparent" />

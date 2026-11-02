@@ -825,3 +825,26 @@ html.lenis body {
 .frost-bar { backdrop-filter: var(--glass-blur); }
 
 .frost-bar { --glass-blur: blur(16px) saturate(1.15); }
+
+/* Phone type floor. The arbitrary sizes in the components were chosen on a
+   1440px canvas, where 10–11px reads as a caption. On a 390px phone the same
+   classes carry the body copy of half the cards, so everything below the
+   reading scale moves up one step under 640px: captions land at 12px and
+   micro-labels at 11px. Written as an override rather than 200 component edits
+   so the two scales stay in one place. */
+@media (max-width: 639.98px) {
+  /* Primary actions reach the 44px thumb target on phones; the pill is 37.6px
+     from the icon and padding above that. */
+  .btn {
+    padding-block: 0.55rem;
+  }
+  .text-\[10px\] {
+    font-size: 0.6875rem;
+  }
+  .text-\[11px\] {
+    font-size: 0.75rem;
+  }
+  .text-\[12px\] {
+    font-size: 0.8125rem;
+  }
+}

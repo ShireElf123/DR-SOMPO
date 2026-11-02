@@ -42,7 +42,7 @@ export function Footer() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-[12px] text-ink underline-offset-4 transition-colors hover:underline"
+                  className="inline-flex min-h-[24px] items-center text-[12px] text-ink underline-offset-4 transition-colors hover:underline"
                 >
                   {item.label}
                 </Link>
@@ -70,7 +70,7 @@ export function Footer() {
           <ul className="grid gap-1.5 text-right">
             <li className="mb-1.5 text-[11px] font-medium text-ink">Contact</li>
             <li>
-              <a href={practice.phoneHref} className="text-[12px] text-ink hover:underline">
+              <a href={practice.phoneHref} className="inline-flex min-h-[24px] items-center text-[12px] text-ink hover:underline">
                 {practice.phone}
               </a>
             </li>
@@ -79,7 +79,7 @@ export function Footer() {
             <li>
               <a
                 href={`mailto:${practice.email}`}
-                className="break-all text-[12px] text-ink hover:underline"
+                className="inline-flex min-h-[24px] items-center break-all text-[12px] text-ink hover:underline"
               >
                 {practice.email}
               </a>

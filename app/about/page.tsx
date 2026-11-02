@@ -141,7 +141,7 @@ export default function AboutPage() {
             <Reveal y={26} delay={0.1}>
               <div className="relative">
                 <Panel tone="peach" className="p-2">
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-[1.35rem]">
+                  <div className="relative aspect-[4/3] lg:aspect-[4/5] overflow-hidden rounded-[1.35rem]">
                     <ParallaxImage
                       src="/images/consultation.jpg"
                       alt="Dr Sompo in consultation with a patient"

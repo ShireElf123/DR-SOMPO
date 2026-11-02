@@ -137,7 +137,7 @@ export function ConditionsTreated() {
               >
                 {/* Photography first — the plate carries the stage of life, not
                     a service code. */}
-                <div className="photo-depth relative aspect-[16/9] overflow-hidden bg-peach">
+                <div className="photo-depth relative aspect-[4/3] overflow-hidden bg-peach sm:aspect-[16/9]">
                   <Image
                     src={media.image}
                     alt={media.alt}

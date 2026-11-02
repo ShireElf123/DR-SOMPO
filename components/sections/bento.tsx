@@ -61,7 +61,7 @@ export function BentoBand() {
             <Link
               href="/about"
               data-cursor="Meet"
-              className="group relative flex h-full min-h-[19rem] flex-col justify-end overflow-hidden rounded-[1.35rem] bg-peach p-5 sm:min-h-[23rem]"
+              className="group relative flex h-full min-h-[22rem] flex-col justify-end overflow-hidden rounded-[1.35rem] bg-peach p-5 sm:min-h-[23rem]"
             >
               <Image
                 src="/images/portrait-somp-card.jpg"
@@ -162,7 +162,7 @@ export function BentoBand() {
             <Link
               href="/contact"
               data-cursor="Directions"
-              className="group relative flex h-full min-h-[7.5rem] items-end overflow-hidden rounded-[1.35rem] bg-peach p-4"
+              className="group relative flex h-full min-h-[9rem] items-end overflow-hidden rounded-[1.35rem] bg-peach p-4"
             >
               <Image
                 src="/images/hospital-exterior.jpg"

@@ -25,25 +25,31 @@ export function FinalCta() {
         <Reveal y={22}>
           <div
             ref={ref}
-            className="relative overflow-hidden rounded-[1.5rem] sm:rounded-[1.75rem]"
+            className="relative overflow-hidden rounded-[1.5rem] bg-cream sm:rounded-[1.75rem]"
           >
-            <m.div
-              style={reduce ? undefined : { y }}
-              className="absolute inset-[-14%_0] [backface-visibility:hidden] motion-safe:will-change-transform"
-            >
-              <Image
-                src="/images/corridor.jpg"
-                alt="The corridor leading to the consulting rooms"
-                fill
-                sizes="(max-width: 1180px) 96vw, 1180px"
-                className="object-cover"
-              />
-            </m.div>
-            <div className="absolute inset-0 bg-ember/28" />
-            <div className="absolute inset-0 bg-gradient-to-t from-ember/42 via-ember/8 to-transparent" />
+            {/* On phones the photograph is a band above the invitation instead
+                of a backdrop behind it: a request this large needs a glass card
+                the width of the screen, and that card covered 74% of the
+                corridor. From sm up the copy sits over the frame again. */}
+            <div className="relative h-[12rem] w-full overflow-hidden sm:absolute sm:inset-0 sm:h-auto">
+              <m.div
+                style={reduce ? undefined : { y }}
+                className="h-full w-full [backface-visibility:hidden] motion-safe:will-change-transform sm:absolute sm:inset-[-14%_0]"
+              >
+                <Image
+                  src="/images/corridor.jpg"
+                  alt="The corridor leading to the consulting rooms"
+                  fill
+                  sizes="(max-width: 1180px) 96vw, 1180px"
+                  className="object-cover"
+                />
+              </m.div>
+              <div className="absolute inset-0 bg-ember/28" />
+              <div className="absolute inset-0 bg-gradient-to-t from-cream via-ember/12 to-transparent sm:from-ember/42 sm:via-ember/8" />
+            </div>
 
-            <div className="relative px-4 py-10 text-center sm:px-8 sm:py-16">
-              <div className="glass mx-auto max-w-[40rem] rounded-[1.35rem] px-5 py-10 text-ink sm:px-10 sm:py-14">
+            <div className="relative px-4 pb-9 pt-5 text-center sm:px-8 sm:py-16">
+              <div className="glass mx-auto max-w-[40rem] rounded-[1.35rem] px-5 py-8 text-ink max-sm:border-0 max-sm:bg-transparent max-sm:px-1 max-sm:shadow-none sm:px-10 sm:py-14">
               <p className="text-[10px] uppercase tracking-[0.2em] text-ink/75">
                 New patients welcome
               </p>

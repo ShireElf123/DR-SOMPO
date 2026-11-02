@@ -111,7 +111,7 @@ export default function ResearchPage() {
 
             <div className="space-y-3.5">
               <Reveal y={26} delay={0.08}>
-                <div className="photo-depth relative aspect-[4/5] overflow-hidden rounded-[1.35rem] bg-peach">
+                <div className="photo-depth relative aspect-[4/3] lg:aspect-[4/5] overflow-hidden rounded-[1.35rem] bg-peach">
                   <ParallaxImage
                     src="/images/patient-quiet.jpg"
                     alt="A patient in the clinic waiting area"

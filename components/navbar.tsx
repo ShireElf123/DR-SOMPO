@@ -194,7 +194,7 @@ export function Navbar() {
               <a
                 href={practice.phoneHref}
                 aria-label={`Call the practice on ${practice.phone}`}
-                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-ember text-ink shadow-soft lg:hidden"
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-ember text-ink shadow-soft lg:hidden"
               >
                 <Phone className="h-3.5 w-3.5" aria-hidden="true" />
               </a>
@@ -205,7 +205,7 @@ export function Navbar() {
                 aria-label="Open menu"
                 aria-expanded={open}
                 aria-controls="mobile-menu"
-                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-charcoal/15 text-ink lg:hidden"
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-charcoal/15 text-ink lg:hidden"
               >
                 <Menu className="h-4 w-4" aria-hidden="true" />
               </button>

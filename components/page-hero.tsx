@@ -2,6 +2,7 @@
 
 import { m, useScroll, useTransform } from "framer-motion";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
+import { useDesktopMotion } from "@/lib/use-desktop-motion";
 import Image from "@/components/ui/practice-image";
 import { ResponsivePhoto } from "@/components/ui/responsive-photo";
 import { useRef, type ReactNode } from "react";
@@ -11,6 +12,13 @@ import { WordsIn } from "@/components/ui/motion";
 /**
  * Interior page hero. Photography is always visible — full frame, no hover
  * reveal — with a slow parallax drift as the page scrolls.
+ *
+ * On phones the photograph is a band above the copy rather than a backdrop
+ * behind it: at 390px the copy plate grows taller than any usable crop, so the
+ * overlay layout buried the image under a translucent card. The plate also had
+ * to be legible, not just present, so the copy moves onto cream and the photo
+ * keeps its whole frame. From sm up the panel is wide enough for the plate to
+ * sit on a fraction of the frame and the overlay returns.
  */
 export function PageHero({
   tag,
@@ -36,6 +44,8 @@ export function PageHero({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
+  const desktopMotion = useDesktopMotion();
+  const parallax = !reduce && desktopMotion;
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -47,40 +57,51 @@ export function PageHero({
       <div className="mx-auto w-full max-w-[1180px]">
         <div
           ref={ref}
-          className="relative grid overflow-hidden rounded-[1.4rem] bg-peach sm:rounded-[1.75rem]"
+          className="relative overflow-hidden rounded-[1.4rem] bg-peach sm:grid sm:rounded-[1.75rem]"
         >
           {/* The aspect spacer and copy share a grid cell. The row grows to the
               larger of the image ratio or the complete text, including zoom. */}
           <div
             aria-hidden="true"
             className={cn(
-              "pointer-events-none col-start-1 row-start-1 w-full self-start",
+              "pointer-events-none col-start-1 row-start-1 hidden w-full self-start sm:block",
               aspect,
             )}
           />
-          {/* The layer slides 12% of its own height, so it needs at least that
-              much overflow on both edges; -8% left a visible sliver at the top
+          {/* On phones this is the framed photograph above the copy; from sm up
+              the same element becomes the full-panel parallax layer. The layer
+              slides 12% of its own height, so it needs at least that much
+              overflow on both edges; -8% left a visible sliver at the top
               whenever the image drifted furthest. */}
-          <m.div
-            style={reduce ? undefined : { y }}
-            className="absolute inset-[-14%_0] [backface-visibility:hidden] motion-safe:will-change-transform"
-          >
-            <ResponsivePhoto
-              image={image}
-              mobileImage={mobileImage}
-              alt={alt}
-            />
-          </m.div>
-
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/50 via-ember/8 to-transparent" />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ember/30 to-transparent" />
-
-          {/* The copy sits on a warm glass plate rather than on the photograph
-              itself: contrast is measured against a known cream surface at
-              every frame of the parallax, and the glass keeps the image legible
-              underneath instead of flattening it with a black scrim. */}
           <div
-            className="relative col-start-1 row-start-1 m-3 min-w-0 self-end rounded-[1.15rem] p-5 text-ink [overflow-wrap:anywhere] glass sm:m-5 sm:p-7 lg:m-7 lg:p-9"
+            className={cn(
+              "relative col-start-1 row-start-1 w-full overflow-hidden sm:absolute sm:inset-0 sm:aspect-auto",
+              aspect,
+            )}
+          >
+            <m.div
+              style={parallax ? { y } : undefined}
+              className="h-full w-full [backface-visibility:hidden] motion-safe:will-change-transform sm:absolute sm:inset-[-14%_0]"
+            >
+              <ResponsivePhoto
+                image={image}
+                mobileImage={mobileImage}
+                alt={alt}
+              />
+            </m.div>
+          </div>
+
+          <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-t from-ember/50 via-ember/8 to-transparent sm:block" />
+          <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-ember/30 to-transparent sm:block" />
+
+          {/* From sm up the copy sits on a warm glass plate rather than on the
+              photograph itself: contrast is measured against a known cream
+              surface at every frame of the parallax, and the glass keeps the
+              image legible underneath instead of flattening it with a black
+              scrim. On phones the plate would cover the whole photograph, so the
+              copy falls below it on plain cream. */}
+          <div
+            className="relative col-start-1 row-start-1 min-w-0 self-end rounded-none px-5 py-6 text-ink [overflow-wrap:anywhere] glass max-sm:border-0 max-sm:bg-cream max-sm:shadow-none sm:m-5 sm:rounded-[1.15rem] sm:p-7 lg:m-7 lg:p-9"
             data-hero-copy
           >
             <span className="tag self-start">{tag}</span>

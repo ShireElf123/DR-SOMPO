@@ -268,6 +268,16 @@ branch's puts 7%.
 Screenshots: `evidence/comparison-green-vs-rose.jpg` (heroes + scorecard) and
 `evidence/comparison-full-page.jpg` (7,529px vs 8,124px full pages).
 
+## Phone audit
+
+`mobile-audit.md` measures all twelve routes at 390 × 844: the frame each
+photograph gets, the percentage of the picture that survives it, the phone type
+scale and the touch targets. Two of the "covered pictures" were a bug — the glass
+text plates on interior heroes and the closing call to action grew to cover
+74–95 % of the image on a phone — and are now photo-above-copy bands under 640px.
+
+Screenshots: `evidence/home-390.jpg`, `evidence/services-390.jpg`.
+
 ## The identity
 
 The mark is her own illustration — mother in profile, protea, heart on the belly —

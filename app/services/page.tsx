@@ -259,7 +259,7 @@ export default function ServicesPage() {
             ].map((step, i) => (
               <Reveal key={step.label} delay={i * 0.08} y={20}>
                 <div className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] bg-cream border-hairline border-charcoal/8 hover:shadow-lift">
-                  <div className="photo-depth relative aspect-[4/3] overflow-hidden bg-peach">
+                  <div className="photo-depth relative aspect-[4/3] overflow-hidden bg-peach sm:aspect-[16/9]">
                     <Image
                       src={step.image}
                       alt={step.alt}
