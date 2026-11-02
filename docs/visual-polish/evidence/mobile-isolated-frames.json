@@ -1,0 +1,1717 @@
+{
+  "profile": "390×844 / DPR 2 / CPU 4× / 1.6Mbps down / 750Kbps up / 150ms RTT / cold cache",
+  "frames": [
+    {
+      "time": 0,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 116.70000000000005,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 166.60000000000014,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 49.94299999753139,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 66.6429999975312,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 83.34299999753125,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 100.0429999975313,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 116.6429999975312,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 149.9429999975314,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 166.6429999975312,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 183.24299999753134,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 216.74299999753134,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 233.34299999753125,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 283.34299999753125,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 316.6429999975312,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 350.0429999975313,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 399.9429999975314,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 433.24299999753134,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 466.6429999975312,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 566.6429999975312,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 583.3429999975313,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 600.0429999975313,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 633.3429999975313,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 666.6429999975312,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 699.9429999975314,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 766.6429999975312,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 999.9429999975314,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.96,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 1049.9429999975314,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.967935,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.967935,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 1083.2429999975311,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.972795,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.972795,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 1099.9429999975314,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.975118,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.975118,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 1116.6429999975312,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.977365,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.977365,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 1133.3429999975315,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.979535,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.979535,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 1149.9429999975314,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.981614,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.981614,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 1199.9429999975314,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.98738,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.98738,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 1233.2429999975311,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.990767,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.990767,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 1349.9429999975314,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.998958,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.998958,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 1383.2429999975311,
+      "settled": false,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 0.999873,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 0.999873,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 1433.2429999975311,
+      "settled": true,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 1,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 1,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 1449.9429999975314,
+      "settled": true,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 1,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 1,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 1466.6429999975312,
+      "settled": true,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 1,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 1,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 1483.2429999975311,
+      "settled": true,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 1,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 1,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 1499.9429999975314,
+      "settled": true,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 1,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 1,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 1649.9429999975314,
+      "settled": true,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 1,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 1,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 1699.8429999975315,
+      "settled": true,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 1,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 1,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    },
+    {
+      "time": 1733.3429999975315,
+      "settled": true,
+      "targets": [
+        {
+          "name": "a[href=\"/contact\"]",
+          "opacity": 1,
+          "hit": true,
+          "x": 36,
+          "y": 572.84375,
+          "width": 182.90625,
+          "height": 39.171875
+        },
+        {
+          "name": "a[href=\"/about\"]",
+          "opacity": 1,
+          "hit": true,
+          "x": 36,
+          "y": 622.015625,
+          "width": 149.6875,
+          "height": 39.171875
+        },
+        {
+          "name": "[data-hero-call]",
+          "opacity": 1,
+          "hit": true,
+          "x": 167,
+          "y": 681.1875,
+          "width": 195,
+          "height": 60
+        }
+      ],
+      "image": {
+        "width": 366,
+        "height": 648.59375,
+        "position": "62% 18%"
+      }
+    }
+  ],
+  "shifts": [],
+  "errors": []
+}

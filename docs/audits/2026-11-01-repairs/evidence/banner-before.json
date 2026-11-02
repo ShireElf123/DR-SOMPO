@@ -1,0 +1,1222 @@
+[
+  {
+    "width": 390,
+    "frames": [
+      {
+        "progress": 0,
+        "width": 1653.71875,
+        "scrollWidth": 1654,
+        "viewport": 390,
+        "right": 1653.71875,
+        "lastItemRight": 1613.71875,
+        "visible": [
+          {
+            "text": "HPCSA",
+            "left": 40,
+            "right": 100.203125
+          },
+          {
+            "text": "SASOG",
+            "left": 180.203125,
+            "right": 241.40625
+          },
+          {
+            "text": "CMSA",
+            "left": 321.40625,
+            "right": 371.96875
+          }
+        ],
+        "uncoveredRight": 0
+      },
+      {
+        "progress": 0.25,
+        "width": 1653.71875,
+        "scrollWidth": 1654,
+        "viewport": 390,
+        "right": 1447.00390625,
+        "lastItemRight": 1407.00390625,
+        "visible": [
+          {
+            "text": "SASOG",
+            "left": -26.51171875,
+            "right": 34.69140625
+          },
+          {
+            "text": "CMSA",
+            "left": 114.69140625,
+            "right": 165.25390625
+          },
+          {
+            "text": "SAMA",
+            "left": 245.25390625,
+            "right": 295.81640625
+          },
+          {
+            "text": "FIGO 2025",
+            "left": 375.81640625,
+            "right": 463.58203125
+          }
+        ],
+        "uncoveredRight": 0
+      },
+      {
+        "progress": 0.5,
+        "width": 1653.71875,
+        "scrollWidth": 1654,
+        "viewport": 390,
+        "right": 1240.2890625,
+        "lastItemRight": 1200.2890625,
+        "visible": [
+          {
+            "text": "SAMA",
+            "left": 38.5390625,
+            "right": 89.1015625
+          },
+          {
+            "text": "FIGO 2025",
+            "left": 169.1015625,
+            "right": 256.8671875
+          },
+          {
+            "text": "Wits",
+            "left": 336.8671875,
+            "right": 373.4296875
+          }
+        ],
+        "uncoveredRight": 0
+      },
+      {
+        "progress": 0.75,
+        "width": 1653.71875,
+        "scrollWidth": 1654,
+        "viewport": 390,
+        "right": 1033.57421875,
+        "lastItemRight": 993.57421875,
+        "visible": [
+          {
+            "text": "FIGO 2025",
+            "left": -37.61328125,
+            "right": 50.15234375
+          },
+          {
+            "text": "Wits",
+            "left": 130.15234375,
+            "right": 166.71484375
+          },
+          {
+            "text": "HPCSA",
+            "left": 246.71484375,
+            "right": 306.91796875
+          },
+          {
+            "text": "SASOG",
+            "left": 386.91796875,
+            "right": 448.12109375
+          }
+        ],
+        "uncoveredRight": 0
+      },
+      {
+        "progress": 0.999,
+        "width": 1653.71875,
+        "scrollWidth": 1654,
+        "viewport": 390,
+        "right": 827.686279296875,
+        "lastItemRight": 787.686279296875,
+        "visible": [
+          {
+            "text": "HPCSA",
+            "left": 40.826904296875,
+            "right": 101.030029296875
+          },
+          {
+            "text": "SASOG",
+            "left": 181.030029296875,
+            "right": 242.233154296875
+          },
+          {
+            "text": "CMSA",
+            "left": 322.233154296875,
+            "right": 372.795654296875
+          }
+        ],
+        "uncoveredRight": 0
+      }
+    ]
+  },
+  {
+    "width": 768,
+    "frames": [
+      {
+        "progress": 0,
+        "width": 1653.71875,
+        "scrollWidth": 1654,
+        "viewport": 768,
+        "right": 1653.71875,
+        "lastItemRight": 1613.71875,
+        "visible": [
+          {
+            "text": "HPCSA",
+            "left": 40,
+            "right": 100.203125
+          },
+          {
+            "text": "SASOG",
+            "left": 180.203125,
+            "right": 241.40625
+          },
+          {
+            "text": "CMSA",
+            "left": 321.40625,
+            "right": 371.96875
+          },
+          {
+            "text": "SAMA",
+            "left": 451.96875,
+            "right": 502.53125
+          },
+          {
+            "text": "FIGO 2025",
+            "left": 582.53125,
+            "right": 670.296875
+          },
+          {
+            "text": "Wits",
+            "left": 750.296875,
+            "right": 786.859375
+          }
+        ],
+        "uncoveredRight": 0
+      },
+      {
+        "progress": 0.25,
+        "width": 1653.71875,
+        "scrollWidth": 1654,
+        "viewport": 768,
+        "right": 1447.00390625,
+        "lastItemRight": 1407.00390625,
+        "visible": [
+          {
+            "text": "SASOG",
+            "left": -26.51171875,
+            "right": 34.69140625
+          },
+          {
+            "text": "CMSA",
+            "left": 114.69140625,
+            "right": 165.25390625
+          },
+          {
+            "text": "SAMA",
+            "left": 245.25390625,
+            "right": 295.81640625
+          },
+          {
+            "text": "FIGO 2025",
+            "left": 375.81640625,
+            "right": 463.58203125
+          },
+          {
+            "text": "Wits",
+            "left": 543.58203125,
+            "right": 580.14453125
+          },
+          {
+            "text": "HPCSA",
+            "left": 660.14453125,
+            "right": 720.34765625
+          }
+        ],
+        "uncoveredRight": 0
+      },
+      {
+        "progress": 0.5,
+        "width": 1653.71875,
+        "scrollWidth": 1654,
+        "viewport": 768,
+        "right": 1240.2890625,
+        "lastItemRight": 1200.2890625,
+        "visible": [
+          {
+            "text": "SAMA",
+            "left": 38.5390625,
+            "right": 89.1015625
+          },
+          {
+            "text": "FIGO 2025",
+            "left": 169.1015625,
+            "right": 256.8671875
+          },
+          {
+            "text": "Wits",
+            "left": 336.8671875,
+            "right": 373.4296875
+          },
+          {
+            "text": "HPCSA",
+            "left": 453.4296875,
+            "right": 513.6328125
+          },
+          {
+            "text": "SASOG",
+            "left": 593.6328125,
+            "right": 654.8359375
+          },
+          {
+            "text": "CMSA",
+            "left": 734.8359375,
+            "right": 785.3984375
+          }
+        ],
+        "uncoveredRight": 0
+      },
+      {
+        "progress": 0.75,
+        "width": 1653.71875,
+        "scrollWidth": 1654,
+        "viewport": 768,
+        "right": 1033.57421875,
+        "lastItemRight": 993.57421875,
+        "visible": [
+          {
+            "text": "FIGO 2025",
+            "left": -37.61328125,
+            "right": 50.15234375
+          },
+          {
+            "text": "Wits",
+            "left": 130.15234375,
+            "right": 166.71484375
+          },
+          {
+            "text": "HPCSA",
+            "left": 246.71484375,
+            "right": 306.91796875
+          },
+          {
+            "text": "SASOG",
+            "left": 386.91796875,
+            "right": 448.12109375
+          },
+          {
+            "text": "CMSA",
+            "left": 528.12109375,
+            "right": 578.68359375
+          },
+          {
+            "text": "SAMA",
+            "left": 658.68359375,
+            "right": 709.24609375
+          }
+        ],
+        "uncoveredRight": 0
+      },
+      {
+        "progress": 0.999,
+        "width": 1653.71875,
+        "scrollWidth": 1654,
+        "viewport": 768,
+        "right": 827.686279296875,
+        "lastItemRight": 787.686279296875,
+        "visible": [
+          {
+            "text": "HPCSA",
+            "left": 40.826904296875,
+            "right": 101.030029296875
+          },
+          {
+            "text": "SASOG",
+            "left": 181.030029296875,
+            "right": 242.233154296875
+          },
+          {
+            "text": "CMSA",
+            "left": 322.233154296875,
+            "right": 372.795654296875
+          },
+          {
+            "text": "SAMA",
+            "left": 452.795654296875,
+            "right": 503.358154296875
+          },
+          {
+            "text": "FIGO 2025",
+            "left": 583.358154296875,
+            "right": 671.123779296875
+          },
+          {
+            "text": "Wits",
+            "left": 751.123779296875,
+            "right": 787.686279296875
+          }
+        ],
+        "uncoveredRight": 0
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "frames": [
+      {
+        "progress": 0,
+        "width": 1653.71875,
+        "scrollWidth": 1654,
+        "viewport": 1440,
+        "right": 1653.71875,
+        "lastItemRight": 1613.71875,
+        "visible": [
+          {
+            "text": "HPCSA",
+            "left": 40,
+            "right": 100.203125
+          },
+          {
+            "text": "SASOG",
+            "left": 180.203125,
+            "right": 241.40625
+          },
+          {
+            "text": "CMSA",
+            "left": 321.40625,
+            "right": 371.96875
+          },
+          {
+            "text": "SAMA",
+            "left": 451.96875,
+            "right": 502.53125
+          },
+          {
+            "text": "FIGO 2025",
+            "left": 582.53125,
+            "right": 670.296875
+          },
+          {
+            "text": "Wits",
+            "left": 750.296875,
+            "right": 786.859375
+          },
+          {
+            "text": "HPCSA",
+            "left": 866.859375,
+            "right": 927.0625
+          },
+          {
+            "text": "SASOG",
+            "left": 1007.0625,
+            "right": 1068.265625
+          },
+          {
+            "text": "CMSA",
+            "left": 1148.265625,
+            "right": 1198.828125
+          },
+          {
+            "text": "SAMA",
+            "left": 1278.828125,
+            "right": 1329.390625
+          },
+          {
+            "text": "FIGO 2025",
+            "left": 1409.390625,
+            "right": 1497.15625
+          }
+        ],
+        "uncoveredRight": 0
+      },
+      {
+        "progress": 0.25,
+        "width": 1653.71875,
+        "scrollWidth": 1654,
+        "viewport": 1440,
+        "right": 1447.00390625,
+        "lastItemRight": 1407.00390625,
+        "visible": [
+          {
+            "text": "SASOG",
+            "left": -26.51171875,
+            "right": 34.69140625
+          },
+          {
+            "text": "CMSA",
+            "left": 114.69140625,
+            "right": 165.25390625
+          },
+          {
+            "text": "SAMA",
+            "left": 245.25390625,
+            "right": 295.81640625
+          },
+          {
+            "text": "FIGO 2025",
+            "left": 375.81640625,
+            "right": 463.58203125
+          },
+          {
+            "text": "Wits",
+            "left": 543.58203125,
+            "right": 580.14453125
+          },
+          {
+            "text": "HPCSA",
+            "left": 660.14453125,
+            "right": 720.34765625
+          },
+          {
+            "text": "SASOG",
+            "left": 800.34765625,
+            "right": 861.55078125
+          },
+          {
+            "text": "CMSA",
+            "left": 941.55078125,
+            "right": 992.11328125
+          },
+          {
+            "text": "SAMA",
+            "left": 1072.11328125,
+            "right": 1122.67578125
+          },
+          {
+            "text": "FIGO 2025",
+            "left": 1202.67578125,
+            "right": 1290.44140625
+          },
+          {
+            "text": "Wits",
+            "left": 1370.44140625,
+            "right": 1407.00390625
+          }
+        ],
+        "uncoveredRight": 0
+      },
+      {
+        "progress": 0.5,
+        "width": 1653.71875,
+        "scrollWidth": 1654,
+        "viewport": 1440,
+        "right": 1240.2890625,
+        "lastItemRight": 1200.2890625,
+        "visible": [
+          {
+            "text": "SAMA",
+            "left": 38.5390625,
+            "right": 89.1015625
+          },
+          {
+            "text": "FIGO 2025",
+            "left": 169.1015625,
+            "right": 256.8671875
+          },
+          {
+            "text": "Wits",
+            "left": 336.8671875,
+            "right": 373.4296875
+          },
+          {
+            "text": "HPCSA",
+            "left": 453.4296875,
+            "right": 513.6328125
+          },
+          {
+            "text": "SASOG",
+            "left": 593.6328125,
+            "right": 654.8359375
+          },
+          {
+            "text": "CMSA",
+            "left": 734.8359375,
+            "right": 785.3984375
+          },
+          {
+            "text": "SAMA",
+            "left": 865.3984375,
+            "right": 915.9609375
+          },
+          {
+            "text": "FIGO 2025",
+            "left": 995.9609375,
+            "right": 1083.7265625
+          },
+          {
+            "text": "Wits",
+            "left": 1163.7265625,
+            "right": 1200.2890625
+          }
+        ],
+        "uncoveredRight": 199.7109375
+      },
+      {
+        "progress": 0.75,
+        "width": 1653.71875,
+        "scrollWidth": 1654,
+        "viewport": 1440,
+        "right": 1033.57421875,
+        "lastItemRight": 993.57421875,
+        "visible": [
+          {
+            "text": "FIGO 2025",
+            "left": -37.61328125,
+            "right": 50.15234375
+          },
+          {
+            "text": "Wits",
+            "left": 130.15234375,
+            "right": 166.71484375
+          },
+          {
+            "text": "HPCSA",
+            "left": 246.71484375,
+            "right": 306.91796875
+          },
+          {
+            "text": "SASOG",
+            "left": 386.91796875,
+            "right": 448.12109375
+          },
+          {
+            "text": "CMSA",
+            "left": 528.12109375,
+            "right": 578.68359375
+          },
+          {
+            "text": "SAMA",
+            "left": 658.68359375,
+            "right": 709.24609375
+          },
+          {
+            "text": "FIGO 2025",
+            "left": 789.24609375,
+            "right": 877.01171875
+          },
+          {
+            "text": "Wits",
+            "left": 957.01171875,
+            "right": 993.57421875
+          }
+        ],
+        "uncoveredRight": 406.42578125
+      },
+      {
+        "progress": 0.999,
+        "width": 1653.71875,
+        "scrollWidth": 1654,
+        "viewport": 1440,
+        "right": 827.686279296875,
+        "lastItemRight": 787.686279296875,
+        "visible": [
+          {
+            "text": "HPCSA",
+            "left": 40.826904296875,
+            "right": 101.030029296875
+          },
+          {
+            "text": "SASOG",
+            "left": 181.030029296875,
+            "right": 242.233154296875
+          },
+          {
+            "text": "CMSA",
+            "left": 322.233154296875,
+            "right": 372.795654296875
+          },
+          {
+            "text": "SAMA",
+            "left": 452.795654296875,
+            "right": 503.358154296875
+          },
+          {
+            "text": "FIGO 2025",
+            "left": 583.358154296875,
+            "right": 671.123779296875
+          },
+          {
+            "text": "Wits",
+            "left": 751.123779296875,
+            "right": 787.686279296875
+          }
+        ],
+        "uncoveredRight": 612.313720703125
+      }
+    ]
+  },
+  {
+    "width": 1920,
+    "frames": [
+      {
+        "progress": 0,
+        "width": 1653.71875,
+        "scrollWidth": 1654,
+        "viewport": 1920,
+        "right": 1653.71875,
+        "lastItemRight": 1613.71875,
+        "visible": [
+          {
+            "text": "HPCSA",
+            "left": 40,
+            "right": 100.203125
+          },
+          {
+            "text": "SASOG",
+            "left": 180.203125,
+            "right": 241.40625
+          },
+          {
+            "text": "CMSA",
+            "left": 321.40625,
+            "right": 371.96875
+          },
+          {
+            "text": "SAMA",
+            "left": 451.96875,
+            "right": 502.53125
+          },
+          {
+            "text": "FIGO 2025",
+            "left": 582.53125,
+            "right": 670.296875
+          },
+          {
+            "text": "Wits",
+            "left": 750.296875,
+            "right": 786.859375
+          },
+          {
+            "text": "HPCSA",
+            "left": 866.859375,
+            "right": 927.0625
+          },
+          {
+            "text": "SASOG",
+            "left": 1007.0625,
+            "right": 1068.265625
+          },
+          {
+            "text": "CMSA",
+            "left": 1148.265625,
+            "right": 1198.828125
+          },
+          {
+            "text": "SAMA",
+            "left": 1278.828125,
+            "right": 1329.390625
+          },
+          {
+            "text": "FIGO 2025",
+            "left": 1409.390625,
+            "right": 1497.15625
+          },
+          {
+            "text": "Wits",
+            "left": 1577.15625,
+            "right": 1613.71875
+          }
+        ],
+        "uncoveredRight": 266.28125
+      },
+      {
+        "progress": 0.25,
+        "width": 1653.71875,
+        "scrollWidth": 1654,
+        "viewport": 1920,
+        "right": 1447.00390625,
+        "lastItemRight": 1407.00390625,
+        "visible": [
+          {
+            "text": "SASOG",
+            "left": -26.51171875,
+            "right": 34.69140625
+          },
+          {
+            "text": "CMSA",
+            "left": 114.69140625,
+            "right": 165.25390625
+          },
+          {
+            "text": "SAMA",
+            "left": 245.25390625,
+            "right": 295.81640625
+          },
+          {
+            "text": "FIGO 2025",
+            "left": 375.81640625,
+            "right": 463.58203125
+          },
+          {
+            "text": "Wits",
+            "left": 543.58203125,
+            "right": 580.14453125
+          },
+          {
+            "text": "HPCSA",
+            "left": 660.14453125,
+            "right": 720.34765625
+          },
+          {
+            "text": "SASOG",
+            "left": 800.34765625,
+            "right": 861.55078125
+          },
+          {
+            "text": "CMSA",
+            "left": 941.55078125,
+            "right": 992.11328125
+          },
+          {
+            "text": "SAMA",
+            "left": 1072.11328125,
+            "right": 1122.67578125
+          },
+          {
+            "text": "FIGO 2025",
+            "left": 1202.67578125,
+            "right": 1290.44140625
+          },
+          {
+            "text": "Wits",
+            "left": 1370.44140625,
+            "right": 1407.00390625
+          }
+        ],
+        "uncoveredRight": 472.99609375
+      },
+      {
+        "progress": 0.5,
+        "width": 1653.71875,
+        "scrollWidth": 1654,
+        "viewport": 1920,
+        "right": 1240.2890625,
+        "lastItemRight": 1200.2890625,
+        "visible": [
+          {
+            "text": "SAMA",
+            "left": 38.5390625,
+            "right": 89.1015625
+          },
+          {
+            "text": "FIGO 2025",
+            "left": 169.1015625,
+            "right": 256.8671875
+          },
+          {
+            "text": "Wits",
+            "left": 336.8671875,
+            "right": 373.4296875
+          },
+          {
+            "text": "HPCSA",
+            "left": 453.4296875,
+            "right": 513.6328125
+          },
+          {
+            "text": "SASOG",
+            "left": 593.6328125,
+            "right": 654.8359375
+          },
+          {
+            "text": "CMSA",
+            "left": 734.8359375,
+            "right": 785.3984375
+          },
+          {
+            "text": "SAMA",
+            "left": 865.3984375,
+            "right": 915.9609375
+          },
+          {
+            "text": "FIGO 2025",
+            "left": 995.9609375,
+            "right": 1083.7265625
+          },
+          {
+            "text": "Wits",
+            "left": 1163.7265625,
+            "right": 1200.2890625
+          }
+        ],
+        "uncoveredRight": 679.7109375
+      },
+      {
+        "progress": 0.75,
+        "width": 1653.71875,
+        "scrollWidth": 1654,
+        "viewport": 1920,
+        "right": 1033.57421875,
+        "lastItemRight": 993.57421875,
+        "visible": [
+          {
+            "text": "FIGO 2025",
+            "left": -37.61328125,
+            "right": 50.15234375
+          },
+          {
+            "text": "Wits",
+            "left": 130.15234375,
+            "right": 166.71484375
+          },
+          {
+            "text": "HPCSA",
+            "left": 246.71484375,
+            "right": 306.91796875
+          },
+          {
+            "text": "SASOG",
+            "left": 386.91796875,
+            "right": 448.12109375
+          },
+          {
+            "text": "CMSA",
+            "left": 528.12109375,
+            "right": 578.68359375
+          },
+          {
+            "text": "SAMA",
+            "left": 658.68359375,
+            "right": 709.24609375
+          },
+          {
+            "text": "FIGO 2025",
+            "left": 789.24609375,
+            "right": 877.01171875
+          },
+          {
+            "text": "Wits",
+            "left": 957.01171875,
+            "right": 993.57421875
+          }
+        ],
+        "uncoveredRight": 886.42578125
+      },
+      {
+        "progress": 0.999,
+        "width": 1653.71875,
+        "scrollWidth": 1654,
+        "viewport": 1920,
+        "right": 827.686279296875,
+        "lastItemRight": 787.686279296875,
+        "visible": [
+          {
+            "text": "HPCSA",
+            "left": 40.826904296875,
+            "right": 101.030029296875
+          },
+          {
+            "text": "SASOG",
+            "left": 181.030029296875,
+            "right": 242.233154296875
+          },
+          {
+            "text": "CMSA",
+            "left": 322.233154296875,
+            "right": 372.795654296875
+          },
+          {
+            "text": "SAMA",
+            "left": 452.795654296875,
+            "right": 503.358154296875
+          },
+          {
+            "text": "FIGO 2025",
+            "left": 583.358154296875,
+            "right": 671.123779296875
+          },
+          {
+            "text": "Wits",
+            "left": 751.123779296875,
+            "right": 787.686279296875
+          }
+        ],
+        "uncoveredRight": 1092.313720703125
+      }
+    ]
+  },
+  {
+    "width": 2560,
+    "frames": [
+      {
+        "progress": 0,
+        "width": 1653.71875,
+        "scrollWidth": 1654,
+        "viewport": 2560,
+        "right": 1653.71875,
+        "lastItemRight": 1613.71875,
+        "visible": [
+          {
+            "text": "HPCSA",
+            "left": 40,
+            "right": 100.203125
+          },
+          {
+            "text": "SASOG",
+            "left": 180.203125,
+            "right": 241.40625
+          },
+          {
+            "text": "CMSA",
+            "left": 321.40625,
+            "right": 371.96875
+          },
+          {
+            "text": "SAMA",
+            "left": 451.96875,
+            "right": 502.53125
+          },
+          {
+            "text": "FIGO 2025",
+            "left": 582.53125,
+            "right": 670.296875
+          },
+          {
+            "text": "Wits",
+            "left": 750.296875,
+            "right": 786.859375
+          },
+          {
+            "text": "HPCSA",
+            "left": 866.859375,
+            "right": 927.0625
+          },
+          {
+            "text": "SASOG",
+            "left": 1007.0625,
+            "right": 1068.265625
+          },
+          {
+            "text": "CMSA",
+            "left": 1148.265625,
+            "right": 1198.828125
+          },
+          {
+            "text": "SAMA",
+            "left": 1278.828125,
+            "right": 1329.390625
+          },
+          {
+            "text": "FIGO 2025",
+            "left": 1409.390625,
+            "right": 1497.15625
+          },
+          {
+            "text": "Wits",
+            "left": 1577.15625,
+            "right": 1613.71875
+          }
+        ],
+        "uncoveredRight": 906.28125
+      },
+      {
+        "progress": 0.25,
+        "width": 1653.71875,
+        "scrollWidth": 1654,
+        "viewport": 2560,
+        "right": 1447.00390625,
+        "lastItemRight": 1407.00390625,
+        "visible": [
+          {
+            "text": "SASOG",
+            "left": -26.51171875,
+            "right": 34.69140625
+          },
+          {
+            "text": "CMSA",
+            "left": 114.69140625,
+            "right": 165.25390625
+          },
+          {
+            "text": "SAMA",
+            "left": 245.25390625,
+            "right": 295.81640625
+          },
+          {
+            "text": "FIGO 2025",
+            "left": 375.81640625,
+            "right": 463.58203125
+          },
+          {
+            "text": "Wits",
+            "left": 543.58203125,
+            "right": 580.14453125
+          },
+          {
+            "text": "HPCSA",
+            "left": 660.14453125,
+            "right": 720.34765625
+          },
+          {
+            "text": "SASOG",
+            "left": 800.34765625,
+            "right": 861.55078125
+          },
+          {
+            "text": "CMSA",
+            "left": 941.55078125,
+            "right": 992.11328125
+          },
+          {
+            "text": "SAMA",
+            "left": 1072.11328125,
+            "right": 1122.67578125
+          },
+          {
+            "text": "FIGO 2025",
+            "left": 1202.67578125,
+            "right": 1290.44140625
+          },
+          {
+            "text": "Wits",
+            "left": 1370.44140625,
+            "right": 1407.00390625
+          }
+        ],
+        "uncoveredRight": 1112.99609375
+      },
+      {
+        "progress": 0.5,
+        "width": 1653.71875,
+        "scrollWidth": 1654,
+        "viewport": 2560,
+        "right": 1240.2890625,
+        "lastItemRight": 1200.2890625,
+        "visible": [
+          {
+            "text": "SAMA",
+            "left": 38.5390625,
+            "right": 89.1015625
+          },
+          {
+            "text": "FIGO 2025",
+            "left": 169.1015625,
+            "right": 256.8671875
+          },
+          {
+            "text": "Wits",
+            "left": 336.8671875,
+            "right": 373.4296875
+          },
+          {
+            "text": "HPCSA",
+            "left": 453.4296875,
+            "right": 513.6328125
+          },
+          {
+            "text": "SASOG",
+            "left": 593.6328125,
+            "right": 654.8359375
+          },
+          {
+            "text": "CMSA",
+            "left": 734.8359375,
+            "right": 785.3984375
+          },
+          {
+            "text": "SAMA",
+            "left": 865.3984375,
+            "right": 915.9609375
+          },
+          {
+            "text": "FIGO 2025",
+            "left": 995.9609375,
+            "right": 1083.7265625
+          },
+          {
+            "text": "Wits",
+            "left": 1163.7265625,
+            "right": 1200.2890625
+          }
+        ],
+        "uncoveredRight": 1319.7109375
+      },
+      {
+        "progress": 0.75,
+        "width": 1653.71875,
+        "scrollWidth": 1654,
+        "viewport": 2560,
+        "right": 1033.57421875,
+        "lastItemRight": 993.57421875,
+        "visible": [
+          {
+            "text": "FIGO 2025",
+            "left": -37.61328125,
+            "right": 50.15234375
+          },
+          {
+            "text": "Wits",
+            "left": 130.15234375,
+            "right": 166.71484375
+          },
+          {
+            "text": "HPCSA",
+            "left": 246.71484375,
+            "right": 306.91796875
+          },
+          {
+            "text": "SASOG",
+            "left": 386.91796875,
+            "right": 448.12109375
+          },
+          {
+            "text": "CMSA",
+            "left": 528.12109375,
+            "right": 578.68359375
+          },
+          {
+            "text": "SAMA",
+            "left": 658.68359375,
+            "right": 709.24609375
+          },
+          {
+            "text": "FIGO 2025",
+            "left": 789.24609375,
+            "right": 877.01171875
+          },
+          {
+            "text": "Wits",
+            "left": 957.01171875,
+            "right": 993.57421875
+          }
+        ],
+        "uncoveredRight": 1526.42578125
+      },
+      {
+        "progress": 0.999,
+        "width": 1653.71875,
+        "scrollWidth": 1654,
+        "viewport": 2560,
+        "right": 827.686279296875,
+        "lastItemRight": 787.686279296875,
+        "visible": [
+          {
+            "text": "HPCSA",
+            "left": 40.826904296875,
+            "right": 101.030029296875
+          },
+          {
+            "text": "SASOG",
+            "left": 181.030029296875,
+            "right": 242.233154296875
+          },
+          {
+            "text": "CMSA",
+            "left": 322.233154296875,
+            "right": 372.795654296875
+          },
+          {
+            "text": "SAMA",
+            "left": 452.795654296875,
+            "right": 503.358154296875
+          },
+          {
+            "text": "FIGO 2025",
+            "left": 583.358154296875,
+            "right": 671.123779296875
+          },
+          {
+            "text": "Wits",
+            "left": 751.123779296875,
+            "right": 787.686279296875
+          }
+        ],
+        "uncoveredRight": 1732.313720703125
+      }
+    ]
+  }
+]

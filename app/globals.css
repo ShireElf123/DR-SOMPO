@@ -1,0 +1,619 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-figtree), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
+
+  /* Brand palette — supplied by the practice */
+  --color-forest: #174d3c;
+  --color-forest-deep: #0f3a2d;
+  --color-forest-ink: #0a2a20;
+  --color-sage: #dcebe1;
+  --color-mint: #eaf4ee;
+  --color-ivory: #f8f7f2;
+  --color-charcoal: #222722;
+  --color-gold: #d6c6a2;
+
+  /* Editorial accents sampled from the reference composition */
+  --color-lime: #cfe3a6;
+  --color-fern: #6ea58f;
+  --color-clay: #d9a98c;
+  --color-sand: #e8d5b0;
+  --color-mist: #9cc7b2;
+
+  /* Accessible text ramps. These replace ad-hoc alpha values so every body
+     colour in the build clears WCAG AA (4.5:1) on white. */
+  --color-ink: #222722; /* 15.7:1  */
+  --color-ink-soft: #555c56; /* 7.3:1   */
+  --color-ink-muted: #626963; /* 5.7:1  */
+
+  --radius-xl2: 1.75rem;
+  --radius-xl3: 2.25rem;
+
+  /* Four depths only: resting controls, raised cards, floating callouts,
+     and the existing stacked-section edge. Consumers share these tokens. */
+  --shadow-soft: 0 1px 2px rgba(23, 77, 60, 0.04), 0 8px 24px -12px rgba(23, 77, 60, 0.18);
+  --shadow-layer: 0 -24px 60px rgba(23, 77, 60, 0.07);
+  --shadow-lift: 0 1px 2px rgba(23, 77, 60, 0.04), 0 18px 44px -24px rgba(23, 77, 60, 0.28);
+  --shadow-float: 0 2px 6px rgba(23, 77, 60, 0.05), 0 30px 70px -34px rgba(23, 77, 60, 0.4);
+
+  /* One easing voice across the whole site: a long, soft expo-out. */
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-soft: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+@layer base {
+  :root {
+    --shell: 1200px;
+    --surface-edge: 1px;
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+    /* Figtree is a variable font — this is what makes the 300 weight read
+       crisp instead of thinned out on subpixel rendering. */
+    text-rendering: optimizeLegibility;
+    font-optical-sizing: auto;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: var(--color-charcoal);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01" 1;
+    font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* One static, inline grain layer. Never intercepts input; omitted entirely
+     under reduced motion. No additional hero grain or external texture fetch. */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 90;
+    opacity: 0.045;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  ::selection {
+    background: var(--color-forest);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-forest);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* A green outline disappears on a forest panel; inverse surfaces need white. */
+  .text-white :focus-visible { outline-color: #fff; }
+
+  /* Display type: light, tightly tracked, with a hint of optical tightness at
+     large sizes. `font-synthesis: none` stops the browser faking a lighter
+     weight than the variable axis actually provides. */
+  h1,
+  h2,
+  h3 {
+    font-weight: 300;
+    font-synthesis: none;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+  }
+
+  h1 {
+    line-height: 0.98;
+    letter-spacing: -0.042em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  strong,
+  b {
+    font-weight: 600;
+  }
+}
+
+@layer components {
+  .shell {
+    width: 100%;
+    max-width: var(--shell);
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .shell {
+      padding-inline: 2rem;
+    }
+  }
+
+  /* Sections rise over one another with big rounded shoulders — the layered
+     "stacked cards" rhythm of the reference. */
+  .sec {
+    position: relative;
+    background: #fff;
+    border-radius: 2.25rem 2.25rem 0 0;
+    margin-top: -1.75rem;
+    padding-block: 4rem;
+    box-shadow: var(--shadow-layer);
+  }
+
+  .sec-tint {
+    background: var(--color-ivory);
+  }
+
+  @media (min-width: 768px) {
+    .sec {
+      border-radius: 2.75rem 2.75rem 0 0;
+      padding-block: 5.5rem;
+    }
+  }
+
+  .tag {
+    display: inline-block;
+    background: var(--color-sage);
+    color: var(--color-forest);
+    border-radius: 999px;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.01em;
+    margin-bottom: 0.9rem;
+  }
+
+  .tag-light {
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    color: #fff;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  /* Pill button with the arrow disc that the reference uses everywhere. */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: #000;
+    color: #fff;
+    padding: 0.4rem 0.4rem 0.4rem 1rem;
+    border-radius: 999px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.45s var(--ease-out-soft);
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lift);
+  }
+
+  .btn i {
+    width: 1.65rem;
+    height: 1.65rem;
+    border: 1.5px solid rgba(255, 255, 255, 0.9);
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    font-style: normal;
+    transition: transform 0.45s var(--ease-out-soft);
+  }
+
+  .btn:hover i {
+    transform: translateX(3px);
+    background: #fff;
+    color: #000;
+  }
+
+  .btn-light {
+    background: #fff;
+    color: #000;
+  }
+
+  .btn-light i {
+    border-color: #000;
+  }
+
+  .btn-light:hover i {
+    background: #000;
+    color: #fff;
+  }
+
+  .btn-glass {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: none;
+  }
+
+  .btn-forest {
+    background: var(--color-forest);
+  }
+
+  /* Understated bordered pill used for secondary actions on tinted panels. */
+  .btn-ghost {
+    background: transparent;
+    color: var(--color-charcoal);
+    border: 1px solid rgba(34, 39, 34, 0.16);
+    box-shadow: none;
+  }
+
+  .btn-ghost i {
+    border-color: rgba(34, 39, 34, 0.28);
+  }
+
+  .btn-ghost:hover i {
+    background: var(--color-charcoal);
+    color: #fff;
+    border-color: var(--color-charcoal);
+  }
+
+  .headline {
+    font-weight: 300;
+    letter-spacing: -0.035em;
+    line-height: 1.02;
+  }
+
+  /* Accessible body ramp — replaces the old low-alpha greys. */
+  .muted {
+    color: var(--color-ink-soft);
+  }
+
+  /* Give a retina stroke its own paint layer without overriding positioned
+     callouts (position utilities remain higher in the cascade). */
+  .border-hairline { position: relative; }
+
+  .hairline {
+    height: var(--surface-edge);
+    background: color-mix(in oklab, var(--color-charcoal) 10%, transparent);
+  }
+}
+
+/* Physical one-pixel edges on 2× displays, without thinning form controls,
+   icons or keyboard focus rings. 1× screens retain the original 1px fallback. */
+@media (min-resolution: 2dppx) {
+  :root { --surface-edge: 0.5px; }
+}
+
+@layer utilities {
+  .border-hairline { border-width: 1px; }
+  .border-t-hairline { border-top-width: 1px; }
+  .border-b-hairline { border-bottom-width: 1px; }
+  .border-l-hairline { border-left-width: 1px; }
+  .border-y-hairline { border-block-width: 1px; }
+  .divide-y-hairline > :not(:last-child) { border-bottom-width: 1px; }
+
+  /* Share the existing edge colours with the paint-only retina strokes. */
+  .border-charcoal\/8, .divide-charcoal\/8 { --surface-stroke: color-mix(in srgb, var(--color-charcoal) 8%, transparent); }
+  .border-charcoal\/10 { --surface-stroke: color-mix(in srgb, var(--color-charcoal) 10%, transparent); }
+  .border-charcoal\/12 { --surface-stroke: color-mix(in srgb, var(--color-charcoal) 12%, transparent); }
+  .border-forest\/8 { --surface-stroke: color-mix(in srgb, var(--color-forest) 8%, transparent); }
+  .border-forest\/10 { --surface-stroke: color-mix(in srgb, var(--color-forest) 10%, transparent); }
+  .border-forest\/20 { --surface-stroke: color-mix(in srgb, var(--color-forest) 20%, transparent); }
+  .border-white\/12 { --surface-stroke: rgb(255 255 255 / 12%); }
+  .border-white\/15 { --surface-stroke: rgb(255 255 255 / 15%); }
+  @media (hover: hover) {
+    .hover\:border-forest\/25:hover { --surface-stroke: color-mix(in srgb, var(--color-forest) 25%, transparent); }
+  }
+
+  /* Chromium rounds fractional border-width up to 1 CSS px even at 2×.
+     Inset paint preserves a genuine 0.5px edge (including rounded photos),
+     does not intercept input and composes with each card's outer depth. */
+  @media (min-resolution: 2dppx) {
+    .border-hairline { border-width: 0; }
+    .border-hairline::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      border-radius: inherit;
+      pointer-events: none;
+      box-shadow: inset 0 0 0 var(--surface-edge) var(--surface-stroke, currentColor);
+    }
+    .border-t-hairline { border-top-width: 0; box-shadow: inset 0 var(--surface-edge) 0 var(--surface-stroke, currentColor); }
+    .border-b-hairline, .divide-y-hairline > :not(:last-child) { border-bottom-width: 0; box-shadow: inset 0 calc(-1 * var(--surface-edge)) 0 var(--surface-stroke, currentColor); }
+    .border-l-hairline { border-left-width: 0; box-shadow: inset var(--surface-edge) 0 0 var(--surface-stroke, currentColor); }
+    .border-y-hairline { border-block-width: 0; box-shadow: inset 0 var(--surface-edge) 0 var(--surface-stroke, currentColor), inset 0 calc(-1 * var(--surface-edge)) 0 var(--surface-stroke, currentColor); }
+    .border-t-hairline.first\:border-0:first-child { box-shadow: none; }
+  }
+
+  .marquee-group {
+    container-type: inline-size;
+    overflow-x: auto;
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+  }
+
+  .marquee-copy {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 100vw; /* Safe fallback for older browsers. */
+    min-width: 100cqw;
+    white-space: nowrap;
+  }
+
+  .marquee-copy > * { flex-shrink: 0; }
+  .marquee-group:not([data-ready="true"]) .marquee-copy[aria-hidden="true"],
+  .marquee-group:not([data-ready="true"]) .marquee-toggle { display: none; }
+
+  .marquee-group[data-ready="true"] { overflow: hidden; }
+  .marquee-group[data-ready="true"] .marquee-track {
+    animation: marquee 26s linear infinite;
+  }
+  .marquee-group[data-ready="true"] .marquee-slow { animation-duration: 46s; }
+
+  .marquee-group:focus-visible .marquee-track,
+  .marquee-group[data-paused="true"] .marquee-track { animation-play-state: paused; }
+  @media (hover: hover) {
+    .marquee-group:hover .marquee-track { animation-play-state: paused; }
+  }
+
+  /* Hero wash. Layered radial light rather than a flat three-stop gradient, so
+     there is depth in the surface instead of a banded ramp. */
+  .fig-gradient {
+    background:
+      radial-gradient(120% 90% at 78% 8%, rgba(246, 231, 200, 0.92), transparent 46%),
+      radial-gradient(90% 80% at 96% 62%, rgba(156, 199, 178, 0.75), transparent 52%),
+      radial-gradient(80% 70% at 4% 104%, rgba(23, 77, 60, 0.95), transparent 58%),
+      linear-gradient(118deg, #2f7a62 0%, #6ea58f 42%, #b9d3c3 68%, #e8d5b0 100%);
+  }
+
+  /* Keep white hero copy readable over the wash without flattening the
+     sage/gold light or darkening the portrait on the right. */
+  @media (min-width: 640px) {
+    .fig-gradient::after {
+      --hero-shade: 0.72;
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(90deg, rgba(10, 42, 32, var(--hero-shade)) min(38.5rem, 80%), transparent calc(min(38.5rem, 80%) + 12rem));
+    }
+  }
+  @media (min-width: 1024px) {
+    .fig-gradient::after { --hero-shade: 0.56; }
+  }
+  .hero-photo-scrim {
+    background: linear-gradient(180deg, rgba(10, 42, 32, 0.62) 0%, rgba(10, 42, 32, 0.68) 45%, rgba(10, 42, 32, 0.78) 100%);
+  }
+
+  /* Deep forest wash for the research panel. */
+  .forest-gradient {
+    background:
+      radial-gradient(100% 120% at 92% 0%, rgba(110, 165, 143, 0.55), transparent 55%),
+      radial-gradient(90% 90% at 0% 100%, rgba(10, 42, 32, 0.9), transparent 60%),
+      linear-gradient(135deg, #174d3c 0%, #0f3a2d 100%);
+  }
+
+  .ticker-gradient {
+    background: linear-gradient(90deg, #d8f2a8, #cfe3a6 28%, #3f9a78);
+  }
+
+  /* Keep the existing sRGB recipes above as real fallbacks. Only the large
+     colour washes opt in; legibility overlays keep the same endpoints in
+     both interpolation modes. */
+  @supports (background: linear-gradient(0deg in oklab, #000, #fff)) {
+    .fig-gradient {
+      background:
+        radial-gradient(120% 90% at 78% 8% in oklab, rgba(246, 231, 200, 0.92), transparent 46%),
+        radial-gradient(90% 80% at 96% 62% in oklab, rgba(156, 199, 178, 0.75), transparent 52%),
+        radial-gradient(80% 70% at 4% 104% in oklab, rgba(23, 77, 60, 0.95), transparent 58%),
+        linear-gradient(118deg in oklab, #2f7a62 0%, #6ea58f 42%, #b9d3c3 68%, #e8d5b0 100%);
+    }
+    .fig-gradient::after {
+      background: linear-gradient(90deg in oklab, rgba(10, 42, 32, var(--hero-shade)) min(38.5rem, 80%), transparent calc(min(38.5rem, 80%) + 12rem));
+    }
+    .hero-photo-scrim {
+      background: linear-gradient(180deg in oklab, rgba(10, 42, 32, 0.62) 0%, rgba(10, 42, 32, 0.68) 45%, rgba(10, 42, 32, 0.78) 100%);
+    }
+    .forest-gradient {
+      background:
+        radial-gradient(100% 120% at 92% 0% in oklab, rgba(110, 165, 143, 0.55), transparent 55%),
+        radial-gradient(90% 90% at 0% 100% in oklab, rgba(10, 42, 32, 0.9), transparent 60%),
+        linear-gradient(135deg in oklab, #174d3c 0%, #0f3a2d 100%);
+    }
+    .ticker-gradient {
+      background: linear-gradient(90deg in oklab, #d8f2a8, #cfe3a6 28%, #3f9a78);
+    }
+  }
+
+  /* Masked line reveal — used where a heading needs to wipe up from nothing. */
+  .mask-line {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+  }
+}
+
+/* One opening sequence, finishing at 1.4s. Only copy moves; the photograph
+   settles inside its stationary frame and both call/booking targets stay put.
+   These rules also work before hydration. The default/reduced state is final. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-photo-arrival { animation: hero-photo-in 0.35s ease-out backwards; }
+  .hero-copy-arrival { animation: hero-copy-in 0.55s var(--ease-out-soft) backwards; }
+  .hero-label, .hero-headline { animation-delay: 0.35s; }
+  .hero-support { animation-delay: 0.65s; }
+  .hero-credentials { animation-delay: 0.8s; }
+  /* Never hide, translate, disable or intercept an action during arrival. */
+  .hero-actions { animation: hero-actions-in 0.4s ease-out 1s backwards; }
+  .hero-actions:focus-within { animation: none; }
+  .hero-pill-label { animation: hero-copy-in 0.45s var(--ease-out-soft) backwards; }
+  .hero-scroll-cue { animation: hero-scroll 2.2s ease-in-out infinite; }
+
+  #top[data-hero-active="false"] *,
+  #top[data-hero-active="false"] *::before,
+  #top[data-hero-active="false"] *::after { animation-play-state: paused; transition: none; }
+}
+
+@keyframes hero-photo-in {
+  from { opacity: 0.9; filter: blur(1px); }
+  to { opacity: 1; filter: none; }
+}
+@keyframes hero-copy-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes hero-actions-in {
+  from { opacity: 0.96; }
+  to { opacity: 1; }
+}
+@keyframes hero-scroll {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(260%); }
+}
+
+/* The complete journey is the default: readable on touch, reduced motion,
+   without JS, and without scroll-timeline support. Markers/line stay outside
+   the cards; the narrow layout has a quiet vertical connection in its gutter. */
+.journey-list { --journey-gap: 0.875rem; display: grid; gap: var(--journey-gap); }
+.journey-step { position: relative; padding-left: 2.5rem; }
+.journey-number { position: absolute; z-index: 1; left: 0; top: 0; }
+.journey-connector {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  bottom: calc(-1 * var(--journey-gap) - 14px);
+  width: var(--surface-edge);
+  background: color-mix(in srgb, var(--color-forest) 26%, transparent);
+  transform-origin: left center;
+  pointer-events: none;
+}
+.journey-card:focus-visible {
+  --surface-stroke: var(--color-forest);
+  outline: 2px solid var(--color-forest);
+  outline-offset: 4px;
+  border-color: var(--color-forest);
+  border-radius: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .journey-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .journey-step { padding-left: 0; padding-top: 2.75rem; }
+  .journey-number { left: calc(50% - 14px); }
+  .journey-connector {
+    left: 50%;
+    bottom: auto;
+    width: calc(100% + var(--journey-gap));
+    height: var(--surface-edge);
+  }
+}
+
+@media (min-width: 640px) and (hover: hover) and (pointer: fine) and (not (any-pointer: coarse)) and (prefers-reduced-motion: no-preference) {
+  .journey-card { transition: transform 0.35s var(--ease-out-soft); }
+  .journey-photo { transition: transform 0.65s var(--ease-out-soft); }
+  .journey-card:is(:hover, :focus-visible) {
+    --surface-stroke: var(--color-forest);
+    transform: translateY(-4px);
+    border-color: var(--color-forest);
+    box-shadow: var(--shadow-lift);
+  }
+  .journey-card:is(:hover, :focus-visible) .journey-photo { transform: scale(1.035); }
+
+  /* Native, entry-only timelines: no scroll handlers, MotionValues, animation
+     loop or JS payload. The range finishes before the card copy comes into view;
+     fill keeps the final state when scrolling farther down, not an exit effect. */
+  @supports (animation-timeline: view()) {
+    .journey-list { view-timeline-name: --journey-entry; view-timeline-axis: block; }
+    .journey-connector {
+      animation: journey-line-in 1s ease-out both;
+      animation-timeline: --journey-entry;
+      animation-range: entry calc(var(--step) * 20%) entry calc(45% + var(--step) * 20%);
+    }
+    .journey-step-reveal {
+      animation: journey-step-in 1s var(--ease-out-soft) both;
+      animation-timeline: --journey-entry;
+      animation-range: entry calc(5% + var(--step) * 10%) entry calc(40% + var(--step) * 10%);
+    }
+    /* Keyboard readers never have to scroll through a reveal to read/focus. */
+    .journey-list:focus-within .journey-connector,
+    .journey-list:focus-within .journey-step-reveal { animation: none; }
+  }
+}
+
+@keyframes journey-line-in {
+  from { transform: scaleX(0); }
+  to { transform: none; }
+}
+@keyframes journey-step-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Lenis: hand scroll-behaviour over to the library while it is running. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+@keyframes sway {
+  to {
+    transform: rotate(14deg) translateY(10px);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Respect the user's motion preferences everywhere. */
+@media (prefers-reduced-motion: reduce) {
+  body::after { display: none; background-image: none; }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .marquee-track { animation: none !important; width: 100%; }
+  .marquee-copy { min-width: 0; width: 100%; flex-wrap: wrap; row-gap: 0.75rem; white-space: normal; }
+  .marquee-copy[aria-hidden="true"], .marquee-toggle { display: none; }
+}
+
+/* A phone uses the portrait as its static full-frame background. Never inherit
+   desktop image scale/translation when navigating or rotating a small device. */
+@media (max-width: 639px) {
+  .home-portrait-motion { transform: none !important; }
+}

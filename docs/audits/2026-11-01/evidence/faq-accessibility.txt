@@ -1,0 +1,45 @@
+- region "Questions, answered.":
+  - text: Patient information
+  - heading "Questions, answered." [level=2]
+  - paragraph: If something is not covered here, the practice would rather you asked than wondered.
+  - img "The practice waiting area"
+  - list:
+    - listitem:
+      - heading "How do I make an appointment?" [level=3]:
+        - button "How do I make an appointment?" [expanded]
+      - region "How do I make an appointment?":
+        - paragraph: Appointment enquiries are handled by telephone on 011 842 7651 or by email to chrisscrcross2013@gmail.com. WhatsApp enquiry will be offered once the practice confirms a WhatsApp-enabled number. Submitting an enquiry does not constitute a confirmed appointment — the practice will confirm your date and time directly.
+    - listitem:
+      - heading "What should I bring to my first consultation?" [level=3]:
+        - button "What should I bring to my first consultation?"
+      - region "What should I bring to my first consultation?":
+        - paragraph: Please bring your ID or passport, your medical aid card if you have one, a list of current medications, and any previous results, scans or referral letters that are relevant. If you are pregnant, bring any antenatal records you already have.
+    - listitem:
+      - heading "Where does Dr Sompo consult?" [level=3]:
+        - button "Where does Dr Sompo consult?"
+      - region "Where does Dr Sompo consult?":
+        - paragraph: Dr Sompo practises at Life Roseacres Hospital, on the corner of St Joseph and Castor Road, Primrose, Germiston, Johannesburg. Please confirm the exact consulting-room and address details with the practice when you book.
+    - listitem:
+      - heading "Does the practice accept medical aid?" [level=3]:
+        - button "Does the practice accept medical aid?"
+      - region "Does the practice accept medical aid?":
+        - paragraph: Please confirm medical aid arrangements, tariffs and any co-payment directly with the practice before your visit. The website does not publish billing details on the practice's behalf.
+    - listitem:
+      - heading "Can I ask clinical questions through the website?" [level=3]:
+        - button "Can I ask clinical questions through the website?"
+      - region "Can I ask clinical questions through the website?":
+        - paragraph: No. This website is not a clinical channel. Please do not send symptoms, results or other sensitive medical information through the enquiry form or by email. Clinical questions are best discussed in a consultation, and urgent concerns should be directed to the hospital or your nearest emergency department.
+    - listitem:
+      - heading "In what languages can I be seen?" [level=3]:
+        - button "In what languages can I be seen?"
+      - region "In what languages can I be seen?":
+        - paragraph: Consultations are available in English and French.
+    - listitem:
+      - heading "Is my enquiry handled confidentially?" [level=3]:
+        - button "Is my enquiry handled confidentially?"
+      - region "Is my enquiry handled confidentially?":
+        - paragraph: Yes. Enquiries are received by the practice and handled in line with South African privacy law, including the Protection of Personal Information Act (POPIA). Only the minimum information needed to arrange your appointment is requested.
+  - paragraph:
+    - text: Still unsure? Call
+    - link "011 842 7651":
+      - /url: tel:+27118427651

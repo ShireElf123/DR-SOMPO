@@ -1,0 +1,180 @@
+[
+  {
+    "test": "radio-visible-focus-final",
+    "detail": {
+      "tag": "INPUT",
+      "name": "contactMethod",
+      "value": "Telephone",
+      "focusVisible": true,
+      "input": {
+        "rect": {
+          "x": 54,
+          "y": 458.234375,
+          "width": 1,
+          "height": 1,
+          "top": 458.234375,
+          "right": 55,
+          "bottom": 459.234375,
+          "left": 54
+        },
+        "clip": "auto",
+        "clipPath": "inset(50%)",
+        "overflow": "hidden",
+        "outline": "rgb(23, 77, 60) solid 2px",
+        "boxShadow": "none"
+      },
+      "label": {
+        "rect": {
+          "x": 40,
+          "y": 436.734375,
+          "width": 90,
+          "height": 44,
+          "top": 436.734375,
+          "right": 130,
+          "bottom": 480.734375,
+          "left": 40
+        },
+        "focusWithin": true,
+        "outline": "rgb(255, 255, 255) none 3px",
+        "outlineOffset": "0px",
+        "boxShadow": "none",
+        "border": "1px solid rgb(23, 77, 60)",
+        "background": "rgb(23, 77, 60)",
+        "className": "inline-flex min-h-11 cursor-pointer items-center rounded-full border px-3.5 py-1.5 text-[13px] font-medium transition-colors duration-300 lg:min-h-0 lg:text-[11px] border-forest bg-forest text-white"
+      }
+    }
+  },
+  {
+    "test": "hero-responsive-images-final",
+    "path": "/",
+    "detail": {
+      "heroFound": true,
+      "images": [
+        {
+          "src": "http://127.0.0.1:3010/_next/image?url=%2Fimages%2Fhero-doctor.jpg&w=1200&q=75",
+          "alt": "",
+          "rendered": true,
+          "width": 366,
+          "height": 608.59375,
+          "encodedBytes": 47233,
+          "loading": "auto",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:3010/_next/image?url=%2Fimages%2Fhero-doctor.jpg&w=640&q=75",
+          "alt": "Dr CM Ngwey-Sompo, specialist obstetrician and gynaecologist",
+          "rendered": false,
+          "width": 0,
+          "height": 0,
+          "encodedBytes": 18486,
+          "loading": "auto",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:3010/_next/image?url=%2Fimages%2Fconsultation.jpg&w=256&q=75",
+          "alt": "",
+          "rendered": true,
+          "width": 44,
+          "height": 44,
+          "encodedBytes": 4215,
+          "loading": "lazy",
+          "complete": true
+        }
+      ],
+      "preloads": [
+        {
+          "media": "",
+          "srcset": "/_next/image?url=%2Fimages%2Fhero-doctor.jpg&w=420&q=75 420w, /_next/image?url=%2Fimages%2Fhero-doctor.jpg&w=640&q=75 640w, /_next/image?url=%2Fimages%2Fhero-doctor.jpg&w=828&q=75 828w, /_next/image?url=%2Fimages%2Fhero-doctor.jpg&w=1080&q=75 1080w, /_next/image?url=%2Fimages%2Fhero-doctor.jpg&w=1200&q=75 1200w, /_next/image?url=%2Fimages%2Fhero-doctor.jpg&w=1600&q=75 1600w",
+          "sizes": "(max-width: 640px) 100vw, (max-width: 1180px) 96vw, 1180px"
+        },
+        {
+          "media": "",
+          "srcset": "/_next/image?url=%2Fimages%2Fhero-doctor.jpg&w=256&q=75 256w, /_next/image?url=%2Fimages%2Fhero-doctor.jpg&w=384&q=75 384w, /_next/image?url=%2Fimages%2Fhero-doctor.jpg&w=420&q=75 420w, /_next/image?url=%2Fimages%2Fhero-doctor.jpg&w=640&q=75 640w, /_next/image?url=%2Fimages%2Fhero-doctor.jpg&w=828&q=75 828w, /_next/image?url=%2Fimages%2Fhero-doctor.jpg&w=1080&q=75 1080w, /_next/image?url=%2Fimages%2Fhero-doctor.jpg&w=1200&q=75 1200w, /_next/image?url=%2Fimages%2Fhero-doctor.jpg&w=1600&q=75 1600w",
+          "sizes": "(max-width: 1024px) 54vw, 46vw"
+        }
+      ]
+    }
+  },
+  {
+    "test": "hero-responsive-images-final",
+    "path": "/research",
+    "detail": {
+      "heroFound": true,
+      "images": [
+        {
+          "src": "http://127.0.0.1:3010/_next/image?url=%2Fimages%2Fresearch-desk.jpg&w=1200&q=75",
+          "alt": "Laboratory microscope and research folders",
+          "rendered": true,
+          "width": 366,
+          "height": 292.78125,
+          "encodedBytes": 52908,
+          "loading": "auto",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:3010/_next/image?url=%2Fimages%2Fcervical-research.jpg&w=1200&q=75",
+          "alt": "",
+          "rendered": false,
+          "width": 0,
+          "height": 0,
+          "encodedBytes": 23253,
+          "loading": "auto",
+          "complete": true
+        }
+      ],
+      "preloads": [
+        {
+          "media": "",
+          "srcset": "/_next/image?url=%2Fimages%2Fresearch-desk.jpg&w=420&q=75 420w, /_next/image?url=%2Fimages%2Fresearch-desk.jpg&w=640&q=75 640w, /_next/image?url=%2Fimages%2Fresearch-desk.jpg&w=828&q=75 828w, /_next/image?url=%2Fimages%2Fresearch-desk.jpg&w=1080&q=75 1080w, /_next/image?url=%2Fimages%2Fresearch-desk.jpg&w=1200&q=75 1200w, /_next/image?url=%2Fimages%2Fresearch-desk.jpg&w=1600&q=75 1600w",
+          "sizes": "100vw"
+        },
+        {
+          "media": "",
+          "srcset": "/_next/image?url=%2Fimages%2Fcervical-research.jpg&w=420&q=75 420w, /_next/image?url=%2Fimages%2Fcervical-research.jpg&w=640&q=75 640w, /_next/image?url=%2Fimages%2Fcervical-research.jpg&w=828&q=75 828w, /_next/image?url=%2Fimages%2Fcervical-research.jpg&w=1080&q=75 1080w, /_next/image?url=%2Fimages%2Fcervical-research.jpg&w=1200&q=75 1200w, /_next/image?url=%2Fimages%2Fcervical-research.jpg&w=1600&q=75 1600w",
+          "sizes": "(max-width: 1180px) 96vw, 1180px"
+        }
+      ]
+    }
+  },
+  {
+    "test": "hero-responsive-images-final",
+    "path": "/contact",
+    "detail": {
+      "heroFound": true,
+      "images": [
+        {
+          "src": "http://127.0.0.1:3010/_next/image?url=%2Fimages%2Fcorridor.jpg&w=1200&q=75",
+          "alt": "Life Roseacres Hospital entrance in Primrose, Germiston",
+          "rendered": true,
+          "width": 366,
+          "height": 322.0625,
+          "encodedBytes": 22869,
+          "loading": "auto",
+          "complete": true
+        },
+        {
+          "src": "http://127.0.0.1:3010/_next/image?url=%2Fimages%2Fhospital-exterior.jpg&w=1200&q=75",
+          "alt": "",
+          "rendered": false,
+          "width": 0,
+          "height": 0,
+          "encodedBytes": 65744,
+          "loading": "auto",
+          "complete": true
+        }
+      ],
+      "preloads": [
+        {
+          "media": "",
+          "srcset": "/_next/image?url=%2Fimages%2Fcorridor.jpg&w=420&q=75 420w, /_next/image?url=%2Fimages%2Fcorridor.jpg&w=640&q=75 640w, /_next/image?url=%2Fimages%2Fcorridor.jpg&w=828&q=75 828w, /_next/image?url=%2Fimages%2Fcorridor.jpg&w=1080&q=75 1080w, /_next/image?url=%2Fimages%2Fcorridor.jpg&w=1200&q=75 1200w, /_next/image?url=%2Fimages%2Fcorridor.jpg&w=1600&q=75 1600w",
+          "sizes": "100vw"
+        },
+        {
+          "media": "",
+          "srcset": "/_next/image?url=%2Fimages%2Fhospital-exterior.jpg&w=420&q=75 420w, /_next/image?url=%2Fimages%2Fhospital-exterior.jpg&w=640&q=75 640w, /_next/image?url=%2Fimages%2Fhospital-exterior.jpg&w=828&q=75 828w, /_next/image?url=%2Fimages%2Fhospital-exterior.jpg&w=1080&q=75 1080w, /_next/image?url=%2Fimages%2Fhospital-exterior.jpg&w=1200&q=75 1200w, /_next/image?url=%2Fimages%2Fhospital-exterior.jpg&w=1600&q=75 1600w",
+          "sizes": "(max-width: 1180px) 96vw, 1180px"
+        }
+      ]
+    }
+  }
+]

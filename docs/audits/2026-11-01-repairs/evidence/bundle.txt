@@ -1,0 +1,23 @@
+
+> dr-ngwey-sompo@1.0.0 analyze
+> node scripts/analyze-bundle.mjs
+
+┌─────────┬─────────────────┬────────────────┬─────────────┬─────────────┬──────────────────┬──────────────────────┬────────────┬───────────────┐
+│ (index) │ route           │ modern scripts │ modern raw  │ modern gzip │ legacy-only gzip │ all script tags gzip │ CSS gzip   │ HTML/RSC gzip │
+├─────────┼─────────────────┼────────────────┼─────────────┼─────────────┼──────────────────┼──────────────────────┼────────────┼───────────────┤
+│ 0       │ '/'             │ 12             │ '636.9 KiB' │ '199.8 KiB' │ '38.6 KiB'       │ '238.4 KiB'          │ '14.6 KiB' │ '25.7 KiB'    │
+│ 1       │ '/services'     │ 12             │ '633.4 KiB' │ '199.5 KiB' │ '38.6 KiB'       │ '238.1 KiB'          │ '14.6 KiB' │ '19.3 KiB'    │
+│ 2       │ '/about'        │ 12             │ '627.6 KiB' │ '197.6 KiB' │ '38.6 KiB'       │ '236.2 KiB'          │ '14.6 KiB' │ '15.9 KiB'    │
+│ 3       │ '/research'     │ 12             │ '627.6 KiB' │ '197.6 KiB' │ '38.6 KiB'       │ '236.2 KiB'          │ '14.6 KiB' │ '15.9 KiB'    │
+│ 4       │ '/patient-info' │ 12             │ '627.6 KiB' │ '197.6 KiB' │ '38.6 KiB'       │ '236.2 KiB'          │ '14.6 KiB' │ '16.2 KiB'    │
+└─────────┴─────────────────┴────────────────┴─────────────┴─────────────┴──────────────────┴──────────────────────┴────────────┴───────────────┘
+Optional desktop scroll chunk(s): [
+  {
+    src: '/_next/static/chunks/2j1qdg6u05qhu.js',
+    raw: 18782,
+    gzip: 5432,
+    gzipKiB: '5.3 KiB'
+  }
+]
+Gzip level 9; excludes HTML/inline RSC data, images, fonts and route prefetches.
+Modern browsers skip noModule scripts. These are estimates, not live transfer timings.

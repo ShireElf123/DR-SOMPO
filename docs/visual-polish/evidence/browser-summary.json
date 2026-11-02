@@ -1,0 +1,796 @@
+{
+  "startTime": "2026-11-01T20:57:56.328Z",
+  "duration": 256128.295,
+  "expected": 131,
+  "skipped": 0,
+  "unexpected": 0,
+  "flaky": 0,
+  "tests": [
+    {
+      "title": "WCAG automated checks on / at 390px",
+      "file": "accessibility.spec.ts",
+      "status": "passed",
+      "durationMs": 3256
+    },
+    {
+      "title": "WCAG automated checks on /services at 390px",
+      "file": "accessibility.spec.ts",
+      "status": "passed",
+      "durationMs": 2746
+    },
+    {
+      "title": "WCAG automated checks on /about at 390px",
+      "file": "accessibility.spec.ts",
+      "status": "passed",
+      "durationMs": 2154
+    },
+    {
+      "title": "WCAG automated checks on /research at 390px",
+      "file": "accessibility.spec.ts",
+      "status": "passed",
+      "durationMs": 2077
+    },
+    {
+      "title": "WCAG automated checks on /patient-info at 390px",
+      "file": "accessibility.spec.ts",
+      "status": "passed",
+      "durationMs": 1954
+    },
+    {
+      "title": "WCAG automated checks on /contact at 390px",
+      "file": "accessibility.spec.ts",
+      "status": "passed",
+      "durationMs": 2395
+    },
+    {
+      "title": "WCAG automated checks on /this-page-does-not-exist at 390px",
+      "file": "accessibility.spec.ts",
+      "status": "passed",
+      "durationMs": 1849
+    },
+    {
+      "title": "WCAG automated checks on /services/antenatal at 390px",
+      "file": "accessibility.spec.ts",
+      "status": "passed",
+      "durationMs": 1992
+    },
+    {
+      "title": "WCAG automated checks on /services/delivery at 390px",
+      "file": "accessibility.spec.ts",
+      "status": "passed",
+      "durationMs": 2091
+    },
+    {
+      "title": "WCAG automated checks on /services/general at 390px",
+      "file": "accessibility.spec.ts",
+      "status": "passed",
+      "durationMs": 2061
+    },
+    {
+      "title": "WCAG automated checks on /services/oncology at 390px",
+      "file": "accessibility.spec.ts",
+      "status": "passed",
+      "durationMs": 2042
+    },
+    {
+      "title": "WCAG automated checks on /services/fertility-assessment at 390px",
+      "file": "accessibility.spec.ts",
+      "status": "passed",
+      "durationMs": 2122
+    },
+    {
+      "title": "WCAG automated checks on /services/laparoscopy at 390px",
+      "file": "accessibility.spec.ts",
+      "status": "passed",
+      "durationMs": 2399
+    },
+    {
+      "title": "WCAG automated checks on / at 1440px",
+      "file": "accessibility.spec.ts",
+      "status": "passed",
+      "durationMs": 3471
+    },
+    {
+      "title": "WCAG automated checks on /services at 1440px",
+      "file": "accessibility.spec.ts",
+      "status": "passed",
+      "durationMs": 3039
+    },
+    {
+      "title": "WCAG automated checks on /about at 1440px",
+      "file": "accessibility.spec.ts",
+      "status": "passed",
+      "durationMs": 2415
+    },
+    {
+      "title": "WCAG automated checks on /research at 1440px",
+      "file": "accessibility.spec.ts",
+      "status": "passed",
+      "durationMs": 2609
+    },
+    {
+      "title": "WCAG automated checks on /patient-info at 1440px",
+      "file": "accessibility.spec.ts",
+      "status": "passed",
+      "durationMs": 2671
+    },
+    {
+      "title": "WCAG automated checks on /contact at 1440px",
+      "file": "accessibility.spec.ts",
+      "status": "passed",
+      "durationMs": 2783
+    },
+    {
+      "title": "WCAG automated checks on /this-page-does-not-exist at 1440px",
+      "file": "accessibility.spec.ts",
+      "status": "passed",
+      "durationMs": 2102
+    },
+    {
+      "title": "WCAG automated checks on /services/antenatal at 1440px",
+      "file": "accessibility.spec.ts",
+      "status": "passed",
+      "durationMs": 2460
+    },
+    {
+      "title": "WCAG automated checks on /services/delivery at 1440px",
+      "file": "accessibility.spec.ts",
+      "status": "passed",
+      "durationMs": 2595
+    },
+    {
+      "title": "WCAG automated checks on /services/general at 1440px",
+      "file": "accessibility.spec.ts",
+      "status": "passed",
+      "durationMs": 2551
+    },
+    {
+      "title": "WCAG automated checks on /services/oncology at 1440px",
+      "file": "accessibility.spec.ts",
+      "status": "passed",
+      "durationMs": 2583
+    },
+    {
+      "title": "WCAG automated checks on /services/fertility-assessment at 1440px",
+      "file": "accessibility.spec.ts",
+      "status": "passed",
+      "durationMs": 2618
+    },
+    {
+      "title": "WCAG automated checks on /services/laparoscopy at 1440px",
+      "file": "accessibility.spec.ts",
+      "status": "passed",
+      "durationMs": 2659
+    },
+    {
+      "title": "contact keeps its intended columns at 768px",
+      "file": "appointment-mobile.spec.ts",
+      "status": "passed",
+      "durationMs": 1761
+    },
+    {
+      "title": "contact keeps its intended columns at 1024px",
+      "file": "appointment-mobile.spec.ts",
+      "status": "passed",
+      "durationMs": 1891
+    },
+    {
+      "title": "contact keeps its intended columns at 1440px",
+      "file": "appointment-mobile.spec.ts",
+      "status": "passed",
+      "durationMs": 1790
+    },
+    {
+      "title": "form fits 320px, with readable inputs and a contained date strip",
+      "file": "appointment-mobile.spec.ts",
+      "status": "passed",
+      "durationMs": 3710
+    },
+    {
+      "title": "form fits 360px, with readable inputs and a contained date strip",
+      "file": "appointment-mobile.spec.ts",
+      "status": "passed",
+      "durationMs": 3199
+    },
+    {
+      "title": "form fits 375px, with readable inputs and a contained date strip",
+      "file": "appointment-mobile.spec.ts",
+      "status": "passed",
+      "durationMs": 3390
+    },
+    {
+      "title": "form fits 390px, with readable inputs and a contained date strip",
+      "file": "appointment-mobile.spec.ts",
+      "status": "passed",
+      "durationMs": 3428
+    },
+    {
+      "title": "form fits 414px, with readable inputs and a contained date strip",
+      "file": "appointment-mobile.spec.ts",
+      "status": "passed",
+      "durationMs": 3479
+    },
+    {
+      "title": "form fits 430px, with readable inputs and a contained date strip",
+      "file": "appointment-mobile.spec.ts",
+      "status": "passed",
+      "durationMs": 3807
+    },
+    {
+      "title": "Home's appointment tile keeps the contact page at phone width",
+      "file": "appointment-mobile.spec.ts",
+      "status": "passed",
+      "durationMs": 3422
+    },
+    {
+      "title": "portrait and landscape keep the form contained without losing entered text",
+      "file": "appointment-mobile.spec.ts",
+      "status": "passed",
+      "durationMs": 2792
+    },
+    {
+      "title": "validation, sending, delivery failure, retry and success fit the phone",
+      "file": "appointment-mobile.spec.ts",
+      "status": "passed",
+      "durationMs": 4103
+    },
+    {
+      "title": "server-rendered mobile form does not overflow",
+      "file": "appointment-mobile.spec.ts",
+      "status": "passed",
+      "durationMs": 1654
+    },
+    {
+      "title": "footer banner covers the whole viewport throughout its loop at 320px",
+      "file": "banner.spec.ts",
+      "status": "passed",
+      "durationMs": 2176
+    },
+    {
+      "title": "footer banner covers the whole viewport throughout its loop at 390px",
+      "file": "banner.spec.ts",
+      "status": "passed",
+      "durationMs": 2198
+    },
+    {
+      "title": "footer banner covers the whole viewport throughout its loop at 768px",
+      "file": "banner.spec.ts",
+      "status": "passed",
+      "durationMs": 2651
+    },
+    {
+      "title": "footer banner covers the whole viewport throughout its loop at 1440px",
+      "file": "banner.spec.ts",
+      "status": "passed",
+      "durationMs": 3228
+    },
+    {
+      "title": "footer banner covers the whole viewport throughout its loop at 1920px",
+      "file": "banner.spec.ts",
+      "status": "passed",
+      "durationMs": 2651
+    },
+    {
+      "title": "footer banner covers the whole viewport throughout its loop at 2560px",
+      "file": "banner.spec.ts",
+      "status": "passed",
+      "durationMs": 3518
+    },
+    {
+      "title": "banner recomputes its geometry on resize and can be paused by keyboard",
+      "file": "banner.spec.ts",
+      "status": "passed",
+      "durationMs": 2850
+    },
+    {
+      "title": "reduced motion shows every affiliation once without an animation or clipped tail",
+      "file": "banner.spec.ts",
+      "status": "passed",
+      "durationMs": 1818
+    },
+    {
+      "title": "painted hero text clears AA over its gradient/photo at 320px",
+      "file": "hero-contrast.spec.ts",
+      "status": "passed",
+      "durationMs": 2907
+    },
+    {
+      "title": "painted hero text clears AA over its gradient/photo at 390px",
+      "file": "hero-contrast.spec.ts",
+      "status": "passed",
+      "durationMs": 2947
+    },
+    {
+      "title": "painted hero text clears AA over its gradient/photo at 640px",
+      "file": "hero-contrast.spec.ts",
+      "status": "passed",
+      "durationMs": 3507
+    },
+    {
+      "title": "painted hero text clears AA over its gradient/photo at 1024px",
+      "file": "hero-contrast.spec.ts",
+      "status": "passed",
+      "durationMs": 4631
+    },
+    {
+      "title": "painted hero text clears AA over its gradient/photo at 1440px",
+      "file": "hero-contrast.spec.ts",
+      "status": "passed",
+      "durationMs": 6971
+    },
+    {
+      "title": "desktop return mounts once and retains the photo's scroll parallax",
+      "file": "hero-navigation.spec.ts",
+      "status": "passed",
+      "durationMs": 6288
+    },
+    {
+      "title": "steady portrait from /services via logo at 390px",
+      "file": "hero-navigation.spec.ts",
+      "status": "passed",
+      "durationMs": 6503
+    },
+    {
+      "title": "steady portrait from /about via menu at 390px",
+      "file": "hero-navigation.spec.ts",
+      "status": "passed",
+      "durationMs": 6662
+    },
+    {
+      "title": "steady portrait from /contact via logo at 360px",
+      "file": "hero-navigation.spec.ts",
+      "status": "passed",
+      "durationMs": 6476
+    },
+    {
+      "title": "steady portrait from /research via menu at 414px",
+      "file": "hero-navigation.spec.ts",
+      "status": "passed",
+      "durationMs": 7032
+    },
+    {
+      "title": "steady portrait from /patient-info via logo at 375px",
+      "file": "hero-navigation.spec.ts",
+      "status": "passed",
+      "durationMs": 7126
+    },
+    {
+      "title": "browser Back also returns to one stable home portrait",
+      "file": "hero-navigation.spec.ts",
+      "status": "passed",
+      "durationMs": 8125
+    },
+    {
+      "title": "hero settles without moving or hiding actions: no-preference",
+      "file": "hero-opening.spec.ts",
+      "status": "passed",
+      "durationMs": 2998
+    },
+    {
+      "title": "hero settles without moving or hiding actions: reduce",
+      "file": "hero-opening.spec.ts",
+      "status": "passed",
+      "durationMs": 3171
+    },
+    {
+      "title": "cold mid-range mobile: no CLS, stationary portrait, actions available throughout",
+      "file": "hero-opening.spec.ts",
+      "status": "passed",
+      "durationMs": 6503
+    },
+    {
+      "title": "real call and enquiry clicks work at every controlled animation checkpoint",
+      "file": "hero-opening.spec.ts",
+      "status": "passed",
+      "durationMs": 3263
+    },
+    {
+      "title": "enquiry navigation is not held for the hero animation",
+      "file": "hero-opening.spec.ts",
+      "status": "passed",
+      "durationMs": 3096
+    },
+    {
+      "title": "Home re-entry has no obscuring curtain and does not replay the portrait zoom",
+      "file": "hero-opening.spec.ts",
+      "status": "passed",
+      "durationMs": 5674
+    },
+    {
+      "title": "reduced motion is final even when hydration scripts are blocked",
+      "file": "hero-opening.spec.ts",
+      "status": "passed",
+      "durationMs": 1669
+    },
+    {
+      "title": "hero parallax and repeating decoration stop working offscreen",
+      "file": "hero-opening.spec.ts",
+      "status": "passed",
+      "durationMs": 2837
+    },
+    {
+      "title": "desktop connector draws and the three steps enter in order",
+      "file": "journey.spec.ts",
+      "status": "passed",
+      "durationMs": 4458
+    },
+    {
+      "title": "keyboard readers get the full journey immediately and clear focus on each article",
+      "file": "journey.spec.ts",
+      "status": "passed",
+      "durationMs": 2802
+    },
+    {
+      "title": "desktop hover responds without altering card layout or animating paint properties",
+      "file": "journey.spec.ts",
+      "status": "passed",
+      "durationMs": 3210
+    },
+    {
+      "title": "reduced desktop: the entire journey is static before, during and after entry",
+      "file": "journey.spec.ts",
+      "status": "passed",
+      "durationMs": 2802
+    },
+    {
+      "title": "touch phone: the entire journey is static before, during and after entry",
+      "file": "journey.spec.ts",
+      "status": "passed",
+      "durationMs": 4052
+    },
+    {
+      "title": "reduced touch phone: the entire journey is static before, during and after entry",
+      "file": "journey.spec.ts",
+      "status": "passed",
+      "durationMs": 1996
+    },
+    {
+      "title": "wide touch device: the entire journey is static before, during and after entry",
+      "file": "journey.spec.ts",
+      "status": "passed",
+      "durationMs": 3918
+    },
+    {
+      "title": "switching to reduced motion during entry immediately completes everything",
+      "file": "journey.spec.ts",
+      "status": "passed",
+      "durationMs": 2463
+    },
+    {
+      "title": "static fallback stays complete when scroll-timeline enhancement is absent",
+      "file": "journey.spec.ts",
+      "status": "passed",
+      "durationMs": 3493
+    },
+    {
+      "title": "future wide and tall photographs cannot resize the journey cards",
+      "file": "journey.spec.ts",
+      "status": "passed",
+      "durationMs": 2266
+    },
+    {
+      "title": "every route keeps its full heading and hero copy inside the frame at 320px",
+      "file": "site-repairs.spec.ts",
+      "status": "passed",
+      "durationMs": 12364
+    },
+    {
+      "title": "every route keeps its full heading and hero copy inside the frame at 360px",
+      "file": "site-repairs.spec.ts",
+      "status": "passed",
+      "durationMs": 12259
+    },
+    {
+      "title": "every route keeps its full heading and hero copy inside the frame at 390px",
+      "file": "site-repairs.spec.ts",
+      "status": "passed",
+      "durationMs": 12014
+    },
+    {
+      "title": "every route keeps its full heading and hero copy inside the frame at 430px",
+      "file": "site-repairs.spec.ts",
+      "status": "passed",
+      "durationMs": 11947
+    },
+    {
+      "title": "every route keeps its full heading and hero copy inside the frame at 640px",
+      "file": "site-repairs.spec.ts",
+      "status": "passed",
+      "durationMs": 11305
+    },
+    {
+      "title": "every route keeps its full heading and hero copy inside the frame at 768px",
+      "file": "site-repairs.spec.ts",
+      "status": "passed",
+      "durationMs": 11256
+    },
+    {
+      "title": "every route keeps its full heading and hero copy inside the frame at 1024px",
+      "file": "site-repairs.spec.ts",
+      "status": "passed",
+      "durationMs": 11803
+    },
+    {
+      "title": "every route keeps its full heading and hero copy inside the frame at 1440px",
+      "file": "site-repairs.spec.ts",
+      "status": "passed",
+      "durationMs": 11752
+    },
+    {
+      "title": "long service heading still fits with enlarged text and spacing",
+      "file": "site-repairs.spec.ts",
+      "status": "passed",
+      "durationMs": 1243
+    },
+    {
+      "title": "FAQs work with keyboard and hide collapsed answers from assistive technology on /",
+      "file": "site-repairs.spec.ts",
+      "status": "passed",
+      "durationMs": 2766
+    },
+    {
+      "title": "FAQs work with keyboard and hide collapsed answers from assistive technology on /patient-info",
+      "file": "site-repairs.spec.ts",
+      "status": "passed",
+      "durationMs": 2527
+    },
+    {
+      "title": "mobile Book scrolls to the existing request and preserves its draft and service query",
+      "file": "site-repairs.spec.ts",
+      "status": "passed",
+      "durationMs": 2661
+    },
+    {
+      "title": "overview and detail links resolve to the same displayed and submitted service",
+      "file": "site-repairs.spec.ts",
+      "status": "passed",
+      "durationMs": 7842
+    },
+    {
+      "title": "validation focuses a visible error summary and maps server date/slot errors",
+      "file": "site-repairs.spec.ts",
+      "status": "passed",
+      "durationMs": 4504
+    },
+    {
+      "title": "native submission after a script failure is POST and never puts details in the URL",
+      "file": "site-repairs.spec.ts",
+      "status": "passed",
+      "durationMs": 7366
+    },
+    {
+      "title": "contact-method focus is visible, and the pending channel is disabled",
+      "file": "site-repairs.spec.ts",
+      "status": "passed",
+      "durationMs": 2189
+    },
+    {
+      "title": "live reduced motion stops and hides the desktop cursor follower",
+      "file": "site-repairs.spec.ts",
+      "status": "passed",
+      "durationMs": 4091
+    },
+    {
+      "title": "sharing metadata matches each page and FAQ structured data is scoped to visible FAQs",
+      "file": "site-repairs.spec.ts",
+      "status": "passed",
+      "durationMs": 16800
+    },
+    {
+      "title": "phone downloads one hero variant and discloses illustrative imagery on /",
+      "file": "site-repairs.spec.ts",
+      "status": "passed",
+      "durationMs": 1684
+    },
+    {
+      "title": "phone downloads one hero variant and discloses illustrative imagery on /research",
+      "file": "site-repairs.spec.ts",
+      "status": "passed",
+      "durationMs": 2182
+    },
+    {
+      "title": "phone downloads one hero variant and discloses illustrative imagery on /contact",
+      "file": "site-repairs.spec.ts",
+      "status": "passed",
+      "durationMs": 1535
+    },
+    {
+      "title": "unknown routes and reserved service names return a consistent noindex 404",
+      "file": "site-repairs.spec.ts",
+      "status": "passed",
+      "durationMs": 5497
+    },
+    {
+      "title": "practice-date labels hydrate consistently without Sunday options",
+      "file": "site-repairs.spec.ts",
+      "status": "passed",
+      "durationMs": 1636
+    },
+    {
+      "title": "practice-date labels hydrate consistently without Sunday options",
+      "file": "site-repairs.spec.ts",
+      "status": "passed",
+      "durationMs": 1511
+    },
+    {
+      "title": "practice-date labels hydrate consistently without Sunday options",
+      "file": "site-repairs.spec.ts",
+      "status": "passed",
+      "durationMs": 1892
+    },
+    {
+      "title": "form cannot collect data before hydration; native FAQs still work",
+      "file": "site-repairs.spec.ts",
+      "status": "passed",
+      "durationMs": 2956
+    },
+    {
+      "title": "production route / hydrates and stays within the viewport",
+      "file": "site.spec.ts",
+      "status": "passed",
+      "durationMs": 3339
+    },
+    {
+      "title": "production route /about hydrates and stays within the viewport",
+      "file": "site.spec.ts",
+      "status": "passed",
+      "durationMs": 2050
+    },
+    {
+      "title": "production route /services hydrates and stays within the viewport",
+      "file": "site.spec.ts",
+      "status": "passed",
+      "durationMs": 2151
+    },
+    {
+      "title": "production route /services/antenatal hydrates and stays within the viewport",
+      "file": "site.spec.ts",
+      "status": "passed",
+      "durationMs": 2046
+    },
+    {
+      "title": "production route /patient-info hydrates and stays within the viewport",
+      "file": "site.spec.ts",
+      "status": "passed",
+      "durationMs": 2217
+    },
+    {
+      "title": "production route /research hydrates and stays within the viewport",
+      "file": "site.spec.ts",
+      "status": "passed",
+      "durationMs": 2556
+    },
+    {
+      "title": "production route /contact hydrates and stays within the viewport",
+      "file": "site.spec.ts",
+      "status": "passed",
+      "durationMs": 2293
+    },
+    {
+      "title": "scroll-lit copy mounts paint overlays only near the viewport",
+      "file": "site.spec.ts",
+      "status": "passed",
+      "durationMs": 3909
+    },
+    {
+      "title": "condition filtering, empty state and reset still work",
+      "file": "site.spec.ts",
+      "status": "passed",
+      "durationMs": 2667
+    },
+    {
+      "title": "enquiry validation does not send incomplete patient details",
+      "file": "site.spec.ts",
+      "status": "passed",
+      "durationMs": 2477
+    },
+    {
+      "title": "failed optional scroll download leaves native scrolling usable",
+      "file": "site.spec.ts",
+      "status": "passed",
+      "durationMs": 3516
+    },
+    {
+      "title": "changing reduced-motion preference tears down and restarts optional scrolling",
+      "file": "site.spec.ts",
+      "status": "passed",
+      "durationMs": 3882
+    },
+    {
+      "title": "blocked script downloads never blank the server-rendered copy",
+      "file": "site.spec.ts",
+      "status": "passed",
+      "durationMs": 1941
+    },
+    {
+      "title": "home and services fit a 360px viewport",
+      "file": "site.spec.ts",
+      "status": "passed",
+      "durationMs": 3032
+    },
+    {
+      "title": "home and services fit a 768px viewport",
+      "file": "site.spec.ts",
+      "status": "passed",
+      "durationMs": 3379
+    },
+    {
+      "title": "home and services fit a 1024px viewport",
+      "file": "site.spec.ts",
+      "status": "passed",
+      "durationMs": 4025
+    },
+    {
+      "title": "hydrates without replacement, scrolling library or animated overlays",
+      "file": "site.spec.ts",
+      "status": "passed",
+      "durationMs": 3524
+    },
+    {
+      "title": "headings and reading copy remain painted on /",
+      "file": "site.spec.ts",
+      "status": "passed",
+      "durationMs": 1676
+    },
+    {
+      "title": "headings and reading copy remain painted on /about",
+      "file": "site.spec.ts",
+      "status": "passed",
+      "durationMs": 1206
+    },
+    {
+      "title": "headings and reading copy remain painted on /services",
+      "file": "site.spec.ts",
+      "status": "passed",
+      "durationMs": 1346
+    },
+    {
+      "title": "stays portalled, traps focus, restores it and never downloads Lenis",
+      "file": "site.spec.ts",
+      "status": "passed",
+      "durationMs": 5071
+    },
+    {
+      "title": "menu navigation and the return home transition remain functional",
+      "file": "site.spec.ts",
+      "status": "passed",
+      "durationMs": 5379
+    },
+    {
+      "title": "large colour washes opt into OKLab and retain working sRGB fallbacks",
+      "file": "visual-finish.spec.ts",
+      "status": "passed",
+      "durationMs": 2085
+    },
+    {
+      "title": "one subtle inline grain layer cannot intercept controls and disappears under reduced motion",
+      "file": "visual-finish.spec.ts",
+      "status": "passed",
+      "durationMs": 2564
+    },
+    {
+      "title": "1× density uses appropriate card/FAQ/divider edges without thinning controls",
+      "file": "visual-finish.spec.ts",
+      "status": "passed",
+      "durationMs": 5788
+    },
+    {
+      "title": "2× density uses appropriate card/FAQ/divider edges without thinning controls",
+      "file": "visual-finish.spec.ts",
+      "status": "passed",
+      "durationMs": 7073
+    },
+    {
+      "title": "no hidden cursor work on a touch tablet",
+      "file": "visual-finish.spec.ts",
+      "status": "passed",
+      "durationMs": 2269
+    },
+    {
+      "title": "no hidden cursor work on a small fine-pointer viewport",
+      "file": "visual-finish.spec.ts",
+      "status": "passed",
+      "durationMs": 1965
+    }
+  ]
+}

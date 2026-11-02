@@ -1,0 +1,9 @@
+
+> dr-ngwey-sompo@1.0.0 test:e2e
+> playwright test --reporter=dot,json
+
+
+Running 131 tests using 2 workers
+················································································
+···················································
+  131 passed (4.3m)

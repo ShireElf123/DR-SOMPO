@@ -1,0 +1,13 @@
+
+Running 8 tests using 2 workers
+
+  ✓  2 tests/e2e/banner.spec.ts:4:7 › footer banner covers the whole viewport throughout its loop at 320px (2.6s)
+  ✓  1 tests/e2e/banner.spec.ts:4:7 › footer banner covers the whole viewport throughout its loop at 390px (2.8s)
+  ✓  3 tests/e2e/banner.spec.ts:4:7 › footer banner covers the whole viewport throughout its loop at 768px (2.8s)
+  ✓  4 tests/e2e/banner.spec.ts:4:7 › footer banner covers the whole viewport throughout its loop at 1440px (3.5s)
+  ✓  5 tests/e2e/banner.spec.ts:4:7 › footer banner covers the whole viewport throughout its loop at 1920px (3.4s)
+  ✓  6 tests/e2e/banner.spec.ts:4:7 › footer banner covers the whole viewport throughout its loop at 2560px (3.1s)
+  ✓  7 tests/e2e/banner.spec.ts:71:5 › banner recomputes its geometry on resize and can be paused by keyboard (2.6s)
+  ✓  8 tests/e2e/banner.spec.ts:100:5 › reduced motion shows every affiliation once without an animation or clipped tail (2.2s)
+
+  8 passed (12.6s)

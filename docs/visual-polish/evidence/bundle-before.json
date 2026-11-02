@@ -1,0 +1,532 @@
+[
+  {
+    "page": "index",
+    "chunks": [
+      {
+        "src": "/_next/static/chunks/2bzlqb104tejm.js",
+        "legacy": false,
+        "raw": 33760,
+        "gzip": 9002
+      },
+      {
+        "src": "/_next/static/chunks/216iyidhmrh3u.js",
+        "legacy": false,
+        "raw": 229597,
+        "gzip": 71736
+      },
+      {
+        "src": "/_next/static/chunks/0do2t05ysoa-w.js",
+        "legacy": false,
+        "raw": 163334,
+        "gzip": 44943
+      },
+      {
+        "src": "/_next/static/chunks/turbopack-2c3mg3r-05n1w.js",
+        "legacy": false,
+        "raw": 11255,
+        "gzip": 4390
+      },
+      {
+        "src": "/_next/static/chunks/313mlvknruyts.js",
+        "legacy": false,
+        "raw": 316,
+        "gzip": 225
+      },
+      {
+        "src": "/_next/static/chunks/3tgvnk49qx27u.js",
+        "legacy": false,
+        "raw": 28551,
+        "gzip": 8810
+      },
+      {
+        "src": "/_next/static/chunks/17o1gq2yljynb.js",
+        "legacy": false,
+        "raw": 51782,
+        "gzip": 18542
+      },
+      {
+        "src": "/_next/static/chunks/0p9uo1kpg49w1.js",
+        "legacy": false,
+        "raw": 75109,
+        "gzip": 27128
+      },
+      {
+        "src": "/_next/static/chunks/2r6_zflxhspql.js",
+        "legacy": false,
+        "raw": 23312,
+        "gzip": 9548
+      },
+      {
+        "src": "/_next/static/chunks/0v1ga7wz8yknp.js",
+        "legacy": false,
+        "raw": 15737,
+        "gzip": 4770
+      },
+      {
+        "src": "/_next/static/chunks/42onvq6nokjl2.js",
+        "legacy": false,
+        "raw": 13822,
+        "gzip": 3515
+      },
+      {
+        "src": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+        "legacy": true,
+        "raw": 112594,
+        "gzip": 39520
+      },
+      {
+        "src": "/_next/static/chunks/1ckvzn7sfprko.js",
+        "legacy": false,
+        "raw": 5584,
+        "gzip": 2033
+      }
+    ],
+    "document": {
+      "raw": 174948,
+      "gzip": 26308
+    },
+    "modern": {
+      "count": 12,
+      "raw": 652159,
+      "gzip": 204642
+    },
+    "legacy": {
+      "count": 1,
+      "raw": 112594,
+      "gzip": 39520
+    },
+    "total": {
+      "count": 13,
+      "raw": 764753,
+      "gzip": 244162
+    },
+    "css": {
+      "raw": 87058,
+      "gzip": 14920
+    }
+  },
+  {
+    "page": "services",
+    "chunks": [
+      {
+        "src": "/_next/static/chunks/2bzlqb104tejm.js",
+        "legacy": false,
+        "raw": 33760,
+        "gzip": 9002
+      },
+      {
+        "src": "/_next/static/chunks/216iyidhmrh3u.js",
+        "legacy": false,
+        "raw": 229597,
+        "gzip": 71736
+      },
+      {
+        "src": "/_next/static/chunks/0do2t05ysoa-w.js",
+        "legacy": false,
+        "raw": 163334,
+        "gzip": 44943
+      },
+      {
+        "src": "/_next/static/chunks/turbopack-2c3mg3r-05n1w.js",
+        "legacy": false,
+        "raw": 11255,
+        "gzip": 4390
+      },
+      {
+        "src": "/_next/static/chunks/313mlvknruyts.js",
+        "legacy": false,
+        "raw": 316,
+        "gzip": 225
+      },
+      {
+        "src": "/_next/static/chunks/3tgvnk49qx27u.js",
+        "legacy": false,
+        "raw": 28551,
+        "gzip": 8810
+      },
+      {
+        "src": "/_next/static/chunks/17o1gq2yljynb.js",
+        "legacy": false,
+        "raw": 51782,
+        "gzip": 18542
+      },
+      {
+        "src": "/_next/static/chunks/0p9uo1kpg49w1.js",
+        "legacy": false,
+        "raw": 75109,
+        "gzip": 27128
+      },
+      {
+        "src": "/_next/static/chunks/2r6_zflxhspql.js",
+        "legacy": false,
+        "raw": 23312,
+        "gzip": 9548
+      },
+      {
+        "src": "/_next/static/chunks/1tau_zdtadzhb.js",
+        "legacy": false,
+        "raw": 12176,
+        "gzip": 4464
+      },
+      {
+        "src": "/_next/static/chunks/42onvq6nokjl2.js",
+        "legacy": false,
+        "raw": 13822,
+        "gzip": 3515
+      },
+      {
+        "src": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+        "legacy": true,
+        "raw": 112594,
+        "gzip": 39520
+      },
+      {
+        "src": "/_next/static/chunks/1ckvzn7sfprko.js",
+        "legacy": false,
+        "raw": 5584,
+        "gzip": 2033
+      }
+    ],
+    "document": {
+      "raw": 138064,
+      "gzip": 19776
+    },
+    "modern": {
+      "count": 12,
+      "raw": 648598,
+      "gzip": 204336
+    },
+    "legacy": {
+      "count": 1,
+      "raw": 112594,
+      "gzip": 39520
+    },
+    "total": {
+      "count": 13,
+      "raw": 761192,
+      "gzip": 243856
+    },
+    "css": {
+      "raw": 87058,
+      "gzip": 14920
+    }
+  },
+  {
+    "page": "about",
+    "chunks": [
+      {
+        "src": "/_next/static/chunks/2bzlqb104tejm.js",
+        "legacy": false,
+        "raw": 33760,
+        "gzip": 9002
+      },
+      {
+        "src": "/_next/static/chunks/216iyidhmrh3u.js",
+        "legacy": false,
+        "raw": 229597,
+        "gzip": 71736
+      },
+      {
+        "src": "/_next/static/chunks/0do2t05ysoa-w.js",
+        "legacy": false,
+        "raw": 163334,
+        "gzip": 44943
+      },
+      {
+        "src": "/_next/static/chunks/turbopack-2c3mg3r-05n1w.js",
+        "legacy": false,
+        "raw": 11255,
+        "gzip": 4390
+      },
+      {
+        "src": "/_next/static/chunks/313mlvknruyts.js",
+        "legacy": false,
+        "raw": 316,
+        "gzip": 225
+      },
+      {
+        "src": "/_next/static/chunks/3tgvnk49qx27u.js",
+        "legacy": false,
+        "raw": 28551,
+        "gzip": 8810
+      },
+      {
+        "src": "/_next/static/chunks/17o1gq2yljynb.js",
+        "legacy": false,
+        "raw": 51782,
+        "gzip": 18542
+      },
+      {
+        "src": "/_next/static/chunks/0p9uo1kpg49w1.js",
+        "legacy": false,
+        "raw": 75109,
+        "gzip": 27128
+      },
+      {
+        "src": "/_next/static/chunks/2r6_zflxhspql.js",
+        "legacy": false,
+        "raw": 23312,
+        "gzip": 9548
+      },
+      {
+        "src": "/_next/static/chunks/0ws_3xy59ftvp.js",
+        "legacy": false,
+        "raw": 6271,
+        "gzip": 2452
+      },
+      {
+        "src": "/_next/static/chunks/42onvq6nokjl2.js",
+        "legacy": false,
+        "raw": 13822,
+        "gzip": 3515
+      },
+      {
+        "src": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+        "legacy": true,
+        "raw": 112594,
+        "gzip": 39520
+      },
+      {
+        "src": "/_next/static/chunks/1ckvzn7sfprko.js",
+        "legacy": false,
+        "raw": 5584,
+        "gzip": 2033
+      }
+    ],
+    "document": {
+      "raw": 94987,
+      "gzip": 16255
+    },
+    "modern": {
+      "count": 12,
+      "raw": 642693,
+      "gzip": 202324
+    },
+    "legacy": {
+      "count": 1,
+      "raw": 112594,
+      "gzip": 39520
+    },
+    "total": {
+      "count": 13,
+      "raw": 755287,
+      "gzip": 241844
+    },
+    "css": {
+      "raw": 87058,
+      "gzip": 14920
+    }
+  },
+  {
+    "page": "research",
+    "chunks": [
+      {
+        "src": "/_next/static/chunks/2bzlqb104tejm.js",
+        "legacy": false,
+        "raw": 33760,
+        "gzip": 9002
+      },
+      {
+        "src": "/_next/static/chunks/216iyidhmrh3u.js",
+        "legacy": false,
+        "raw": 229597,
+        "gzip": 71736
+      },
+      {
+        "src": "/_next/static/chunks/0do2t05ysoa-w.js",
+        "legacy": false,
+        "raw": 163334,
+        "gzip": 44943
+      },
+      {
+        "src": "/_next/static/chunks/turbopack-2c3mg3r-05n1w.js",
+        "legacy": false,
+        "raw": 11255,
+        "gzip": 4390
+      },
+      {
+        "src": "/_next/static/chunks/313mlvknruyts.js",
+        "legacy": false,
+        "raw": 316,
+        "gzip": 225
+      },
+      {
+        "src": "/_next/static/chunks/3tgvnk49qx27u.js",
+        "legacy": false,
+        "raw": 28551,
+        "gzip": 8810
+      },
+      {
+        "src": "/_next/static/chunks/17o1gq2yljynb.js",
+        "legacy": false,
+        "raw": 51782,
+        "gzip": 18542
+      },
+      {
+        "src": "/_next/static/chunks/0p9uo1kpg49w1.js",
+        "legacy": false,
+        "raw": 75109,
+        "gzip": 27128
+      },
+      {
+        "src": "/_next/static/chunks/2r6_zflxhspql.js",
+        "legacy": false,
+        "raw": 23312,
+        "gzip": 9548
+      },
+      {
+        "src": "/_next/static/chunks/0ws_3xy59ftvp.js",
+        "legacy": false,
+        "raw": 6271,
+        "gzip": 2452
+      },
+      {
+        "src": "/_next/static/chunks/42onvq6nokjl2.js",
+        "legacy": false,
+        "raw": 13822,
+        "gzip": 3515
+      },
+      {
+        "src": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+        "legacy": true,
+        "raw": 112594,
+        "gzip": 39520
+      },
+      {
+        "src": "/_next/static/chunks/1ckvzn7sfprko.js",
+        "legacy": false,
+        "raw": 5584,
+        "gzip": 2033
+      }
+    ],
+    "document": {
+      "raw": 90033,
+      "gzip": 16331
+    },
+    "modern": {
+      "count": 12,
+      "raw": 642693,
+      "gzip": 202324
+    },
+    "legacy": {
+      "count": 1,
+      "raw": 112594,
+      "gzip": 39520
+    },
+    "total": {
+      "count": 13,
+      "raw": 755287,
+      "gzip": 241844
+    },
+    "css": {
+      "raw": 87058,
+      "gzip": 14920
+    }
+  },
+  {
+    "page": "patient-info",
+    "chunks": [
+      {
+        "src": "/_next/static/chunks/2bzlqb104tejm.js",
+        "legacy": false,
+        "raw": 33760,
+        "gzip": 9002
+      },
+      {
+        "src": "/_next/static/chunks/216iyidhmrh3u.js",
+        "legacy": false,
+        "raw": 229597,
+        "gzip": 71736
+      },
+      {
+        "src": "/_next/static/chunks/0do2t05ysoa-w.js",
+        "legacy": false,
+        "raw": 163334,
+        "gzip": 44943
+      },
+      {
+        "src": "/_next/static/chunks/turbopack-2c3mg3r-05n1w.js",
+        "legacy": false,
+        "raw": 11255,
+        "gzip": 4390
+      },
+      {
+        "src": "/_next/static/chunks/313mlvknruyts.js",
+        "legacy": false,
+        "raw": 316,
+        "gzip": 225
+      },
+      {
+        "src": "/_next/static/chunks/3tgvnk49qx27u.js",
+        "legacy": false,
+        "raw": 28551,
+        "gzip": 8810
+      },
+      {
+        "src": "/_next/static/chunks/17o1gq2yljynb.js",
+        "legacy": false,
+        "raw": 51782,
+        "gzip": 18542
+      },
+      {
+        "src": "/_next/static/chunks/0p9uo1kpg49w1.js",
+        "legacy": false,
+        "raw": 75109,
+        "gzip": 27128
+      },
+      {
+        "src": "/_next/static/chunks/2r6_zflxhspql.js",
+        "legacy": false,
+        "raw": 23312,
+        "gzip": 9548
+      },
+      {
+        "src": "/_next/static/chunks/0ws_3xy59ftvp.js",
+        "legacy": false,
+        "raw": 6271,
+        "gzip": 2452
+      },
+      {
+        "src": "/_next/static/chunks/42onvq6nokjl2.js",
+        "legacy": false,
+        "raw": 13822,
+        "gzip": 3515
+      },
+      {
+        "src": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+        "legacy": true,
+        "raw": 112594,
+        "gzip": 39520
+      },
+      {
+        "src": "/_next/static/chunks/1ckvzn7sfprko.js",
+        "legacy": false,
+        "raw": 5584,
+        "gzip": 2033
+      }
+    ],
+    "document": {
+      "raw": 102164,
+      "gzip": 16618
+    },
+    "modern": {
+      "count": 12,
+      "raw": 642693,
+      "gzip": 202324
+    },
+    "legacy": {
+      "count": 1,
+      "raw": 112594,
+      "gzip": 39520
+    },
+    "total": {
+      "count": 13,
+      "raw": 755287,
+      "gzip": 241844
+    },
+    "css": {
+      "raw": 87058,
+      "gzip": 14920
+    }
+  }
+]
