@@ -237,3 +237,33 @@ now asserts the copy covers **less than 2%** of the photograph, that the photo
 band is taller than 160px, that the copy wash is a cream gradient with
 `backdrop-filter: none`, plus the previous overflow, ink and type-size checks.
 The painted-contrast probe still runs at 320, 390, 640, 1024 and 1440.
+
+## Audit — the green release against this branch
+
+`origin/pr1` (`e5b28e8`, the production release) was built and served alongside
+this branch and both were measured with the same instruments: painted-pixel
+histograms in OKLab, per-band lightness/chroma profiles, axe on six routes at
+two widths, and geometry probes at 320/390/430/1440.
+
+| Measure | Green `e5b28e8` | Rose `ccb5c00` |
+| --- | --- | --- |
+| H1 on hero | white on `#174D3C` (9.71:1) | charcoal on peach (11.46:1) |
+| Type voices | one (Figtree) | two (Figtree + Instrument Serif) |
+| Frosted surfaces on `/` | 8 | 1 |
+| Dark surfaces (L\* < 35) | 4 | 1 |
+| Page lightness range | 38.8 – 90.6 (52 pts) | 79.2 – 93.7 (14.5 pts) |
+| Pixels below L 40 | 29.7% | 7.6% |
+| Warm / cool cast | 11% / 24% | 81% / 0.5% |
+| Mobile hero: photo under copy | 45.1% | 7.3% |
+| Axe (6 routes × 2 widths) | 0 violations | 0 violations |
+| JS / CSS / HTML gzip | 204,789 / 15,982 / 26,249 | 204,484 / 15,741 / 27,243 |
+| Page height at 1440 | 7,529px | 8,124px |
+
+The honest trade: the green release has **tonal depth** — a third of it sits
+below L 40, which gives it hierarchy and weight — and this branch has **warmth,
+coherence and one ink colour**, at the cost of a 14.5-point value range. The
+green site's own phone hero puts 45% of the portrait under its copy; this
+branch's puts 7%.
+
+Screenshots: `evidence/comparison-green-vs-rose.jpg` (heroes + scorecard) and
+`evidence/comparison-full-page.jpg` (7,529px vs 8,124px full pages).
