@@ -256,7 +256,7 @@ two widths, and geometry probes at 320/390/430/1440.
 | Warm / cool cast | 11% / 24% | 81% / 0.5% |
 | Mobile hero: photo under copy | 45.1% | 7.3% |
 | Axe (6 routes × 2 widths) | 0 violations | 0 violations |
-| JS / CSS / HTML gzip | 204,789 / 15,982 / 26,249 | 204,425 / 15,749 / 27,072 |
+| JS / CSS / HTML gzip | 204,789 / 15,982 / 26,249 | 204,425 / 15,760 / 27,085 |
 | Page height at 1440 | 7,529px | 8,124px |
 
 The honest trade: the green release has **tonal depth** — a third of it sits
