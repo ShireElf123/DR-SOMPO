@@ -90,3 +90,39 @@ samples them on a canvas and fails, naming the file and the number, when:
 Run against the previous images it fails on `antenatal.jpg green 12.6 %`. That is the
 point: when the practice supplies real, licensed photography, the test says which frames
 clash instead of leaving it to the eye.
+
+## The orange wash on the frames, after the re-grade
+
+While the photographs were cool, the site graded them warm in the browser: a
+`saturate(0.95) sepia(0.045)` filter on every `.photo-depth` image, a soft-light
+peach wash over the pane, and an ember scrim from 25 % to 55 % across every
+caption plate. That grade existed to make green rooms sit in a peach page — the
+comment in `globals.css` said so.
+
+With the frames graded at source it had nothing left to fix, and it was costing
+something: on the hospital card, the scrim pushed the bottom third's mean red-minus-blue
+from the source's 79 to 101 and lifted its luminance from 96 to 117 — an orange film
+over a photo we had just paid to make copper and gold. It also flattened detail
+(luminance deviation 59.9 against 52.6 in the source).
+
+It is cut back rather than deleted:
+
+- the colour filter is gone from `.photo-depth` (the pane now adds depth only:
+  highlight, hairline, floor glow, vignette),
+- the soft-light wash drops from 30 % to 18 % and stops at 72 % instead of 88 %,
+- the caption scrims fall to four values — 30 / 22 / 14 % — from nine, and the
+  mid-stops that muted the centre of every frame are gone,
+- the hero keeps a 10 % apricot edge wash so the portrait still joins the gradient
+  behind the copy.
+
+Measured on the same card, the band's warmth now sits at 88 (source 79, was 101) and
+detail at 62.6.
+
+**No caption needed it.** Every label sits in a `.glass` plate at 86.7 % cream, so
+contrast is unchanged before and after: 12.2:1 median, 6.5:1 at the worst sampled
+edge, against charcoal ink — measured on painted pixels, not on glyphs. The scrims
+were always decoration, never legibility.
+
+CSS fell from 16,323 to **16,283 bytes** gzipped while this happened: fewer opacity
+utilities and one fewer rule. Headroom against the 16,384 budget went from 61 bytes
+to 101.

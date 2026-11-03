@@ -70,7 +70,7 @@ export function BentoBand() {
                 sizes="(max-width: 1024px) 92vw, 46vw"
                 className="object-cover object-[center_18%] transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
               />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/55 via-ember/10 to-transparent" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/30 to-transparent" />
               <div className="glass relative rounded-[1.1rem] p-3.5">
                 <p className="text-[10px] uppercase tracking-[0.18em] text-ink/75">
                   Specialist Obstetrician &amp; Gynaecologist
@@ -171,7 +171,7 @@ export function BentoBand() {
                 sizes="(max-width: 1024px) 92vw, 46vw"
                 className="object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
               />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/55 via-ember/10 to-transparent" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/30 to-transparent" />
               <div className="glass relative flex w-full items-end justify-between gap-3 rounded-[1rem] p-3">
                 <div>
                   <p className="flex items-center gap-1.5 text-[10px] uppercase tracking-[0.16em] text-ink/75">
