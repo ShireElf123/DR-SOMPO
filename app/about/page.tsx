@@ -237,7 +237,7 @@ export default function AboutPage() {
                       {credential.institution}
                     </p>
                     {credential.note && (
-                      <p className="relative mt-3 border-t-hairline border-charcoal/8 pt-2.5 text-[10px] leading-relaxed text-ink-soft">
+                      <p className="relative mt-3 border-t-hairline border-charcoal/8 pt-2.5 text-[12px] leading-relaxed text-ink-soft">
                         {credential.note}
                       </p>
                     )}
@@ -314,7 +314,7 @@ export default function AboutPage() {
                   publication.
                 </p>
               ) : (
-                <p className="mt-3 text-[10px] leading-relaxed text-ink-soft">
+                <p className="mt-3 text-[12px] leading-relaxed text-ink-soft">
                   Registration and memberships confirmed with the practice. Hospital
                   appointments vary — confirm where your procedure will take place
                   when you book.

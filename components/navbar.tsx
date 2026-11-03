@@ -61,7 +61,7 @@ function Wordmark({
         {!compact && (
           <span
             aria-hidden="true"
-            className="mt-[5px] hidden text-[8px] font-medium uppercase leading-none tracking-[0.24em] text-ink/70 sm:block"
+            className="mt-[5px] hidden text-[10px] font-medium uppercase leading-none tracking-[0.2em] text-ink/70 sm:block"
           >
             Obstetrician &amp; Gynaecologist
           </span>
@@ -138,7 +138,7 @@ export function Navbar() {
 
   const linkClass = (href: string) =>
     cn(
-      "relative rounded-full px-3 py-1.5 text-[13px] transition-colors duration-300",
+      "relative whitespace-nowrap rounded-full px-3 py-1.5 text-sm transition-colors duration-300",
       active === href ? "bg-cream text-ink" : "text-ink-soft hover:text-ink",
     );
 

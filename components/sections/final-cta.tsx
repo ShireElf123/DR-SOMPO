@@ -78,7 +78,7 @@ export function FinalCta() {
                 </a>
               </div>
 
-              <p className="mt-5 text-[10px] text-ink-soft">
+              <p className="mt-5 text-[11px] text-ink-soft">
                 Enquiries are not confirmed appointments · Not for emergencies
               </p>
               </div>

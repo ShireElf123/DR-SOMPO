@@ -368,7 +368,7 @@ export function EnquiryForm({
             Preferred day{" "}
             <span className="normal-case tracking-normal">(optional)</span>
           </legend>
-          <div className="-mx-1 flex gap-1.5 overflow-x-auto overscroll-x-contain px-1 pb-1">
+          <div className="-mx-1 flex gap-1.5 overflow-x-auto overscroll-x-contain px-1 pb-1 lg:flex-wrap lg:overflow-visible">
             {days.map((iso) => {
               const selected = values.preferredDate === iso;
               return (

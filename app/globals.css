@@ -485,9 +485,6 @@
   @media (max-width: 639px) {
     /* The phone keeps the portrait as a real band above the copy instead of a
        blurred plate over it, so the photograph is never covered. */
-    .hero-copy-plate {
-      background: linear-gradient(180deg, rgba(253, 248, 242, 0.6), var(--color-cream) 18%);
-    }
 
     /* Two actions, one row: the phone hero has to show the photograph, the
        headline and both buttons without the pair wrapping below the fold. */
@@ -842,14 +839,51 @@ html.lenis body {
 .hero-copy-plate,
 .frost-bar { backdrop-filter: var(--glass-blur); }
 
+/* From 640px up the hero puts the copy straight onto the photograph. Measured
+   at 768/900/1024 the darkest tenth of the reading column sat at 2.0-4.5:1 —
+   legible on the cream parts of the image, not on the coat. The wash is opaque
+   under the type and feathers out before the portrait, so the column reads at
+   AA without turning her face into a plate. */
+/* Tablets stack the hero the way the phone does — photograph as a band, copy on
+   cream beneath it — because a 42rem copy column is wider than the card at that
+   width and the type ends up on her coat. The overlay returns at 1024, where
+   there is room to keep the wash clear of the portrait. */
+@media (max-width: 1023.98px) {
+  .hero-copy-plate {
+    background: linear-gradient(180deg, rgba(253, 248, 242, 0.6), var(--color-cream) 14%);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-copy-plate {
+    background: linear-gradient(
+      90deg,
+      rgba(253, 248, 242, 0.97) 0%,
+      rgba(253, 248, 242, 0.94) 58%,
+      rgba(253, 248, 242, 0.78) 80%,
+      rgba(253, 248, 242, 0.3) 94%,
+      rgba(253, 248, 242, 0) 100%
+    );
+  }
+}
+
 .frost-bar { --glass-blur: blur(16px) saturate(1.15); }
 
-/* Phone type floor. The arbitrary sizes in the components were chosen on a
-   1440px canvas, where 10–11px reads as a caption. On a 390px phone the same
-   classes carry the body copy of half the cards, so everything below the
-   reading scale moves up one step under 640px: captions land at 12px and
-   micro-labels at 11px. Written as an override rather than 200 component edits
-   so the two scales stay in one place. */
+/* The reading scale.
+   The arbitrary sizes in the components were drawn on a 1440 canvas as if they
+   were captions, but they carry the site's actual reading copy: measured over
+   seven routes, 59% of all characters were set at 10-12px, including whole
+   paragraphs, service lists and the safety disclaimers. On a desktop that reads
+   as fine print everywhere; on a phone the 10px captions became the body.
+   Rather than rewrite 214 utility classes across 26 components, the five steps
+   are remapped here — the rhythm is unchanged, every step simply lands on a
+   size a person can read. Component-level sizes outside these five steps are
+   untouched. */
+
+/* A reading scale in two tiers. Phones take one clear step above the old
+   canvas sizes; everything from 640px up takes another, landing body copy on
+   16px at a 1440 desktop. Two media blocks rather than ten component rewrites,
+   so the scale lives in one place. */
 @media (max-width: 639.98px) {
   /* Primary actions reach the 44px thumb target on phones; the pill is 37.6px
      from the icon and padding above that. */
@@ -857,12 +891,44 @@ html.lenis body {
     padding-block: 0.55rem;
   }
   .text-\[10px\] {
-    font-size: 0.6875rem;
+    font-size: 11.5px;
   }
   .text-\[11px\] {
-    font-size: 0.75rem;
+    font-size: 12.5px;
   }
   .text-\[12px\] {
-    font-size: 0.8125rem;
+    font-size: 13.5px;
+  }
+  .text-\[13px\] {
+    font-size: 14.5px;
+  }
+  .text-\[14px\] {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 640px) {
+  .text-\[10px\] {
+    font-size: 12px;
+  }
+  .text-\[11px\] {
+    font-size: 13.5px;
+  }
+  .text-\[12px\] {
+    font-size: 15px;
+  }
+  .text-\[13px\] {
+    font-size: 16px;
+  }
+  .text-\[14px\] {
+    font-size: 17px;
+  }
+}
+
+/* Large monitors: the column widens so the page stops floating in its margins.
+   The scale stays put — 16px body reads the same at 1440 and 1920. */
+@media (min-width: 1600px) {
+  :root {
+    --shell: 1360px;
   }
 }

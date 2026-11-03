@@ -65,25 +65,25 @@ export function Hero() {
 
           {/* One image request. On phones the motion layer is static; the desktop
               crop retains its independent scroll parallax without scaling the hero. */}
-          <div className="pointer-events-none relative h-[clamp(11rem,30vh,16rem)] w-full sm:absolute sm:inset-auto sm:bottom-0 sm:right-0 sm:h-[88%] sm:w-[52%] lg:w-[46%]">
+          <div className="pointer-events-none relative h-[clamp(13rem,52vw,24rem)] w-full lg:absolute lg:inset-auto lg:bottom-0 lg:right-0 lg:h-[88%] lg:w-[46%]">
             <m.div
               data-hero-image-layer
               style={desktopMotion ? { y: imageY, scale: imageScale } : undefined}
               className="home-portrait-motion relative h-full w-full"
             >
               <div data-hero-arrival="photo"
-                className="hero-photo-arrival relative h-full w-full overflow-hidden sm:rounded-tl-[9rem]">
+                className="hero-photo-arrival relative h-full w-full overflow-hidden lg:rounded-tl-[9rem]">
                 <Image
                   src="/images/hero-doctor.jpg"
                   alt="Illustration of a healthcare professional"
                   fill
                   priority
-                  sizes="(max-width: 639px) 100vw, (max-width: 1023px) 52vw, (max-width: 1279px) 46vw, 544px"
-                  className="object-cover object-[62%_18%] sm:object-[center_16%]"
+                  sizes="(max-width: 1023px) 100vw, (max-width: 1279px) 46vw, 544px"
+                  className="object-cover object-[62%_18%] sm:object-[center_24%] lg:object-[center_16%]"
                 />
-                <div className="absolute inset-0 hidden bg-gradient-to-r from-apricot/20 via-transparent to-transparent sm:block" />
-                <div className="absolute inset-0 hidden bg-gradient-to-t from-ember/25 via-transparent to-transparent sm:block" />
-                <div className="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-cream to-transparent sm:hidden" />
+                <div className="absolute inset-0 hidden bg-gradient-to-r from-apricot/20 via-transparent to-transparent lg:block" />
+                <div className="absolute inset-0 hidden bg-gradient-to-t from-ember/25 via-transparent to-transparent lg:block" />
+                <div className="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-cream to-transparent lg:hidden" />
               </div>
             </m.div>
             {/* Contact chip */}
@@ -113,7 +113,7 @@ export function Hero() {
           {/* Copy */}
           <m.div
             style={desktopMotion ? { y: copyY } : undefined}
-            className="hero-copy-plate relative z-10 max-w-[42rem] px-4 pb-20 pt-8 text-ink sm:px-10 sm:pb-20 sm:pt-20 lg:px-14 lg:pb-24 lg:pt-24"
+            className="hero-copy-plate relative z-10 w-full max-w-none px-4 pb-20 pt-8 text-ink lg:max-w-[42rem] sm:px-10 sm:pb-16 sm:pt-12 lg:px-14 lg:pb-24 lg:pt-24"
           >
             <span
               data-hero-arrival="label"

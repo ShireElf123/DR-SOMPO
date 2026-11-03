@@ -139,7 +139,7 @@ export default async function ContactPage({
                     </a>
                   </div>
 
-                  <p className="mt-4 rounded-lg bg-cream/60 px-3 py-2 text-[10px] leading-relaxed text-ink-soft">
+                  <p className="mt-4 rounded-lg bg-cream/60 px-3 py-2 text-[12px] leading-relaxed text-ink-soft">
                     Consulting hours, practice number and medical aid arrangements
                     are confirmed directly by the practice. Emergencies: contact{" "}
                     {practice.hospital} or your nearest emergency department.

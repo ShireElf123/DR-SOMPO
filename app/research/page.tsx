@@ -100,7 +100,7 @@ export default function ResearchPage() {
                       </li>
                     ))}
                   </ul>
-                  <p className="mt-3 flex items-start gap-2 text-[10px] leading-relaxed text-ink-soft">
+                  <p className="mt-3 flex items-start gap-2 text-[12px] leading-relaxed text-ink-soft">
                     <AlertCircle className="mt-0.5 h-3 w-3 shrink-0" aria-hidden="true" />
                     {research.disclaimer}
                   </p>

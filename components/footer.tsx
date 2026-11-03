@@ -63,7 +63,7 @@ export function Footer() {
                 <ArrowUpRight className="h-3 w-3" />
               </i>
             </BookingLink>
-            <p className="mt-4 text-[10px] leading-relaxed text-cream/75">
+            <p className="mt-4 text-[11px] leading-relaxed text-cream/75">
               General information only — not medical advice. In an emergency
               contact your nearest emergency department.
             </p>

@@ -191,7 +191,7 @@ export default function ServicesPage() {
                               {service.items.map((item) => (
                                 <li
                                   key={item}
-                                  className="rounded-full bg-cream px-2.5 py-1 text-[10px] text-ink-soft"
+                                  className="rounded-full bg-cream px-2.5 py-1 text-[11px] text-ink-soft"
                                 >
                                   {item}
                                 </li>

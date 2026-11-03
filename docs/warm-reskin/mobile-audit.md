@@ -173,3 +173,77 @@ the flat page this pass deliberately replaced:
 166/166 Playwright checks pass; `tsc`, `eslint --max-warnings=0` and `next build` are
 clean; gzip budgets hold at JS 204,625 / CSS 16,210 / HTML 27,330 against 204,800 /
 16,384 / 30,720.
+
+---
+
+# Third pass — the reading scale on a desktop
+
+Prompt: *"Optimize for PC too, some text look small on PC."*
+
+**It was not a few labels.** Measured across seven routes at 1440, counting every
+character a reader actually sees:
+
+| Rendered size | Share of all characters |
+| --- | --- |
+| 10px | 15.4 % |
+| 11px | 18.9 % |
+| 12px | 24.8 % |
+| 13px | 32.5 % |
+| 15px | 2.2 % |
+| 17px+ | 2.3 % |
+
+Three quarters of the site was set at 10–12 px, and it included whole paragraphs,
+the 38-item condition list, the service card descriptions, the form labels and the
+safety disclaimers ("General information only — not medical advice"). The sizes were
+chosen on a 1440 canvas as captions, then reused for copy. The phone-only floor added
+in the first pass was quietly doing a better job than the desktop.
+
+## What changed
+
+The five arbitrary sizes that carry all the copy are remapped, once, in `globals.css`:
+214 utility classes across 26 components keep their markup and their rhythm, and the
+whole scale moves up.
+
+| Utility | Phones (< 640) | 640 px and up |
+| --- | --- | --- |
+| `text-[10px]` | 11.5 | 12 — micro-labels, chips, credentials |
+| `text-[11px]` | 12.5 | 13.5 — card meta lines |
+| `text-[12px]` | 13.5 | 15 — secondary copy |
+| `text-[13px]` | 14.5 | 16 — body |
+| `text-[14px]` | 15 | 17 — leads |
+
+At 1440 the character mix goes from "59 % under 12 px" to **80 % at 15–17 px**, with
+nothing above 10 px carrying a sentence. Long runs of copy below 13 px: zero.
+
+## Also fixed while measuring
+
+- **Hero copy at 640–1023.** The copy column sat straight on the photograph; sampled
+  behind each line, the darkest tenth of it measured 2.0–4.5:1 — fine on the bright
+  wall, not on her coat. The hero now stacks under 1024 (photo band, copy on cream,
+  the same shape as the phone) and keeps an opaque-to-feathered cream wash behind the
+  copy from 1024 up. Measured worst line: **14.7:1** at 768, 1024 and 1440.
+- **The copy column was 42rem wide inside a 736 px card** at tablet widths, leaving a
+  strip of the peach background beside it; it is full width below `lg` now.
+- **Navigation** grew with the scale and wrapped "Patient info" onto two lines. The
+  nav keeps its own 14 px size and no longer wraps.
+- **Preferred day** chips overflowed the form column; they wrap on `lg` and up.
+- **Small print** that was still 12 px after the remap — the emergency line, the
+  footer disclaimer, the research abstract note, the POPIA line on `/contact`, the
+  membership note on `/about` — moved up a tier to 13.5–15 px.
+- **Large monitors** were getting a 1200 px column in a 1920 px window; the shell
+  widens to 1360 px at 1600 and up, so the page stops floating in its margins.
+
+## Held by tests
+
+`tests/e2e/reading-scale.spec.ts` (new, 5 checks):
+
+- at 1280, 1440 and 1920, on all seven content routes: no run of 60 characters or
+  more renders below 13 px, the character-weighted mean stays above 13.8 px, and the
+  page never scrolls sideways;
+- the shell is 1300 px or wider at 1920 and no wider than 1210 at 1280;
+- the hero support copy is sampled as **painted pixels** at 768, 1024 and 1440 and
+  must clear 4.5:1 behind every line.
+
+171/171 Playwright checks pass; `tsc`, `eslint --max-warnings=0` and `next build` are
+clean. Budgets: JS 199.8 KiB / 204,800, CSS **15.9 KiB / 16,384** (61 bytes of
+headroom — the next CSS addition will need something removed), HTML 26.7 KiB / 30,720.
