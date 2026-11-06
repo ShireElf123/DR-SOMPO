@@ -156,7 +156,7 @@ export default async function ContactPage({
                     sizes="(max-width: 1024px) 92vw, 42vw"
                     className="absolute inset-0"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ember/35 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ember/14 via-transparent to-transparent" />
                   <div className="glass absolute inset-x-3 bottom-3 z-[2] flex items-end justify-between gap-3 rounded-lg px-3 py-2">
                     <div>
                       <p className="text-[10px] uppercase tracking-[0.16em] text-ink/75">

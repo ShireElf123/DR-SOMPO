@@ -34,7 +34,7 @@ export function FinalCta() {
             <div className="relative h-[12rem] w-full overflow-hidden sm:absolute sm:inset-0 sm:h-auto">
               <m.div
                 style={reduce ? undefined : { y }}
-                className="h-full w-full [backface-visibility:hidden] motion-safe:will-change-transform sm:absolute sm:inset-[-14%_0]"
+                className="h-full w-full [backface-visibility:hidden] motion-safe:will-change-transform sm:absolute sm:inset-x-0 sm:-top-[8%] sm:h-[120%]"
               >
                 <Image
                   src="/images/corridor.jpg"
@@ -44,8 +44,7 @@ export function FinalCta() {
                   className="object-cover"
                 />
               </m.div>
-              <div className="absolute inset-0 bg-ember/28" />
-              <div className="absolute inset-0 bg-gradient-to-t from-cream via-ember/12 to-transparent sm:from-ember/42 sm:via-ember/8" />
+              <div className="absolute inset-0 bg-gradient-to-t from-cream to-transparent sm:from-ember/18" />
             </div>
 
             <div className="relative px-4 pb-9 pt-5 text-center sm:px-8 sm:py-16">

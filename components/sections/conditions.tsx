@@ -145,7 +145,7 @@ export function ConditionsTreated() {
                     sizes="(max-width: 768px) 92vw, (max-width: 1024px) 46vw, 30vw"
                     className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.04]"
                   />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/50 via-ember/10 to-transparent" />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/18 to-transparent" />
                   <div className="glass absolute inset-x-3 bottom-3 z-[2] rounded-lg px-3 py-2">
                     <p className="text-[10px] uppercase tracking-[0.16em] text-ink/75">
                       {group.stage}

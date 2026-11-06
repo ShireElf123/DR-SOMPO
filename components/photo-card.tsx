@@ -43,7 +43,7 @@ export function PhotoCard({
             imageClassName,
           )}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ember/45 via-ember/5 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ember/18 to-transparent" />
 
         <span className="glass absolute bottom-3 left-3 z-[2] rounded-full px-3.5 py-1 text-[10px] font-medium text-ink">
           {label}

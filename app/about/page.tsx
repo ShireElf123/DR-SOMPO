@@ -149,7 +149,7 @@ export default function AboutPage() {
                       sizes="(max-width: 1024px) 92vw, 42vw"
                       className="absolute inset-0 rounded-[1.35rem]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-ember/45 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ember/18 via-transparent to-transparent" />
                     <div className="absolute inset-x-3 bottom-3 flex flex-wrap gap-1.5">
                       {["MBChB", "FCOG (SA)", "MMed (O&G)"].map((code) => (
                         <span
@@ -199,7 +199,7 @@ export default function AboutPage() {
                   sizes="(max-width: 1024px) 92vw, 38vw"
                   className="object-cover object-[center_22%]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ember/35 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-ember/14 via-transparent to-transparent" />
                 <div className="glass absolute inset-x-3 bottom-3 z-[2] rounded-lg px-3 py-2">
                   <p className="text-[10px] uppercase tracking-[0.16em] text-ink/75">
                     Qualifications
@@ -268,7 +268,7 @@ export default function AboutPage() {
                     sizes="(max-width: 1024px) 92vw, 34vw"
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ember/30 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ember/12 via-transparent to-transparent" />
                   <p className="glass absolute inset-x-3 bottom-3 z-[2] rounded-lg px-3 py-1.5 text-[11px] font-medium text-ink">
                     {practice.hospital}
                   </p>
@@ -347,7 +347,7 @@ export default function AboutPage() {
                       sizes="(max-width: 640px) 92vw, 30vw"
                       className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-ember/40 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ember/16 to-transparent" />
                   </div>
                   <div className="flex flex-1 flex-col p-4">
                     <div className="flex items-center gap-2.5">

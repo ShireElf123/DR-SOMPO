@@ -60,7 +60,7 @@ export function Hero() {
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-28 bg-gradient-to-t from-ember/22 to-transparent sm:block"
+            className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-28 bg-gradient-to-t from-ember/14 to-transparent sm:block"
           />
 
           {/* One image request. On phones the motion layer is static; the desktop
@@ -81,8 +81,8 @@ export function Hero() {
                   sizes="(max-width: 1023px) 100vw, (max-width: 1279px) 46vw, 544px"
                   className="object-cover object-[62%_18%] sm:object-[center_24%] lg:object-[center_16%]"
                 />
-                <div className="absolute inset-0 hidden bg-gradient-to-r from-apricot/10 via-transparent to-transparent lg:block" />
-                <div className="absolute inset-0 hidden bg-gradient-to-t from-ember/14 via-transparent to-transparent lg:block" />
+                <div className="absolute inset-0 hidden bg-gradient-to-r from-apricot/6 via-transparent to-transparent lg:block" />
+                <div className="absolute inset-0 hidden bg-gradient-to-t from-ember/10 via-transparent to-transparent lg:block" />
                 <div className="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-cream to-transparent lg:hidden" />
               </div>
             </m.div>

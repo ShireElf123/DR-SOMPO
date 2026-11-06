@@ -81,7 +81,7 @@ export function Services() {
                   sizes="20vw"
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ember/14 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-ember/8 to-transparent" />
               </div>
             </Reveal>
 
@@ -99,7 +99,7 @@ export function Services() {
                   sizes="20vw"
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ember/14 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-ember/8 to-transparent" />
               </div>
             </Reveal>
           </div>
@@ -158,7 +158,7 @@ export function Services() {
                     sizes="(max-width: 639px) 92vw, (max-width: 1023px) 46vw, 30vw"
                     className="object-cover transition-transform duration-[1100ms] ease-out group-hover:scale-[1.05]"
                   />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/30 to-transparent" />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/18 to-transparent" />
 
                   <div className="glass relative z-[2] w-fit max-w-[26rem] rounded-[0.9rem] px-3 py-2.5">
                     <p className="text-[12px] font-medium text-ink">{tile.title}</p>

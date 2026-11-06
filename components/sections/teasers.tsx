@@ -24,7 +24,7 @@ export function AboutTeaser() {
                   imageClassName="object-[center_16%]"
                   className="absolute inset-0"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ember/14 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-ember/8 to-transparent" />
               </div>
               <p className="mt-4 text-[10px] uppercase leading-relaxed tracking-[0.15em] text-ink-muted">
                 FCOG (SA) · MMed (O&amp;G) · Wits
@@ -124,7 +124,7 @@ export function ResearchTeaser() {
                   sizes="(max-width: 1024px) 92vw, 46vw"
                   className="absolute inset-0"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-apricot via-ember/15 to-transparent lg:from-ember/30 lg:via-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-apricot to-transparent lg:from-ember/12 lg:via-transparent" />
                 <div className="absolute inset-x-4 bottom-4 z-[2] flex items-end justify-between gap-3">
                   <p className="glass max-w-[16rem] rounded-lg px-2.5 py-1.5 text-[10px] leading-relaxed text-ink">
                     LLETZ margin status · Wits MMed · 2025
@@ -164,7 +164,7 @@ export function FaqTeaser() {
                   sizes="(max-width: 1024px) 92vw, 38vw"
                   className="absolute inset-0"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ember/22 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-ember/12 to-transparent" />
                 <p className="glass absolute inset-x-4 bottom-3.5 z-[2] rounded-lg px-3 py-2 text-[11px] leading-relaxed text-ink">
                   Arrive a few minutes early — the rooms are quiet and there is no
                   need to rush.
@@ -237,7 +237,7 @@ export function ContactBand() {
                 sizes="(max-width: 1024px) 92vw, 40vw"
                 className="absolute inset-0"
               />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/30 to-transparent" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/18 to-transparent" />
               <div className="glass relative z-[2] rounded-[1.1rem] p-4 text-ink">
                 <p className="text-[10px] uppercase tracking-[0.16em] text-ink/75">
                   Consulting rooms

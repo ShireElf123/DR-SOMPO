@@ -50,7 +50,7 @@ export function PageHero({
     target: ref,
     offset: ["start start", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "8%"]);
 
   return (
     <section className="px-3 pt-3 sm:px-4 sm:pt-4">
@@ -81,7 +81,7 @@ export function PageHero({
           >
             <m.div
               style={parallax ? { y } : undefined}
-              className="h-full w-full [backface-visibility:hidden] motion-safe:will-change-transform sm:absolute sm:inset-[-14%_0]"
+              className="h-full w-full [backface-visibility:hidden] motion-safe:will-change-transform sm:absolute sm:inset-x-0 sm:-top-[10%] sm:h-[112%]"
             >
               <ResponsivePhoto
                 image={image}
@@ -91,8 +91,8 @@ export function PageHero({
             </m.div>
           </div>
 
-          <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-t from-ember/50 via-ember/8 to-transparent sm:block" />
-          <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-ember/30 to-transparent sm:block" />
+          <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-t from-ember/18 to-transparent sm:block" />
+          <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-ember/12 to-transparent sm:block" />
 
           {/* From sm up the copy sits on a warm glass plate rather than on the
               photograph itself: contrast is measured against a known cream
@@ -101,7 +101,7 @@ export function PageHero({
               scrim. On phones the plate would cover the whole photograph, so the
               copy falls below it on plain cream. */}
           <div
-            className="relative col-start-1 row-start-1 min-w-0 self-end rounded-none px-5 py-6 text-ink [overflow-wrap:anywhere] glass max-sm:border-0 max-sm:bg-cream max-sm:shadow-none sm:m-5 sm:rounded-[1.15rem] sm:p-7 lg:m-7 lg:p-9"
+            className="relative col-start-1 row-start-1 min-w-0 self-end rounded-none px-5 py-6 text-ink [overflow-wrap:anywhere] glass max-sm:border-0 max-sm:bg-cream max-sm:shadow-none sm:m-5 sm:max-w-[40rem] sm:justify-self-start sm:rounded-[1.15rem] sm:p-7 lg:m-7 lg:p-9"
             data-hero-copy
           >
             <span className="tag self-start">{tag}</span>
@@ -241,7 +241,7 @@ export function SplitHero({
                 sizes="(max-width: 1024px) 96vw, 560px"
                 className="object-cover object-[center_18%]"
               />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/45 via-ember/5 to-transparent" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/18 to-transparent" />
             </div>
           </div>
         </div>

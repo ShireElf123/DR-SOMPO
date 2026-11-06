@@ -74,7 +74,7 @@ export default function PatientInfoPage() {
                       sizes="(max-width: 640px) 92vw, 30vw"
                       className="object-cover object-[center_18%] transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-ember/45 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ember/18 to-transparent" />
                     <span className="absolute left-3 top-3 grid h-7 w-7 place-items-center rounded-full bg-cream text-[10px] font-medium text-ink">
                       {step.step}
                     </span>
