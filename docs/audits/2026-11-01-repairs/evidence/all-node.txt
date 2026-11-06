@@ -1,0 +1,246 @@
+
+> dr-ngwey-sompo@1.0.0 test
+> node --test tests/quality.test.mjs && tsx --test tests/*.test.ts
+
+TAP version 13
+# Subtest: initial modern home scripts stay below 200 KiB gzip
+ok 1 - initial modern home scripts stay below 200 KiB gzip
+  ---
+  duration_ms: 1.017413
+  type: 'test'
+  ...
+# Subtest: optional scrolling is absent from initial script tags
+ok 2 - optional scrolling is absent from initial script tags
+  ---
+  duration_ms: 1.924723
+  type: 'test'
+  ...
+# Subtest: HTML/RSC stays bounded too, not just the script download
+ok 3 - HTML/RSC stays bounded too, not just the script download
+  ---
+  duration_ms: 0.228742
+  type: 'test'
+  ...
+# Subtest: CSS stays within the existing small budget
+ok 4 - CSS stays within the existing small budget
+  ---
+  duration_ms: 0.19692
+  type: 'test'
+  ...
+# Subtest: resting light text meets AA on white and ivory
+ok 5 - resting light text meets AA on white and ivory
+  ---
+  duration_ms: 0.662077
+  type: 'test'
+  ...
+# Subtest: resting forest text meets AA including the lightest gradient wash
+ok 6 - resting forest text meets AA including the lightest gradient wash
+  ---
+  duration_ms: 0.51713
+  type: 'test'
+  ...
+# Subtest: SSR copy needs neither hydration nor decorative duplicates
+ok 7 - SSR copy needs neither hydration nor decorative duplicates
+  ---
+  duration_ms: 135.360717
+  type: 'test'
+  ...
+# Subtest: components cannot reintroduce full Motion or layout/drag features
+ok 8 - components cannot reintroduce full Motion or layout/drag features
+  ---
+  duration_ms: 2.385425
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 243.594425
+TAP version 13
+# Subtest: practice calendar rolls over at SAST midnight, not browser or UTC midnight
+ok 1 - practice calendar rolls over at SAST midnight, not browser or UTC midnight
+  ---
+  duration_ms: 22.617758
+  type: 'test'
+  ...
+# Subtest: ten weekday date strings and labels remain consistent across month/year boundaries
+ok 2 - ten weekday date strings and labels remain consistent across month/year boundaries
+  ---
+  duration_ms: 7.419962
+  type: 'test'
+  ...
+# Subtest: impossible calendar dates are not normalised into another month
+ok 3 - impossible calendar dates are not normalised into another month
+  ---
+  duration_ms: 0.282013
+  type: 'test'
+  ...
+# Subtest: date validation includes today and day 90, but not yesterday or day 91
+ok 4 - date validation includes today and day 90, but not yesterday or day 91
+  ---
+  duration_ms: 0.251741
+  type: 'test'
+  ...
+# Subtest: API returns 400, not 500, for null
+ok 5 - API returns 400, not 500, for null
+  ---
+  duration_ms: 32.18435
+  type: 'test'
+  ...
+# Subtest: API returns 400, not 500, for []
+ok 6 - API returns 400, not 500, for []
+  ---
+  duration_ms: 1.182973
+  type: 'test'
+  ...
+# Subtest: API returns 400, not 500, for 17
+ok 7 - API returns 400, not 500, for 17
+  ---
+  duration_ms: 1.177173
+  type: 'test'
+  ...
+# Subtest: API returns 400, not 500, for "invalid"
+ok 8 - API returns 400, not 500, for "invalid"
+  ---
+  duration_ms: 0.863761
+  type: 'test'
+  ...
+# Subtest: API returns 400, not 500, for true
+ok 9 - API returns 400, not 500, for true
+  ---
+  duration_ms: 1.272743
+  type: 'test'
+  ...
+# Subtest: malformed JSON and native form submissions fail safely without echoing data
+ok 10 - malformed JSON and native form submissions fail safely without echoing data
+  ---
+  duration_ms: 1.956464
+  type: 'test'
+  ...
+# Subtest: request body is bounded with Content-Length absent
+ok 11 - request body is bounded with Content-Length absent
+  ---
+  duration_ms: 1.293046
+  type: 'test'
+  ...
+# Subtest: request body is bounded with Content-Length 1
+ok 12 - request body is bounded with Content-Length 1
+  ---
+  duration_ms: 1.210472
+  type: 'test'
+  ...
+# Subtest: request body is bounded with Content-Length 100000
+ok 13 - request body is bounded with Content-Length 100000
+  ---
+  duration_ms: 1.238959
+  type: 'test'
+  ...
+# Subtest: API rejects impossible date before delivery
+ok 14 - API rejects impossible date before delivery
+  ---
+  duration_ms: 22.077936
+  type: 'test'
+  ...
+# Subtest: API rejects digitless telephone before delivery
+ok 15 - API rejects digitless telephone before delivery
+  ---
+  duration_ms: 1.438604
+  type: 'test'
+  ...
+# Subtest: API rejects missing consent before delivery
+ok 16 - API rejects missing consent before delivery
+  ---
+  duration_ms: 0.973135
+  type: 'test'
+  ...
+# Subtest: API rejects pending WhatsApp before delivery
+ok 17 - API rejects pending WhatsApp before delivery
+  ---
+  duration_ms: 0.886625
+  type: 'test'
+  ...
+# Subtest: API rejects unknown service before delivery
+ok 18 - API rejects unknown service before delivery
+  ---
+  duration_ms: 0.8883
+  type: 'test'
+  ...
+# Subtest: API rejects oversized note before delivery
+ok 19 - API rejects oversized note before delivery
+  ---
+  duration_ms: 0.943179
+  type: 'test'
+  ...
+# Subtest: activation is explicit; missing, invalid and non-HTTPS receivers fail closed
+ok 20 - activation is explicit; missing, invalid and non-HTTPS receivers fail closed
+  ---
+  duration_ms: 4.411392
+  type: 'test'
+  ...
+# Subtest: configured delivery forwards only intended fields with a readable service and canonical ID
+ok 21 - configured delivery forwards only intended fields with a readable service and canonical ID
+  ---
+  duration_ms: 2.963107
+  type: 'test'
+  ...
+# Subtest: receiver rejection and network failure never produce a receipt
+ok 22 - receiver rejection and network failure never produce a receipt
+  ---
+  duration_ms: 1.990149
+  type: 'test'
+  ...
+# Subtest: honeypot rejection does not falsely claim a message was received
+ok 23 - honeypot rejection does not falsely claim a message was received
+  ---
+  duration_ms: 0.758598
+  type: 'test'
+  ...
+# Subtest: GET remains method-not-allowed and advertises the allowed method
+ok 24 - GET remains method-not-allowed and advertises the allowed method
+  ---
+  duration_ms: 0.355641
+  type: 'test'
+  ...
+# Subtest: service resolution supports every ID and legacy title but not unknown values
+ok 25 - service resolution supports every ID and legacy title but not unknown values
+  ---
+  duration_ms: 0.217331
+  type: 'test'
+  ...
+# Subtest: client/server validation shares date/slot keys and meaningful telephone digits
+ok 26 - client/server validation shares date/slot keys and meaningful telephone digits
+  ---
+  duration_ms: 0.283658
+  type: 'test'
+  ...
+# Subtest: unconfigured form collects no personal information and offers direct contact
+ok 27 - unconfigured form collects no personal information and offers direct contact
+  ---
+  duration_ms: 16.74541
+  type: 'test'
+  ...
+# Subtest: configured form has a safe POST action and is disabled before hydration
+ok 28 - configured form has a safe POST action and is disabled before hydration
+  ---
+  duration_ms: 21.003961
+  type: 'test'
+  ...
+# Subtest: malformed field types cannot silently become a general consultation or no preference
+ok 29 - malformed field types cannot silently become a general consultation or no preference
+  ---
+  duration_ms: 17.150366
+  type: 'test'
+  ...
+1..29
+# tests 29
+# suites 0
+# pass 29
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1079.017223

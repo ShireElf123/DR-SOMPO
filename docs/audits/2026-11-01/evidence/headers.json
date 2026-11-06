@@ -1,0 +1,183 @@
+[
+  {
+    "path": "/",
+    "status": 200,
+    "headers": {
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "X-Frame-Options": "SAMEORIGIN",
+      "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+      "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+      "Vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+      "x-nextjs-cache": "HIT",
+      "x-nextjs-prerender": "1",
+      "x-nextjs-stale-time": "300",
+      "Cache-Control": "s-maxage=31536000",
+      "ETag": "\"khunsyjvyw3otv\"",
+      "Content-Type": "text/html; charset=utf-8",
+      "Content-Length": "172319",
+      "Date": "Sun, 01 Nov 2026 16:49:16 GMT",
+      "Connection": "close"
+    },
+    "bytes": 172319
+  },
+  {
+    "path": "/contact",
+    "status": 200,
+    "headers": {
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "X-Frame-Options": "SAMEORIGIN",
+      "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+      "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+      "Vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+      "Link": "</>; rel=preconnect; crossorigin=\"\"",
+      "Cache-Control": "private, no-cache, no-store, max-age=0, must-revalidate",
+      "Content-Type": "text/html; charset=utf-8",
+      "Date": "Sun, 01 Nov 2026 16:49:16 GMT",
+      "Connection": "close",
+      "Transfer-Encoding": "chunked"
+    },
+    "bytes": 83655
+  },
+  {
+    "path": "/services/antenatal",
+    "status": 200,
+    "headers": {
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "X-Frame-Options": "SAMEORIGIN",
+      "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+      "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+      "Vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+      "x-nextjs-cache": "HIT",
+      "x-nextjs-prerender": "1",
+      "x-nextjs-stale-time": "300",
+      "Cache-Control": "s-maxage=31536000",
+      "ETag": "\"h59rqg4rbg1vyw\"",
+      "Content-Type": "text/html; charset=utf-8",
+      "Content-Length": "88241",
+      "Date": "Sun, 01 Nov 2026 16:49:16 GMT",
+      "Connection": "close"
+    },
+    "bytes": 88241
+  },
+  {
+    "path": "/this-page-does-not-exist",
+    "status": 404,
+    "headers": {
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "X-Frame-Options": "SAMEORIGIN",
+      "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+      "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+      "Cache-Control": "private, no-cache, no-store, max-age=0, must-revalidate",
+      "Vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+      "x-nextjs-cache": "HIT",
+      "x-nextjs-prerender": "1",
+      "x-nextjs-stale-time": "300",
+      "ETag": "\"17ar949cmhkwx8\"",
+      "Content-Type": "text/html; charset=utf-8",
+      "Content-Length": "42749",
+      "Date": "Sun, 01 Nov 2026 16:49:16 GMT",
+      "Connection": "close"
+    },
+    "bytes": 42749
+  },
+  {
+    "path": "/robots.txt",
+    "status": 200,
+    "headers": {
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "X-Frame-Options": "SAMEORIGIN",
+      "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+      "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+      "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+      "x-nextjs-cache": "HIT",
+      "cache-control": "public, max-age=0, must-revalidate",
+      "content-type": "text/plain",
+      "Date": "Sun, 01 Nov 2026 16:49:16 GMT",
+      "Connection": "close",
+      "Transfer-Encoding": "chunked"
+    },
+    "bytes": 157,
+    "body": "User-Agent: *\nAllow: /\nDisallow: /api/\n\nHost: https://dr-cm-ngwey-sompo-website.vercel.app\nSitemap: https://dr-cm-ngwey-sompo-website.vercel.app/sitemap.xml\n"
+  },
+  {
+    "path": "/sitemap.xml",
+    "status": 200,
+    "headers": {
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "X-Frame-Options": "SAMEORIGIN",
+      "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+      "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+      "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+      "x-nextjs-cache": "HIT",
+      "cache-control": "public, max-age=0, must-revalidate",
+      "content-type": "application/xml",
+      "Date": "Sun, 01 Nov 2026 16:49:16 GMT",
+      "Connection": "close",
+      "Transfer-Encoding": "chunked"
+    },
+    "bytes": 2325,
+    "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n<url>\n<loc>https://dr-cm-ngwey-sompo-website.vercel.app</loc>\n<lastmod>2026-11-01T16:30:50.431Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>1</priority>\n</url>\n<url>\n<loc>https://dr-cm-ngwey-sompo-website.vercel.app/services</loc>\n<lastmod>2026-11-01T16:30:50.431Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://dr-cm-ngwey-sompo-website.vercel.app/services/antenatal</loc>\n<lastmod>2026-11-01T16:30:50.431Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://dr-cm-ngwey-sompo-website.vercel.app/services/delivery</loc>\n<lastmod>2026-11-01T16:30:50.431Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://dr-cm-ngwey-sompo-website.vercel.app/services/general</loc>\n<lastmod>2026-11-01T16:30:50.431Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://dr-cm-ngwey-sompo-website.vercel.app/services/oncology</loc>\n<lastmod>2026-11-01T16:30:50.431Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://dr-cm-ngwey-sompo-website.vercel.app/services/fertility-assessment</loc>\n<lastmod>2026-11-01T16:30:50.431Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://dr-cm-ngwey-sompo-website.vercel.app/services/laparoscopy</loc>\n<lastmod>2026-11-01T16:30:50.431Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://dr-cm-ngwey-sompo-website.vercel.app/about</loc>\n<lastmod>2026-11-01T16:30:50.431Z</lastmod>\n<changefreq>yearly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://dr-cm-ngwey-sompo-website.vercel.app/research</loc>\n<lastmod>2026-11-01T16:30:50.431Z</lastmod>\n<changefreq>yearly</changefreq>\n<priority>0.6</priority>\n</url>\n<url>\n<loc>https://dr-cm-ngwey-sompo-website.vercel.app/patient-info</loc>\n<lastmod>2026-11-01T16:30:50.431Z</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.7</priority>\n</url>\n<url>\n<loc>https://dr-cm-ngwey-sompo-website.vercel.app/contact</loc>\n<lastmod>2026-11-01T16:30:50.431Z</lastmod>\n<changefreq>yearly</changefreq>\n<priority>0.9</priority>\n</url>\n</urlset>\n"
+  },
+  {
+    "path": "/icon.svg",
+    "status": 200,
+    "headers": {
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "X-Frame-Options": "SAMEORIGIN",
+      "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+      "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+      "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+      "x-nextjs-cache": "HIT",
+      "cache-control": "public, max-age=0, must-revalidate",
+      "content-type": "image/svg+xml",
+      "Date": "Sun, 01 Nov 2026 16:49:16 GMT",
+      "Connection": "close",
+      "Transfer-Encoding": "chunked"
+    },
+    "bytes": 576
+  },
+  {
+    "path": "/opengraph-image",
+    "status": 200,
+    "headers": {
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "X-Frame-Options": "SAMEORIGIN",
+      "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+      "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+      "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+      "x-nextjs-cache": "HIT",
+      "cache-control": "public, max-age=0, must-revalidate",
+      "content-type": "image/png",
+      "Date": "Sun, 01 Nov 2026 16:49:16 GMT",
+      "Connection": "close",
+      "Transfer-Encoding": "chunked"
+    },
+    "bytes": 90595
+  },
+  {
+    "path": "/api/enquiry",
+    "status": 405,
+    "headers": {
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "strict-origin-when-cross-origin",
+      "X-Frame-Options": "SAMEORIGIN",
+      "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+      "Strict-Transport-Security": "max-age=63072000; includeSubDomains; preload",
+      "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+      "content-type": "application/json",
+      "Date": "Sun, 01 Nov 2026 16:49:16 GMT",
+      "Connection": "close",
+      "Transfer-Encoding": "chunked"
+    },
+    "bytes": 42,
+    "body": "{\"ok\":false,\"error\":\"Method not allowed.\"}"
+  }
+]

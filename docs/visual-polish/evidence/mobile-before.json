@@ -1,0 +1,16 @@
+{
+  "cls": 0.13496455349200667,
+  "shifts": [
+    {
+      "value": 0.13496455349200667,
+      "time": 1724.3999999985099,
+      "nodes": [
+        "P mt-6 max-w-[26rem] text-[0.875rem] leading-relaxed text-white/90 sm:text-[0.9375rem]",
+        "DIV mt-6 flex flex-wrap items-center gap-2.5",
+        "DIV pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-forest/35 to-transparent",
+        "P mx-auto max-w-[1180px] px-1 pb-1 pt-3 text-[11px] leading-relaxed text-ink-muted",
+        "SECTION bg-white py-6 sm:py-8"
+      ]
+    }
+  ]
+}

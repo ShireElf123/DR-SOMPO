@@ -1,0 +1,105 @@
+{
+  "chunks": [
+    {
+      "src": "/_next/static/chunks/2bzlqb104tejm.js",
+      "legacy": false,
+      "raw": 33760,
+      "gzip": 9002
+    },
+    {
+      "src": "/_next/static/chunks/216iyidhmrh3u.js",
+      "legacy": false,
+      "raw": 229597,
+      "gzip": 71736
+    },
+    {
+      "src": "/_next/static/chunks/0do2t05ysoa-w.js",
+      "legacy": false,
+      "raw": 163334,
+      "gzip": 44943
+    },
+    {
+      "src": "/_next/static/chunks/turbopack-2c3mg3r-05n1w.js",
+      "legacy": false,
+      "raw": 11255,
+      "gzip": 4390
+    },
+    {
+      "src": "/_next/static/chunks/313mlvknruyts.js",
+      "legacy": false,
+      "raw": 316,
+      "gzip": 225
+    },
+    {
+      "src": "/_next/static/chunks/03lv5416f29nb.js",
+      "legacy": false,
+      "raw": 18889,
+      "gzip": 7765
+    },
+    {
+      "src": "/_next/static/chunks/3frruxmsb-g5i.js",
+      "legacy": false,
+      "raw": 75024,
+      "gzip": 27108
+    },
+    {
+      "src": "/_next/static/chunks/25vi3-zuw6xlz.js",
+      "legacy": false,
+      "raw": 56223,
+      "gzip": 20217
+    },
+    {
+      "src": "/_next/static/chunks/3tgvnk49qx27u.js",
+      "legacy": false,
+      "raw": 28551,
+      "gzip": 8810
+    },
+    {
+      "src": "/_next/static/chunks/0qmyqespsxnr2.js",
+      "legacy": false,
+      "raw": 15837,
+      "gzip": 5023
+    },
+    {
+      "src": "/_next/static/chunks/42onvq6nokjl2.js",
+      "legacy": false,
+      "raw": 13822,
+      "gzip": 3515
+    },
+    {
+      "src": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+      "legacy": true,
+      "raw": 112594,
+      "gzip": 39520
+    },
+    {
+      "src": "/_next/static/chunks/1ckvzn7sfprko.js",
+      "legacy": false,
+      "raw": 5584,
+      "gzip": 2033
+    }
+  ],
+  "document": {
+    "raw": 174210,
+    "gzip": 26477
+  },
+  "modern": {
+    "count": 12,
+    "raw": 652192,
+    "gzip": 204767
+  },
+  "legacy": {
+    "count": 1,
+    "raw": 112594,
+    "gzip": 39520
+  },
+  "total": {
+    "count": 13,
+    "raw": 764786,
+    "gzip": 244287
+  },
+  "css": {
+    "raw": 88109,
+    "gzip": 15112
+  }
+}

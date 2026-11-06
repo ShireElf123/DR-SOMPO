@@ -1,0 +1,22 @@
+{
+  "baseline": "e5b28e8cdf8a2a1acefdce93ba7270b5709bfb8e",
+  "page": "/",
+  "modern": {
+    "count": 12,
+    "raw": 651924,
+    "gzip": 204789
+  },
+  "css": {
+    "raw": 91959,
+    "gzip": 15982
+  },
+  "document": {
+    "raw": 172521,
+    "gzip": 26249
+  },
+  "limits": {
+    "modern": 204800,
+    "css": 16384,
+    "document": 30720
+  }
+}

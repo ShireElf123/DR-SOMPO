@@ -1,0 +1,18 @@
+{
+  "formCount": 0,
+  "inputCount": 0,
+  "fallbackVisible": true,
+  "telephoneLinks": 1,
+  "emailLinks": 1,
+  "axeViolations": [],
+  "axePassCount": 24,
+  "axeIncompleteIds": [
+    "color-contrast"
+  ],
+  "validPostStatus": 503,
+  "validPostResponse": {
+    "ok": false,
+    "error": "Online enquiries are not connected yet. Please call 011 842 7651 or email chrisscrcross2013@gmail.com."
+  },
+  "pageErrors": []
+}

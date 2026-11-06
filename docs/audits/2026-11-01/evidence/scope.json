@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-01",
+  "timezone": "Africa/Johannesburg",
+  "sha": "e1d66e914888660fd381f07101cb16f767d97519",
+  "branch": "arena/a5f32632-dr-sompo",
+  "layoutCases": 96,
+  "routes": [
+    "/",
+    "/services",
+    "/about",
+    "/research",
+    "/patient-info",
+    "/contact",
+    "/services/antenatal",
+    "/services/delivery",
+    "/services/general",
+    "/services/oncology",
+    "/services/fertility-assessment",
+    "/services/laparoscopy"
+  ],
+  "widths": [
+    320,
+    360,
+    390,
+    430,
+    640,
+    768,
+    1024,
+    1440
+  ],
+  "clippedH1Cases": 11,
+  "interactionProbes": 15,
+  "axeChecks": 24,
+  "isolatedApiCases": 9,
+  "existingBrowserTestsPassed": 42,
+  "existingNodeTestsPassed": 8,
+  "lighthouseRuns": 3,
+  "applicationChanges": false,
+  "externalEnquiriesSent": false,
+  "freshBuildDuringAudit": false
+}

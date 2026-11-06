@@ -1,0 +1,52 @@
+[
+  {
+    "page": "index",
+    "modernBefore": 204642,
+    "modernAfter": 204734,
+    "modernDelta": 92,
+    "cssBefore": 14920,
+    "cssAfter": 15891,
+    "htmlBefore": 26308,
+    "htmlAfter": 26498
+  },
+  {
+    "page": "services",
+    "modernBefore": 204336,
+    "modernAfter": 204248,
+    "modernDelta": -88,
+    "cssBefore": 14920,
+    "cssAfter": 15891,
+    "htmlBefore": 19776,
+    "htmlAfter": 19827
+  },
+  {
+    "page": "about",
+    "modernBefore": 202324,
+    "modernAfter": 202237,
+    "modernDelta": -87,
+    "cssBefore": 14920,
+    "cssAfter": 15891,
+    "htmlBefore": 16255,
+    "htmlAfter": 16308
+  },
+  {
+    "page": "research",
+    "modernBefore": 202324,
+    "modernAfter": 202237,
+    "modernDelta": -87,
+    "cssBefore": 14920,
+    "cssAfter": 15891,
+    "htmlBefore": 16331,
+    "htmlAfter": 16340
+  },
+  {
+    "page": "patient-info",
+    "modernBefore": 202324,
+    "modernAfter": 202237,
+    "modernDelta": -87,
+    "cssBefore": 14920,
+    "cssAfter": 15891,
+    "htmlBefore": 16618,
+    "htmlAfter": 16726
+  }
+]

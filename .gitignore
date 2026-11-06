@@ -1,0 +1,32 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.*
+
+# next.js
+/.next/
+/out/
+next-env.d.ts
+*.tsbuildinfo
+
+# production
+/build
+/dist
+
+# local env
+.env
+.env*.local
+
+# local tooling
+.venv/
+__pycache__/
+.DS_Store
+*.log
+npm-debug.log*
+
+# vercel
+.vercel
+
+# test output
+/test-results/
+/playwright-report/

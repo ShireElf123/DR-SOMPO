@@ -1,0 +1,40 @@
+
+Running 1 test using 1 worker
+
+  ✘  1 tests/e2e/banner.spec.ts:4:7 › footer banner covers the whole viewport throughout its loop at 1440px (2.6s)
+
+
+  1) tests/e2e/banner.spec.ts:4:7 › footer banner covers the whole viewport throughout its loop at 1440px 
+
+    Error: right coverage at phase 0.5
+
+    expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 1439
+    Received:    1240.2890625
+
+      18 |       }, phase);
+      19 |       expect(coverage.left, `left coverage at phase ${phase}`).toBeLessThanOrEqual(coverage.viewportLeft + 1);
+    > 20 |       expect(coverage.right, `right coverage at phase ${phase}`).toBeGreaterThanOrEqual(coverage.viewportRight - 1);
+         |                                                                  ^
+      21 |     }
+      22 |     const copies = track.locator(".marquee-copy");
+      23 |     await expect(copies).toHaveCount(2);
+        at /home/user/DR-SOMPO/tests/e2e/banner.spec.ts:20:66
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/banner-footer-banner-cover-163e2-roughout-its-loop-at-1440px/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/banner-footer-banner-cover-163e2-roughout-its-loop-at-1440px/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/banner-footer-banner-cover-163e2-roughout-its-loop-at-1440px/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/banner-footer-banner-cover-163e2-roughout-its-loop-at-1440px/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    tests/e2e/banner.spec.ts:4:7 › footer banner covers the whole viewport throughout its loop at 1440px 

@@ -1,0 +1,256 @@
+[
+  {
+    "name": "services-overview-prefill",
+    "detail": {
+      "url": "http://127.0.0.1:3010/contact?service=antenatal",
+      "displayed": {
+        "value": "",
+        "selected": "General consultation — not sure yet",
+        "options": [
+          "",
+          "Antenatal care",
+          "Vaginal & caesarean delivery",
+          "General gynaecological consultations",
+          "Female screening & oncology assessment",
+          "Fertility assessment & consultation",
+          "Laparoscopic & open gynaecological surgery"
+        ]
+      },
+      "postedService": "antenatal"
+    },
+    "errors": []
+  },
+  {
+    "name": "detail-page-prefill",
+    "detail": {
+      "value": "Antenatal care",
+      "selected": "Antenatal care (Obstetrics)"
+    },
+    "errors": []
+  },
+  {
+    "name": "back-restoration-phone",
+    "detail": {
+      "before": {
+        "url": "http://127.0.0.1:3010/services",
+        "sy": 7369,
+        "x": 0,
+        "width": 390,
+        "active": "<body class=\"bg-white antialiased\"><div hidden=\"\"><!--$--><!--/$--></div><script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"Physician\",\"@id\":\"https://dr-cm-ngwey-sompo-website.vercel.app/#practice\",\"name\":\"Dr CM Ngwey-Sompo "
+      },
+      "after": {
+        "url": "http://127.0.0.1:3010/services",
+        "sy": 7297,
+        "x": 0,
+        "width": 390,
+        "active": "<body class=\"bg-white antialiased\"><div hidden=\"\"></div><script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"Physician\",\"@id\":\"https://dr-cm-ngwey-sompo-website.vercel.app/#practice\",\"name\":\"Dr CM Ngwey-Sompo Inc.\",\"alternateN"
+      }
+    },
+    "errors": []
+  },
+  {
+    "name": "back-restoration-desktop",
+    "detail": {
+      "before": {
+        "url": "http://127.0.0.1:3010/services",
+        "sy": 4412,
+        "x": 0,
+        "width": 1440,
+        "active": "<body class=\"bg-white antialiased\"><div hidden=\"\"><!--$--><!--/$--></div><script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"Physician\",\"@id\":\"https://dr-cm-ngwey-sompo-website.vercel.app/#practice\",\"name\":\"Dr CM Ngwey-Sompo "
+      },
+      "after": {
+        "url": "http://127.0.0.1:3010/services",
+        "sy": 4412,
+        "x": 0,
+        "width": 1440,
+        "active": "<body class=\"bg-white antialiased\"><div hidden=\"\"></div><script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"Physician\",\"@id\":\"https://dr-cm-ngwey-sompo-website.vercel.app/#practice\",\"name\":\"Dr CM Ngwey-Sompo Inc.\",\"alternateN"
+      }
+    },
+    "errors": []
+  },
+  {
+    "name": "home-faq-plus-is-inert",
+    "detail": {
+      "unchanged": true,
+      "before": {
+        "url": "http://127.0.0.1:3010/",
+        "text": "Patient information\nBefore you visit\n\nPractical answers about booking, records, confidentiality and what to expect.\n\nArrive a few minutes early — the rooms are quiet and there is no need to rush.\n\nAll questions\n\nHow do I make an appointment?\n\n+\n\nAppointment enquiries are handled by telephone on 011 842 7651 or by email to chrisscrcross2013@gmail.com. WhatsApp enquiry will be offered once the p…\n\nWhat should I bring to my first consultation?\n\n+\n\nPlease bring your ID or passport, your medical aid card if you have one, a list of current medications, and any previous results, scans or referral le…\n\nWhere does Dr Sompo consult?\n\n+\n\nDr Sompo practises at Life Roseacres Hospital, on the corner of St Joseph and Castor Road, Primrose, Germiston, Johannesburg. Please confirm the exact…\n\nDoes the practice accept medical aid?\n\n+\n\nPlease confirm medical aid arrangements, tariffs and any co-payment directly with the practice before your visit. The website does not publish billing…\n\nBefore you visit",
+        "expanded": 0
+      },
+      "after": {
+        "url": "http://127.0.0.1:3010/",
+        "text": "Patient information\nBefore you visit\n\nPractical answers about booking, records, confidentiality and what to expect.\n\nArrive a few minutes early — the rooms are quiet and there is no need to rush.\n\nAll questions\n\nHow do I make an appointment?\n\n+\n\nAppointment enquiries are handled by telephone on 011 842 7651 or by email to chrisscrcross2013@gmail.com. WhatsApp enquiry will be offered once the p…\n\nWhat should I bring to my first consultation?\n\n+\n\nPlease bring your ID or passport, your medical aid card if you have one, a list of current medications, and any previous results, scans or referral le…\n\nWhere does Dr Sompo consult?\n\n+\n\nDr Sompo practises at Life Roseacres Hospital, on the corner of St Joseph and Castor Road, Primrose, Germiston, Johannesburg. Please confirm the exact…\n\nDoes the practice accept medical aid?\n\n+\n\nPlease confirm medical aid arrangements, tariffs and any co-payment directly with the practice before your visit. The website does not publish billing…\n\nBefore you visit",
+        "expanded": 0
+      }
+    },
+    "errors": []
+  },
+  {
+    "name": "sticky-book-reloads-and-clears-form",
+    "detail": {
+      "before": {
+        "url": "http://127.0.0.1:3010/contact",
+        "sy": 1283,
+        "x": 0,
+        "width": 390,
+        "active": "<textarea id=\"enq-message\" name=\"message\" rows=\"2\" aria-describedby=\"enq-message-hint\" placeholder=\"e.g. First visit — I have a referral letter.\" class=\"min-h-12 w-full min-w-0 rounded-xl border bg-ivory/60 px-3.5 py-2.5 text-base text-charcoal place"
+      },
+      "after": {
+        "url": "http://127.0.0.1:3010/contact",
+        "sy": 0,
+        "x": 0,
+        "width": 390,
+        "active": "<body class=\"bg-white antialiased\"><div hidden=\"\"><!--$--><!--/$--></div><script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"Physician\",\"@id\":\"https://dr-cm-ngwey-sompo-website.vercel.app/#practice\",\"name\":\"Dr CM Ngwey-Sompo "
+      },
+      "name": "",
+      "message": "",
+      "documentRequests": 1
+    },
+    "errors": []
+  },
+  {
+    "name": "validation-error-offscreen",
+    "detail": {
+      "state": {
+        "url": "http://127.0.0.1:3010/contact",
+        "sy": 1884,
+        "x": 0,
+        "width": 390,
+        "active": "<button type=\"submit\" class=\"btn btn-forest group min-h-12 w-full justify-between disabled:cursor-not-allowed disabled:opacity-70 lg:min-h-0\">Request this appointment<i aria-hidden=\"true\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\""
+      },
+      "error": {
+        "x": 40,
+        "y": -355.765625,
+        "width": 310,
+        "height": 16.5
+      },
+      "errorVisible": false,
+      "alerts": 0
+    },
+    "errors": []
+  },
+  {
+    "name": "server-date-error-not-rendered",
+    "detail": {
+      "dateErrorDisplayed": 0,
+      "alert": "We could not send that request. Please call the practice."
+    },
+    "errors": []
+  },
+  {
+    "name": "no-js-native-submit-uses-get",
+    "detail": {
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:3010/contact?name=Audit+Privacy+Test&service=&contactMethod=Telephone&contact=0000000000&message=Synthetic+non-clinical+audit+note&company=&consent=on"
+      },
+      "url": "http://127.0.0.1:3010/contact?name=Audit+Privacy+Test&service=&contactMethod=Telephone&contact=0000000000&message=Synthetic+non-clinical+audit+note&company=&consent=on",
+      "form": {
+        "method": "get",
+        "action": "http://127.0.0.1:3010/contact?name=Audit+Privacy+Test&service=&contactMethod=Telephone&contact=0000000000&message=Synthetic+non-clinical+audit+note&company=&consent=on"
+      }
+    },
+    "errors": []
+  },
+  {
+    "name": "international-timezone-calendar",
+    "detail": {
+      "now": "Mon Nov 02 2026 05:48:27 GMT+1300 (New Zealand Daylight Time)",
+      "tz": "Pacific/Auckland",
+      "days": [
+        "SUN\n1\nNOV",
+        "MON\n2\nNOV",
+        "TUE\n3\nNOV",
+        "WED\n4\nNOV",
+        "THU\n5\nNOV",
+        "SUN\n8\nNOV",
+        "MON\n9\nNOV",
+        "TUE\n10\nNOV",
+        "WED\n11\nNOV",
+        "THU\n12\nNOV"
+      ]
+    },
+    "errors": [
+      "Minified React error #418; visit https://react.dev/errors/418?args[]=text&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings."
+    ]
+  },
+  {
+    "name": "faq-accessibility-collapsed-panels",
+    "detail": {
+      "initiallyExpanded": "false",
+      "collapsedPanelBox": {
+        "x": 20,
+        "y": 608.828125,
+        "width": 350,
+        "height": 0
+      },
+      "panelOpacity": "0",
+      "collapsedAnswerInAX": true,
+      "afterExpanded": "true",
+      "afterHeight": 125.625
+    },
+    "errors": []
+  },
+  {
+    "name": "live-reduced-motion-cursor",
+    "detail": {
+      "before": {
+        "opacity": "0.993325",
+        "transform": "translate3d(479.32px, 274.363px, 0px) translate(-50%, -50%)"
+      },
+      "after": {
+        "opacity": "1",
+        "transform": "translate3d(899.299px, 499.609px, 0px) translate(-50%, -50%)"
+      },
+      "lenis": ""
+    },
+    "errors": []
+  },
+  {
+    "name": "anchor-navigation",
+    "detail": {
+      "servicesTarget": {
+        "x": 20,
+        "y": 184.390625,
+        "width": 350,
+        "height": 784.171875
+      },
+      "detailTarget": {
+        "x": 20,
+        "y": 200.265625,
+        "width": 350,
+        "height": 241.5
+      },
+      "url": "http://127.0.0.1:3010/services/laparoscopy#section-2"
+    },
+    "errors": []
+  },
+  {
+    "name": "mobile-menu-landscape-resize",
+    "detail": {
+      "dialogBox": {
+        "x": 0,
+        "y": 31.203125,
+        "width": 844,
+        "height": 358.796875
+      },
+      "menuClosed": true,
+      "bodyOverflow": "hidden auto",
+      "url": "http://127.0.0.1:3010/contact"
+    },
+    "errors": []
+  },
+  {
+    "name": "404-response",
+    "detail": {
+      "status": 404,
+      "title": "Page not found | Dr CM Ngwey-Sompo Inc.",
+      "heading": "We couldn't find that page.",
+      "robots": [
+        "noindex",
+        "index, follow"
+      ]
+    },
+    "errors": []
+  }
+]

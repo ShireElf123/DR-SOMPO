@@ -1,0 +1,148 @@
+[
+  {
+    "label": "unconfigured-delivery",
+    "status": 503,
+    "body": {
+      "ok": false,
+      "error": "Online enquiries are not connected yet. Please call the practice on 011 842 7651 or email chrisscrcross2013@gmail.com — we would rather you reach us directly than have your message go astray."
+    },
+    "forwarded": false,
+    "forwardedData": null
+  },
+  {
+    "label": "valid-mocked-delivery",
+    "status": 200,
+    "body": {
+      "ok": true
+    },
+    "forwarded": true,
+    "forwardedData": {
+      "source": "website-enquiry",
+      "receivedAt": "2026-11-01T12:00:00.000Z",
+      "name": "Audit Test",
+      "contactMethod": "Email",
+      "contact": "audit@example.invalid",
+      "preferred": "Any time",
+      "preferredDate": null,
+      "preferredSlot": null,
+      "service": null,
+      "message": null
+    }
+  },
+  {
+    "label": "null-json",
+    "uncaught": "Cannot read properties of null (reading 'company')"
+  },
+  {
+    "label": "missing-consent",
+    "status": 422,
+    "body": {
+      "ok": false,
+      "errors": {
+        "consent": "Please confirm that the practice may use these details to respond to your enquiry."
+      }
+    },
+    "forwarded": false,
+    "forwardedData": null
+  },
+  {
+    "label": "overflow-calendar-date",
+    "status": 200,
+    "body": {
+      "ok": true
+    },
+    "forwarded": true,
+    "forwardedData": {
+      "source": "website-enquiry",
+      "receivedAt": "2026-11-01T12:00:00.000Z",
+      "name": "Audit Test",
+      "contactMethod": "Email",
+      "contact": "audit@example.invalid",
+      "preferred": "Any time",
+      "preferredDate": "2026-11-31",
+      "preferredSlot": "Early morning",
+      "service": null,
+      "message": null
+    }
+  },
+  {
+    "label": "phone-with-no-digits",
+    "status": 200,
+    "body": {
+      "ok": true
+    },
+    "forwarded": true,
+    "forwardedData": {
+      "source": "website-enquiry",
+      "receivedAt": "2026-11-01T12:00:00.000Z",
+      "name": "Audit Test",
+      "contactMethod": "Telephone",
+      "contact": "---------",
+      "preferred": "Any time",
+      "preferredDate": null,
+      "preferredSlot": null,
+      "service": null,
+      "message": null
+    }
+  },
+  {
+    "label": "no-client-timestamp",
+    "status": 200,
+    "body": {
+      "ok": true
+    },
+    "forwarded": true,
+    "forwardedData": {
+      "source": "website-enquiry",
+      "receivedAt": "2026-11-01T12:00:00.000Z",
+      "name": "Audit Test",
+      "contactMethod": "Email",
+      "contact": "audit@example.invalid",
+      "preferred": "Any time",
+      "preferredDate": null,
+      "preferredSlot": null,
+      "service": null,
+      "message": null
+    }
+  },
+  {
+    "label": "second-immediate-request",
+    "status": 200,
+    "body": {
+      "ok": true
+    },
+    "forwarded": true,
+    "forwardedData": {
+      "source": "website-enquiry",
+      "receivedAt": "2026-11-01T12:00:00.000Z",
+      "name": "Audit Test",
+      "contactMethod": "Email",
+      "contact": "audit@example.invalid",
+      "preferred": "Any time",
+      "preferredDate": null,
+      "preferredSlot": null,
+      "service": null,
+      "message": null
+    }
+  },
+  {
+    "label": "third-immediate-request",
+    "status": 200,
+    "body": {
+      "ok": true
+    },
+    "forwarded": true,
+    "forwardedData": {
+      "source": "website-enquiry",
+      "receivedAt": "2026-11-01T12:00:00.000Z",
+      "name": "Audit Test",
+      "contactMethod": "Email",
+      "contact": "audit@example.invalid",
+      "preferred": "Any time",
+      "preferredDate": null,
+      "preferredSlot": null,
+      "service": null,
+      "message": null
+    }
+  }
+]

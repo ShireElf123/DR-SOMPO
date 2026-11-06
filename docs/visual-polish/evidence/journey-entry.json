@@ -1,0 +1,302 @@
+{
+  "before": {
+    "steps": [
+      {
+        "opacity": 0,
+        "y": 12
+      },
+      {
+        "opacity": 0,
+        "y": 12
+      },
+      {
+        "opacity": 0,
+        "y": 12
+      }
+    ],
+    "lines": [
+      0,
+      0
+    ],
+    "animations": [
+      {
+        "state": "running",
+        "properties": [
+          "offset",
+          "easing",
+          "composite",
+          "transform",
+          "computedOffset"
+        ]
+      },
+      {
+        "state": "running",
+        "properties": [
+          "offset",
+          "easing",
+          "composite",
+          "opacity",
+          "transform",
+          "computedOffset"
+        ]
+      },
+      {
+        "state": "running",
+        "properties": [
+          "offset",
+          "easing",
+          "composite",
+          "transform",
+          "computedOffset"
+        ]
+      },
+      {
+        "state": "running",
+        "properties": [
+          "offset",
+          "easing",
+          "composite",
+          "opacity",
+          "transform",
+          "computedOffset"
+        ]
+      },
+      {
+        "state": "running",
+        "properties": [
+          "offset",
+          "easing",
+          "composite",
+          "opacity",
+          "transform",
+          "computedOffset"
+        ]
+      }
+    ]
+  },
+  "entering": {
+    "steps": [
+      {
+        "opacity": 0.950307,
+        "y": 0.596316
+      },
+      {
+        "opacity": 0.621477,
+        "y": 4.54228
+      },
+      {
+        "opacity": 0,
+        "y": 12
+      }
+    ],
+    "lines": [
+      0.620854,
+      0
+    ],
+    "animations": [
+      {
+        "state": "running",
+        "properties": [
+          "offset",
+          "easing",
+          "composite",
+          "transform",
+          "computedOffset"
+        ]
+      },
+      {
+        "state": "running",
+        "properties": [
+          "offset",
+          "easing",
+          "composite",
+          "opacity",
+          "transform",
+          "computedOffset"
+        ]
+      },
+      {
+        "state": "running",
+        "properties": [
+          "offset",
+          "easing",
+          "composite",
+          "transform",
+          "computedOffset"
+        ]
+      },
+      {
+        "state": "running",
+        "properties": [
+          "offset",
+          "easing",
+          "composite",
+          "opacity",
+          "transform",
+          "computedOffset"
+        ]
+      },
+      {
+        "state": "running",
+        "properties": [
+          "offset",
+          "easing",
+          "composite",
+          "opacity",
+          "transform",
+          "computedOffset"
+        ]
+      }
+    ]
+  },
+  "finished": {
+    "steps": [
+      {
+        "opacity": 1,
+        "y": 0
+      },
+      {
+        "opacity": 1,
+        "y": 0
+      },
+      {
+        "opacity": 1,
+        "y": 0
+      }
+    ],
+    "lines": [
+      1,
+      1
+    ],
+    "animations": [
+      {
+        "state": "finished",
+        "properties": [
+          "offset",
+          "easing",
+          "composite",
+          "transform",
+          "computedOffset"
+        ]
+      },
+      {
+        "state": "finished",
+        "properties": [
+          "offset",
+          "easing",
+          "composite",
+          "opacity",
+          "transform",
+          "computedOffset"
+        ]
+      },
+      {
+        "state": "finished",
+        "properties": [
+          "offset",
+          "easing",
+          "composite",
+          "transform",
+          "computedOffset"
+        ]
+      },
+      {
+        "state": "finished",
+        "properties": [
+          "offset",
+          "easing",
+          "composite",
+          "opacity",
+          "transform",
+          "computedOffset"
+        ]
+      },
+      {
+        "state": "finished",
+        "properties": [
+          "offset",
+          "easing",
+          "composite",
+          "opacity",
+          "transform",
+          "computedOffset"
+        ]
+      }
+    ]
+  },
+  "offscreen": {
+    "steps": [
+      {
+        "opacity": 1,
+        "y": 0
+      },
+      {
+        "opacity": 1,
+        "y": 0
+      },
+      {
+        "opacity": 1,
+        "y": 0
+      }
+    ],
+    "lines": [
+      1,
+      1
+    ],
+    "animations": [
+      {
+        "state": "finished",
+        "properties": [
+          "offset",
+          "easing",
+          "composite",
+          "transform",
+          "computedOffset"
+        ]
+      },
+      {
+        "state": "finished",
+        "properties": [
+          "offset",
+          "easing",
+          "composite",
+          "opacity",
+          "transform",
+          "computedOffset"
+        ]
+      },
+      {
+        "state": "finished",
+        "properties": [
+          "offset",
+          "easing",
+          "composite",
+          "transform",
+          "computedOffset"
+        ]
+      },
+      {
+        "state": "finished",
+        "properties": [
+          "offset",
+          "easing",
+          "composite",
+          "opacity",
+          "transform",
+          "computedOffset"
+        ]
+      },
+      {
+        "state": "finished",
+        "properties": [
+          "offset",
+          "easing",
+          "composite",
+          "opacity",
+          "transform",
+          "computedOffset"
+        ]
+      }
+    ]
+  }
+}

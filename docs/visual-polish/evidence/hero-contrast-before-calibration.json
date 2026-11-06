@@ -1,0 +1,58 @@
+[
+  {
+    "text": "Consulting at Life Roseacres Hospital",
+    "required": 4.5,
+    "min": 4.830586155971618,
+    "samples": 101,
+    "below": 0
+  },
+  {
+    "text": "Women's Health.",
+    "required": 3,
+    "min": 2.6494262701652236,
+    "samples": 8708,
+    "below": 633
+  },
+  {
+    "text": "Every Stage.",
+    "required": 3,
+    "min": 1.9934322155345914,
+    "samples": 6565,
+    "below": 5571
+  },
+  {
+    "text": "Every Journey.",
+    "required": 3,
+    "min": 2.7924752444159666,
+    "samples": 7051,
+    "below": 800
+  },
+  {
+    "text": "Your health deserves specialist attention and an advocate, not just a clinician. Dr CM Ngwey-Sompo cares for women from adolescence through pregnancy, childbirth, menopause and beyond — and explains every step of it in plain language, in English or French.",
+    "required": 4.5,
+    "min": 2.1363433619106704,
+    "samples": 1776,
+    "below": 1776
+  },
+  {
+    "text": "MBChB",
+    "required": 4.5,
+    "min": 4.137595556959876,
+    "samples": 9,
+    "below": 9
+  },
+  {
+    "text": "FCOG (SA)",
+    "required": 4.5,
+    "min": 3.869565798171643,
+    "samples": 5,
+    "below": 5
+  },
+  {
+    "text": "MMed (O&G) Wits",
+    "required": 4.5,
+    "min": 3.0869107891031247,
+    "samples": 15,
+    "below": 15
+  }
+]
