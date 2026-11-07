@@ -156,3 +156,20 @@ test("components cannot reintroduce full Motion or layout/drag features", () => 
     assert.ok(!/\b(layout|layoutId|drag)\s*=/.test(source), `${name}: feature unavailable in domAnimation`);
   }
 });
+
+test("no stand-in doctor or clinical representative portraits are shipped or referenced", () => {
+  const retired = ["hero-doctor.jpg", "portrait-somp-card.jpg", "consultation.jpg"];
+  const images = new Set(readdirSync("public/images"));
+  for (const file of retired) {
+    assert.ok(!images.has(file), `${file} must not remain in public/images`);
+  }
+  for (const root of ["app", "components", "lib"]) {
+    for (const entry of readdirSync(root, { recursive: true })) {
+      if (typeof entry !== "string" || !/\.(ts|tsx|mjs)$/.test(entry)) continue;
+      const source = readFileSync(`${root}/${entry}`, "utf8");
+      for (const file of retired) {
+        assert.ok(!source.includes(file), `${root}/${entry} still references ${file}`);
+      }
+    }
+  }
+});

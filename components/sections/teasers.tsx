@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import { ParallaxImage, Reveal, WordsIn } from "@/components/ui/motion";
 import { BotanicalBloom } from "@/components/ui/botanical";
+import { SpecialistChambersCard } from "@/components/ui/specialist-dossier";
 import { Panel, SignalBars } from "@/components/ui/plate";
 import { SectionHead } from "@/components/page-hero";
 import { biography, faqs, practice } from "@/lib/practice";
@@ -13,28 +14,8 @@ export function AboutTeaser() {
   return (
     <section className="sec" aria-labelledby="about-teaser-heading">
       <div className="shell">
-        <div className="grid items-center gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
-          <Reveal y={26}>
-            <div className="relative">
-              <div className="arch-frame bg-blush/80 p-2 ring-1 ring-ember/15">
-                <div className="arch-frame photo-depth relative aspect-[4/5] overflow-hidden bg-peach">
-                  <ParallaxImage
-                    src="/images/portrait-somp-card.jpg"
-                    alt="Portrait of Dr CM Ngwey-Sompo"
-                    strength={44}
-                    sizes="(max-width: 1024px) 92vw, 40vw"
-                    imageClassName="object-[center_16%]"
-                    className="absolute inset-0"
-                  />
-                </div>
-              </div>
-              <p className="mt-4 text-[10px] uppercase leading-relaxed tracking-[0.15em] text-ink-muted">
-                FCOG (SA) · MMed (O&amp;G) · Wits
-                <span className="mx-2 text-ember/60">✦</span>
-                Life Roseacres Hospital · {practice.room}
-              </p>
-            </div>
-          </Reveal>
+        <div className="grid items-center gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:gap-12">
+          <SpecialistChambersCard />
 
           <div>
             <h2 id="about-teaser-heading" className="sr-only">

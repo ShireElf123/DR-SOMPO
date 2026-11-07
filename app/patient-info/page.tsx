@@ -33,8 +33,8 @@ const prep = [
   {
     label: "After your visit",
     body: "You leave with a written plan, follow-up timing and the practice's direct contact details.",
-    image: "/images/consultation.jpg",
-    alt: "A consultation in progress",
+    image: "/images/research-desk.jpg",
+    alt: "Stethoscope, reading glasses and handwritten clinical notes on a desk",
   },
 ];
 
@@ -68,12 +68,12 @@ export default function PatientInfoPage() {
                   <div className="relative aspect-[4/3] overflow-hidden bg-peach">
                     <Image
                       src={
-                        ["/images/consultation.jpg", "/images/portrait-somp-card.jpg", "/images/patient-quiet.jpg"][i % 3]
+                        ["/images/waiting-room.jpg", "/images/screening-room.jpg", "/images/research-desk.jpg"][i % 3]
                       }
                       alt=""
                       fill
                       sizes="(max-width: 640px) 92vw, 30vw"
-                      className="object-cover object-[center_18%] transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
+                      className="object-cover object-[56%_50%] transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
                     />
                     <span className="absolute left-3 top-3 grid h-7 w-7 place-items-center rounded-full bg-cream font-display text-[11px] italic text-ember ring-1 ring-ember/20">
                       {step.step}

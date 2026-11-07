@@ -29,7 +29,7 @@ const tiles: Tile[] = [
   {
     title: "Delivery",
     blurb: "Vaginal and caesarean delivery.",
-    image: "/images/consultation.jpg",
+    image: "/images/corridor.jpg",
     href: "/services/delivery",
   },
   {
@@ -99,11 +99,11 @@ export function Services() {
               <div className="arch-frame bg-blush/80 p-1.5 ring-1 ring-ember/15">
                 <div className="arch-frame photo-depth relative aspect-[3/4] overflow-hidden bg-peach">
                   <Image
-                    src="/images/screening-room.jpg"
-                    alt="A consultation room at the practice"
+                    src="/images/research-desk.jpg"
+                    alt="Stethoscope and clinical notes on a consulting desk"
                     fill
                     sizes="20vw"
-                    className="object-cover"
+                    className="object-cover object-[64%_55%]"
                   />
                 </div>
               </div>

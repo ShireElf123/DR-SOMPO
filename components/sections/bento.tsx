@@ -54,29 +54,32 @@ export function BentoBand() {
         </div>
 
         <div className="grid grid-cols-2 gap-2.5 sm:gap-3 lg:grid-cols-4">
-          {/* 1 — photographic cameo feature, 2 columns wide */}
+          {/* 1 — specialist chambers & clinical craft feature, 2 columns wide */}
           <Reveal
             y={22}
             className="col-span-2 row-span-2 lg:col-span-2"
           >
             <Link
               href="/about"
-              data-cursor="Meet"
+              data-cursor="Practice"
               className="group flex h-full min-h-[24rem] flex-col overflow-hidden rounded-[1.5rem] bg-cream p-2 pb-0 border-hairline border-ember/15 sm:min-h-[23rem]"
             >
               <div className="photo-depth relative min-h-[15.5rem] flex-1 overflow-hidden rounded-tl-[5.5rem] rounded-tr-[1.15rem] rounded-b-[1.1rem] bg-peach">
                 <Image
-                  src="/images/portrait-somp-card.jpg"
-                  alt="Dr CM Ngwey-Sompo in her consulting room"
+                  src="/images/research-desk.jpg"
+                  alt="Stethoscope, reading glasses and clinical notes on a specialist desk"
                   fill
                   sizes="(max-width: 1024px) 92vw, 46vw"
-                  className="object-cover object-[center_18%] transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
+                  className="object-cover object-[64%_55%] transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
                 />
                 <span
                   aria-hidden="true"
                   className="absolute right-3.5 top-3.5 z-[2] flex h-7 w-7 items-center justify-center rounded-full bg-cream/90 text-ember shadow-soft ring-1 ring-ember/20 transition-all duration-500 group-hover:rotate-45 group-hover:bg-ember group-hover:text-cream"
                 >
                   <ArrowUpRight className="h-3 w-3" />
+                </span>
+                <span className="glass absolute bottom-3 left-3 z-[2] rounded-full px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.13em] text-ember-deep">
+                  Specialist Chambers · Room 5
                 </span>
               </div>
               <div className="p-3.5 sm:p-4">
@@ -97,7 +100,7 @@ export function BentoBand() {
                       </span>
                     ))}
                   </div>
-                  <span className="inline-flex items-center gap-1 text-[11px] font-medium text-ember">
+                  <span className="inline-flex items-center gap-1 text-[11px] font-medium text-ember-deep">
                     Her story
                     <ArrowUpRight className="h-3 w-3 transition-transform duration-500 group-hover:rotate-45" />
                   </span>

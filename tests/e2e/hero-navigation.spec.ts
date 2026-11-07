@@ -35,7 +35,7 @@ async function recordHomeEntrance(page: Page) {
       const sample = (time: number) => {
         const hero = document.querySelector("#top .sun-gradient");
         const image = hero && [...hero.querySelectorAll("img")].find((element) =>
-          element.src.includes("hero-doctor") && element.getBoundingClientRect().width > 0,
+          element.src.includes("screening-room") && element.getBoundingClientRect().width > 0,
         );
         if (hero && image) {
           firstFrame ??= time;
@@ -76,7 +76,7 @@ async function expectStableMobileEntrance(page: Page) {
   for (const frame of frames) {
     expect(frame.scale).toBeCloseTo(1, 4);
     expect(frame.width).toBeCloseTo(frame.layoutWidth, 0);
-    expect(frame.objectPosition).toBe("62% 18%");
+    expect(frame.objectPosition).toBe("52% 50%");
   }
   await expect(page.locator("body")).not.toHaveCSS("overflow", "hidden");
   await expect(page.locator("#top h1")).toBeVisible();

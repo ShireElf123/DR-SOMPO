@@ -179,6 +179,7 @@ export function SplitHero({
   intro,
   image,
   alt,
+  imageClassName = "object-[center_18%]",
   chips = [],
   footer,
 }: {
@@ -188,6 +189,7 @@ export function SplitHero({
   intro?: string;
   image: string;
   alt: string;
+  imageClassName?: string;
   chips?: string[];
   footer?: ReactNode;
 }) {
@@ -237,7 +239,7 @@ export function SplitHero({
                   fill
                   priority
                   sizes="(max-width: 1024px) 96vw, 560px"
-                  className="object-cover object-[center_18%]"
+                  className={`object-cover ${imageClassName}`}
                 />
               </div>
             </div>

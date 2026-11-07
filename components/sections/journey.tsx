@@ -10,8 +10,11 @@ export function Journey() {
       <div className="shell">
         <p className="mx-auto mb-10 max-w-[38rem] text-center text-[clamp(1.15rem,2.2vw,1.4rem)] leading-[1.35] tracking-[-0.02em] text-ink">
           <span className="font-display text-[1.18em] italic tracking-[-0.015em] text-ember">Your path to care</span>{" "}
-          <span aria-hidden="true" className="mr-1 inline-block h-[1.05em] w-[1.05em] translate-y-[0.12em] overflow-hidden rounded-full bg-peach align-baseline ring-2 ring-blush">
-            <Image src="/images/consultation.jpg" alt="" width={40} height={40} className="h-full w-full object-cover" />
+          <span
+            aria-hidden="true"
+            className="mr-1 inline-flex h-[1.05em] w-[1.05em] translate-y-[0.1em] items-center justify-center rounded-full bg-blush align-baseline text-[0.55em] text-ember-deep ring-1 ring-ember/25"
+          >
+            ✦
           </span>
           — three simple steps, from the first phone call to follow-up.
         </p>
@@ -36,15 +39,15 @@ export function Journey() {
                     <Image
                       src={
                         step.step === "01"
-                          ? "/images/consultation.jpg"
+                          ? "/images/waiting-room.jpg"
                           : step.step === "02"
-                            ? "/images/portrait-somp-card.jpg"
-                            : "/images/patient-quiet.jpg"
+                            ? "/images/screening-room.jpg"
+                            : "/images/research-desk.jpg"
                       }
                       alt={step.title}
                       fill
                       sizes="(max-width: 639px) 85vw, (max-width: 1023px) 30vw, 288px"
-                      className="journey-photo object-cover object-[center_20%]"
+                      className="journey-photo object-cover object-[56%_50%]"
                     />
                   </div>
 

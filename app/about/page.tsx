@@ -7,6 +7,7 @@ import { ArrowUpRight, Check } from "lucide-react";
 import { SectionHead, SplitHero } from "@/components/page-hero";
 import { IconDisc, Panel } from "@/components/ui/plate";
 import { BotanicalSprig } from "@/components/ui/botanical";
+import { SpecialistChambersCard } from "@/components/ui/specialist-dossier";
 import {
   ParallaxImage,
   Reveal,
@@ -33,8 +34,8 @@ const values = [
   {
     title: "Time to be heard",
     body: "Consultations are unhurried. Your history and context come before any decision about care.",
-    image: "/images/consultation.jpg",
-    alt: "A consultation in a bright consulting room",
+    image: "/images/gynae.jpg",
+    alt: "Patient information folder and folded linen on a sunlit consulting table",
   },
   {
     title: "Explained in plain language",
@@ -58,8 +59,9 @@ export default function AboutPage() {
         title="Specialist care, with"
         muted="personal understanding."
         intro={`${practice.title} · ${practice.entity}`}
-        image="/images/portrait-somp-card.jpg"
-        alt="Portrait of Dr CM Ngwey-Sompo, specialist obstetrician and gynaecologist"
+        image="/images/research-desk.jpg"
+        imageClassName="object-[64%_55%]"
+        alt="Stethoscope, reading glasses and clinical notes on Dr Sompo's consulting desk"
         chips={["MBChB", "FCOG (SA)", "MMed (O&G) Wits", "English & French"]}
         footer={
           <div className="flex flex-wrap items-center gap-2.5">
@@ -145,10 +147,11 @@ export default function AboutPage() {
                 <Panel tone="blush" className="rounded-t-[8rem] rounded-b-[1.5rem] p-2 ring-1 ring-ember/15">
                   <div className="relative aspect-[4/3] lg:aspect-[4/5] overflow-hidden rounded-t-[8rem] rounded-b-[1.25rem]">
                     <ParallaxImage
-                      src="/images/consultation.jpg"
-                      alt="Dr Sompo in consultation with a patient"
+                      src="/images/screening-room.jpg"
+                      alt="Private consulting and examination room in soft daylight"
                       strength={44}
                       sizes="(max-width: 1024px) 92vw, 42vw"
+                      imageClassName="object-[52%_50%]"
                       className="absolute inset-0 rounded-t-[8rem] rounded-b-[1.25rem]"
                     />
                     <div className="absolute right-3 top-3 flex flex-wrap justify-end gap-1.5">
@@ -192,25 +195,7 @@ export default function AboutPage() {
 
           <div className="mt-8 grid gap-3.5 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <Reveal y={22}>
-              <div className="overflow-hidden rounded-[1.35rem] bg-cream border-hairline border-charcoal/8">
-                <div className="photo-depth relative aspect-[4/3] overflow-hidden bg-peach lg:aspect-[4/5]">
-                  <Image
-                    src="/images/portrait-somp-card.jpg"
-                    alt="Dr CM Ngwey-Sompo"
-                    fill
-                    sizes="(max-width: 1024px) 92vw, 38vw"
-                    className="object-cover object-[center_22%]"
-                  />
-                </div>
-                <div className="px-4 py-3">
-                  <p className="text-[10px] uppercase tracking-[0.16em] text-ink-muted">
-                    Qualifications
-                  </p>
-                  <p className="mt-1 text-[13px] font-medium text-ink">
-                    FCOG (SA) · MMed (O&amp;G) · MBChB · BSc (Biomed)
-                  </p>
-                </div>
-              </div>
+              <SpecialistChambersCard />
             </Reveal>
 
             <RevealGroup className="grid gap-3 sm:grid-cols-2" stagger={0.07}>

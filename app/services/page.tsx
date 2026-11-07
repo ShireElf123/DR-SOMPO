@@ -43,9 +43,9 @@ export default function ServicesPage() {
         title="Obstetrics, gynaecology,"
         muted="fertility and surgery."
         intro="One practice, one standard of care — from a first consultation through pregnancy, surgery and long-term follow-up."
-        image="/images/consultation.jpg"
+        image="/images/research-desk.jpg"
         mobileImage="/images/screening-room.jpg"
-        alt="Dr Sompo in consultation with a patient"
+        alt="Stethoscope and clinical notes on a specialist consulting desk"
       />
 
       <ConditionsTreated />
@@ -245,8 +245,8 @@ export default function ServicesPage() {
               },
               {
                 label: "During",
-                image: "/images/consultation.jpg",
-                alt: "A consultation in progress",
+                image: "/images/screening-room.jpg",
+                alt: "Private consulting and examination room in soft daylight",
                 body: "History, examination where needed, and a clear discussion of options — in English or French.",
               },
               {

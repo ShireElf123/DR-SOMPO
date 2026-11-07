@@ -70,12 +70,12 @@ export function Hero() {
               <div data-hero-arrival="photo"
                 className="hero-photo-arrival relative h-full w-full overflow-hidden lg:rounded-tl-[9rem]">
                 <Image
-                  src="/images/hero-doctor.jpg"
-                  alt="Illustration of a healthcare professional"
+                  src="/images/screening-room.jpg"
+                  alt="Private gynaecological consulting and examination suite"
                   fill
                   priority
                   sizes="(max-width: 1023px) 100vw, (max-width: 1279px) 46vw, 544px"
-                  className="object-cover object-[62%_18%] sm:object-[center_24%] lg:object-[center_16%]"
+                  className="object-cover object-[52%_50%]"
                 />
                 <div className="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-cream to-transparent lg:hidden" />
               </div>
@@ -87,20 +87,17 @@ export function Hero() {
               style={desktopMotion ? { y: chipY } : undefined}
               className="glass group pointer-events-auto absolute bottom-3 right-3 z-20 flex items-center gap-2.5 rounded-2xl p-2 pr-4 text-ink transition-transform duration-500 hover:-translate-y-1 sm:bottom-6 sm:right-6"
             >
-              <span className="relative hidden h-11 w-11 overflow-hidden rounded-xl bg-peach sm:block">
-                <Image
-                  src="/images/consultation.jpg"
-                  alt=""
-                  fill
-                  sizes="44px"
-                  className="object-cover"
-                />
+              <span
+                aria-hidden="true"
+                className="hidden h-10 w-10 items-center justify-center rounded-xl bg-blush text-ember-deep ring-1 ring-ember/20 sm:flex"
+              >
+                <Phone className="h-4 w-4" />
               </span>
               <span className="text-[11px] leading-tight">
                 <span className="block font-medium">Specialist OBGYN</span>
                 <span className="mt-0.5 block text-ink-muted">{practice.phone}</span>
               </span>
-              <Phone className="h-3.5 w-3.5 text-ink/60" aria-hidden="true" />
+              <ArrowUpRight className="h-3.5 w-3.5 text-ember-deep" aria-hidden="true" />
             </m.a>
           </div>
 

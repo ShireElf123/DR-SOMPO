@@ -257,8 +257,8 @@ export default function ResearchPage() {
             </Reveal>
             <Reveal y={20} delay={0.14}>
               <Plate
-                image="/images/consultation.jpg"
-                alt="Consultation in progress"
+                image="/images/research-desk.jpg"
+                alt="Stethoscope, reading glasses and clinical notes on a desk"
                 index="03"
                 label="Follow-up"
                 meta="Follow-up"
