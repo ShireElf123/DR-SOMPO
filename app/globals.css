@@ -1,0 +1,936 @@
+@import "tailwindcss";
+
+/* Audit evidence and screenshots are committed markdown/JSON, not UI source.
+   Without this, Tailwind harvests class names out of historical audit dumps and
+   ships their utilities in the CSS. */
+@source not "../docs";
+
+@theme {
+  --font-sans: var(--font-figtree), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-instrument), "Times New Roman", Georgia, serif;
+
+  /* Rosewater. White and pale blush carry every large surface; a single deep
+     muted rose carries the actions and the small accents; peach stays as the
+     warm note, in frames and chips.
+
+     Two research findings set that shape. Pink is one of the *least* used
+     healthcare colours (99designs' audit of 900+ logos: blue appears in ~85% of
+     leading providers, pink sits with brown, purple and yellow at the bottom),
+     so for a women's practice it is a differentiator rather than a cliché — but
+     only if it is handled with restraint, because the same audit finds that
+     healthcare brands want to read "subdued, serious, mature". And pink reads
+     expensive when it is deep and greyed (hue 344, 37% saturation here) and
+     cheap when it is bright and pure, which is also why the pale fields stay
+     near-white rather than candy.
+
+     Contrast: cream type on the action stop 5.0:1, ink on the page 15.5:1,
+     cream on the wine depth stop 10.6:1. */
+  --color-cream: #fffcfc; /* porcelain page + card wash, 15.4:1 with ink */
+  --color-blush: #f9e2ea; /* pale rose callouts */
+  --color-petal: #f6d3de; /* the pink step between blush and rose */
+  --color-peach: #f5d2c1; /* pale peach: image backdrops, chips — the client's colour, kept */
+  --color-rose: #f2c3d0; /* dusty rose feature wash, 9.6:1 */
+  --color-apricot: #eeb9a4; /* peach feature surface, 9.1:1 */
+  --color-tangerine: #c4708a; /* hover + mid stops, 6.3:1 */
+  --color-ember: #ac5068; /* the action stop, 5.0:1 with cream type */
+  --color-ember-deep: #6b2337; /* wine depth stop: 10.6:1 with cream */
+  --color-espresso: #2a1920; /* plum-near-black for the two deep bands */
+  --color-charcoal: #2a2024;
+
+  /* Accessible text ramps. These replace ad-hoc alpha values so every body
+     colour in the build clears WCAG AA (4.5:1) on white, cream and blush. */
+  --color-ink: #2a2024; /* 15.5:1 on porcelain */
+  --color-ink-soft: #55484e; /* 8.5:1 on porcelain, 7.5:1 on blush */
+  --color-ink-muted: #635257; /* 7.0:1 on porcelain, 5.9:1 on blush, 4.9:1 on petal */
+
+  /* Four depths only, each a rose multi-layer stack: a tight contact shadow,
+     a mid diffusion and a wide, low-alpha rose ambient. Black is never used,
+     so shadows read as light through a curtain rather than soot. */
+  --shadow-soft:
+    0 1px 1px rgba(107, 35, 55, 0.06),
+    0 2px 5px -1px rgba(150, 55, 82, 0.05),
+    0 9px 20px -10px rgba(180, 70, 100, 0.16);
+  --shadow-layer:
+    0 -2px 4px rgba(107, 35, 55, 0.03),
+    0 -22px 60px rgba(150, 55, 82, 0.07);
+  --shadow-lift:
+    0 1px 2px rgba(107, 35, 55, 0.05),
+    0 4px 9px -2px rgba(150, 55, 82, 0.05),
+    0 16px 34px -16px rgba(180, 70, 100, 0.2),
+    0 36px 64px -44px rgba(172, 80, 104, 0.22);
+  --shadow-float:
+    0 2px 5px rgba(107, 35, 55, 0.05),
+    0 8px 18px -6px rgba(150, 55, 82, 0.07),
+    0 28px 52px -26px rgba(180, 70, 100, 0.22),
+    0 60px 100px -60px rgba(172, 80, 104, 0.26);
+
+  /* The one warm glow, shared by primary actions and floating glass. */
+  --glow-warm:
+    0 0 0 1px rgba(172, 80, 104, 0.14),
+    0 6px 18px -6px rgba(172, 80, 104, 0.35),
+    0 18px 44px -20px rgba(172, 80, 104, 0.42);
+
+  /* One easing voice across the whole site: a long, soft expo-out, plus a
+     real sampled spring for hover/physical controls. The spring never applies
+     to controls that are about to be clicked into place, and the reduced-motion
+     block at the end of this file removes it entirely. */
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-soft: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-spring: linear(
+    0, 0.353 8.6%, 0.803 15.9%, 1.111 30.6%, 1.021 44.6%, 0.988 56.8%, 1
+  );
+}
+
+@layer base {
+  :root {
+    --shell: 1200px;
+    --surface-edge: 1px;
+    /* Opt out of UA auto-darkening (Chrome Auto Dark Theme, some Android
+       browsers). The reference's dark mode inverted panels without inverting
+       type, which is where its contrast failures came from; this build ships
+       one audited warm light scheme instead of an unverified inversion. */
+    color-scheme: only light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+    /* Figtree is a variable font — this is what makes the 300 weight read
+       crisp instead of thinned out on subpixel rendering. */
+    text-rendering: optimizeLegibility;
+    font-optical-sizing: auto;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-charcoal);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01" 1;
+    font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* One static, inline grain layer. Never intercepts input; omitted entirely
+     under reduced motion. No additional hero grain or external texture fetch. */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 90;
+    opacity: 0.048;
+    mix-blend-mode: soft-light;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  ::selection {
+    background: var(--color-ember);
+    color: var(--color-charcoal);
+  }
+
+  /* Charcoal clears 3:1 against every surface in the palette, including the
+     deepest orange, so one ring colour covers the whole site. */
+  :focus-visible {
+    outline: 2px solid var(--color-charcoal);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Native controls stay in the light scheme. This is the dark-mode fix that
+     matters most in practice: date pickers, selects and autofilled fields can
+     otherwise inherit a dark UA paint while the warm surface stays light. */
+  input,
+  select,
+  textarea,
+  button {
+    color-scheme: only light;
+    accent-color: var(--color-ember);
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill {
+    -webkit-text-fill-color: var(--color-charcoal);
+    -webkit-box-shadow: 0 0 0 1000px #fff inset;
+    caret-color: var(--color-charcoal);
+  }
+
+  ::placeholder { color: var(--color-ink-muted); opacity: 1; }
+
+  /* Display type: light, tightly tracked, with a hint of optical tightness at
+     large sizes. `font-synthesis: none` stops the browser faking a lighter
+     weight than the variable axis actually provides. */
+  h1,
+  h2,
+  h3 {
+    font-weight: 300;
+    font-synthesis: none;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+  }
+
+  h1 {
+    line-height: 0.98;
+    letter-spacing: -0.042em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  strong,
+  b {
+    font-weight: 600;
+  }
+}
+
+@layer components {
+  .shell {
+    width: 100%;
+    max-width: var(--shell);
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .shell {
+      padding-inline: 2rem;
+    }
+  }
+
+  /* Sections rise over one another with big rounded shoulders — the layered
+     "stacked cards" rhythm of the reference. */
+  .sec {
+    position: relative;
+    background: #fff;
+    border-radius: 2.25rem 2.25rem 0 0;
+    margin-top: -1.75rem;
+    padding-block: 4rem;
+    box-shadow: var(--shadow-layer);
+  }
+
+  .sec-tint {
+    background: var(--color-blush);
+  }
+
+  @media (min-width: 768px) {
+    .sec {
+      border-radius: 2.75rem 2.75rem 0 0;
+      padding-block: 5.5rem;
+    }
+  }
+
+  /* Section eyebrows are set as an editorial rule + micro-caps rather than a
+     pill, so every section opens with the same typographic gesture. */
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    align-self: start;
+    gap: 0.7rem;
+    margin-bottom: 0.9rem;
+    color: var(--color-charcoal);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+  }
+
+  .tag::before {
+    content: "";
+    width: 1.6rem;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.5;
+  }
+
+  /* Warm glass. The fill is opaque enough that charcoal always clears AA over
+     whatever photograph or gradient is behind it; without backdrop-filter the
+     panel becomes solid cream instead of turning into a transparent smear. */
+  .glass {
+    background: #fffcfcdd;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75), var(--shadow-soft);
+    --glass-blur: blur(14px) saturate(1.2);
+  }
+
+  /* No colour over the photograph. The frames are white-balanced at source, so
+     any tint here is a filter the picture does not need. */
+
+  .photo-depth::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.24);
+  }
+
+  /* Pill button with the arrow disc that the reference uses everywhere. */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--color-ember);
+    color: var(--color-cream);
+    padding: 0.4rem 0.4rem 0.4rem 1rem;
+    border-radius: 999px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    box-shadow: var(--glow-warm);
+    transition: transform 0.45s var(--ease-out-soft), box-shadow 0.45s var(--ease-out-soft);
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lift), var(--glow-warm);
+  }
+
+  .btn i {
+    width: 1.65rem;
+    height: 1.65rem;
+    border: 1.5px solid rgba(255, 252, 252, 0.7);
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    font-style: normal;
+    transition: transform 0.45s var(--ease-out-soft);
+  }
+
+  .btn:hover i {
+    transform: translateX(3px);
+    background: var(--color-cream);
+    color: var(--color-ember);
+  }
+
+  .btn-light {
+    background: var(--color-cream);
+    color: var(--color-charcoal);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .btn-light i {
+    border-color: rgba(42, 32, 36, 0.55);
+  }
+
+  .btn-light:hover i {
+    background: var(--color-charcoal);
+    color: var(--color-cream);
+  }
+
+  .btn-glass {
+    /* Sits on light surfaces, so it keeps charcoal type: only the solid rose
+       action carries cream. */
+    background: #fffcfcbd;
+    color: var(--color-charcoal);
+    --glass-blur: blur(12px) saturate(1.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), var(--shadow-soft);
+  }
+
+  .btn-glass i {
+    border-color: rgba(42, 32, 36, 0.45);
+  }
+
+  /* Understated bordered pill used for secondary actions on tinted panels. */
+  .btn-ghost {
+    background: transparent;
+    color: var(--color-charcoal);
+    border: 1px solid rgba(42, 32, 36, 0.16);
+    box-shadow: none;
+  }
+
+  .btn-ghost i {
+    border-color: rgba(42, 32, 36, 0.28);
+  }
+
+  .btn-ghost:hover i {
+    background: var(--color-charcoal);
+    color: #fff;
+    border-color: var(--color-charcoal);
+  }
+
+  .headline {
+    font-weight: 300;
+    letter-spacing: -0.035em;
+    line-height: 1.02;
+  }
+
+  /* Accessible body ramp — replaces the old low-alpha greys. */
+  .muted {
+    color: var(--color-ink-soft);
+  }
+
+  /* Give a retina stroke its own paint layer without overriding positioned
+     callouts (position utilities remain higher in the cascade). */
+  .border-hairline { position: relative; }
+
+  .hairline {
+    height: var(--surface-edge);
+    background: color-mix(in oklab, var(--color-charcoal) 10%, transparent);
+  }
+
+  /* Physical controls settle with a real damped spring. Painted controls only:
+     the spring is never applied to a panel that is about to receive a click. */
+  @supports (transition-timing-function: linear(0, 1)) {
+    @media (prefers-reduced-motion: no-preference) {
+      .btn,
+      .btn i,
+      .journey-card {
+        transition-timing-function: var(--ease-spring);
+      }
+    }
+  }
+}
+
+/* Physical one-pixel edges on 2× displays, without thinning form controls,
+   icons or keyboard focus rings. 1× screens retain the original 1px fallback. */
+@media (min-resolution: 2dppx) {
+  :root { --surface-edge: 0.5px; }
+}
+
+@layer utilities {
+  .border-hairline { border-width: 1px; }
+  .border-t-hairline { border-top-width: 1px; }
+  .border-b-hairline { border-bottom-width: 1px; }
+  .border-l-hairline { border-left-width: 1px; }
+  .border-y-hairline { border-block-width: 1px; }
+  .divide-y-hairline > :not(:last-child) { border-bottom-width: 1px; }
+
+  /* Share the existing edge colours with the paint-only retina strokes. */
+  .border-charcoal\/8, .divide-charcoal\/8 { --surface-stroke: #2a202414; }
+  .border-charcoal\/10 { --surface-stroke: #2a20241a; }
+  .border-charcoal\/12 { --surface-stroke: #2a20241f; }
+  .border-ember\/8 { --surface-stroke: #ac506814; }
+  .border-ember\/10 { --surface-stroke: #ac50681a; }
+  .border-ember\/20 { --surface-stroke: #ac506833; }
+  @media (hover: hover) {
+    .hover\:border-ember\/25:hover { --surface-stroke: #ac506840; }
+  }
+
+  /* Chromium rounds fractional border-width up to 1 CSS px even at 2×.
+     Inset paint preserves a genuine 0.5px edge (including rounded photos),
+     does not intercept input and composes with each card's outer depth. */
+  @media (min-resolution: 2dppx) {
+    .border-hairline { border-width: 0; }
+    .border-hairline::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      border-radius: inherit;
+      pointer-events: none;
+      box-shadow: inset 0 0 0 var(--surface-edge) var(--surface-stroke, currentColor);
+    }
+    .border-t-hairline { border-top-width: 0; box-shadow: inset 0 var(--surface-edge) 0 var(--surface-stroke, currentColor); }
+    .border-b-hairline, .divide-y-hairline > :not(:last-child) { border-bottom-width: 0; box-shadow: inset 0 calc(-1 * var(--surface-edge)) 0 var(--surface-stroke, currentColor); }
+    .border-l-hairline { border-left-width: 0; box-shadow: inset var(--surface-edge) 0 0 var(--surface-stroke, currentColor); }
+    .border-y-hairline { border-block-width: 0; box-shadow: inset 0 var(--surface-edge) 0 var(--surface-stroke, currentColor), inset 0 calc(-1 * var(--surface-edge)) 0 var(--surface-stroke, currentColor); }
+    .border-t-hairline.first\:border-0:first-child { box-shadow: none; }
+  }
+
+  .marquee-group {
+    container-type: inline-size;
+    overflow-x: auto;
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+  }
+
+  .marquee-copy {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 100vw; /* Safe fallback for older browsers. */
+    min-width: 100cqw;
+    white-space: nowrap;
+  }
+
+  .marquee-copy > * { flex-shrink: 0; }
+  .marquee-group:not([data-ready="true"]) .marquee-copy[aria-hidden="true"],
+  .marquee-group:not([data-ready="true"]) .marquee-toggle { display: none; }
+
+  .marquee-group[data-ready="true"] { overflow: hidden; }
+  .marquee-group[data-ready="true"] .marquee-track {
+    animation: marquee 26s linear infinite;
+  }
+  .marquee-group[data-ready="true"] .marquee-slow { animation-duration: 46s; }
+
+  .marquee-group:focus-visible .marquee-track,
+  .marquee-group[data-paused="true"] .marquee-track { animation-play-state: paused; }
+  @media (hover: hover) {
+    .marquee-group:hover .marquee-track { animation-play-state: paused; }
+  }
+
+  /* Hero wash: three rose radial lights over a blush-to-porcelain ramp, so the
+     surface has depth instead of a banded gradient. One peach light survives at
+     the lower left, which is what keeps the surface warm rather than candy.
+     Charcoal type sits on a porcelain haze at every width. */
+  .sun-gradient {
+    background: linear-gradient(118deg, #f3c3d0 0%, #f7d3dc 38%, #fbe4ea 68%, #fdf1f4 100%);
+  }
+
+  /* Phone: the portrait keeps the full frame, and the copy sits on a warm
+     glass plate. The plate, not the photograph, is the contrast surface — the
+     measured fill stays above 88% opacity even over the brightest highlight. */
+  @media (max-width: 639px) {
+    /* The phone keeps the portrait as a real band above the copy instead of a
+       blurred plate over it, so the photograph is never covered. */
+
+    /* Two actions, one row: the phone hero has to show the photograph, the
+       headline and both buttons without the pair wrapping below the fold. */
+    .btn {
+      gap: 0.5rem;
+      padding-left: 0.85rem;
+    }
+
+    .btn i {
+      width: 1.55rem;
+      height: 1.55rem;
+    }
+  }
+
+  /* Desktop: a warm haze carries the copy column while the portrait on the
+     right keeps its light and its scroll parallax. */
+  @media (min-width: 640px) {
+    .sun-gradient::after {
+      --hero-haze: 0.68;
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(90deg, rgba(255, 252, 252, var(--hero-haze)) min(38.5rem, 80%), transparent calc(min(38.5rem, 80%) + 12rem));
+    }
+  }
+  @media (min-width: 1024px) {
+    .sun-gradient::after { --hero-haze: 0.58; }
+  }
+  /* Feature wash for the research band, final call to action and footer.
+     Rose all the way: pink blended toward peach passes through a salmon
+     midpoint that reads like flesh, so the two families only ever meet as
+     neighbouring flat surfaces (a peach frame against a rose field). */
+  .ember-gradient {
+    background: linear-gradient(135deg, #f4c9d7 0%, #f8dae3 55%, #fcebf1 100%);
+  }
+
+  /* Tonal depth. The whole page used to sit above L 40, which is what made the
+     reskin read flat next to the release it replaced. Two deep warm surfaces
+     restore the value range: the announcement strip and the footer frame every
+     page, and the bento statement panel puts one deep block in the middle. All
+     three carry cream type (8.9:1 at the lightest deep stop) — no white, no
+     cool hue, no black. */
+  .ticker-gradient {
+    background: linear-gradient(90deg, #2a1920, #4a2130 46%, #6b2337);
+  }
+
+  .ember-deep-gradient {
+    background: linear-gradient(145deg, #2a1920 0%, #3f1d29 52%, #6b2337 100%);
+  }
+
+  /* Keep the existing sRGB recipes above as real fallbacks. Only the large
+     colour washes opt in; legibility overlays keep the same endpoints in
+     both interpolation modes. */
+  @supports (background: linear-gradient(0deg in oklab, #000, #fff)) {
+    .sun-gradient {
+      background:
+        radial-gradient(110% 90% at 86% 2% in oklab, rgba(255, 250, 252, 0.88), transparent 46%),
+        radial-gradient(95% 85% at 100% 62% in oklab, rgba(242, 195, 208, 0.95), transparent 62%),
+        radial-gradient(80% 75% at 0% 106% in oklab, rgba(245, 210, 193, 0.95), transparent 66%),
+        linear-gradient(118deg in oklab, #f3c3d0 0%, #f7d3dc 38%, #fbe4ea 68%, #fdf1f4 100%);
+    }
+    .sun-gradient::after {
+      background: linear-gradient(90deg in oklab, rgba(255, 252, 252, var(--hero-haze)) min(38.5rem, 80%), transparent calc(min(38.5rem, 80%) + 12rem));
+    }
+    .ember-gradient {
+      background:
+        radial-gradient(100% 120% at 92% 0% in oklab, rgba(255, 252, 252, 0.88), transparent 60%),
+        radial-gradient(90% 90% at 0% 100% in oklab, rgba(244, 201, 215, 0.92), transparent 64%),
+        linear-gradient(135deg in oklab, #f4c9d7 0%, #f8dae3 55%, #fcebf1 100%);
+    }
+    .ticker-gradient {
+      background: linear-gradient(90deg in oklab, #2a1920, #4a2130 46%, #6b2337);
+    }
+    .ember-deep-gradient {
+      background:
+        radial-gradient(90% 80% at 8% 0% in oklab, rgba(107, 35, 55, 0.55), transparent 62%),
+        radial-gradient(85% 90% at 100% 100% in oklab, rgba(120, 55, 80, 0.45), transparent 64%),
+        linear-gradient(145deg in oklab, #2a1920 0%, #3f1d29 52%, #6b2337 100%);
+    }
+  }
+}
+
+
+  /* Scroll progress: a CSS scroll timeline, not a JS subscription. */
+  .scroll-progress {
+    position: fixed;
+    inset-inline: 0;
+    top: 0;
+    z-index: 75;
+    height: 2px;
+    transform-origin: 0 50%;
+    pointer-events: none;
+    background: linear-gradient(90deg, var(--color-peach), var(--color-apricot), var(--color-ember));
+    scale: 0 1;
+  }
+  @supports not (animation-timeline: scroll()) {
+    .scroll-progress { display: none; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: scroll()) {
+      .scroll-progress {
+        animation: progress-sweep linear both;
+        animation-timeline: scroll(root block);
+      }
+    }
+  }
+  @keyframes progress-sweep {
+    from { scale: 0 1; }
+    to { scale: 1 1; }
+  }
+
+
+/* Life-stage band: a full-bleed editorial break between the card sections.
+   The ember rail is drawn by a CSS scroll timeline, so the signature moment
+   costs no client JavaScript; without support it stays a quiet hairline. */
+.stages-band {
+  background: linear-gradient(180deg, var(--color-cream), var(--color-petal) 30%, var(--color-blush) 58%, var(--color-peach) 88%, var(--color-cream));
+}
+.stages-list {
+  position: relative;
+  padding-left: 1.5rem;
+}
+.stages-list::before,
+.stages-list::after {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  left: 0;
+  width: 1px;
+}
+.stages-list::before { background: rgba(42, 32, 36, 0.16); }
+.stages-list::after {
+  background: var(--color-ember);
+  transform-origin: 0 0;
+  scale: 1 0;
+}
+.stage-row {
+  display: grid;
+  grid-template-columns: 3.25rem 1fr;
+  gap: 1.25rem;
+  padding-block: 1.7rem;
+  border-top: 1px solid rgba(42, 32, 36, 0.12);
+}
+.stage-row:first-child { border-top: 0; padding-top: 0; }
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .stages-list::after {
+      animation: rail-draw linear both;
+      animation-timeline: view();
+      animation-range: cover 18% cover 88%;
+    }
+  }
+}
+@keyframes rail-draw {
+  to { scale: 1 1; }
+}
+
+/* Forced-colors (Windows High Contrast): glass and photo depth are stripped by
+   the UA, so structure has to survive on borders and system colours alone. */
+@media (forced-colors: active) {
+  .glass,
+  .tag-light,
+  .btn-glass {
+    border: 1px solid CanvasText;
+    background: Canvas;
+    color: CanvasText;
+    --glass-blur: none;
+  }
+  .photo-depth::after { display: none; }
+  :focus-visible { outline: 2px solid Highlight; }
+}
+
+/* One opening sequence, finishing at 1.4s. Only copy moves; the photograph
+   settles inside its stationary frame and both call/booking targets stay put.
+   These rules also work before hydration. The default/reduced state is final. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-photo-arrival { animation: hero-photo-in 0.35s ease-out backwards; }
+  .hero-copy-arrival { animation: hero-copy-in 0.55s var(--ease-out-soft) backwards; }
+  .hero-label, .hero-headline { animation-delay: 0.35s; }
+  .hero-support { animation-delay: 0.65s; }
+  .hero-credentials { animation-delay: 0.8s; }
+  /* Never hide, translate, disable or intercept an action during arrival. */
+  .hero-actions { animation: hero-actions-in 0.4s ease-out 1s backwards; }
+  .hero-actions:focus-within { animation: none; }
+  .hero-pill-label { animation: hero-copy-in 0.45s var(--ease-out-soft) backwards; }
+  .hero-scroll-cue { animation: hero-scroll 2.2s ease-in-out infinite; }
+
+  #top[data-hero-active="false"] *,
+  #top[data-hero-active="false"] *::before,
+  #top[data-hero-active="false"] *::after { animation-play-state: paused; transition: none; }
+}
+
+@keyframes hero-photo-in {
+  from { opacity: 0.9; filter: blur(1px); }
+  to { opacity: 1; filter: none; }
+}
+@keyframes hero-copy-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes hero-actions-in {
+  from { opacity: 0.96; }
+  to { opacity: 1; }
+}
+@keyframes hero-scroll {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(260%); }
+}
+
+/* The complete journey is the default: readable on touch, reduced motion,
+   without JS, and without scroll-timeline support. Markers/line stay outside
+   the cards; the narrow layout has a quiet vertical connection in its gutter. */
+.journey-list { --journey-gap: 0.875rem; display: grid; gap: var(--journey-gap); }
+.journey-step { position: relative; padding-left: 2.5rem; }
+.journey-number { position: absolute; z-index: 1; left: 0; top: 0; }
+.journey-connector {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  bottom: calc(-1 * var(--journey-gap) - 14px);
+  width: var(--surface-edge);
+  background: color-mix(in srgb, var(--color-ember) 40%, transparent);
+  transform-origin: left center;
+  pointer-events: none;
+}
+.journey-card:focus-visible {
+  --surface-stroke: var(--color-ember);
+  outline: 2px solid var(--color-ember);
+  outline-offset: 4px;
+  border-color: var(--color-ember);
+  border-radius: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .journey-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .journey-step { padding-left: 0; padding-top: 2.75rem; }
+  .journey-number { left: calc(50% - 14px); }
+  .journey-connector {
+    left: 50%;
+    bottom: auto;
+    width: calc(100% + var(--journey-gap));
+    height: var(--surface-edge);
+  }
+}
+
+@media (min-width: 640px) and (hover: hover) and (pointer: fine) and (not (any-pointer: coarse)) and (prefers-reduced-motion: no-preference) {
+  .journey-card { transition: transform 0.35s var(--ease-out-soft); }
+  .journey-photo { transition: transform 0.65s var(--ease-out-soft); }
+  .journey-card:is(:hover, :focus-visible) {
+    --surface-stroke: var(--color-ember);
+    transform: translateY(-4px);
+    border-color: var(--color-ember);
+    box-shadow: var(--shadow-lift);
+  }
+  .journey-card:is(:hover, :focus-visible) .journey-photo { transform: scale(1.035); }
+
+  /* Native, entry-only timelines: no scroll handlers, MotionValues, animation
+     loop or JS payload. The range finishes before the card copy comes into view;
+     fill keeps the final state when scrolling farther down, not an exit effect. */
+  @supports (animation-timeline: view()) {
+    .journey-list { view-timeline-name: --journey-entry; view-timeline-axis: block; }
+    .journey-connector {
+      animation: journey-line-in 1s ease-out both;
+      animation-timeline: --journey-entry;
+      animation-range: entry calc(var(--step) * 20%) entry calc(45% + var(--step) * 20%);
+    }
+    .journey-step-reveal {
+      animation: journey-step-in 1s var(--ease-out-soft) both;
+      animation-timeline: --journey-entry;
+      animation-range: entry calc(5% + var(--step) * 10%) entry calc(40% + var(--step) * 10%);
+    }
+    /* Keyboard readers never have to scroll through a reveal to read/focus. */
+    .journey-list:focus-within .journey-connector,
+    .journey-list:focus-within .journey-step-reveal { animation: none; }
+  }
+}
+
+@keyframes journey-line-in {
+  from { transform: scaleX(0); }
+  to { transform: none; }
+}
+@keyframes journey-step-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Lenis: hand scroll-behaviour over to the library while it is running. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+@keyframes sway {
+  to {
+    transform: rotate(14deg) translateY(10px);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Respect the user's motion preferences everywhere. */
+@media (prefers-reduced-motion: reduce) {
+  body::after { display: none; background-image: none; }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .marquee-track { animation: none !important; width: 100%; }
+  .marquee-copy { min-width: 0; width: 100%; flex-wrap: wrap; row-gap: 0.75rem; white-space: normal; }
+  .marquee-copy[aria-hidden="true"], .marquee-toggle { display: none; }
+}
+
+/* A phone uses the portrait as its static full-frame background. Never inherit
+   desktop image scale/translation when navigating or rotating a small device. */
+@media (max-width: 639px) {
+  .home-portrait-motion { transform: none !important; }
+}
+
+/* Tailwind's utilities layer resets `backdrop-filter` on every element; restate
+   the frost outside the layers, or the warm panes silently flatten. Only two
+   surfaces are genuinely frosted: the hero copy plate and the sticky bar.
+   Everything else is an opaque warm pane, so nothing smears over photography. */
+.hero-copy-plate,
+.frost-bar { backdrop-filter: var(--glass-blur); }
+
+/* From 640px up the hero puts the copy straight onto the photograph. Measured
+   at 768/900/1024 the darkest tenth of the reading column sat at 2.0-4.5:1 —
+   legible on the cream parts of the image, not on the coat. The wash is opaque
+   under the type and feathers out before the portrait, so the column reads at
+   AA without turning her face into a plate. */
+/* Tablets stack the hero the way the phone does — photograph as a band, copy on
+   cream beneath it — because a 42rem copy column is wider than the card at that
+   width and the type ends up on her coat. The overlay returns at 1024, where
+   there is room to keep the wash clear of the portrait. */
+@media (max-width: 1023.98px) {
+  .hero-copy-plate {
+    background: linear-gradient(180deg, rgba(255, 252, 252, 0.6), var(--color-cream) 14%);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-copy-plate {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 252, 252, 0.97) 0%,
+      rgba(255, 252, 252, 0.94) 58%,
+      rgba(255, 252, 252, 0.78) 80%,
+      rgba(255, 252, 252, 0.3) 94%,
+      rgba(255, 252, 252, 0) 100%
+    );
+  }
+}
+
+.frost-bar { --glass-blur: blur(16px) saturate(1.15); }
+
+/* The reading scale.
+   The arbitrary sizes in the components were drawn on a 1440 canvas as if they
+   were captions, but they carry the site's actual reading copy: measured over
+   seven routes, 59% of all characters were set at 10-12px, including whole
+   paragraphs, service lists and the safety disclaimers. On a desktop that reads
+   as fine print everywhere; on a phone the 10px captions became the body.
+   Rather than rewrite 214 utility classes across 26 components, the five steps
+   are remapped here — the rhythm is unchanged, every step simply lands on a
+   size a person can read. Component-level sizes outside these five steps are
+   untouched. */
+
+/* A reading scale in two tiers. Phones take one clear step above the old
+   canvas sizes; everything from 640px up takes another, landing body copy on
+   16px at a 1440 desktop. Two media blocks rather than ten component rewrites,
+   so the scale lives in one place. */
+@media (max-width: 639.98px) {
+  /* Primary actions reach the 44px thumb target on phones; the pill is 37.6px
+     from the icon and padding above that. */
+  .btn {
+    padding-block: 0.55rem;
+  }
+  .text-\[10px\] {
+    font-size: 11.5px;
+  }
+  .text-\[11px\] {
+    font-size: 12.5px;
+  }
+  .text-\[12px\] {
+    font-size: 13.5px;
+  }
+  .text-\[13px\] {
+    font-size: 14.5px;
+  }
+  .text-\[14px\] {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 640px) {
+  .text-\[10px\] {
+    font-size: 12px;
+  }
+  .text-\[11px\] {
+    font-size: 13.5px;
+  }
+  .text-\[12px\] {
+    font-size: 15px;
+  }
+  .text-\[13px\] {
+    font-size: 16px;
+  }
+  .text-\[14px\] {
+    font-size: 17px;
+  }
+}
+
+/* Large monitors: the column widens so the page stops floating in its margins.
+   The scale stays put — 16px body reads the same at 1440 and 1920. */
+@media (min-width: 1600px) {
+  :root {
+    --shell: 1360px;
+  }
+}

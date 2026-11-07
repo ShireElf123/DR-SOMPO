@@ -1,0 +1,8 @@
+
+> dr-ngwey-sompo@1.0.0 test:e2e
+> playwright test --workers=1 --grep cold mid-range mobile --reporter=dot,json
+
+
+Running 1 test using 1 worker
+·
+  1 passed (6.6s)

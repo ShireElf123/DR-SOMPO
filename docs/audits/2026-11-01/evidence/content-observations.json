@@ -1,0 +1,3139 @@
+{
+  "source": "Rendered JSON-LD and metadata from the 390px route sweep, plus source excerpts. No external clinical or structured-data validator was run.",
+  "pages": [
+    {
+      "path": "/",
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Physician",
+          "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#practice",
+          "name": "Dr CM Ngwey-Sompo Inc.",
+          "alternateName": "Dr CM Ngwey-Sompo \u2014 Obstetrics & Gynaecology",
+          "url": "https://dr-cm-ngwey-sompo-website.vercel.app",
+          "telephone": "011 842 7651",
+          "email": "chrisscrcross2013@gmail.com",
+          "medicalSpecialty": [
+            "Obstetric",
+            "Gynecologic"
+          ],
+          "availableLanguage": [
+            {
+              "@type": "Language",
+              "name": "English"
+            },
+            {
+              "@type": "Language",
+              "name": "French"
+            }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Corner of St Joseph and Castor Road",
+            "addressLocality": "Primrose",
+            "addressRegion": "Gauteng",
+            "postalCode": "1401",
+            "addressCountry": "ZA"
+          },
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "Germiston"
+            },
+            {
+              "@type": "City",
+              "name": "Johannesburg"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Ekurhuleni"
+            }
+          ],
+          "location": {
+            "@type": "Hospital",
+            "name": "Life Roseacres Hospital",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Corner of St Joseph and Castor Road",
+              "addressLocality": "Primrose",
+              "addressRegion": "Gauteng",
+              "addressCountry": "ZA"
+            }
+          },
+          "employee": {
+            "@type": "Physician",
+            "name": "Dr CM Ngwey-Sompo",
+            "honorificPrefix": "Dr",
+            "jobTitle": "Specialist Obstetrician & Gynaecologist",
+            "hasCredential": [
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "BSc (Biomed) \u2014 Bachelor of Science in Biomedical Sciences",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Undergraduate degree"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "MBChB \u2014 Bachelor of Medicine and Bachelor of Surgery",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Medical degree"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "FCOG (SA) \u2014 Fellowship of the College of Obstetricians and Gynaecologists",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Colleges of Medicine of South Africa (CMSA)"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "MMed (O&G) \u2014 Master of Medicine in Obstetrics and Gynaecology",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "University of the Witwatersrand"
+                }
+              }
+            ],
+            "knowsLanguage": [
+              "English",
+              "French"
+            ]
+          },
+          "makesOffer": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Antenatal care and pregnancy monitoring"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Vaginal and caesarean delivery"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "General gynaecological consultations"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Contraception and reproductive health assessments"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Fertility assessment and consultation"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Laparoscopic and open gynaecological surgery"
+              }
+            }
+          ],
+          "potentialAction": {
+            "@type": "ReserveAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://dr-cm-ngwey-sompo-website.vercel.app/contact",
+              "inLanguage": "en-ZA",
+              "actionPlatform": [
+                "http://schema.org/DesktopWebPlatform",
+                "http://schema.org/MobileWebPlatform"
+              ]
+            },
+            "result": {
+              "@type": "Reservation",
+              "name": "Appointment enquiry"
+            }
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I make an appointment?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Appointment enquiries are handled by telephone on 011 842 7651 or by email to chrisscrcross2013@gmail.com. WhatsApp enquiry will be offered once the practice confirms a WhatsApp-enabled number. Submitting an enquiry does not constitute a confirmed appointment \u2014 the practice will confirm your date and time directly."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What should I bring to my first consultation?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Please bring your ID or passport, your medical aid card if you have one, a list of current medications, and any previous results, scans or referral letters that are relevant. If you are pregnant, bring any antenatal records you already have."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where does Dr Sompo consult?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Dr Sompo practises at Life Roseacres Hospital, on the corner of St Joseph and Castor Road, Primrose, Germiston, Johannesburg. Please confirm the exact consulting-room and address details with the practice when you book."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does the practice accept medical aid?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Please confirm medical aid arrangements, tariffs and any co-payment directly with the practice before your visit. The website does not publish billing details on the practice's behalf."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I ask clinical questions through the website?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. This website is not a clinical channel. Please do not send symptoms, results or other sensitive medical information through the enquiry form or by email. Clinical questions are best discussed in a consultation, and urgent concerns should be directed to the hospital or your nearest emergency department."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "In what languages can I be seen?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Consultations are available in English and French."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my enquiry handled confidentially?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Enquiries are received by the practice and handled in line with South African privacy law, including the Protection of Personal Information Act (POPIA). Only the minimum information needed to arrange your appointment is requested."
+              }
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#website",
+          "url": "https://dr-cm-ngwey-sompo-website.vercel.app",
+          "name": "Dr CM Ngwey-Sompo Inc. \u2014 Specialist Obstetrician & Gynaecologist",
+          "inLanguage": "en-ZA",
+          "publisher": {
+            "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#practice"
+          }
+        }
+      ],
+      "canonical": "https://dr-cm-ngwey-sompo-website.vercel.app/",
+      "ogUrl": "https://dr-cm-ngwey-sompo-website.vercel.app",
+      "ogTitle": "Dr CM Ngwey-Sompo | Specialist Obstetrician & Gynaecologist"
+    },
+    {
+      "path": "/services",
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Physician",
+          "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#practice",
+          "name": "Dr CM Ngwey-Sompo Inc.",
+          "alternateName": "Dr CM Ngwey-Sompo \u2014 Obstetrics & Gynaecology",
+          "url": "https://dr-cm-ngwey-sompo-website.vercel.app",
+          "telephone": "011 842 7651",
+          "email": "chrisscrcross2013@gmail.com",
+          "medicalSpecialty": [
+            "Obstetric",
+            "Gynecologic"
+          ],
+          "availableLanguage": [
+            {
+              "@type": "Language",
+              "name": "English"
+            },
+            {
+              "@type": "Language",
+              "name": "French"
+            }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Corner of St Joseph and Castor Road",
+            "addressLocality": "Primrose",
+            "addressRegion": "Gauteng",
+            "postalCode": "1401",
+            "addressCountry": "ZA"
+          },
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "Germiston"
+            },
+            {
+              "@type": "City",
+              "name": "Johannesburg"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Ekurhuleni"
+            }
+          ],
+          "location": {
+            "@type": "Hospital",
+            "name": "Life Roseacres Hospital",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Corner of St Joseph and Castor Road",
+              "addressLocality": "Primrose",
+              "addressRegion": "Gauteng",
+              "addressCountry": "ZA"
+            }
+          },
+          "employee": {
+            "@type": "Physician",
+            "name": "Dr CM Ngwey-Sompo",
+            "honorificPrefix": "Dr",
+            "jobTitle": "Specialist Obstetrician & Gynaecologist",
+            "hasCredential": [
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "BSc (Biomed) \u2014 Bachelor of Science in Biomedical Sciences",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Undergraduate degree"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "MBChB \u2014 Bachelor of Medicine and Bachelor of Surgery",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Medical degree"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "FCOG (SA) \u2014 Fellowship of the College of Obstetricians and Gynaecologists",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Colleges of Medicine of South Africa (CMSA)"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "MMed (O&G) \u2014 Master of Medicine in Obstetrics and Gynaecology",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "University of the Witwatersrand"
+                }
+              }
+            ],
+            "knowsLanguage": [
+              "English",
+              "French"
+            ]
+          },
+          "makesOffer": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Antenatal care and pregnancy monitoring"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Vaginal and caesarean delivery"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "General gynaecological consultations"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Contraception and reproductive health assessments"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Fertility assessment and consultation"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Laparoscopic and open gynaecological surgery"
+              }
+            }
+          ],
+          "potentialAction": {
+            "@type": "ReserveAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://dr-cm-ngwey-sompo-website.vercel.app/contact",
+              "inLanguage": "en-ZA",
+              "actionPlatform": [
+                "http://schema.org/DesktopWebPlatform",
+                "http://schema.org/MobileWebPlatform"
+              ]
+            },
+            "result": {
+              "@type": "Reservation",
+              "name": "Appointment enquiry"
+            }
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I make an appointment?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Appointment enquiries are handled by telephone on 011 842 7651 or by email to chrisscrcross2013@gmail.com. WhatsApp enquiry will be offered once the practice confirms a WhatsApp-enabled number. Submitting an enquiry does not constitute a confirmed appointment \u2014 the practice will confirm your date and time directly."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What should I bring to my first consultation?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Please bring your ID or passport, your medical aid card if you have one, a list of current medications, and any previous results, scans or referral letters that are relevant. If you are pregnant, bring any antenatal records you already have."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where does Dr Sompo consult?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Dr Sompo practises at Life Roseacres Hospital, on the corner of St Joseph and Castor Road, Primrose, Germiston, Johannesburg. Please confirm the exact consulting-room and address details with the practice when you book."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does the practice accept medical aid?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Please confirm medical aid arrangements, tariffs and any co-payment directly with the practice before your visit. The website does not publish billing details on the practice's behalf."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I ask clinical questions through the website?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. This website is not a clinical channel. Please do not send symptoms, results or other sensitive medical information through the enquiry form or by email. Clinical questions are best discussed in a consultation, and urgent concerns should be directed to the hospital or your nearest emergency department."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "In what languages can I be seen?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Consultations are available in English and French."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my enquiry handled confidentially?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Enquiries are received by the practice and handled in line with South African privacy law, including the Protection of Personal Information Act (POPIA). Only the minimum information needed to arrange your appointment is requested."
+              }
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#website",
+          "url": "https://dr-cm-ngwey-sompo-website.vercel.app",
+          "name": "Dr CM Ngwey-Sompo Inc. \u2014 Specialist Obstetrician & Gynaecologist",
+          "inLanguage": "en-ZA",
+          "publisher": {
+            "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#practice"
+          }
+        }
+      ],
+      "canonical": "https://dr-cm-ngwey-sompo-website.vercel.app/services",
+      "ogUrl": "https://dr-cm-ngwey-sompo-website.vercel.app",
+      "ogTitle": "Dr CM Ngwey-Sompo | Specialist Obstetrician & Gynaecologist"
+    },
+    {
+      "path": "/about",
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Physician",
+          "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#practice",
+          "name": "Dr CM Ngwey-Sompo Inc.",
+          "alternateName": "Dr CM Ngwey-Sompo \u2014 Obstetrics & Gynaecology",
+          "url": "https://dr-cm-ngwey-sompo-website.vercel.app",
+          "telephone": "011 842 7651",
+          "email": "chrisscrcross2013@gmail.com",
+          "medicalSpecialty": [
+            "Obstetric",
+            "Gynecologic"
+          ],
+          "availableLanguage": [
+            {
+              "@type": "Language",
+              "name": "English"
+            },
+            {
+              "@type": "Language",
+              "name": "French"
+            }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Corner of St Joseph and Castor Road",
+            "addressLocality": "Primrose",
+            "addressRegion": "Gauteng",
+            "postalCode": "1401",
+            "addressCountry": "ZA"
+          },
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "Germiston"
+            },
+            {
+              "@type": "City",
+              "name": "Johannesburg"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Ekurhuleni"
+            }
+          ],
+          "location": {
+            "@type": "Hospital",
+            "name": "Life Roseacres Hospital",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Corner of St Joseph and Castor Road",
+              "addressLocality": "Primrose",
+              "addressRegion": "Gauteng",
+              "addressCountry": "ZA"
+            }
+          },
+          "employee": {
+            "@type": "Physician",
+            "name": "Dr CM Ngwey-Sompo",
+            "honorificPrefix": "Dr",
+            "jobTitle": "Specialist Obstetrician & Gynaecologist",
+            "hasCredential": [
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "BSc (Biomed) \u2014 Bachelor of Science in Biomedical Sciences",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Undergraduate degree"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "MBChB \u2014 Bachelor of Medicine and Bachelor of Surgery",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Medical degree"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "FCOG (SA) \u2014 Fellowship of the College of Obstetricians and Gynaecologists",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Colleges of Medicine of South Africa (CMSA)"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "MMed (O&G) \u2014 Master of Medicine in Obstetrics and Gynaecology",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "University of the Witwatersrand"
+                }
+              }
+            ],
+            "knowsLanguage": [
+              "English",
+              "French"
+            ]
+          },
+          "makesOffer": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Antenatal care and pregnancy monitoring"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Vaginal and caesarean delivery"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "General gynaecological consultations"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Contraception and reproductive health assessments"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Fertility assessment and consultation"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Laparoscopic and open gynaecological surgery"
+              }
+            }
+          ],
+          "potentialAction": {
+            "@type": "ReserveAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://dr-cm-ngwey-sompo-website.vercel.app/contact",
+              "inLanguage": "en-ZA",
+              "actionPlatform": [
+                "http://schema.org/DesktopWebPlatform",
+                "http://schema.org/MobileWebPlatform"
+              ]
+            },
+            "result": {
+              "@type": "Reservation",
+              "name": "Appointment enquiry"
+            }
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I make an appointment?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Appointment enquiries are handled by telephone on 011 842 7651 or by email to chrisscrcross2013@gmail.com. WhatsApp enquiry will be offered once the practice confirms a WhatsApp-enabled number. Submitting an enquiry does not constitute a confirmed appointment \u2014 the practice will confirm your date and time directly."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What should I bring to my first consultation?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Please bring your ID or passport, your medical aid card if you have one, a list of current medications, and any previous results, scans or referral letters that are relevant. If you are pregnant, bring any antenatal records you already have."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where does Dr Sompo consult?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Dr Sompo practises at Life Roseacres Hospital, on the corner of St Joseph and Castor Road, Primrose, Germiston, Johannesburg. Please confirm the exact consulting-room and address details with the practice when you book."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does the practice accept medical aid?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Please confirm medical aid arrangements, tariffs and any co-payment directly with the practice before your visit. The website does not publish billing details on the practice's behalf."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I ask clinical questions through the website?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. This website is not a clinical channel. Please do not send symptoms, results or other sensitive medical information through the enquiry form or by email. Clinical questions are best discussed in a consultation, and urgent concerns should be directed to the hospital or your nearest emergency department."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "In what languages can I be seen?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Consultations are available in English and French."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my enquiry handled confidentially?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Enquiries are received by the practice and handled in line with South African privacy law, including the Protection of Personal Information Act (POPIA). Only the minimum information needed to arrange your appointment is requested."
+              }
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#website",
+          "url": "https://dr-cm-ngwey-sompo-website.vercel.app",
+          "name": "Dr CM Ngwey-Sompo Inc. \u2014 Specialist Obstetrician & Gynaecologist",
+          "inLanguage": "en-ZA",
+          "publisher": {
+            "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#practice"
+          }
+        }
+      ],
+      "canonical": "https://dr-cm-ngwey-sompo-website.vercel.app/about",
+      "ogUrl": "https://dr-cm-ngwey-sompo-website.vercel.app",
+      "ogTitle": "Dr CM Ngwey-Sompo | Specialist Obstetrician & Gynaecologist"
+    },
+    {
+      "path": "/research",
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Physician",
+          "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#practice",
+          "name": "Dr CM Ngwey-Sompo Inc.",
+          "alternateName": "Dr CM Ngwey-Sompo \u2014 Obstetrics & Gynaecology",
+          "url": "https://dr-cm-ngwey-sompo-website.vercel.app",
+          "telephone": "011 842 7651",
+          "email": "chrisscrcross2013@gmail.com",
+          "medicalSpecialty": [
+            "Obstetric",
+            "Gynecologic"
+          ],
+          "availableLanguage": [
+            {
+              "@type": "Language",
+              "name": "English"
+            },
+            {
+              "@type": "Language",
+              "name": "French"
+            }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Corner of St Joseph and Castor Road",
+            "addressLocality": "Primrose",
+            "addressRegion": "Gauteng",
+            "postalCode": "1401",
+            "addressCountry": "ZA"
+          },
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "Germiston"
+            },
+            {
+              "@type": "City",
+              "name": "Johannesburg"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Ekurhuleni"
+            }
+          ],
+          "location": {
+            "@type": "Hospital",
+            "name": "Life Roseacres Hospital",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Corner of St Joseph and Castor Road",
+              "addressLocality": "Primrose",
+              "addressRegion": "Gauteng",
+              "addressCountry": "ZA"
+            }
+          },
+          "employee": {
+            "@type": "Physician",
+            "name": "Dr CM Ngwey-Sompo",
+            "honorificPrefix": "Dr",
+            "jobTitle": "Specialist Obstetrician & Gynaecologist",
+            "hasCredential": [
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "BSc (Biomed) \u2014 Bachelor of Science in Biomedical Sciences",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Undergraduate degree"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "MBChB \u2014 Bachelor of Medicine and Bachelor of Surgery",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Medical degree"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "FCOG (SA) \u2014 Fellowship of the College of Obstetricians and Gynaecologists",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Colleges of Medicine of South Africa (CMSA)"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "MMed (O&G) \u2014 Master of Medicine in Obstetrics and Gynaecology",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "University of the Witwatersrand"
+                }
+              }
+            ],
+            "knowsLanguage": [
+              "English",
+              "French"
+            ]
+          },
+          "makesOffer": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Antenatal care and pregnancy monitoring"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Vaginal and caesarean delivery"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "General gynaecological consultations"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Contraception and reproductive health assessments"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Fertility assessment and consultation"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Laparoscopic and open gynaecological surgery"
+              }
+            }
+          ],
+          "potentialAction": {
+            "@type": "ReserveAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://dr-cm-ngwey-sompo-website.vercel.app/contact",
+              "inLanguage": "en-ZA",
+              "actionPlatform": [
+                "http://schema.org/DesktopWebPlatform",
+                "http://schema.org/MobileWebPlatform"
+              ]
+            },
+            "result": {
+              "@type": "Reservation",
+              "name": "Appointment enquiry"
+            }
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I make an appointment?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Appointment enquiries are handled by telephone on 011 842 7651 or by email to chrisscrcross2013@gmail.com. WhatsApp enquiry will be offered once the practice confirms a WhatsApp-enabled number. Submitting an enquiry does not constitute a confirmed appointment \u2014 the practice will confirm your date and time directly."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What should I bring to my first consultation?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Please bring your ID or passport, your medical aid card if you have one, a list of current medications, and any previous results, scans or referral letters that are relevant. If you are pregnant, bring any antenatal records you already have."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where does Dr Sompo consult?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Dr Sompo practises at Life Roseacres Hospital, on the corner of St Joseph and Castor Road, Primrose, Germiston, Johannesburg. Please confirm the exact consulting-room and address details with the practice when you book."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does the practice accept medical aid?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Please confirm medical aid arrangements, tariffs and any co-payment directly with the practice before your visit. The website does not publish billing details on the practice's behalf."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I ask clinical questions through the website?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. This website is not a clinical channel. Please do not send symptoms, results or other sensitive medical information through the enquiry form or by email. Clinical questions are best discussed in a consultation, and urgent concerns should be directed to the hospital or your nearest emergency department."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "In what languages can I be seen?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Consultations are available in English and French."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my enquiry handled confidentially?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Enquiries are received by the practice and handled in line with South African privacy law, including the Protection of Personal Information Act (POPIA). Only the minimum information needed to arrange your appointment is requested."
+              }
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#website",
+          "url": "https://dr-cm-ngwey-sompo-website.vercel.app",
+          "name": "Dr CM Ngwey-Sompo Inc. \u2014 Specialist Obstetrician & Gynaecologist",
+          "inLanguage": "en-ZA",
+          "publisher": {
+            "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#practice"
+          }
+        }
+      ],
+      "canonical": "https://dr-cm-ngwey-sompo-website.vercel.app/research",
+      "ogUrl": "https://dr-cm-ngwey-sompo-website.vercel.app",
+      "ogTitle": "Dr CM Ngwey-Sompo | Specialist Obstetrician & Gynaecologist"
+    },
+    {
+      "path": "/patient-info",
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Physician",
+          "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#practice",
+          "name": "Dr CM Ngwey-Sompo Inc.",
+          "alternateName": "Dr CM Ngwey-Sompo \u2014 Obstetrics & Gynaecology",
+          "url": "https://dr-cm-ngwey-sompo-website.vercel.app",
+          "telephone": "011 842 7651",
+          "email": "chrisscrcross2013@gmail.com",
+          "medicalSpecialty": [
+            "Obstetric",
+            "Gynecologic"
+          ],
+          "availableLanguage": [
+            {
+              "@type": "Language",
+              "name": "English"
+            },
+            {
+              "@type": "Language",
+              "name": "French"
+            }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Corner of St Joseph and Castor Road",
+            "addressLocality": "Primrose",
+            "addressRegion": "Gauteng",
+            "postalCode": "1401",
+            "addressCountry": "ZA"
+          },
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "Germiston"
+            },
+            {
+              "@type": "City",
+              "name": "Johannesburg"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Ekurhuleni"
+            }
+          ],
+          "location": {
+            "@type": "Hospital",
+            "name": "Life Roseacres Hospital",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Corner of St Joseph and Castor Road",
+              "addressLocality": "Primrose",
+              "addressRegion": "Gauteng",
+              "addressCountry": "ZA"
+            }
+          },
+          "employee": {
+            "@type": "Physician",
+            "name": "Dr CM Ngwey-Sompo",
+            "honorificPrefix": "Dr",
+            "jobTitle": "Specialist Obstetrician & Gynaecologist",
+            "hasCredential": [
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "BSc (Biomed) \u2014 Bachelor of Science in Biomedical Sciences",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Undergraduate degree"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "MBChB \u2014 Bachelor of Medicine and Bachelor of Surgery",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Medical degree"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "FCOG (SA) \u2014 Fellowship of the College of Obstetricians and Gynaecologists",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Colleges of Medicine of South Africa (CMSA)"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "MMed (O&G) \u2014 Master of Medicine in Obstetrics and Gynaecology",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "University of the Witwatersrand"
+                }
+              }
+            ],
+            "knowsLanguage": [
+              "English",
+              "French"
+            ]
+          },
+          "makesOffer": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Antenatal care and pregnancy monitoring"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Vaginal and caesarean delivery"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "General gynaecological consultations"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Contraception and reproductive health assessments"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Fertility assessment and consultation"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Laparoscopic and open gynaecological surgery"
+              }
+            }
+          ],
+          "potentialAction": {
+            "@type": "ReserveAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://dr-cm-ngwey-sompo-website.vercel.app/contact",
+              "inLanguage": "en-ZA",
+              "actionPlatform": [
+                "http://schema.org/DesktopWebPlatform",
+                "http://schema.org/MobileWebPlatform"
+              ]
+            },
+            "result": {
+              "@type": "Reservation",
+              "name": "Appointment enquiry"
+            }
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I make an appointment?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Appointment enquiries are handled by telephone on 011 842 7651 or by email to chrisscrcross2013@gmail.com. WhatsApp enquiry will be offered once the practice confirms a WhatsApp-enabled number. Submitting an enquiry does not constitute a confirmed appointment \u2014 the practice will confirm your date and time directly."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What should I bring to my first consultation?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Please bring your ID or passport, your medical aid card if you have one, a list of current medications, and any previous results, scans or referral letters that are relevant. If you are pregnant, bring any antenatal records you already have."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where does Dr Sompo consult?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Dr Sompo practises at Life Roseacres Hospital, on the corner of St Joseph and Castor Road, Primrose, Germiston, Johannesburg. Please confirm the exact consulting-room and address details with the practice when you book."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does the practice accept medical aid?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Please confirm medical aid arrangements, tariffs and any co-payment directly with the practice before your visit. The website does not publish billing details on the practice's behalf."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I ask clinical questions through the website?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. This website is not a clinical channel. Please do not send symptoms, results or other sensitive medical information through the enquiry form or by email. Clinical questions are best discussed in a consultation, and urgent concerns should be directed to the hospital or your nearest emergency department."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "In what languages can I be seen?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Consultations are available in English and French."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my enquiry handled confidentially?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Enquiries are received by the practice and handled in line with South African privacy law, including the Protection of Personal Information Act (POPIA). Only the minimum information needed to arrange your appointment is requested."
+              }
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#website",
+          "url": "https://dr-cm-ngwey-sompo-website.vercel.app",
+          "name": "Dr CM Ngwey-Sompo Inc. \u2014 Specialist Obstetrician & Gynaecologist",
+          "inLanguage": "en-ZA",
+          "publisher": {
+            "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#practice"
+          }
+        }
+      ],
+      "canonical": "https://dr-cm-ngwey-sompo-website.vercel.app/patient-info",
+      "ogUrl": "https://dr-cm-ngwey-sompo-website.vercel.app",
+      "ogTitle": "Dr CM Ngwey-Sompo | Specialist Obstetrician & Gynaecologist"
+    },
+    {
+      "path": "/contact",
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Physician",
+          "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#practice",
+          "name": "Dr CM Ngwey-Sompo Inc.",
+          "alternateName": "Dr CM Ngwey-Sompo \u2014 Obstetrics & Gynaecology",
+          "url": "https://dr-cm-ngwey-sompo-website.vercel.app",
+          "telephone": "011 842 7651",
+          "email": "chrisscrcross2013@gmail.com",
+          "medicalSpecialty": [
+            "Obstetric",
+            "Gynecologic"
+          ],
+          "availableLanguage": [
+            {
+              "@type": "Language",
+              "name": "English"
+            },
+            {
+              "@type": "Language",
+              "name": "French"
+            }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Corner of St Joseph and Castor Road",
+            "addressLocality": "Primrose",
+            "addressRegion": "Gauteng",
+            "postalCode": "1401",
+            "addressCountry": "ZA"
+          },
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "Germiston"
+            },
+            {
+              "@type": "City",
+              "name": "Johannesburg"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Ekurhuleni"
+            }
+          ],
+          "location": {
+            "@type": "Hospital",
+            "name": "Life Roseacres Hospital",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Corner of St Joseph and Castor Road",
+              "addressLocality": "Primrose",
+              "addressRegion": "Gauteng",
+              "addressCountry": "ZA"
+            }
+          },
+          "employee": {
+            "@type": "Physician",
+            "name": "Dr CM Ngwey-Sompo",
+            "honorificPrefix": "Dr",
+            "jobTitle": "Specialist Obstetrician & Gynaecologist",
+            "hasCredential": [
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "BSc (Biomed) \u2014 Bachelor of Science in Biomedical Sciences",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Undergraduate degree"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "MBChB \u2014 Bachelor of Medicine and Bachelor of Surgery",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Medical degree"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "FCOG (SA) \u2014 Fellowship of the College of Obstetricians and Gynaecologists",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Colleges of Medicine of South Africa (CMSA)"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "MMed (O&G) \u2014 Master of Medicine in Obstetrics and Gynaecology",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "University of the Witwatersrand"
+                }
+              }
+            ],
+            "knowsLanguage": [
+              "English",
+              "French"
+            ]
+          },
+          "makesOffer": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Antenatal care and pregnancy monitoring"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Vaginal and caesarean delivery"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "General gynaecological consultations"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Contraception and reproductive health assessments"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Fertility assessment and consultation"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Laparoscopic and open gynaecological surgery"
+              }
+            }
+          ],
+          "potentialAction": {
+            "@type": "ReserveAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://dr-cm-ngwey-sompo-website.vercel.app/contact",
+              "inLanguage": "en-ZA",
+              "actionPlatform": [
+                "http://schema.org/DesktopWebPlatform",
+                "http://schema.org/MobileWebPlatform"
+              ]
+            },
+            "result": {
+              "@type": "Reservation",
+              "name": "Appointment enquiry"
+            }
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I make an appointment?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Appointment enquiries are handled by telephone on 011 842 7651 or by email to chrisscrcross2013@gmail.com. WhatsApp enquiry will be offered once the practice confirms a WhatsApp-enabled number. Submitting an enquiry does not constitute a confirmed appointment \u2014 the practice will confirm your date and time directly."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What should I bring to my first consultation?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Please bring your ID or passport, your medical aid card if you have one, a list of current medications, and any previous results, scans or referral letters that are relevant. If you are pregnant, bring any antenatal records you already have."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where does Dr Sompo consult?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Dr Sompo practises at Life Roseacres Hospital, on the corner of St Joseph and Castor Road, Primrose, Germiston, Johannesburg. Please confirm the exact consulting-room and address details with the practice when you book."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does the practice accept medical aid?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Please confirm medical aid arrangements, tariffs and any co-payment directly with the practice before your visit. The website does not publish billing details on the practice's behalf."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I ask clinical questions through the website?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. This website is not a clinical channel. Please do not send symptoms, results or other sensitive medical information through the enquiry form or by email. Clinical questions are best discussed in a consultation, and urgent concerns should be directed to the hospital or your nearest emergency department."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "In what languages can I be seen?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Consultations are available in English and French."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my enquiry handled confidentially?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Enquiries are received by the practice and handled in line with South African privacy law, including the Protection of Personal Information Act (POPIA). Only the minimum information needed to arrange your appointment is requested."
+              }
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#website",
+          "url": "https://dr-cm-ngwey-sompo-website.vercel.app",
+          "name": "Dr CM Ngwey-Sompo Inc. \u2014 Specialist Obstetrician & Gynaecologist",
+          "inLanguage": "en-ZA",
+          "publisher": {
+            "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#practice"
+          }
+        }
+      ],
+      "canonical": "https://dr-cm-ngwey-sompo-website.vercel.app/contact",
+      "ogUrl": "https://dr-cm-ngwey-sompo-website.vercel.app",
+      "ogTitle": "Dr CM Ngwey-Sompo | Specialist Obstetrician & Gynaecologist"
+    },
+    {
+      "path": "/services/antenatal",
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Physician",
+          "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#practice",
+          "name": "Dr CM Ngwey-Sompo Inc.",
+          "alternateName": "Dr CM Ngwey-Sompo \u2014 Obstetrics & Gynaecology",
+          "url": "https://dr-cm-ngwey-sompo-website.vercel.app",
+          "telephone": "011 842 7651",
+          "email": "chrisscrcross2013@gmail.com",
+          "medicalSpecialty": [
+            "Obstetric",
+            "Gynecologic"
+          ],
+          "availableLanguage": [
+            {
+              "@type": "Language",
+              "name": "English"
+            },
+            {
+              "@type": "Language",
+              "name": "French"
+            }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Corner of St Joseph and Castor Road",
+            "addressLocality": "Primrose",
+            "addressRegion": "Gauteng",
+            "postalCode": "1401",
+            "addressCountry": "ZA"
+          },
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "Germiston"
+            },
+            {
+              "@type": "City",
+              "name": "Johannesburg"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Ekurhuleni"
+            }
+          ],
+          "location": {
+            "@type": "Hospital",
+            "name": "Life Roseacres Hospital",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Corner of St Joseph and Castor Road",
+              "addressLocality": "Primrose",
+              "addressRegion": "Gauteng",
+              "addressCountry": "ZA"
+            }
+          },
+          "employee": {
+            "@type": "Physician",
+            "name": "Dr CM Ngwey-Sompo",
+            "honorificPrefix": "Dr",
+            "jobTitle": "Specialist Obstetrician & Gynaecologist",
+            "hasCredential": [
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "BSc (Biomed) \u2014 Bachelor of Science in Biomedical Sciences",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Undergraduate degree"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "MBChB \u2014 Bachelor of Medicine and Bachelor of Surgery",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Medical degree"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "FCOG (SA) \u2014 Fellowship of the College of Obstetricians and Gynaecologists",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Colleges of Medicine of South Africa (CMSA)"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "MMed (O&G) \u2014 Master of Medicine in Obstetrics and Gynaecology",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "University of the Witwatersrand"
+                }
+              }
+            ],
+            "knowsLanguage": [
+              "English",
+              "French"
+            ]
+          },
+          "makesOffer": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Antenatal care and pregnancy monitoring"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Vaginal and caesarean delivery"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "General gynaecological consultations"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Contraception and reproductive health assessments"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Fertility assessment and consultation"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Laparoscopic and open gynaecological surgery"
+              }
+            }
+          ],
+          "potentialAction": {
+            "@type": "ReserveAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://dr-cm-ngwey-sompo-website.vercel.app/contact",
+              "inLanguage": "en-ZA",
+              "actionPlatform": [
+                "http://schema.org/DesktopWebPlatform",
+                "http://schema.org/MobileWebPlatform"
+              ]
+            },
+            "result": {
+              "@type": "Reservation",
+              "name": "Appointment enquiry"
+            }
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I make an appointment?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Appointment enquiries are handled by telephone on 011 842 7651 or by email to chrisscrcross2013@gmail.com. WhatsApp enquiry will be offered once the practice confirms a WhatsApp-enabled number. Submitting an enquiry does not constitute a confirmed appointment \u2014 the practice will confirm your date and time directly."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What should I bring to my first consultation?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Please bring your ID or passport, your medical aid card if you have one, a list of current medications, and any previous results, scans or referral letters that are relevant. If you are pregnant, bring any antenatal records you already have."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where does Dr Sompo consult?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Dr Sompo practises at Life Roseacres Hospital, on the corner of St Joseph and Castor Road, Primrose, Germiston, Johannesburg. Please confirm the exact consulting-room and address details with the practice when you book."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does the practice accept medical aid?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Please confirm medical aid arrangements, tariffs and any co-payment directly with the practice before your visit. The website does not publish billing details on the practice's behalf."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I ask clinical questions through the website?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. This website is not a clinical channel. Please do not send symptoms, results or other sensitive medical information through the enquiry form or by email. Clinical questions are best discussed in a consultation, and urgent concerns should be directed to the hospital or your nearest emergency department."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "In what languages can I be seen?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Consultations are available in English and French."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my enquiry handled confidentially?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Enquiries are received by the practice and handled in line with South African privacy law, including the Protection of Personal Information Act (POPIA). Only the minimum information needed to arrange your appointment is requested."
+              }
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#website",
+          "url": "https://dr-cm-ngwey-sompo-website.vercel.app",
+          "name": "Dr CM Ngwey-Sompo Inc. \u2014 Specialist Obstetrician & Gynaecologist",
+          "inLanguage": "en-ZA",
+          "publisher": {
+            "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#practice"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "MedicalProcedure",
+          "name": "Antenatal care",
+          "description": "Antenatal care is the steady, unhurried part of pregnancy \u2014 regular visits to check how you and your baby are doing, and time to ask the questions that come up between them.",
+          "procedureType": "https://schema.org/NoninvasiveProcedure",
+          "bodyLocation": "Obstetrics",
+          "howPerformed": "What antenatal care covers: Each visit reviews your health and your baby's growth, and checks anything that has changed since the last appointment. Blood pressure, weight and the baby's position and heartbeat are the usual measures; what is checked at each stage depends on how far along you are. Planning the birth: Conversations about birth begin well before the third trimester. Preferences, previous experiences and any concerns are discussed openly, alongside what is medically advisable in your case. Care after delivery: The fourth trimester matters as much as the first three. Postnatal review covers your recovery, how feeding is going, and how you are feeling \u2014 physically and otherwise.",
+          "availableService": {
+            "@type": "MedicalClinic",
+            "name": "Dr CM Ngwey-Sompo Inc.",
+            "telephone": "011 842 7651",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Corner of St Joseph and Castor Road, Primrose, Germiston",
+              "addressLocality": "Germiston",
+              "addressRegion": "Gauteng",
+              "addressCountry": "ZA"
+            }
+          }
+        }
+      ],
+      "canonical": "https://dr-cm-ngwey-sompo-website.vercel.app/services/antenatal",
+      "ogUrl": "https://dr-cm-ngwey-sompo-website.vercel.app/services/antenatal",
+      "ogTitle": "Antenatal care | Dr CM Ngwey-Sompo Inc."
+    },
+    {
+      "path": "/services/delivery",
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Physician",
+          "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#practice",
+          "name": "Dr CM Ngwey-Sompo Inc.",
+          "alternateName": "Dr CM Ngwey-Sompo \u2014 Obstetrics & Gynaecology",
+          "url": "https://dr-cm-ngwey-sompo-website.vercel.app",
+          "telephone": "011 842 7651",
+          "email": "chrisscrcross2013@gmail.com",
+          "medicalSpecialty": [
+            "Obstetric",
+            "Gynecologic"
+          ],
+          "availableLanguage": [
+            {
+              "@type": "Language",
+              "name": "English"
+            },
+            {
+              "@type": "Language",
+              "name": "French"
+            }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Corner of St Joseph and Castor Road",
+            "addressLocality": "Primrose",
+            "addressRegion": "Gauteng",
+            "postalCode": "1401",
+            "addressCountry": "ZA"
+          },
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "Germiston"
+            },
+            {
+              "@type": "City",
+              "name": "Johannesburg"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Ekurhuleni"
+            }
+          ],
+          "location": {
+            "@type": "Hospital",
+            "name": "Life Roseacres Hospital",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Corner of St Joseph and Castor Road",
+              "addressLocality": "Primrose",
+              "addressRegion": "Gauteng",
+              "addressCountry": "ZA"
+            }
+          },
+          "employee": {
+            "@type": "Physician",
+            "name": "Dr CM Ngwey-Sompo",
+            "honorificPrefix": "Dr",
+            "jobTitle": "Specialist Obstetrician & Gynaecologist",
+            "hasCredential": [
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "BSc (Biomed) \u2014 Bachelor of Science in Biomedical Sciences",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Undergraduate degree"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "MBChB \u2014 Bachelor of Medicine and Bachelor of Surgery",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Medical degree"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "FCOG (SA) \u2014 Fellowship of the College of Obstetricians and Gynaecologists",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Colleges of Medicine of South Africa (CMSA)"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "MMed (O&G) \u2014 Master of Medicine in Obstetrics and Gynaecology",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "University of the Witwatersrand"
+                }
+              }
+            ],
+            "knowsLanguage": [
+              "English",
+              "French"
+            ]
+          },
+          "makesOffer": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Antenatal care and pregnancy monitoring"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Vaginal and caesarean delivery"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "General gynaecological consultations"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Contraception and reproductive health assessments"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Fertility assessment and consultation"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Laparoscopic and open gynaecological surgery"
+              }
+            }
+          ],
+          "potentialAction": {
+            "@type": "ReserveAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://dr-cm-ngwey-sompo-website.vercel.app/contact",
+              "inLanguage": "en-ZA",
+              "actionPlatform": [
+                "http://schema.org/DesktopWebPlatform",
+                "http://schema.org/MobileWebPlatform"
+              ]
+            },
+            "result": {
+              "@type": "Reservation",
+              "name": "Appointment enquiry"
+            }
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I make an appointment?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Appointment enquiries are handled by telephone on 011 842 7651 or by email to chrisscrcross2013@gmail.com. WhatsApp enquiry will be offered once the practice confirms a WhatsApp-enabled number. Submitting an enquiry does not constitute a confirmed appointment \u2014 the practice will confirm your date and time directly."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What should I bring to my first consultation?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Please bring your ID or passport, your medical aid card if you have one, a list of current medications, and any previous results, scans or referral letters that are relevant. If you are pregnant, bring any antenatal records you already have."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where does Dr Sompo consult?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Dr Sompo practises at Life Roseacres Hospital, on the corner of St Joseph and Castor Road, Primrose, Germiston, Johannesburg. Please confirm the exact consulting-room and address details with the practice when you book."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does the practice accept medical aid?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Please confirm medical aid arrangements, tariffs and any co-payment directly with the practice before your visit. The website does not publish billing details on the practice's behalf."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I ask clinical questions through the website?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. This website is not a clinical channel. Please do not send symptoms, results or other sensitive medical information through the enquiry form or by email. Clinical questions are best discussed in a consultation, and urgent concerns should be directed to the hospital or your nearest emergency department."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "In what languages can I be seen?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Consultations are available in English and French."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my enquiry handled confidentially?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Enquiries are received by the practice and handled in line with South African privacy law, including the Protection of Personal Information Act (POPIA). Only the minimum information needed to arrange your appointment is requested."
+              }
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#website",
+          "url": "https://dr-cm-ngwey-sompo-website.vercel.app",
+          "name": "Dr CM Ngwey-Sompo Inc. \u2014 Specialist Obstetrician & Gynaecologist",
+          "inLanguage": "en-ZA",
+          "publisher": {
+            "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#practice"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "MedicalProcedure",
+          "name": "Vaginal & caesarean delivery",
+          "description": "Delivery care at Life Roseacres Hospital, with the mode of birth decided on clinical need and your preferences \u2014 and explained well before the day itself.",
+          "procedureType": "https://schema.org/NoninvasiveProcedure",
+          "bodyLocation": "Obstetrics",
+          "howPerformed": "Vaginal delivery: Where labour is progressing normally and there is no reason to intervene, vaginal delivery is supported with as little interference as possible. Caesarean delivery: A caesarean may be planned in advance, or become advisable during labour. Either way the reasoning is explained, and consent is taken properly \u2014 not assumed. After the birth: You are reviewed in hospital before discharge, and again afterwards. Feeding, wound care where relevant, and your own recovery are all part of that review.",
+          "availableService": {
+            "@type": "MedicalClinic",
+            "name": "Dr CM Ngwey-Sompo Inc.",
+            "telephone": "011 842 7651",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Corner of St Joseph and Castor Road, Primrose, Germiston",
+              "addressLocality": "Germiston",
+              "addressRegion": "Gauteng",
+              "addressCountry": "ZA"
+            }
+          }
+        }
+      ],
+      "canonical": "https://dr-cm-ngwey-sompo-website.vercel.app/services/delivery",
+      "ogUrl": "https://dr-cm-ngwey-sompo-website.vercel.app/services/delivery",
+      "ogTitle": "Vaginal & caesarean delivery | Dr CM Ngwey-Sompo Inc."
+    },
+    {
+      "path": "/services/general",
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Physician",
+          "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#practice",
+          "name": "Dr CM Ngwey-Sompo Inc.",
+          "alternateName": "Dr CM Ngwey-Sompo \u2014 Obstetrics & Gynaecology",
+          "url": "https://dr-cm-ngwey-sompo-website.vercel.app",
+          "telephone": "011 842 7651",
+          "email": "chrisscrcross2013@gmail.com",
+          "medicalSpecialty": [
+            "Obstetric",
+            "Gynecologic"
+          ],
+          "availableLanguage": [
+            {
+              "@type": "Language",
+              "name": "English"
+            },
+            {
+              "@type": "Language",
+              "name": "French"
+            }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Corner of St Joseph and Castor Road",
+            "addressLocality": "Primrose",
+            "addressRegion": "Gauteng",
+            "postalCode": "1401",
+            "addressCountry": "ZA"
+          },
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "Germiston"
+            },
+            {
+              "@type": "City",
+              "name": "Johannesburg"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Ekurhuleni"
+            }
+          ],
+          "location": {
+            "@type": "Hospital",
+            "name": "Life Roseacres Hospital",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Corner of St Joseph and Castor Road",
+              "addressLocality": "Primrose",
+              "addressRegion": "Gauteng",
+              "addressCountry": "ZA"
+            }
+          },
+          "employee": {
+            "@type": "Physician",
+            "name": "Dr CM Ngwey-Sompo",
+            "honorificPrefix": "Dr",
+            "jobTitle": "Specialist Obstetrician & Gynaecologist",
+            "hasCredential": [
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "BSc (Biomed) \u2014 Bachelor of Science in Biomedical Sciences",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Undergraduate degree"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "MBChB \u2014 Bachelor of Medicine and Bachelor of Surgery",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Medical degree"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "FCOG (SA) \u2014 Fellowship of the College of Obstetricians and Gynaecologists",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Colleges of Medicine of South Africa (CMSA)"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "MMed (O&G) \u2014 Master of Medicine in Obstetrics and Gynaecology",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "University of the Witwatersrand"
+                }
+              }
+            ],
+            "knowsLanguage": [
+              "English",
+              "French"
+            ]
+          },
+          "makesOffer": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Antenatal care and pregnancy monitoring"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Vaginal and caesarean delivery"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "General gynaecological consultations"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Contraception and reproductive health assessments"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Fertility assessment and consultation"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Laparoscopic and open gynaecological surgery"
+              }
+            }
+          ],
+          "potentialAction": {
+            "@type": "ReserveAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://dr-cm-ngwey-sompo-website.vercel.app/contact",
+              "inLanguage": "en-ZA",
+              "actionPlatform": [
+                "http://schema.org/DesktopWebPlatform",
+                "http://schema.org/MobileWebPlatform"
+              ]
+            },
+            "result": {
+              "@type": "Reservation",
+              "name": "Appointment enquiry"
+            }
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I make an appointment?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Appointment enquiries are handled by telephone on 011 842 7651 or by email to chrisscrcross2013@gmail.com. WhatsApp enquiry will be offered once the practice confirms a WhatsApp-enabled number. Submitting an enquiry does not constitute a confirmed appointment \u2014 the practice will confirm your date and time directly."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What should I bring to my first consultation?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Please bring your ID or passport, your medical aid card if you have one, a list of current medications, and any previous results, scans or referral letters that are relevant. If you are pregnant, bring any antenatal records you already have."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where does Dr Sompo consult?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Dr Sompo practises at Life Roseacres Hospital, on the corner of St Joseph and Castor Road, Primrose, Germiston, Johannesburg. Please confirm the exact consulting-room and address details with the practice when you book."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does the practice accept medical aid?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Please confirm medical aid arrangements, tariffs and any co-payment directly with the practice before your visit. The website does not publish billing details on the practice's behalf."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I ask clinical questions through the website?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. This website is not a clinical channel. Please do not send symptoms, results or other sensitive medical information through the enquiry form or by email. Clinical questions are best discussed in a consultation, and urgent concerns should be directed to the hospital or your nearest emergency department."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "In what languages can I be seen?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Consultations are available in English and French."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my enquiry handled confidentially?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Enquiries are received by the practice and handled in line with South African privacy law, including the Protection of Personal Information Act (POPIA). Only the minimum information needed to arrange your appointment is requested."
+              }
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#website",
+          "url": "https://dr-cm-ngwey-sompo-website.vercel.app",
+          "name": "Dr CM Ngwey-Sompo Inc. \u2014 Specialist Obstetrician & Gynaecologist",
+          "inLanguage": "en-ZA",
+          "publisher": {
+            "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#practice"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "MedicalProcedure",
+          "name": "General gynaecological consultations",
+          "description": "A confidential space to discuss symptoms, cycles, contraception or any concern about your reproductive health \u2014 at your pace, in language that makes sense.",
+          "procedureType": "https://schema.org/NoninvasiveProcedure",
+          "bodyLocation": "Gynaecology",
+          "howPerformed": "What a consultation involves: The appointment starts with your history: what brought you in, what you have noticed, and what you are worried about. That conversation usually takes longer than the examination. Common reasons to be seen: Changes in your cycle, pain, bleeding that concerns you, contraception advice, screening, and questions about fertility all belong in a general consultation. Screening and prevention: Cervical screening, HPV vaccination status and breast awareness are reviewed as part of routine care, with the reasoning explained rather than assumed.",
+          "availableService": {
+            "@type": "MedicalClinic",
+            "name": "Dr CM Ngwey-Sompo Inc.",
+            "telephone": "011 842 7651",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Corner of St Joseph and Castor Road, Primrose, Germiston",
+              "addressLocality": "Germiston",
+              "addressRegion": "Gauteng",
+              "addressCountry": "ZA"
+            }
+          }
+        }
+      ],
+      "canonical": "https://dr-cm-ngwey-sompo-website.vercel.app/services/general",
+      "ogUrl": "https://dr-cm-ngwey-sompo-website.vercel.app/services/general",
+      "ogTitle": "General gynaecological consultations | Dr CM Ngwey-Sompo Inc."
+    },
+    {
+      "path": "/services/oncology",
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Physician",
+          "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#practice",
+          "name": "Dr CM Ngwey-Sompo Inc.",
+          "alternateName": "Dr CM Ngwey-Sompo \u2014 Obstetrics & Gynaecology",
+          "url": "https://dr-cm-ngwey-sompo-website.vercel.app",
+          "telephone": "011 842 7651",
+          "email": "chrisscrcross2013@gmail.com",
+          "medicalSpecialty": [
+            "Obstetric",
+            "Gynecologic"
+          ],
+          "availableLanguage": [
+            {
+              "@type": "Language",
+              "name": "English"
+            },
+            {
+              "@type": "Language",
+              "name": "French"
+            }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Corner of St Joseph and Castor Road",
+            "addressLocality": "Primrose",
+            "addressRegion": "Gauteng",
+            "postalCode": "1401",
+            "addressCountry": "ZA"
+          },
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "Germiston"
+            },
+            {
+              "@type": "City",
+              "name": "Johannesburg"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Ekurhuleni"
+            }
+          ],
+          "location": {
+            "@type": "Hospital",
+            "name": "Life Roseacres Hospital",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Corner of St Joseph and Castor Road",
+              "addressLocality": "Primrose",
+              "addressRegion": "Gauteng",
+              "addressCountry": "ZA"
+            }
+          },
+          "employee": {
+            "@type": "Physician",
+            "name": "Dr CM Ngwey-Sompo",
+            "honorificPrefix": "Dr",
+            "jobTitle": "Specialist Obstetrician & Gynaecologist",
+            "hasCredential": [
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "BSc (Biomed) \u2014 Bachelor of Science in Biomedical Sciences",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Undergraduate degree"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "MBChB \u2014 Bachelor of Medicine and Bachelor of Surgery",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Medical degree"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "FCOG (SA) \u2014 Fellowship of the College of Obstetricians and Gynaecologists",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Colleges of Medicine of South Africa (CMSA)"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "MMed (O&G) \u2014 Master of Medicine in Obstetrics and Gynaecology",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "University of the Witwatersrand"
+                }
+              }
+            ],
+            "knowsLanguage": [
+              "English",
+              "French"
+            ]
+          },
+          "makesOffer": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Antenatal care and pregnancy monitoring"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Vaginal and caesarean delivery"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "General gynaecological consultations"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Contraception and reproductive health assessments"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Fertility assessment and consultation"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Laparoscopic and open gynaecological surgery"
+              }
+            }
+          ],
+          "potentialAction": {
+            "@type": "ReserveAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://dr-cm-ngwey-sompo-website.vercel.app/contact",
+              "inLanguage": "en-ZA",
+              "actionPlatform": [
+                "http://schema.org/DesktopWebPlatform",
+                "http://schema.org/MobileWebPlatform"
+              ]
+            },
+            "result": {
+              "@type": "Reservation",
+              "name": "Appointment enquiry"
+            }
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I make an appointment?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Appointment enquiries are handled by telephone on 011 842 7651 or by email to chrisscrcross2013@gmail.com. WhatsApp enquiry will be offered once the practice confirms a WhatsApp-enabled number. Submitting an enquiry does not constitute a confirmed appointment \u2014 the practice will confirm your date and time directly."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What should I bring to my first consultation?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Please bring your ID or passport, your medical aid card if you have one, a list of current medications, and any previous results, scans or referral letters that are relevant. If you are pregnant, bring any antenatal records you already have."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where does Dr Sompo consult?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Dr Sompo practises at Life Roseacres Hospital, on the corner of St Joseph and Castor Road, Primrose, Germiston, Johannesburg. Please confirm the exact consulting-room and address details with the practice when you book."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does the practice accept medical aid?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Please confirm medical aid arrangements, tariffs and any co-payment directly with the practice before your visit. The website does not publish billing details on the practice's behalf."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I ask clinical questions through the website?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. This website is not a clinical channel. Please do not send symptoms, results or other sensitive medical information through the enquiry form or by email. Clinical questions are best discussed in a consultation, and urgent concerns should be directed to the hospital or your nearest emergency department."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "In what languages can I be seen?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Consultations are available in English and French."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my enquiry handled confidentially?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Enquiries are received by the practice and handled in line with South African privacy law, including the Protection of Personal Information Act (POPIA). Only the minimum information needed to arrange your appointment is requested."
+              }
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#website",
+          "url": "https://dr-cm-ngwey-sompo-website.vercel.app",
+          "name": "Dr CM Ngwey-Sompo Inc. \u2014 Specialist Obstetrician & Gynaecologist",
+          "inLanguage": "en-ZA",
+          "publisher": {
+            "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#practice"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "MedicalProcedure",
+          "name": "Female screening & oncology assessment",
+          "description": "Assessment when a concern needs a closer look \u2014 including abnormal screening results \u2014 with clear onward referral where specialist oncology input is the right next step.",
+          "procedureType": "https://schema.org/NoninvasiveProcedure",
+          "bodyLocation": "Screening & assessment",
+          "howPerformed": "What this assessment is for: An abnormal cervical screening result, postmenopausal bleeding, a suspicious finding on examination, or a family history that warrants review are all reasons for assessment. Investigation and referral: Where a procedure such as a colposcopy or a biopsy is needed, it is explained beforehand: what it involves, what it feels like, and what the result will tell you. Cervical health and HPV: Dr Sompo's research at Wits examined margin status after LLETZ in women living with HIV, and her special interest in HPV prevention shapes how screening and follow-up are discussed.",
+          "availableService": {
+            "@type": "MedicalClinic",
+            "name": "Dr CM Ngwey-Sompo Inc.",
+            "telephone": "011 842 7651",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Corner of St Joseph and Castor Road, Primrose, Germiston",
+              "addressLocality": "Germiston",
+              "addressRegion": "Gauteng",
+              "addressCountry": "ZA"
+            }
+          }
+        }
+      ],
+      "canonical": "https://dr-cm-ngwey-sompo-website.vercel.app/services/oncology",
+      "ogUrl": "https://dr-cm-ngwey-sompo-website.vercel.app/services/oncology",
+      "ogTitle": "Female screening & oncology assessment | Dr CM Ngwey-Sompo Inc."
+    },
+    {
+      "path": "/services/fertility-assessment",
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Physician",
+          "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#practice",
+          "name": "Dr CM Ngwey-Sompo Inc.",
+          "alternateName": "Dr CM Ngwey-Sompo \u2014 Obstetrics & Gynaecology",
+          "url": "https://dr-cm-ngwey-sompo-website.vercel.app",
+          "telephone": "011 842 7651",
+          "email": "chrisscrcross2013@gmail.com",
+          "medicalSpecialty": [
+            "Obstetric",
+            "Gynecologic"
+          ],
+          "availableLanguage": [
+            {
+              "@type": "Language",
+              "name": "English"
+            },
+            {
+              "@type": "Language",
+              "name": "French"
+            }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Corner of St Joseph and Castor Road",
+            "addressLocality": "Primrose",
+            "addressRegion": "Gauteng",
+            "postalCode": "1401",
+            "addressCountry": "ZA"
+          },
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "Germiston"
+            },
+            {
+              "@type": "City",
+              "name": "Johannesburg"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Ekurhuleni"
+            }
+          ],
+          "location": {
+            "@type": "Hospital",
+            "name": "Life Roseacres Hospital",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Corner of St Joseph and Castor Road",
+              "addressLocality": "Primrose",
+              "addressRegion": "Gauteng",
+              "addressCountry": "ZA"
+            }
+          },
+          "employee": {
+            "@type": "Physician",
+            "name": "Dr CM Ngwey-Sompo",
+            "honorificPrefix": "Dr",
+            "jobTitle": "Specialist Obstetrician & Gynaecologist",
+            "hasCredential": [
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "BSc (Biomed) \u2014 Bachelor of Science in Biomedical Sciences",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Undergraduate degree"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "MBChB \u2014 Bachelor of Medicine and Bachelor of Surgery",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Medical degree"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "FCOG (SA) \u2014 Fellowship of the College of Obstetricians and Gynaecologists",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Colleges of Medicine of South Africa (CMSA)"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "MMed (O&G) \u2014 Master of Medicine in Obstetrics and Gynaecology",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "University of the Witwatersrand"
+                }
+              }
+            ],
+            "knowsLanguage": [
+              "English",
+              "French"
+            ]
+          },
+          "makesOffer": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Antenatal care and pregnancy monitoring"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Vaginal and caesarean delivery"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "General gynaecological consultations"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Contraception and reproductive health assessments"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Fertility assessment and consultation"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Laparoscopic and open gynaecological surgery"
+              }
+            }
+          ],
+          "potentialAction": {
+            "@type": "ReserveAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://dr-cm-ngwey-sompo-website.vercel.app/contact",
+              "inLanguage": "en-ZA",
+              "actionPlatform": [
+                "http://schema.org/DesktopWebPlatform",
+                "http://schema.org/MobileWebPlatform"
+              ]
+            },
+            "result": {
+              "@type": "Reservation",
+              "name": "Appointment enquiry"
+            }
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I make an appointment?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Appointment enquiries are handled by telephone on 011 842 7651 or by email to chrisscrcross2013@gmail.com. WhatsApp enquiry will be offered once the practice confirms a WhatsApp-enabled number. Submitting an enquiry does not constitute a confirmed appointment \u2014 the practice will confirm your date and time directly."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What should I bring to my first consultation?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Please bring your ID or passport, your medical aid card if you have one, a list of current medications, and any previous results, scans or referral letters that are relevant. If you are pregnant, bring any antenatal records you already have."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where does Dr Sompo consult?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Dr Sompo practises at Life Roseacres Hospital, on the corner of St Joseph and Castor Road, Primrose, Germiston, Johannesburg. Please confirm the exact consulting-room and address details with the practice when you book."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does the practice accept medical aid?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Please confirm medical aid arrangements, tariffs and any co-payment directly with the practice before your visit. The website does not publish billing details on the practice's behalf."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I ask clinical questions through the website?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. This website is not a clinical channel. Please do not send symptoms, results or other sensitive medical information through the enquiry form or by email. Clinical questions are best discussed in a consultation, and urgent concerns should be directed to the hospital or your nearest emergency department."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "In what languages can I be seen?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Consultations are available in English and French."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my enquiry handled confidentially?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Enquiries are received by the practice and handled in line with South African privacy law, including the Protection of Personal Information Act (POPIA). Only the minimum information needed to arrange your appointment is requested."
+              }
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#website",
+          "url": "https://dr-cm-ngwey-sompo-website.vercel.app",
+          "name": "Dr CM Ngwey-Sompo Inc. \u2014 Specialist Obstetrician & Gynaecologist",
+          "inLanguage": "en-ZA",
+          "publisher": {
+            "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#practice"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "MedicalProcedure",
+          "name": "Fertility assessment & consultation",
+          "description": "Fertility care begins with a careful assessment and an honest conversation \u2014 what is known, what is not yet known, and what the realistic options are at each step.",
+          "procedureType": "https://schema.org/NoninvasiveProcedure",
+          "bodyLocation": "Fertility",
+          "howPerformed": "How the assessment works: The first appointment covers both partners where possible: your history, your cycles, any previous investigations, and how long you have been trying. What can be done here: Assessment, investigation and interpretation of results happen in this practice. Where treatment requires a specialist fertility unit or laboratory, referral is arranged \u2014 and the reason is explained. Emotional and practical weight: Fertility investigations are tiring, and the waiting between results is often harder than the tests. That is treated as part of the clinical picture, not a distraction from it.",
+          "availableService": {
+            "@type": "MedicalClinic",
+            "name": "Dr CM Ngwey-Sompo Inc.",
+            "telephone": "011 842 7651",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Corner of St Joseph and Castor Road, Primrose, Germiston",
+              "addressLocality": "Germiston",
+              "addressRegion": "Gauteng",
+              "addressCountry": "ZA"
+            }
+          }
+        }
+      ],
+      "canonical": "https://dr-cm-ngwey-sompo-website.vercel.app/services/fertility-assessment",
+      "ogUrl": "https://dr-cm-ngwey-sompo-website.vercel.app/services/fertility-assessment",
+      "ogTitle": "Fertility assessment & consultation | Dr CM Ngwey-Sompo Inc."
+    },
+    {
+      "path": "/services/laparoscopy",
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Physician",
+          "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#practice",
+          "name": "Dr CM Ngwey-Sompo Inc.",
+          "alternateName": "Dr CM Ngwey-Sompo \u2014 Obstetrics & Gynaecology",
+          "url": "https://dr-cm-ngwey-sompo-website.vercel.app",
+          "telephone": "011 842 7651",
+          "email": "chrisscrcross2013@gmail.com",
+          "medicalSpecialty": [
+            "Obstetric",
+            "Gynecologic"
+          ],
+          "availableLanguage": [
+            {
+              "@type": "Language",
+              "name": "English"
+            },
+            {
+              "@type": "Language",
+              "name": "French"
+            }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Corner of St Joseph and Castor Road",
+            "addressLocality": "Primrose",
+            "addressRegion": "Gauteng",
+            "postalCode": "1401",
+            "addressCountry": "ZA"
+          },
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "Germiston"
+            },
+            {
+              "@type": "City",
+              "name": "Johannesburg"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Ekurhuleni"
+            }
+          ],
+          "location": {
+            "@type": "Hospital",
+            "name": "Life Roseacres Hospital",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Corner of St Joseph and Castor Road",
+              "addressLocality": "Primrose",
+              "addressRegion": "Gauteng",
+              "addressCountry": "ZA"
+            }
+          },
+          "employee": {
+            "@type": "Physician",
+            "name": "Dr CM Ngwey-Sompo",
+            "honorificPrefix": "Dr",
+            "jobTitle": "Specialist Obstetrician & Gynaecologist",
+            "hasCredential": [
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "BSc (Biomed) \u2014 Bachelor of Science in Biomedical Sciences",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Undergraduate degree"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "MBChB \u2014 Bachelor of Medicine and Bachelor of Surgery",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Medical degree"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "FCOG (SA) \u2014 Fellowship of the College of Obstetricians and Gynaecologists",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "Colleges of Medicine of South Africa (CMSA)"
+                }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "name": "MMed (O&G) \u2014 Master of Medicine in Obstetrics and Gynaecology",
+                "recognizedBy": {
+                  "@type": "Organization",
+                  "name": "University of the Witwatersrand"
+                }
+              }
+            ],
+            "knowsLanguage": [
+              "English",
+              "French"
+            ]
+          },
+          "makesOffer": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Antenatal care and pregnancy monitoring"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Vaginal and caesarean delivery"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "General gynaecological consultations"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Contraception and reproductive health assessments"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Fertility assessment and consultation"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "MedicalProcedure",
+                "name": "Laparoscopic and open gynaecological surgery"
+              }
+            }
+          ],
+          "potentialAction": {
+            "@type": "ReserveAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://dr-cm-ngwey-sompo-website.vercel.app/contact",
+              "inLanguage": "en-ZA",
+              "actionPlatform": [
+                "http://schema.org/DesktopWebPlatform",
+                "http://schema.org/MobileWebPlatform"
+              ]
+            },
+            "result": {
+              "@type": "Reservation",
+              "name": "Appointment enquiry"
+            }
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I make an appointment?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Appointment enquiries are handled by telephone on 011 842 7651 or by email to chrisscrcross2013@gmail.com. WhatsApp enquiry will be offered once the practice confirms a WhatsApp-enabled number. Submitting an enquiry does not constitute a confirmed appointment \u2014 the practice will confirm your date and time directly."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What should I bring to my first consultation?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Please bring your ID or passport, your medical aid card if you have one, a list of current medications, and any previous results, scans or referral letters that are relevant. If you are pregnant, bring any antenatal records you already have."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where does Dr Sompo consult?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Dr Sompo practises at Life Roseacres Hospital, on the corner of St Joseph and Castor Road, Primrose, Germiston, Johannesburg. Please confirm the exact consulting-room and address details with the practice when you book."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does the practice accept medical aid?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Please confirm medical aid arrangements, tariffs and any co-payment directly with the practice before your visit. The website does not publish billing details on the practice's behalf."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I ask clinical questions through the website?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. This website is not a clinical channel. Please do not send symptoms, results or other sensitive medical information through the enquiry form or by email. Clinical questions are best discussed in a consultation, and urgent concerns should be directed to the hospital or your nearest emergency department."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "In what languages can I be seen?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Consultations are available in English and French."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my enquiry handled confidentially?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Enquiries are received by the practice and handled in line with South African privacy law, including the Protection of Personal Information Act (POPIA). Only the minimum information needed to arrange your appointment is requested."
+              }
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#website",
+          "url": "https://dr-cm-ngwey-sompo-website.vercel.app",
+          "name": "Dr CM Ngwey-Sompo Inc. \u2014 Specialist Obstetrician & Gynaecologist",
+          "inLanguage": "en-ZA",
+          "publisher": {
+            "@id": "https://dr-cm-ngwey-sompo-website.vercel.app/#practice"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "MedicalProcedure",
+          "name": "Laparoscopic & open gynaecological surgery",
+          "description": "Minimally invasive and open gynaecological surgery, with the approach chosen for your case and the recovery explained before you consent to anything.",
+          "procedureType": "https://schema.org/NoninvasiveProcedure",
+          "bodyLocation": "Surgery",
+          "howPerformed": "Choosing the approach: Laparoscopic (keyhole) surgery usually means smaller incisions and a shorter recovery than open surgery. It is not automatically the better option: the right approach depends on what is being treated, previous surgery, and what is safe in your case. What is treated: Ovarian and other gynaecological cysts, fibroids, early-stage endometriosis, and hysterectomy including total laparoscopic hysterectomy are all within the scope described for this practice. Recovery: Recovery time varies by procedure and by person. The expected course is explained before surgery, along with the signs that should prompt you to call rather than wait.",
+          "availableService": {
+            "@type": "MedicalClinic",
+            "name": "Dr CM Ngwey-Sompo Inc.",
+            "telephone": "011 842 7651",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Corner of St Joseph and Castor Road, Primrose, Germiston",
+              "addressLocality": "Germiston",
+              "addressRegion": "Gauteng",
+              "addressCountry": "ZA"
+            }
+          }
+        }
+      ],
+      "canonical": "https://dr-cm-ngwey-sompo-website.vercel.app/services/laparoscopy",
+      "ogUrl": "https://dr-cm-ngwey-sompo-website.vercel.app/services/laparoscopy",
+      "ogTitle": "Laparoscopic & open gynaecological surgery | Dr CM Ngwey-Sompo Inc."
+    }
+  ],
+  "sourceExcerpts": [
+    {
+      "path": "README.md",
+      "startLine": 174,
+      "endLine": 183,
+      "text": "## Before launch\n\n1. Replace the AI-generated placeholder photography in `public/images/` with\n   the practice's own photographs of Dr Sompo, the consulting rooms and Life\n   Roseacres Hospital.\n2. Confirm the WhatsApp number, exact address formatting, consulting hours,\n   practice number and medical aid arrangements.\n3. Verify the IJGO abstract citation and obtain the thesis before publishing any\n   numerical findings.\n4. Configure `ENQUIRY_WEBHOOK_URL` (and token) so the enquiry form can deliver."
+    },
+    {
+      "path": "app/about/page.tsx",
+      "startLine": 54,
+      "endLine": 61,
+      "text": "      <SplitHero\n        tag=\"Meet Dr Sompo\"\n        title=\"Specialist care, with\"\n        muted=\"personal understanding.\"\n        intro={`${practice.title} \u00b7 ${practice.entity}`}\n        image=\"/images/portrait-somp-card.jpg\"\n        alt=\"Portrait of Dr CM Ngwey-Sompo, specialist obstetrician and gynaecologist\"\n        chips={[\"MBChB\", \"FCOG (SA)\", \"MMed (O&G) Wits\", \"English & French\"]}"
+    },
+    {
+      "path": "app/about/page.tsx",
+      "startLine": 141,
+      "endLine": 149,
+      "text": "            <Reveal y={26} delay={0.1}>\n              <div className=\"relative\">\n                <Panel tone=\"sage\" className=\"p-2\">\n                  <div className=\"relative aspect-[4/5] overflow-hidden rounded-[1.35rem]\">\n                    <ParallaxImage\n                      src=\"/images/consultation.jpg\"\n                      alt=\"Dr Sompo in consultation with a patient\"\n                      strength={44}\n                      sizes=\"(max-width: 1024px) 92vw, 42vw\""
+    },
+    {
+      "path": "components/sections/teasers.tsx",
+      "startLine": 16,
+      "endLine": 22,
+      "text": "            <div className=\"relative\">\n              <div className=\"relative aspect-[4/5] overflow-hidden rounded-[1.35rem] bg-sage\">\n                <ParallaxImage\n                  src=\"/images/portrait-somp-card.jpg\"\n                  alt=\"Portrait of Dr CM Ngwey-Sompo\"\n                  strength={44}\n                  sizes=\"(max-width: 1024px) 92vw, 40vw\""
+    },
+    {
+      "path": "components/sections/bento.tsx",
+      "startLine": 201,
+      "endLine": 208,
+      "text": "              <ShieldCheck className=\"h-4 w-4 text-forest/70\" aria-hidden=\"true\" />\n              <div>\n                <p className=\"text-[11.5px] font-medium leading-snug text-charcoal\">\n                  POPIA-conscious\n                </p>\n                <p className=\"mt-1 text-[10.5px] leading-snug text-ink-soft\">\n                  Nothing stored, nothing shared\n                </p>"
+    },
+    {
+      "path": "components/enquiry-form.tsx",
+      "startLine": 289,
+      "endLine": 302,
+      "text": "        <span>\n          {calling.open ? (\n            <>\n              <span className=\"font-medium\">The practice is open now.</span> Calling is\n              the fastest way to be seen \u2014 {practice.phone}.\n            </>\n          ) : (\n            <>\n              <span className=\"font-medium\">The practice is closed</span> (Mon\u2013Fri,\n              08:00\u201317:00 SAST). Leave a request and it will be answered the next\n              working morning.\n            </>\n          )}\n        </span>"
+    },
+    {
+      "path": "app/contact/page.tsx",
+      "startLine": 137,
+      "endLine": 143,
+      "text": "                  </div>\n\n                  <p className=\"mt-4 rounded-lg bg-white/60 px-3 py-2 text-[10.5px] leading-relaxed text-ink-soft\">\n                    Consulting hours, practice number and medical aid arrangements\n                    are confirmed directly by the practice. Emergencies: contact{\" \"}\n                    {practice.hospital} or your nearest emergency department.\n                  </p>"
+    },
+    {
+      "path": "app/services/[slug]/page.tsx",
+      "startLine": 62,
+      "endLine": 70,
+      "text": "  const jsonLd = {\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"MedicalProcedure\",\n    name: service.title,\n    description: detail.standfirst,\n    procedureType: \"https://schema.org/NoninvasiveProcedure\",\n    bodyLocation: detail.eyebrow,\n    howPerformed: detail.sections.map((section) => `${section.heading}: ${section.body[0]}`).join(\" \"),\n    availableService: {"
+    },
+    {
+      "path": "app/layout.tsx",
+      "startLine": 82,
+      "endLine": 85,
+      "text": "        <script\n          type=\"application/ld+json\"\n          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd()) }}\n        />"
+    }
+  ]
+}
