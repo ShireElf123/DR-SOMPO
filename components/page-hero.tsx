@@ -91,9 +91,6 @@ export function PageHero({
             </m.div>
           </div>
 
-          <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-t from-ember/18 to-transparent sm:block" />
-          <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-ember/12 to-transparent sm:block" />
-
           {/* From sm up the copy sits on a warm glass plate rather than on the
               photograph itself: contrast is measured against a known cream
               surface at every frame of the parallax, and the glass keeps the
@@ -241,7 +238,6 @@ export function SplitHero({
                 sizes="(max-width: 1024px) 96vw, 560px"
                 className="object-cover object-[center_18%]"
               />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/18 to-transparent" />
             </div>
           </div>
         </div>

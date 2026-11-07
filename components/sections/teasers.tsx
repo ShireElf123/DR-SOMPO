@@ -24,12 +24,11 @@ export function AboutTeaser() {
                   imageClassName="object-[center_16%]"
                   className="absolute inset-0"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ember/8 to-transparent" />
               </div>
               <p className="mt-4 text-[10px] uppercase leading-relaxed tracking-[0.15em] text-ink-muted">
                 FCOG (SA) · MMed (O&amp;G) · Wits
                 <span className="mx-2 opacity-40">/</span>
-                Life Roseacres Hospital, Primrose
+                Life Roseacres Hospital · {practice.room}
               </p>
             </div>
           </Reveal>
@@ -116,7 +115,7 @@ export function ResearchTeaser() {
                   </i>
                 </Link>
               </div>
-              <div className="photo-depth relative min-h-[16rem] overflow-hidden rounded-[1.5rem] sm:min-h-[20rem] lg:min-h-[24rem]">
+              <div className="photo-depth relative min-h-[16rem] overflow-hidden rounded-[1.5rem] bg-peach sm:min-h-[20rem] lg:min-h-[24rem]">
                 <ParallaxImage
                   src="/images/cervical-research.jpg"
                   alt="Laboratory microscope and research folders"
@@ -124,7 +123,6 @@ export function ResearchTeaser() {
                   sizes="(max-width: 1024px) 92vw, 46vw"
                   className="absolute inset-0"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-apricot to-transparent lg:from-ember/12 lg:via-transparent" />
                 <div className="absolute inset-x-4 bottom-4 z-[2] flex items-end justify-between gap-3">
                   <p className="glass max-w-[16rem] rounded-lg px-2.5 py-1.5 text-[10px] leading-relaxed text-ink">
                     LLETZ margin status · Wits MMed · 2025
@@ -156,16 +154,17 @@ export function FaqTeaser() {
               intro="Practical answers about booking, records, confidentiality and what to expect."
             />
             <Reveal delay={0.1} y={22}>
-              <div className="photo-depth relative mt-6 aspect-[16/10] overflow-hidden rounded-[1.35rem] bg-peach">
-                <ParallaxImage
-                  src="/images/waiting-room.jpg"
-                  alt="The practice waiting area, with quiet seating and natural light"
-                  strength={26}
-                  sizes="(max-width: 1024px) 92vw, 38vw"
-                  className="absolute inset-0"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-ember/12 to-transparent" />
-                <p className="glass absolute inset-x-4 bottom-3.5 z-[2] rounded-lg px-3 py-2 text-[11px] leading-relaxed text-ink">
+              <div className="mt-6 overflow-hidden rounded-[1.35rem] bg-cream border-hairline border-charcoal/8">
+                <div className="photo-depth relative aspect-[16/10] overflow-hidden bg-peach">
+                  <ParallaxImage
+                    src="/images/waiting-room.jpg"
+                    alt="The practice waiting area, with quiet seating and natural light"
+                    strength={26}
+                    sizes="(max-width: 1024px) 92vw, 38vw"
+                    className="absolute inset-0"
+                  />
+                </div>
+                <p className="px-4 py-3 text-[11px] leading-relaxed text-ink-soft">
                   Arrive a few minutes early — the rooms are quiet and there is no
                   need to rush.
                 </p>
@@ -173,7 +172,7 @@ export function FaqTeaser() {
             </Reveal>
             <Reveal delay={0.14}>
               <Link href="/patient-info" className="btn mt-6">
-                All questions
+                Patient information
                 <i aria-hidden="true">
                   <ArrowUpRight className="h-3 w-3" />
                 </i>
@@ -190,7 +189,7 @@ export function FaqTeaser() {
   );
 }
 
-/** Closing band with the three ways to reach the practice. */
+/** Closing band with the ways to reach the practice. */
 export function ContactBand() {
   return (
     <section className="sec" aria-labelledby="contact-band-heading">
@@ -207,19 +206,20 @@ export function ContactBand() {
                   <WordsIn text="Speak to the practice" />
                 </h2>
                 <p className="mt-3 max-w-sm text-[13px] leading-relaxed text-ink-soft">
-                  Appointment enquiries are handled directly: telephone first,
-                  email for written requests, WhatsApp once the number is confirmed.
+                  Appointment enquiries are handled directly by the practice — call
+                  the rooms on {practice.phone}, send an email, or request a
+                  consultation online.
                 </p>
               </div>
               <div className="mt-6 flex flex-wrap items-center gap-2.5">
-                <a href={practice.phoneHref} className="btn btn">
-                  {practice.phone}
+                <a href={practice.phoneHref} className="btn">
+                  Call {practice.phone}
                   <i aria-hidden="true">
                     <Phone className="h-3 w-3" />
                   </i>
                 </a>
                 <BookingLink className="btn btn-light border border-charcoal/12 shadow-none">
-                  Enquiry form
+                  Book an appointment
                   <i aria-hidden="true">
                     <ArrowUpRight className="h-3 w-3" />
                   </i>
@@ -229,22 +229,26 @@ export function ContactBand() {
           </Reveal>
 
           <Reveal y={20} delay={0.08}>
-            <div className="photo-depth relative flex h-full min-h-[19rem] flex-col justify-end overflow-hidden rounded-[1.5rem] bg-peach p-4 sm:p-5">
-              <ParallaxImage
-                src="/images/hospital-exterior.jpg"
-                alt="Life Roseacres Hospital entrance"
-                strength={30}
-                sizes="(max-width: 1024px) 92vw, 40vw"
-                className="absolute inset-0"
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/18 to-transparent" />
-              <div className="glass relative z-[2] rounded-[1.1rem] p-4 text-ink">
-                <p className="text-[10px] uppercase tracking-[0.16em] text-ink/75">
+            <div className="flex h-full flex-col overflow-hidden rounded-[1.5rem] bg-cream border-hairline border-charcoal/8">
+              <div className="photo-depth relative min-h-[12rem] flex-1 overflow-hidden bg-peach">
+                <ParallaxImage
+                  src="/images/hospital-exterior.jpg"
+                  alt="Life Roseacres Hospital entrance"
+                  strength={30}
+                  sizes="(max-width: 1024px) 92vw, 40vw"
+                  className="absolute inset-0"
+                />
+              </div>
+              <div className="p-5 text-ink">
+                <p className="text-[10px] uppercase tracking-[0.16em] text-ink-muted">
                   Consulting rooms
                 </p>
                 <p className="mt-1 text-[14px] font-medium">{practice.hospital}</p>
-                <p className="mt-0.5 text-[11px] text-ink-soft">
-                  {practice.addressLines[0]}, {practice.addressLines[1]}
+                <p className="mt-0.5 text-[12px] text-ink-soft">
+                  {practice.room}
+                </p>
+                <p className="mt-0.5 text-[11px] text-ink-muted">
+                  {practice.addressLines[1]}, {practice.addressLines[2]}
                 </p>
                 <div className="mt-3 flex gap-3 text-[11px] text-ink-soft">
                   <span className="flex items-center gap-1.5">

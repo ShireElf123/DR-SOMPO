@@ -69,14 +69,15 @@ export function Footer() {
             </p>
           </div>
 
-          <ul className="grid gap-1.5 text-right">
+          <ul className="grid gap-1.5 text-left sm:text-right">
             <li className="mb-1.5 text-[11px] font-medium text-cream">Contact</li>
             <li>
               <a href={practice.phoneHref} className="inline-flex min-h-[24px] items-center text-[12px] text-cream hover:underline">
                 {practice.phone}
               </a>
             </li>
-            <li className="text-[12px] text-cream/85">Primrose, Germiston</li>
+            <li className="text-[12px] text-cream/85">{practice.hospital}, Primrose</li>
+            <li className="text-[12px] text-cream/85">{practice.room}</li>
             <li className="text-[12px] text-cream/85">English &amp; French</li>
             <li>
               <a
@@ -95,10 +96,11 @@ export function Footer() {
           element is the wrapper: a self-clipped target never reports an
           intersection, so the wipe would otherwise stay at its initial state. */}
       <m.div
-        className="overflow-hidden pb-2"
-        initial={reduce ? undefined : "hidden"}
+        className="overflow-hidden px-4 pb-20 pt-1 sm:px-6 lg:pb-4"
+        initial={reduce ? false : "hidden"}
+        animate={reduce ? "show" : undefined}
         whileInView={reduce ? undefined : "show"}
-        viewport={{ once: true, amount: 0.4 }}
+        viewport={{ once: true, amount: 0.15 }}
       >
         <m.p
           variants={{
@@ -107,7 +109,7 @@ export function Footer() {
           }}
           transition={{ duration: 1.6, ease: [0.6, 0, 0.2, 1] }}
           aria-hidden="true"
-          className="whitespace-nowrap bg-[linear-gradient(180deg,rgba(255,251,252,0.92),rgba(255,251,252,0.06))] bg-clip-text text-center text-[clamp(2.6rem,13vw,11rem)] font-bold leading-[0.9] tracking-[-0.045em] text-transparent opacity-70"
+          className="whitespace-nowrap bg-[linear-gradient(180deg,rgba(255,251,252,0.92),rgba(255,251,252,0.06))] bg-clip-text text-center text-[clamp(1.85rem,10.6vw,9.5rem)] font-bold leading-[1.02] tracking-[-0.045em] text-transparent opacity-70"
         >
           DR SOMPO <span className="font-light">OBGYN</span>
         </m.p>

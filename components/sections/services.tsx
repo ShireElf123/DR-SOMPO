@@ -39,7 +39,7 @@ const tiles: Tile[] = [
   },
   {
     title: "Gynaecology",
-    blurb: "Consultations, contraception, screening.",
+    blurb: "Consultations, contraception, pelvic floor & screening.",
     image: "/images/gynae.jpg",
     href: "/services/general",
   },
@@ -57,7 +57,7 @@ const tiles: Tile[] = [
   },
   {
     title: "The practice",
-    blurb: "Life Roseacres Hospital, Primrose.",
+    blurb: "Sessional Room 5, Ground Floor, East Wing — Life Roseacres Hospital.",
     image: "/images/hospital-exterior.jpg",
     href: "/contact",
     span: "lg:col-span-3",
@@ -81,7 +81,6 @@ export function Services() {
                   sizes="20vw"
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ember/8 to-transparent" />
               </div>
             </Reveal>
 
@@ -99,7 +98,6 @@ export function Services() {
                   sizes="20vw"
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ember/8 to-transparent" />
               </div>
             </Reveal>
           </div>
@@ -113,7 +111,7 @@ export function Services() {
               id="services-heading"
               tag="What we care for"
               title="Care for every stage of life"
-              intro="Antenatal and delivery care, contraception, fertility assessment, screening and surgery — one practice, one standard of care."
+              intro="Antenatal and delivery care, contraception, fertility assessment, urogynaecological assessment, screening and surgery — one practice, one standard of care."
             />
             <div className="flex flex-wrap items-center gap-2 self-start sm:self-auto">
               <Link href="/services#conditions" className="btn">
@@ -134,11 +132,10 @@ export function Services() {
             </div>
           </div>
 
-          {/* One card per row on phones. Two 169px columns forced a 2.18:1
-              photograph of the hospital into a 0.81 frame — 63% of the picture
-              was cropped away — so the phone layout gives every photograph the
-              full column and a 1.56 frame instead. */}
-          <div className="grid grid-cols-1 auto-rows-[14rem] gap-3 sm:grid-cols-2 sm:auto-rows-[11rem] sm:gap-3.5 lg:auto-rows-[13rem] lg:grid-cols-4">
+          {/* Captions sit beneath each photograph rather than over its lower
+              third so portraits, consulting-room scenes and the hospital
+              exterior remain completely unobstructed at every viewport. */}
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-3.5 lg:auto-rows-[15.5rem] lg:grid-cols-4">
             {tiles.map((tile, i) => (
               <Reveal
                 key={tile.title}
@@ -149,30 +146,36 @@ export function Services() {
                 <Link
                   href={tile.href}
                   data-cursor="View"
-                  className="photo-depth group relative flex h-full flex-col justify-end overflow-hidden rounded-[1.25rem] bg-peach p-3"
+                  className="group flex h-full flex-col overflow-hidden rounded-[1.25rem] bg-cream border-hairline border-charcoal/8 hover:shadow-lift"
                 >
-                  <Image
-                    src={tile.image}
-                    alt={tile.title}
-                    fill
-                    sizes="(max-width: 639px) 92vw, (max-width: 1023px) 46vw, 30vw"
-                    className="object-cover transition-transform duration-[1100ms] ease-out group-hover:scale-[1.05]"
-                  />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/18 to-transparent" />
+                  <div
+                    className={
+                      i === 0
+                        ? "photo-depth relative aspect-[16/10] w-full overflow-hidden bg-peach sm:aspect-[21/9] lg:aspect-auto lg:min-h-0 lg:flex-1"
+                        : "photo-depth relative aspect-[16/10] w-full overflow-hidden bg-peach lg:aspect-auto lg:min-h-0 lg:flex-1"
+                    }
+                  >
+                    <Image
+                      src={tile.image}
+                      alt={tile.title}
+                      fill
+                      sizes="(max-width: 639px) 92vw, (max-width: 1023px) 46vw, 30vw"
+                      className="object-cover transition-transform duration-[1100ms] ease-out group-hover:scale-[1.05]"
+                    />
+                    <span
+                      aria-hidden="true"
+                      className="absolute right-3 top-3 z-[2] flex h-6 w-6 items-center justify-center rounded-full bg-charcoal text-cream transition-transform duration-500 group-hover:rotate-45"
+                    >
+                      <ArrowUpRight className="h-3 w-3" />
+                    </span>
+                  </div>
 
-                  <div className="glass relative z-[2] w-fit max-w-[26rem] rounded-[0.9rem] px-3 py-2.5">
+                  <div className="px-3.5 py-3">
                     <p className="text-[12px] font-medium text-ink">{tile.title}</p>
-                    <p className="mt-0.5 max-w-[14rem] text-[11px] leading-snug text-ink-soft">
+                    <p className="mt-0.5 text-[11px] leading-snug text-ink-soft">
                       {tile.blurb}
                     </p>
                   </div>
-
-                  <span
-                    aria-hidden="true"
-                    className="absolute right-3 top-3 z-[2] flex h-6 w-6 items-center justify-center rounded-full bg-charcoal text-cream transition-transform duration-500 group-hover:rotate-45"
-                  >
-                    <ArrowUpRight className="h-3 w-3" />
-                  </span>
                 </Link>
               </Reveal>
             ))}

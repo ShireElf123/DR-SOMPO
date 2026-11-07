@@ -47,6 +47,10 @@ const stageImages: Record<string, { image: string; alt: string }> = {
     image: "/images/surgery.jpg",
     alt: "Laparoscopic equipment in a modern theatre suite",
   },
+  urogynaecology: {
+    image: "/images/screening-room.jpg",
+    alt: "A calm consultation and assessment room at the practice",
+  },
 };
 
 export function ConditionsTreated() {
@@ -145,22 +149,19 @@ export function ConditionsTreated() {
                     sizes="(max-width: 768px) 92vw, (max-width: 1024px) 46vw, 30vw"
                     className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.04]"
                   />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/18 to-transparent" />
-                  <div className="glass absolute inset-x-3 bottom-3 z-[2] rounded-lg px-3 py-2">
-                    <p className="text-[10px] uppercase tracking-[0.16em] text-ink/75">
-                      {group.stage}
-                    </p>
-                    <h3 className="mt-1 text-[15px] font-light leading-tight tracking-[-0.02em] text-ink">
-                      {group.label}
-                    </h3>
-                  </div>
                   <span className="glass absolute right-3 top-3 z-[2] grid h-6 w-6 place-items-center rounded-full text-[10px] font-medium text-ink">
                     {group.conditions.length}
                   </span>
                 </div>
 
                 <div className="flex flex-1 flex-col p-4">
-                  <p className="text-[11px] leading-relaxed text-ink-soft">
+                  <p className="text-[10px] uppercase tracking-[0.16em] text-ink-muted">
+                    {group.stage}
+                  </p>
+                  <h3 className="mt-1 text-[15px] font-medium leading-tight tracking-[-0.02em] text-ink">
+                    {group.label}
+                  </h3>
+                  <p className="mt-2 text-[11px] leading-relaxed text-ink-soft">
                     {group.intro}
                   </p>
 
@@ -195,7 +196,7 @@ export function ConditionsTreated() {
               are looking for, that does not mean it cannot be helped — call the
               practice and ask.
             </p>
-            <Link href="/contact" className="btn btn mt-4">
+            <Link href="/contact" className="btn mt-4">
               Contact the practice
               <i aria-hidden="true">
                 <ArrowUpRight className="h-3 w-3" />

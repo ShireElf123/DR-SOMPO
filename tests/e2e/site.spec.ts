@@ -68,15 +68,17 @@ test("condition filtering, empty state and reset still work", async ({ page }) =
   await go(page, "/services");
   const input = page.getByRole("searchbox", { name: "Search conditions treated" });
   const cards = page.locator("#conditions article");
-  await expect(cards).toHaveCount(5);
+  await expect(cards).toHaveCount(6);
   await input.fill("PCOS");
   await expect(cards).toHaveCount(2);
   await expect(page.locator("#conditions [aria-live]")).toContainText("2 conditions match PCOS");
+  await input.fill("prolapse");
+  await expect(cards).toHaveCount(1);
   await input.fill("no-such-condition");
   await expect(cards).toHaveCount(0);
   await expect(page.getByText("Nothing here matches that wording", { exact: false })).toBeVisible();
   await input.clear();
-  await expect(cards).toHaveCount(5);
+  await expect(cards).toHaveCount(6);
 });
 
 test("enquiry validation does not send incomplete patient details", async ({ page }) => {

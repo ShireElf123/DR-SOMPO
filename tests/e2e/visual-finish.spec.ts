@@ -104,7 +104,7 @@ for (const density of [1, 2]) {
     // survive, including the existing filtered-result highlight on retina.
     await page.goto("/services", { waitUntil: "networkidle" });
     const cards = page.locator("#conditions article");
-    await expect(cards).toHaveCount(5);
+    await expect(cards).toHaveCount(6);
     await expect(cards.first()).toHaveCSS("border-top-width", nativeWidth);
     const edge = () => cards.first().evaluate((node, retina) =>
       retina ? getComputedStyle(node, "::after").boxShadow : getComputedStyle(node).borderTopColor,
@@ -115,7 +115,7 @@ for (const density of [1, 2]) {
     await expect(cards).toHaveCount(2);
     expect(await edge()).toContain("0.2)");
     await search.clear();
-    await expect(cards).toHaveCount(5);
+    await expect(cards).toHaveCount(6);
     expect(await edge()).toContain("0.08)");
     await page.goto("/about", { waitUntil: "networkidle" });
     await expect(page.locator(".divide-y-hairline > :not(:last-child)").first()).toHaveCSS("border-bottom-width", nativeWidth);

@@ -63,13 +63,13 @@ export default function AboutPage() {
         footer={
           <div className="flex flex-wrap items-center gap-2.5">
             <BookingLink className="btn">
-              Request a consultation
+              Book an appointment
               <i aria-hidden="true">
                 <ArrowUpRight className="h-3 w-3" />
               </i>
             </BookingLink>
             <Link href="/research" className="btn btn-light shadow-none ring-1 ring-charcoal/12">
-              Her research
+              Explore the research
               <i aria-hidden="true">
                 <ArrowUpRight className="h-3 w-3" />
               </i>
@@ -149,8 +149,7 @@ export default function AboutPage() {
                       sizes="(max-width: 1024px) 92vw, 42vw"
                       className="absolute inset-0 rounded-[1.35rem]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-ember/18 via-transparent to-transparent" />
-                    <div className="absolute inset-x-3 bottom-3 flex flex-wrap gap-1.5">
+                    <div className="absolute right-3 top-3 flex flex-wrap justify-end gap-1.5">
                       {["MBChB", "FCOG (SA)", "MMed (O&G)"].map((code) => (
                         <span
                           key={code}
@@ -162,15 +161,15 @@ export default function AboutPage() {
                     </div>
                   </div>
                 </Panel>
-                <div className="absolute -bottom-5 -left-2 hidden rounded-2xl bg-cream px-4 py-3 shadow-float border-hairline border-charcoal/8 sm:block">
+                <div className="mt-3 rounded-2xl bg-cream px-4 py-3 shadow-soft border-hairline border-charcoal/8 sm:absolute sm:-bottom-5 sm:right-3 sm:mt-0 sm:shadow-float">
                   <p className="text-[10px] uppercase tracking-[0.14em] text-ink-muted">
-                    Consulting
+                    Consulting rooms
                   </p>
                   <p className="mt-0.5 text-[12px] font-medium text-ink">
-                    Life Roseacres Hospital
+                    {practice.hospital}, Primrose
                   </p>
-                  <p className="text-[10px] text-ink-soft">
-                    Primrose, Germiston
+                  <p className="text-[11px] text-ink-soft">
+                    {practice.room}
                   </p>
                 </div>
               </div>
@@ -191,17 +190,18 @@ export default function AboutPage() {
 
           <div className="mt-8 grid gap-3.5 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <Reveal y={22}>
-              <div className="photo-depth relative aspect-[4/3] overflow-hidden rounded-[1.35rem] bg-peach lg:aspect-[4/5]">
-                <Image
-                  src="/images/portrait-somp-card.jpg"
-                  alt="Dr CM Ngwey-Sompo"
-                  fill
-                  sizes="(max-width: 1024px) 92vw, 38vw"
-                  className="object-cover object-[center_22%]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-ember/14 via-transparent to-transparent" />
-                <div className="glass absolute inset-x-3 bottom-3 z-[2] rounded-lg px-3 py-2">
-                  <p className="text-[10px] uppercase tracking-[0.16em] text-ink/75">
+              <div className="overflow-hidden rounded-[1.35rem] bg-cream border-hairline border-charcoal/8">
+                <div className="photo-depth relative aspect-[4/3] overflow-hidden bg-peach lg:aspect-[4/5]">
+                  <Image
+                    src="/images/portrait-somp-card.jpg"
+                    alt="Dr CM Ngwey-Sompo"
+                    fill
+                    sizes="(max-width: 1024px) 92vw, 38vw"
+                    className="object-cover object-[center_22%]"
+                  />
+                </div>
+                <div className="px-4 py-3">
+                  <p className="text-[10px] uppercase tracking-[0.16em] text-ink-muted">
                     Qualifications
                   </p>
                   <p className="mt-1 text-[13px] font-medium text-ink">
@@ -260,18 +260,24 @@ export default function AboutPage() {
                 muted="hospital associations."
               />
               <Reveal delay={0.1} y={20}>
-                <div className="photo-depth relative mt-6 aspect-[16/10] overflow-hidden rounded-[1.25rem] bg-peach">
-                  <Image
-                    src="/images/hospital-exterior.jpg"
-                    alt="Life Roseacres Hospital, Primrose"
-                    fill
-                    sizes="(max-width: 1024px) 92vw, 34vw"
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ember/12 via-transparent to-transparent" />
-                  <p className="glass absolute inset-x-3 bottom-3 z-[2] rounded-lg px-3 py-1.5 text-[11px] font-medium text-ink">
-                    {practice.hospital}
-                  </p>
+                <div className="mt-6 overflow-hidden rounded-[1.25rem] bg-cream border-hairline border-charcoal/8">
+                  <div className="photo-depth relative aspect-[16/10] overflow-hidden bg-peach">
+                    <Image
+                      src="/images/hospital-exterior.jpg"
+                      alt="Life Roseacres Hospital, Primrose"
+                      fill
+                      sizes="(max-width: 1024px) 92vw, 34vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="px-3.5 py-2.5">
+                    <p className="text-[11px] font-medium text-ink">
+                      {practice.hospital}
+                    </p>
+                    <p className="text-[10px] text-ink-soft">
+                      {practice.room}
+                    </p>
+                  </div>
                 </div>
               </Reveal>
             </div>
@@ -347,7 +353,6 @@ export default function AboutPage() {
                       sizes="(max-width: 640px) 92vw, 30vw"
                       className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-ember/16 to-transparent" />
                   </div>
                   <div className="flex flex-1 flex-col p-4">
                     <div className="flex items-center gap-2.5">
@@ -370,7 +375,7 @@ export default function AboutPage() {
           <Reveal delay={0.1}>
             <div className="mt-8 flex flex-wrap items-center gap-2.5">
               <BookingLink className="btn">
-                Request a consultation
+                Book an appointment
                 <i aria-hidden="true">
                   <ArrowUpRight className="h-3 w-3" />
                 </i>
@@ -379,7 +384,7 @@ export default function AboutPage() {
                 href="/research"
                 className="btn btn-light border border-charcoal/12 shadow-none"
               >
-                Her research
+                Explore the research
                 <i aria-hidden="true">
                   <ArrowUpRight className="h-3 w-3" />
                 </i>

@@ -129,7 +129,7 @@
 
   ::selection {
     background: var(--color-ember);
-    color: var(--color-charcoal);
+    color: var(--color-cream);
   }
 
   /* Charcoal clears 3:1 against every surface in the palette, including the

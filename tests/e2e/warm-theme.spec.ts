@@ -292,13 +292,47 @@ for (const width of [320, 390]) {
   });
 }
 
-test("the oversized footer wordmark still wipes in on scroll", async ({ page }) => {
+test("the oversized footer wordmark still wipes in on scroll and fits every viewport", async ({ page }) => {
   // Regression guard: a self-clipped whileInView target never intersects, so
-  // the wipe used to stall at its initial state and leave the footer empty.
+  // the wipe used to stall at its initial state and leave the footer empty;
+  // and 13vw / 11rem clipped the trailing N on both 390px and 1440px.
+  for (const width of [320, 390, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto("/", { waitUntil: "networkidle" });
+    const wordmark = page.locator("footer > div:last-child p");
+    await wordmark.scrollIntoViewIfNeeded();
+    await expect
+      .poll(async () => wordmark.evaluate((element) => getComputedStyle(element).clipPath))
+      .not.toContain("100%");
+    const fit = await wordmark.evaluate((element) => {
+      const wrapper = element.parentElement!;
+      return { scrollWidth: wrapper.scrollWidth, clientWidth: wrapper.clientWidth };
+    });
+    expect(fit.scrollWidth, `footer wordmark overflows at ${width}px`).toBeLessThanOrEqual(
+      fit.clientWidth + 1,
+    );
+  }
+
+  await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/", { waitUntil: "networkidle" });
-  const wordmark = page.locator("footer > div:last-child p");
-  await wordmark.scrollIntoViewIfNeeded();
-  await expect
-    .poll(async () => wordmark.evaluate((element) => getComputedStyle(element).clipPath))
-    .not.toContain("100%");
+  const reducedClip = await page
+    .locator("footer > div:last-child p")
+    .evaluate((element) => getComputedStyle(element).clipPath);
+  expect(reducedClip).not.toContain("100%");
+});
+
+test("booking date chips form balanced 5+5 rows on desktop without a 9+1 orphan", async ({ page }) => {
+  for (const width of [1024, 1280, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto("/contact", { waitUntil: "networkidle" });
+    const rows = await page.evaluate(() => {
+      const tops = [...document.querySelectorAll<HTMLElement>("#enq-date button[data-date]")].map((btn) =>
+        Math.round(btn.getBoundingClientRect().top),
+      );
+      const counts = new Map<number, number>();
+      for (const top of tops) counts.set(top, (counts.get(top) ?? 0) + 1);
+      return [...counts.values()];
+    });
+    expect(rows, `date chip rows at ${width}px`).toEqual([5, 5]);
+  }
 });

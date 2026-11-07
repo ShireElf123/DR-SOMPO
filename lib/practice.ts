@@ -18,6 +18,7 @@ export type Practice = {
   title: string;
   entity: string;
   hospital: string;
+  room: string;
   addressLines: string[];
   suburb: string;
   city: string;
@@ -35,7 +36,12 @@ export const practice: Practice = {
   title: "Specialist Obstetrician & Gynaecologist",
   entity: "Dr CM Ngwey-Sompo Inc.",
   hospital: "Life Roseacres Hospital",
-  addressLines: ["Corner of St Joseph and Castor Road", "Primrose, Germiston"],
+  room: "Sessional Room 5, Ground Floor, East Wing",
+  addressLines: [
+    "Sessional Room 5, Ground Floor, East Wing",
+    "Corner of St Joseph and Castor Road",
+    "Primrose, Germiston",
+  ],
   suburb: "Primrose",
   city: "Johannesburg",
   phone: "011 842 7651",
@@ -47,11 +53,6 @@ export const practice: Practice = {
   // WhatsApp enquiry CTAs on across the whole site.
   whatsappNumber: null,
   bookingMethods: [
-    {
-      label: "WhatsApp",
-      detail: "Send an enquiry message. Available once the practice confirms a WhatsApp-enabled number.",
-      state: "pending",
-    },
     {
       label: "Telephone",
       detail: "Call the practice during consulting hours to request an appointment.",
@@ -102,9 +103,9 @@ export const brand = {
 };
 
 export const ticker = [
-  "Now consulting at Life Roseacres Hospital, Primrose",
-  "Obstetrics · Gynaecology · Fertility",
-  "Special interest in fertility and cervical health",
+  "Consulting at Life Roseacres Hospital — Sessional Room 5, Ground Floor, East Wing",
+  "Obstetrics · Gynaecology · Fertility · Urogynaecology",
+  "Special interest in fertility, cervical health and urogynaecology",
   "Consultations in English and French",
   "Telephone enquiries: 011 842 7651",
   "MMed (O&G), University of the Witwatersrand",
@@ -191,6 +192,18 @@ export const serviceGroups: {
           "Onward referral where indicated",
         ],
       },
+      {
+        id: "urogynaecology",
+        group: "Gynaecology",
+        title: "Urogynaecology (diagnosis & referral)",
+        summary:
+          "Clinical assessment and diagnosis of pelvic floor and bladder symptoms, with coordinated onward referral where subspecialist urogynaecological care is indicated.",
+        items: [
+          "Bladder control and urinary symptom assessment",
+          "Pelvic organ prolapse evaluation",
+          "Onward subspecialist referral where indicated",
+        ],
+      },
     ],
   },
   {
@@ -267,7 +280,7 @@ export const journey = [
     step: "01",
     title: "Book your appointment",
     body: "Contact the practice to enquire about an available consultation. Enquiries are handled by telephone or email; an enquiry is not yet a confirmed appointment.",
-    meta: "Telephone · Email · WhatsApp (pending)",
+    meta: "Telephone · Email",
   },
   {
     step: "02",
@@ -356,9 +369,11 @@ export const research = {
       state: "verified" as VerificationState,
     },
     { label: "FIGO 2025", detail: "Poster presentation", state: "verified" as VerificationState },
+  ],
+  publications: [
     {
       label: "International Journal of Gynecology & Obstetrics",
-      detail: "Abstract",
+      detail: "Published abstract",
       state: "verified" as VerificationState,
     },
   ],
@@ -367,10 +382,10 @@ export const research = {
 };
 
 export const biography = [
-  "Dr CM Ngwey-Sompo is a specialist Obstetrician and Gynaecologist practising at Life Roseacres Hospital in Primrose, Germiston, where she runs Dr CM Ngwey-Sompo Inc.",
+  "Dr CM Ngwey-Sompo is a specialist Obstetrician and Gynaecologist practising at Life Roseacres Hospital (Sessional Room 5, Ground Floor, East Wing) in Primrose, Germiston, where she runs Dr CM Ngwey-Sompo Inc.",
   "She holds a Master of Medicine in Obstetrics and Gynaecology from the University of the Witwatersrand. Her academic research focused on margin status following Large Loop Excision of the Transformation Zone (LLETZ) in women living with HIV.",
   "That work was presented at SASOG 2025 in South Africa, at the Presentis Women's Health Conference in Dubai, as a poster at FIGO 2025, and published as an abstract in the International Journal of Gynecology & Obstetrics.",
-  "Her special interests are fertility and cervical health. She works hard on HPV prevention and patient education in the community, and her goal is to improve women's health at every stage of life — from adolescence through pregnancy and childbirth, to menopause and beyond.",
+  "Her special interests include fertility, cervical health, and urogynaecology (diagnosis and referral). She works hard on HPV prevention and patient education in the community, and her goal is to improve women's health at every stage of life — from adolescence through pregnancy and childbirth, to menopause and beyond.",
   "Having experienced difficult pregnancies herself, Dr Sompo brings a personal understanding and empathy to the women she cares for.",
 ];
 
@@ -383,7 +398,7 @@ export const biographyAside = {
 export const faqs = [
   {
     q: "How do I make an appointment?",
-    a: "Appointment enquiries are handled by telephone on 011 842 7651 or by email to chrisscrcross2013@gmail.com. WhatsApp enquiry will be offered once the practice confirms a WhatsApp-enabled number. Submitting an enquiry does not constitute a confirmed appointment — the practice will confirm your date and time directly.",
+    a: "Appointment enquiries are handled by telephone on 011 842 7651, by email to chrisscrcross2013@gmail.com, or through the online appointment request form. Submitting an enquiry does not constitute a confirmed appointment — the practice will confirm your date and time directly.",
   },
   {
     q: "What should I bring to my first consultation?",
@@ -391,7 +406,7 @@ export const faqs = [
   },
   {
     q: "Where does Dr Sompo consult?",
-    a: "Dr Sompo practises at Life Roseacres Hospital, on the corner of St Joseph and Castor Road, Primrose, Germiston, Johannesburg. Please confirm the exact consulting-room and address details with the practice when you book.",
+    a: "Dr Sompo consults at Sessional Room 5, Ground Floor, East Wing, Life Roseacres Hospital, on the corner of St Joseph and Castor Road, Primrose, Germiston, Johannesburg. Please confirm parking and arrival details with the practice when you book.",
   },
   {
     q: "Does the practice accept medical aid?",
@@ -706,6 +721,67 @@ export const serviceDetails: ServiceDetail[] = [
       "Confirm which oncology-related procedures Dr Sompo performs herself versus refers onward.",
   },
   {
+    serviceId: "urogynaecology",
+    image: "/images/screening-room.jpg",
+    imageAlt: "A calm consultation and assessment room at the practice",
+    eyebrow: "Gynaecology",
+    standfirst:
+      "Discreet clinical assessment and diagnosis for pelvic floor, bladder control and prolapse concerns — with clear onward referral where subspecialist urogynaecological management is the right next step.",
+    sections: [
+      {
+        heading: "Symptoms worth discussing",
+        body: [
+          "Bladder leakage with coughing or exercise, sudden urgency, waking repeatedly to pass urine, or a feeling of heaviness or a bulge in the pelvis are common — especially after childbirth and around menopause — and are not simply something you have to live with.",
+          "An appointment starts with an unhurried history of what you are noticing and how it affects daily life, before any examination is discussed.",
+        ],
+      },
+      {
+        heading: "Diagnosis and initial plan",
+        body: [
+          "Where an examination or targeted investigation is helpful, it is explained beforehand and carried out only with your consent.",
+          "Once there is a clear clinical picture, conservative options, medical management and the role of pelvic floor rehabilitation or specialist procedures are discussed in plain language.",
+        ],
+      },
+      {
+        heading: "Coordinated subspecialist referral",
+        body: [
+          "Urogynaecology in this practice focuses on clinical assessment, diagnosis and clear direction. Where urodynamic testing, complex pelvic floor reconstruction or subspecialist urogynaecology input is indicated, referral is arranged directly and the findings are shared with your consent.",
+        ],
+      },
+    ],
+    beforeVisit: [
+      "Your ID and medical aid card, if you have one.",
+      "A brief note of your symptoms, when they started, and any triggers you have noticed.",
+      "Details of previous births, pelvic operations or prior bladder investigations.",
+      "A list of current medications, as several everyday medicines affect bladder symptoms.",
+    ],
+    atVisit: [
+      "A private, unhurried discussion of your symptoms and medical history.",
+      "Pelvic floor examination only where indicated, and always with your consent.",
+      "Initial investigations arranged with an explanation of what each test checks.",
+      "A clear diagnosis pathway and discussion of conservative or referral options.",
+    ],
+    afterVisit: [
+      "Results reviewed directly with you, with next steps agreed together.",
+      "Coordinated referral letter and clinical summary where subspecialist urogynaecology care is indicated.",
+    ],
+    questions: [
+      {
+        q: "Are bladder leakage or prolapse symptoms normal after childbirth or menopause?",
+        a: "They are common, which is not the same as normal or untreatable. Assessment clarifies what is causing the symptoms and which conservative, medical or specialist options make sense for you.",
+      },
+      {
+        q: "Does the practice perform subspecialist urogynaecological surgery?",
+        a: "Dr Sompo provides urogynaecological assessment, diagnosis and initial management, and arranges onward referral where subspecialist urogynaecological testing or surgery is the appropriate next step.",
+      },
+      {
+        q: "Do I need a referral to book?",
+        a: "No. You can book directly with the practice, and bring any previous letters or test results you already have.",
+      },
+    ],
+    related: ["general", "laparoscopy"],
+  },
+  {
     serviceId: "fertility-assessment",
     image: "/images/fertility.jpg",
     imageAlt: "A couple's hands held together",
@@ -964,6 +1040,23 @@ export const conditionGroups: ConditionGroup[] = [
       "Heavy bleeding not controlled by other treatment",
     ],
     serviceId: "laparoscopy",
+  },
+  {
+    id: "urogynaecology",
+    label: "Pelvic floor & urogynaecology",
+    stage: "Postnatal, menopause & beyond",
+    intro:
+      "Bladder and pelvic floor symptoms that are common, rarely spoken about, and properly assessed — with onward subspecialist referral where indicated.",
+    conditions: [
+      "Bladder leakage when coughing, laughing or exercising",
+      "Sudden urgency or passing urine more often",
+      "A feeling of pelvic heaviness, dragging or bulge",
+      "Pelvic organ prolapse assessment",
+      "Pelvic floor changes after childbirth",
+      "Bladder symptoms around menopause",
+      "Urogynaecological diagnosis and subspecialist referral",
+    ],
+    serviceId: "urogynaecology",
   },
 ];
 

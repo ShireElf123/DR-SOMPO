@@ -55,7 +55,7 @@ export function practiceJsonLd() {
     })),
     address: {
       "@type": "PostalAddress",
-      streetAddress: practice.addressLines[0],
+      streetAddress: `${practice.room}, ${practice.hospital}, ${practice.addressLines[1]}`,
       addressLocality: practice.suburb,
       addressRegion: "Gauteng",
       postalCode: "1401",
@@ -71,7 +71,7 @@ export function practiceJsonLd() {
       name: practice.hospital,
       address: {
         "@type": "PostalAddress",
-        streetAddress: practice.addressLines[0],
+        streetAddress: practice.addressLines[1],
         addressLocality: practice.suburb,
         addressRegion: "Gauteng",
         addressCountry: "ZA",
@@ -95,6 +95,7 @@ export function practiceJsonLd() {
       "Vaginal and caesarean delivery",
       "General gynaecological consultations",
       "Contraception and reproductive health assessments",
+      "Urogynaecological diagnosis and referral",
       "Fertility assessment and consultation",
       "Laparoscopic and open gynaecological surgery",
     ].map((name) => ({

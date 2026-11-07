@@ -61,37 +61,46 @@ export function BentoBand() {
             <Link
               href="/about"
               data-cursor="Meet"
-              className="group relative flex h-full min-h-[24rem] flex-col justify-end overflow-hidden rounded-[1.35rem] bg-peach p-5 sm:min-h-[23rem]"
+              className="group flex h-full min-h-[24rem] flex-col overflow-hidden rounded-[1.35rem] bg-cream border-hairline border-charcoal/8 sm:min-h-[23rem]"
             >
-              <Image
-                src="/images/portrait-somp-card.jpg"
-                alt="Illustration of a healthcare professional"
-                fill
-                sizes="(max-width: 1024px) 92vw, 46vw"
-                className="object-cover object-[center_18%] transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/18 to-transparent" />
-              <div className="glass relative rounded-[1.1rem] p-3.5">
-                <p className="text-[10px] uppercase tracking-[0.18em] text-ink/75">
+              <div className="photo-depth relative min-h-[15.5rem] flex-1 overflow-hidden bg-peach">
+                <Image
+                  src="/images/portrait-somp-card.jpg"
+                  alt="Dr CM Ngwey-Sompo in her consulting room"
+                  fill
+                  sizes="(max-width: 1024px) 92vw, 46vw"
+                  className="object-cover object-[center_18%] transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
+                />
+                <span
+                  aria-hidden="true"
+                  className="absolute right-3 top-3 z-[2] flex h-7 w-7 items-center justify-center rounded-full bg-charcoal text-cream transition-transform duration-500 group-hover:rotate-45"
+                >
+                  <ArrowUpRight className="h-3 w-3" />
+                </span>
+              </div>
+              <div className="p-4 sm:p-5">
+                <p className="text-[10px] uppercase tracking-[0.18em] text-ink-muted">
                   Specialist Obstetrician &amp; Gynaecologist
                 </p>
-                <p className="mt-1.5 text-[clamp(1.15rem,2.2vw,1.5rem)] font-light leading-tight tracking-[-0.03em] text-ink">
+                <p className="mt-1 text-[clamp(1.15rem,2.2vw,1.45rem)] font-light leading-tight tracking-[-0.03em] text-ink">
                   Dr CM Ngwey-Sompo
                 </p>
-                <div className="mt-3 flex flex-wrap gap-1.5">
-                  {["FCOG (SA)", "MMed (O&G) Wits", "MBChB"].map((chip) => (
-                    <span
-                      key={chip}
-                      className="rounded-full bg-cream/70 px-2.5 py-1 text-[10px] font-medium text-ink ring-1 ring-charcoal/10"
-                    >
-                      {chip}
-                    </span>
-                  ))}
+                <div className="mt-2.5 flex flex-wrap items-center justify-between gap-2">
+                  <div className="flex flex-wrap gap-1.5">
+                    {["FCOG (SA)", "MMed (O&G) Wits", "MBChB"].map((chip) => (
+                      <span
+                        key={chip}
+                        className="rounded-full bg-blush px-2.5 py-1 text-[10px] font-medium text-ink"
+                      >
+                        {chip}
+                      </span>
+                    ))}
+                  </div>
+                  <span className="inline-flex items-center gap-1 text-[11px] font-medium text-ink">
+                    Her story
+                    <ArrowUpRight className="h-3 w-3 transition-transform duration-500 group-hover:rotate-45" />
+                  </span>
                 </div>
-                <span className="mt-3.5 inline-flex items-center gap-1.5 text-[11px] font-medium text-ink">
-                  Her story
-                  <ArrowUpRight className="h-3 w-3 transition-transform duration-500 group-hover:rotate-45" />
-                </span>
               </div>
             </Link>
           </Reveal>
@@ -101,20 +110,20 @@ export function BentoBand() {
             <div className="ember-deep-gradient relative flex h-full flex-col justify-between overflow-hidden rounded-[1.35rem] p-5 text-cream">
               <div className="flex items-start justify-between gap-3">
                 <span className="rounded-full bg-cream/15 px-2.5 py-1 text-[10px] uppercase tracking-[0.14em] text-cream ring-1 ring-cream/25">
-                  Special interest
+                  Special interests
                 </span>
                 <HeartPulse className="h-4 w-4 text-cream/70" aria-hidden="true" />
               </div>
               <ScrollWords
                 tint="dark"
-                text="Fertility and cervical health — the two areas she has built her practice and her research around."
-                className="mt-6 max-w-[24rem] text-[clamp(0.95rem,1.8vw,1.15rem)] leading-[1.4] tracking-[-0.015em]"
+                text="Fertility, cervical health and urogynaecological assessment — areas she has built her practice, referral pathways and research around."
+                className="mt-6 max-w-[26rem] text-[clamp(0.95rem,1.8vw,1.15rem)] leading-[1.4] tracking-[-0.015em]"
               />
               <Link
                 href="/research"
                 className="mt-5 inline-flex items-center gap-1.5 rounded-full border border-cream/30 px-3 py-1 text-[11px] font-medium text-cream"
               >
-                The research behind it
+                Explore the research
                 <ArrowUpRight className="h-3 w-3" />
               </Link>
             </div>
@@ -157,37 +166,43 @@ export function BentoBand() {
             </BookingLink>
           </Reveal>
 
-          {/* 5 — hospital / location, wide and short */}
+          {/* 5 — hospital / location, wide and split so 100% of the exterior photo is visible */}
           <Reveal y={22} delay={0.18} className="col-span-2">
             <Link
               href="/contact"
               data-cursor="Directions"
-              className="group relative flex h-full min-h-[10.5rem] items-end overflow-hidden rounded-[1.35rem] bg-peach p-4"
+              className="group grid h-full overflow-hidden rounded-[1.35rem] bg-cream border-hairline border-charcoal/8 sm:grid-cols-[1.05fr_0.95fr]"
             >
-              <Image
-                src="/images/hospital-exterior.jpg"
-                alt="Life Roseacres Hospital"
-                fill
-                sizes="(max-width: 1024px) 92vw, 46vw"
-                className="object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/18 to-transparent" />
-              <div className="glass relative flex w-full items-end justify-between gap-3 rounded-[1rem] p-3">
-                <div>
-                  <p className="flex items-center gap-1.5 text-[10px] uppercase tracking-[0.16em] text-ink/75">
+              <div className="photo-depth relative aspect-[16/9] overflow-hidden bg-peach sm:aspect-auto sm:min-h-[10.5rem]">
+                <Image
+                  src="/images/hospital-exterior.jpg"
+                  alt="Life Roseacres Hospital"
+                  fill
+                  sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 24vw"
+                  className="object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
+                />
+              </div>
+              <div className="flex flex-col justify-between gap-3 p-4">
+                <div className="flex items-start justify-between gap-2">
+                  <p className="flex items-center gap-1.5 text-[10px] uppercase tracking-[0.16em] text-ink-muted">
                     <MapPin className="h-2.5 w-2.5" aria-hidden="true" />
                     Consulting rooms
                   </p>
-                  <p className="mt-1 text-[12px] font-medium text-ink">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-charcoal text-cream transition-transform duration-500 group-hover:rotate-45">
+                    <ArrowUpRight className="h-3 w-3" />
+                  </span>
+                </div>
+                <div>
+                  <p className="text-[12px] font-medium text-ink">
                     {practice.hospital}, Primrose
                   </p>
-                  <p className="mt-0.5 hidden text-[10px] text-ink-soft sm:block">
+                  <p className="mt-0.5 text-[11px] leading-snug text-ink-soft">
+                    {practice.room}
+                  </p>
+                  <p className="mt-1 text-[10px] leading-snug text-ink-muted">
                     Theatre lists at Dr Phakisa Mokhesi Hospital, Sebokeng
                   </p>
                 </div>
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-charcoal text-cream transition-transform duration-500 group-hover:rotate-45">
-                  <ArrowUpRight className="h-3 w-3" />
-                </span>
               </div>
             </Link>
           </Reveal>

@@ -14,6 +14,7 @@ const routes = [
     "delivery",
     "general",
     "oncology",
+    "urogynaecology",
     "fertility-assessment",
     "laparoscopy",
   ].map((slug) => `/services/${slug}`),

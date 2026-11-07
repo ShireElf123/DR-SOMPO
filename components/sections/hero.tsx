@@ -58,10 +58,6 @@ export function Hero() {
             aria-hidden="true"
             className="absolute right-[6%] top-[20%] hidden h-20 w-20 rounded-[0_85%_0_85%] bg-cream/40 sm:block motion-safe:animate-[sway_9s_ease-in-out_infinite_alternate_-4s]"
           />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-28 bg-gradient-to-t from-ember/14 to-transparent sm:block"
-          />
 
           {/* One image request. On phones the motion layer is static; the desktop
               crop retains its independent scroll parallax without scaling the hero. */}
@@ -81,8 +77,6 @@ export function Hero() {
                   sizes="(max-width: 1023px) 100vw, (max-width: 1279px) 46vw, 544px"
                   className="object-cover object-[62%_18%] sm:object-[center_24%] lg:object-[center_16%]"
                 />
-                <div className="absolute inset-0 hidden bg-gradient-to-r from-apricot/6 via-transparent to-transparent lg:block" />
-                <div className="absolute inset-0 hidden bg-gradient-to-t from-ember/10 via-transparent to-transparent lg:block" />
                 <div className="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-cream to-transparent lg:hidden" />
               </div>
             </m.div>

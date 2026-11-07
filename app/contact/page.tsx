@@ -11,7 +11,7 @@ import { practice } from "@/lib/practice";
 
 export const metadata: Metadata = pageMetadata(
   "Contact & Appointment Enquiries",
-  "Contact Dr CM Ngwey-Sompo Inc. at Life Roseacres Hospital, Primrose, Germiston. Telephone 011 842 7651 or send a non-clinical appointment enquiry. Consultations in English and French.",
+  "Contact Dr CM Ngwey-Sompo Inc. at Sessional Room 5, Ground Floor, East Wing, Life Roseacres Hospital, Primrose, Germiston. Telephone 011 842 7651 or send a non-clinical appointment enquiry.",
   "/contact",
 );
 
@@ -35,7 +35,7 @@ export default async function ContactPage({
         tag="Contact"
         title="Let's arrange"
         muted="your visit."
-        intro="Appointment enquiries are handled directly by the practice — telephone first, email for written requests, WhatsApp once the number is confirmed."
+        intro="Appointment enquiries are handled directly by the practice — call the rooms for immediate assistance, or send an email or online appointment request below."
         image="/images/hospital-exterior.jpg"
         mobileImage="/images/corridor.jpg"
         alt="Life Roseacres Hospital entrance in Primrose, Germiston"
@@ -58,7 +58,9 @@ export default async function ContactPage({
                     <br />
                     {practice.addressLines[0]}
                     <br />
-                    {practice.addressLines[1]}, {practice.city}
+                    {practice.addressLines[1]}
+                    <br />
+                    {practice.addressLines[2]}, {practice.city}
                   </address>
 
                   <RevealGroup className="mt-5 space-y-2.5" stagger={0.06}>
@@ -100,22 +102,28 @@ export default async function ContactPage({
                       </a>
                     </RevealItem>
 
-                    <RevealItem>
-                      <div className="flex items-start gap-3 rounded-xl border border-dashed border-charcoal/20 p-3">
-                        <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-charcoal/15 text-ink-soft">
-                          <MessageCircle className="h-3.5 w-3.5" aria-hidden="true" />
-                        </span>
-                        <span>
-                          <span className="block text-[10px] uppercase tracking-[0.14em] text-ink-soft">
-                            WhatsApp · awaiting confirmation
+                    {practice.whatsappNumber && (
+                      <RevealItem>
+                        <a
+                          href={`https://wa.me/${practice.whatsappNumber.replace(/\D/g, "")}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group flex items-center gap-3 rounded-xl bg-cream/70 p-3 transition-colors hover:bg-cream"
+                        >
+                          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-cream text-ink">
+                            <MessageCircle className="h-3.5 w-3.5" aria-hidden="true" />
                           </span>
-                          <span className="mt-0.5 block text-[11px] leading-snug text-ink-soft">
-                            A WhatsApp enquiry channel will appear here once the
-                            practice confirms a WhatsApp-enabled number.
+                          <span>
+                            <span className="block text-[10px] uppercase tracking-[0.14em] text-ink-soft">
+                              WhatsApp
+                            </span>
+                            <span className="block text-[13px] font-medium text-ink">
+                              {practice.whatsappNumber}
+                            </span>
                           </span>
-                        </span>
-                      </div>
-                    </RevealItem>
+                        </a>
+                      </RevealItem>
+                    )}
                   </RevealGroup>
 
                   <div className="mt-4 flex flex-wrap gap-2">
@@ -148,25 +156,29 @@ export default async function ContactPage({
               </Reveal>
 
               <Reveal delay={0.1}>
-                <div className="photo-depth group relative mt-4 aspect-[4/3] overflow-hidden rounded-[1.35rem] bg-peach sm:aspect-[16/9]">
-                  <ParallaxImage
-                    src="/images/hospital-exterior.jpg"
-                    alt="Life Roseacres Hospital entrance"
-                    strength={30}
-                    sizes="(max-width: 1024px) 92vw, 42vw"
-                    className="absolute inset-0"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ember/14 via-transparent to-transparent" />
-                  <div className="glass absolute inset-x-3 bottom-3 z-[2] flex items-end justify-between gap-3 rounded-lg px-3 py-2">
+                <div className="mt-4 overflow-hidden rounded-[1.35rem] bg-cream border-hairline border-charcoal/8">
+                  <div className="photo-depth relative aspect-[4/3] overflow-hidden bg-peach sm:aspect-[16/9]">
+                    <ParallaxImage
+                      src="/images/hospital-exterior.jpg"
+                      alt="Life Roseacres Hospital entrance"
+                      strength={30}
+                      sizes="(max-width: 1024px) 92vw, 42vw"
+                      className="absolute inset-0"
+                    />
+                  </div>
+                  <div className="flex flex-wrap items-end justify-between gap-3 p-4">
                     <div>
-                      <p className="text-[10px] uppercase tracking-[0.16em] text-ink/75">
+                      <p className="text-[10px] uppercase tracking-[0.16em] text-ink-muted">
                         Consulting rooms
                       </p>
                       <p className="mt-0.5 text-[13px] font-medium text-ink">
                         {practice.hospital}, Primrose
                       </p>
+                      <p className="mt-0.5 text-[12px] text-ink-soft">
+                        {practice.room}
+                      </p>
                     </div>
-                    <span className="rounded-full bg-cream/70 px-2.5 py-1 text-[10px] font-medium text-ink">
+                    <span className="rounded-full bg-blush px-2.5 py-1 text-[10px] font-medium text-ink">
                       St Joseph &amp; Castor Rd
                     </span>
                   </div>
@@ -198,7 +210,7 @@ export default async function ContactPage({
                     label="Finding the rooms"
                     meta="Directions"
                     ratio="aspect-[4/3]"
-                    body="Enter at the main hospital entrance and follow the signs to the consulting suites."
+                    body="Enter at the main hospital entrance and follow the Ground Floor, East Wing signs to Sessional Room 5."
                   />
                 </Reveal>
               </div>

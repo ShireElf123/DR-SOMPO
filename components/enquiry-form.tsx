@@ -41,7 +41,7 @@ const fields: Record<keyof EnquiryFields, { id: string; label: string }> = {
 function ContactLinks() {
   return (
     <div className="mt-5 flex flex-wrap gap-2">
-      <a href={practice.phoneHref} className="btn btn min-h-12">
+      <a href={practice.phoneHref} className="btn min-h-12">
         <Phone className="h-3.5 w-3.5" aria-hidden="true" />
         {practice.phone}
         <i aria-hidden="true">
@@ -368,7 +368,7 @@ export function EnquiryForm({
             Preferred day{" "}
             <span className="normal-case tracking-normal">(optional)</span>
           </legend>
-          <div className="-mx-1 flex gap-1.5 overflow-x-auto overscroll-x-contain px-1 pb-1 lg:flex-wrap lg:overflow-visible">
+          <div className="-mx-1 flex gap-1.5 overflow-x-auto overscroll-x-contain px-1 pb-1 lg:mx-0 lg:grid lg:grid-cols-5 lg:overflow-visible lg:px-0 lg:pb-0">
             {days.map((iso) => {
               const selected = values.preferredDate === iso;
               return (
@@ -457,7 +457,7 @@ export function EnquiryForm({
                   <span
                     className={cn(
                       "mt-0.5 block text-[10px] tabular-nums",
-                      selected ? "text-ink" : "text-ink-muted",
+                      selected ? "text-cream" : "text-ink-muted",
                     )}
                   >
                     {option.time}
@@ -695,7 +695,7 @@ export function EnquiryForm({
           <button
             type="submit"
             disabled={!hydrated || state === "sending"}
-            className="btn btn min-h-12 w-full justify-between disabled:cursor-not-allowed disabled:opacity-70 lg:min-h-0"
+            className="btn min-h-12 w-full justify-between disabled:cursor-not-allowed disabled:opacity-70 lg:min-h-0"
           >
             {state === "sending" ? (
               <span className="flex items-center gap-2">

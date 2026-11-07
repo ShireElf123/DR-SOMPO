@@ -133,8 +133,8 @@ export default async function ServiceDetailPage({ params }: Params) {
                 <p className="mt-1 text-[11px] leading-relaxed text-ink-soft">
                   Appointments are arranged by telephone.
                 </p>
-                <a href={practice.phoneHref} className="btn btn mt-3 w-full justify-between">
-                  {practice.phone}
+                <a href={practice.phoneHref} className="btn mt-3 w-full justify-between">
+                  Call {practice.phone}
                   <i aria-hidden="true">
                     <Phone className="h-3 w-3" />
                   </i>
@@ -277,7 +277,6 @@ export default async function ServiceDetailPage({ params }: Params) {
                         sizes="(max-width: 640px) 92vw, 46vw"
                         className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-ember/12 via-transparent to-transparent" />
                       <span className="glass absolute left-3 top-3 z-[2] rounded-full px-2.5 py-1 text-[10px] font-medium text-ink">
                         {relDetail.eyebrow}
                       </span>

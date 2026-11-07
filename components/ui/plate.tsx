@@ -45,7 +45,6 @@ export function Plate({
           sizes={sizes}
           className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.035]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ember/12 to-transparent" />
 
         {index && (
           <span className="glass absolute left-3 top-3 z-[2] rounded-full px-2.5 py-1 text-[10px] font-medium tracking-[0.06em] text-ink">

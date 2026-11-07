@@ -22,7 +22,7 @@ export function FaqList({
               <span className="text-[14px] font-medium tracking-[-0.01em] text-ink">
                 {faq.q}
               </span>
-              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-charcoal/20 text-ink transition-transform duration-300 group-open:rotate-45 group-open:border-ember group-open:bg-ember group-open:text-ink">
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-charcoal/20 text-ink transition-transform duration-300 group-open:rotate-45 group-open:border-ember group-open:bg-ember group-open:text-cream">
                 <Plus className="h-3.5 w-3.5" aria-hidden="true" />
               </span>
             </summary>

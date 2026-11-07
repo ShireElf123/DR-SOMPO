@@ -61,7 +61,7 @@ export default function ServicesPage() {
               <a
                 key={group.id}
                 href={`#${group.id}`}
-                className="group inline-flex items-center gap-1.5 rounded-full border border-charcoal/12 bg-cream px-3.5 py-1.5 text-[11px] font-medium text-ink-soft transition-all duration-500 hover:-translate-y-0.5 hover:border-ember hover:bg-ember hover:text-ink"
+                className="group inline-flex items-center gap-1.5 rounded-full border border-charcoal/12 bg-cream px-3.5 py-1.5 text-[11px] font-medium text-ink-soft transition-all duration-500 hover:-translate-y-0.5 hover:border-ember hover:bg-ember hover:text-cream"
               >
                 {group.label}
                 <ArrowUpRight className="h-3 w-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -84,7 +84,6 @@ export default function ServicesPage() {
                   sizes="(max-width: 1024px) 92vw, 46vw"
                   className="absolute inset-0"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/18 to-transparent" />
                 <div className="absolute inset-x-4 bottom-4 z-[2] flex flex-wrap gap-1.5">
                   {serviceGroups.map((group) => (
                     <span
@@ -213,7 +212,7 @@ export default function ServicesPage() {
                       service={group.services[0].id}
                       className="btn mt-6"
                     >
-                      Enquire about this
+                      Request an appointment
                       <i aria-hidden="true">
                         <ArrowUpRight className="h-3 w-3" />
                       </i>
@@ -267,7 +266,6 @@ export default function ServicesPage() {
                       sizes="(max-width: 640px) 92vw, 30vw"
                       className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-ember/12 to-transparent" />
                     <span className="glass absolute left-3 top-3 z-[2] grid h-7 w-7 place-items-center rounded-full text-[10px] font-medium text-ink">
                       0{i + 1}
                     </span>

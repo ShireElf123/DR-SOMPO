@@ -76,7 +76,7 @@ export default function ResearchPage() {
                     Presentation &amp; publication history
                   </p>
                   <ul className="mt-3 grid gap-2 sm:grid-cols-2">
-                    {research.presentations.map((item) => (
+                    {[...research.presentations, ...research.publications].map((item) => (
                       <li
                         key={item.label}
                         className="flex items-start justify-between gap-2 rounded-xl border-hairline border-charcoal/8 bg-cream px-3 py-2"
@@ -119,7 +119,6 @@ export default function ResearchPage() {
                     sizes="(max-width: 1024px) 92vw, 42vw"
                     className="absolute inset-0"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ember/12 via-transparent to-transparent" />
                   <p className="glass absolute inset-x-4 bottom-4 z-[2] rounded-lg px-3 py-2 text-[11px] leading-relaxed text-ink">
                     Research is only useful if it reaches the consultation room.
                   </p>
@@ -144,11 +143,29 @@ export default function ResearchPage() {
                       >
                         <span className="text-[12px] font-medium text-ink">{item.label}</span>
                         <span className="text-[10px] uppercase tracking-[0.12em] text-ink/80">
-                          {item.state === "pending" ? "Pending" : "Confirmed"}
+                          {item.detail}
                         </span>
                       </li>
                     ))}
                   </ul>
+                  <div className="mt-4 border-t-hairline border-charcoal/20 pt-3">
+                    <span className="text-[10px] uppercase tracking-[0.16em] text-ink/80">
+                      Published in
+                    </span>
+                    <ul className="mt-2 space-y-2">
+                      {research.publications.map((item) => (
+                        <li
+                          key={item.label}
+                          className="flex items-center justify-between gap-3"
+                        >
+                          <span className="text-[12px] font-medium text-ink">{item.label}</span>
+                          <span className="shrink-0 text-[10px] uppercase tracking-[0.12em] text-ink/80">
+                            {item.detail}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                   <SignalBars
                     values={[18, 32, 26, 48, 60, 52, 74, 66, 82]}
                     className="mt-4 h-10 text-ink/80"
@@ -188,7 +205,6 @@ export default function ResearchPage() {
                       sizes="(max-width: 640px) 92vw, 30vw"
                       className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.045]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-ember/12 to-transparent" />
                     <span className="glass absolute left-3 top-3 z-[2] grid h-7 w-7 place-items-center rounded-full text-[10px] font-medium text-ink">
                       0{i + 1}
                     </span>
@@ -255,7 +271,7 @@ export default function ResearchPage() {
           <RevealGroup className="mt-8 flex flex-wrap items-center gap-2.5" stagger={0.08}>
             <RevealItem>
               <BookingLink className="btn">
-                Book a consultation
+                Book an appointment
                 <i aria-hidden="true">
                   <ArrowUpRight className="h-3 w-3" />
                 </i>
@@ -263,7 +279,7 @@ export default function ResearchPage() {
             </RevealItem>
             <RevealItem>
               <Link href="/services" className="btn btn-light border border-charcoal/12 shadow-none">
-                Gynaecology services
+                All services
                 <i aria-hidden="true">
                   <ArrowUpRight className="h-3 w-3" />
                 </i>

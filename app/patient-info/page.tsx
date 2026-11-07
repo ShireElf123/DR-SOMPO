@@ -1,8 +1,8 @@
+import { BookingLink } from "@/components/booking-link";
 import { faqJsonLd } from "@/lib/structured-data";
 import { pageMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowUpRight, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, Phone, ShieldCheck } from "lucide-react";
 import { PageHero, SectionHead } from "@/components/page-hero";
 import Image from "@/components/ui/practice-image";
 import { Plate } from "@/components/ui/plate";
@@ -74,7 +74,6 @@ export default function PatientInfoPage() {
                       sizes="(max-width: 640px) 92vw, 30vw"
                       className="object-cover object-[center_18%] transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-ember/18 to-transparent" />
                     <span className="absolute left-3 top-3 grid h-7 w-7 place-items-center rounded-full bg-cream text-[10px] font-medium text-ink">
                       {step.step}
                     </span>
@@ -178,21 +177,21 @@ export default function PatientInfoPage() {
         <div className="shell text-center">
           <RevealGroup className="inline-flex flex-wrap items-center justify-center gap-2.5" stagger={0.08}>
             <RevealItem>
-              <Link href="/contact" className="btn">
-                Contact the practice
+              <BookingLink className="btn">
+                Book an appointment
                 <i aria-hidden="true">
                   <ArrowUpRight className="h-3 w-3" />
                 </i>
-              </Link>
+              </BookingLink>
             </RevealItem>
             <RevealItem>
               <a
                 href={practice.phoneHref}
                 className="btn btn-light border border-charcoal/12 shadow-none"
               >
-                {practice.phone}
+                Call {practice.phone}
                 <i aria-hidden="true">
-                  <ArrowUpRight className="h-3 w-3" />
+                  <Phone className="h-3 w-3" />
                 </i>
               </a>
             </RevealItem>
