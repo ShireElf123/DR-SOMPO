@@ -227,7 +227,7 @@ export function ScrollWords({
   // light panels, cream on the deep ones, with the un-lit copy at 0.72 alpha
   // (6.4:1 on the lightest deep stop).
   const lit = tint === "dark" ? "var(--color-cream)" : "var(--color-charcoal)";
-  const dim = tint === "dark" ? "rgba(253, 248, 242, 0.72)" : "#6f6255";
+  const dim = tint === "dark" ? "rgba(255, 251, 252, 0.72)" : "#6b5860";
 
   return (
     <p ref={ref} className={className} data-scroll-words={tint}>

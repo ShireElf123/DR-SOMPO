@@ -16,9 +16,9 @@ export default async function OpengraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "linear-gradient(140deg, #FDEFE3 0%, #F6B184 46%, #EB6300 100%)",
+          background: "linear-gradient(140deg, #FDF0F3 0%, #F7B49F 46%, #E8678C 100%)",
           padding: "72px",
-          color: "#26221F",
+          color: "#2B1F24",
           fontFamily: "sans-serif",
         }}
       >
@@ -38,7 +38,7 @@ export default async function OpengraphImage() {
               fontSize: 64,
               lineHeight: 1.05,
               letterSpacing: -2.4,
-              color: "rgba(38,34,31,0.72)",
+              color: "rgba(43,31,36,0.72)",
               marginTop: 8,
             }}
           >
@@ -47,7 +47,7 @@ export default async function OpengraphImage() {
           <span
             style={{
               fontSize: 22,
-              color: "rgba(38,34,31,0.8)",
+              color: "rgba(43,31,36,0.8)",
               marginTop: 28,
               maxWidth: 780,
               lineHeight: 1.4,
@@ -63,7 +63,7 @@ export default async function OpengraphImage() {
             display: "flex",
             gap: 32,
             fontSize: 16,
-            color: "rgba(38,34,31,0.75)",
+            color: "rgba(43,31,36,0.75)",
           }}
         >
           <span>011 842 7651</span>

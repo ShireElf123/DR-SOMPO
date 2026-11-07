@@ -107,7 +107,7 @@ export function Footer() {
           }}
           transition={{ duration: 1.6, ease: [0.6, 0, 0.2, 1] }}
           aria-hidden="true"
-          className="whitespace-nowrap bg-[linear-gradient(180deg,rgba(253,248,242,0.92),rgba(253,248,242,0.06))] bg-clip-text text-center text-[clamp(2.6rem,13vw,11rem)] font-bold leading-[0.9] tracking-[-0.045em] text-transparent opacity-70"
+          className="whitespace-nowrap bg-[linear-gradient(180deg,rgba(255,251,252,0.92),rgba(255,251,252,0.06))] bg-clip-text text-center text-[clamp(2.6rem,13vw,11rem)] font-bold leading-[0.9] tracking-[-0.045em] text-transparent opacity-70"
         >
           DR SOMPO <span className="font-light">OBGYN</span>
         </m.p>

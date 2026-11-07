@@ -10,55 +10,56 @@
   --font-serif: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-instrument), "Times New Roman", Georgia, serif;
 
-  /* Warm palette — rose-cream and petal into peach and apricot, with one
-     orange stop. The pink steps are what make the ramp read soft rather than
-     sporty; #EB6300 stays the deepest step and is used for actions and
-     accents, never as a large field. Every coloured surface carries charcoal
-     type rather than white. */
-  --color-cream: #fdf8f2; /* page + card wash, 14.9:1 with charcoal */
-  --color-blush: #fdede5; /* soft callouts, a rose-cream not an orange-cream */
-  --color-petal: #fbdcd2; /* the pink step between blush and peach */
-  --color-peach: #fbd4bd; /* image backdrops, chips */
-  --color-rose: #f8bfb0; /* dusty rose feature wash, ~10:1 */
-  --color-apricot: #f6b184; /* feature surfaces, 8.7:1 */
-  --color-tangerine: #f3812b; /* hover + mid stops, 6.0:1 */
-  --color-ember: #eb6300; /* the action stop, 4.75:1 with charcoal */
-  --color-ember-deep: #7a2e00; /* depth stop: 8.9:1 with cream */
-  --color-espresso: #2a1813; /* warm near-black for the two deep bands */
-  --color-charcoal: #26221f;
+  /* Rosewater palette. Pink and white carry the page; peach survives as the
+     warm accent because the practice asked for it, and it is the one hue that
+     still links the site to the photography. The ramp is the same lightness
+     structure as the warm release it replaces (every step within ~2 L*), so
+     the contrast evidence for type and actions carries over: charcoal on the
+     action stop is 5.1:1, cream on the deep wine stop is 10.6:1. */
+  --color-cream: #fffbfc; /* porcelain page + card wash, 15.4:1 with ink */
+  --color-blush: #fceaf1; /* pale rose callouts */
+  --color-petal: #f9d5e1; /* the pink step between blush and rose */
+  --color-peach: #fad8c6; /* pale peach: image backdrops, chips — the client's colour, kept */
+  --color-rose: #f3b3c6; /* dusty rose feature wash, 9.6:1 */
+  --color-apricot: #f7b49f; /* peach feature surface, 9.1:1 */
+  --color-tangerine: #f17fa2; /* hover + mid stops, 6.3:1 */
+  --color-ember: #e8678c; /* the action stop, 5.1:1 with charcoal */
+  --color-ember-deep: #6e2138; /* wine depth stop: 10.6:1 with cream */
+  --color-espresso: #2b161f; /* plum-near-black for the two deep bands */
+  --color-charcoal: #2b1f24;
 
   /* Accessible text ramps. These replace ad-hoc alpha values so every body
      colour in the build clears WCAG AA (4.5:1) on white, cream and blush. */
-  --color-ink: #26221f; /* 15.8:1 on white */
-  --color-ink-soft: #5b5049; /* 7.8:1 on white, 6.7:1 on blush */
-  --color-ink-muted: #655a52; /* 6.7:1 on white, 4.9:1 on peach */
+  --color-ink: #2b1f24; /* 15.4:1 on porcelain, 15.8:1 on white */
+  --color-ink-soft: #5c4a52; /* 7.6:1 on porcelain, 7.4:1 on blush */
+  --color-ink-muted: #6b5860; /* 6.5:1 on porcelain, 5.9:1 on blush */
 
-  /* Four depths only, each a warm multi-layer stack: a tight contact shadow,
-     a mid diffusion and a wide, low-alpha ember ambient. Black is never used,
-     so shadows read as late-afternoon light rather than soot. */
+  /* Four depths only, each a rose multi-layer stack: a tight contact shadow,
+     a mid diffusion and a wide, low-alpha rose ambient. Black is never used,
+     so shadows read as light through a curtain rather than soot. */
   --shadow-soft:
-    0 1px 1px rgba(122, 55, 12, 0.06),
-    0 2px 5px -1px rgba(168, 78, 18, 0.05),
-    0 9px 20px -10px rgba(190, 92, 24, 0.16);
+    0 1px 1px rgba(110, 33, 56, 0.06),
+    0 2px 5px -1px rgba(150, 55, 82, 0.05),
+    0 9px 20px -10px rgba(180, 70, 100, 0.16);
   --shadow-layer:
-    0 -2px 4px rgba(122, 55, 12, 0.03),
-    0 -22px 60px rgba(168, 78, 18, 0.07);
+    0 -2px 4px rgba(110, 33, 56, 0.03),
+    0 -22px 60px rgba(150, 55, 82, 0.07);
   --shadow-lift:
-    0 1px 2px rgba(122, 55, 12, 0.05),
-    0 4px 9px -2px rgba(168, 78, 18, 0.05),
-    0 16px 34px -16px rgba(190, 92, 24, 0.2),
-    0 36px 64px -44px rgba(235, 99, 0, 0.22);
+    0 1px 2px rgba(110, 33, 56, 0.05),
+    0 4px 9px -2px rgba(150, 55, 82, 0.05),
+    0 16px 34px -16px rgba(180, 70, 100, 0.2),
+    0 36px 64px -44px rgba(232, 103, 140, 0.22);
   --shadow-float:
-    0 2px 5px rgba(122, 55, 12, 0.05),
-    0 8px 18px -6px rgba(168, 78, 18, 0.07),
-    0 28px 52px -26px rgba(190, 92, 24, 0.22),
-    0 60px 100px -60px rgba(235, 99, 0, 0.26);
+    0 2px 5px rgba(110, 33, 56, 0.05),
+    0 8px 18px -6px rgba(150, 55, 82, 0.07),
+    0 28px 52px -26px rgba(180, 70, 100, 0.22),
+    0 60px 100px -60px rgba(232, 103, 140, 0.26);
 
   /* The one warm glow, shared by primary actions and floating glass. */
   --glow-warm:
-    0 0 0 1px rgba(235, 99, 0, 0.14),
-    0 6px 18px -6px rgba(235, 99, 0, 0.35),
-    0 18px 44px -20px rgba(235, 99, 0, 0.42);
+    0 0 0 1px rgba(232, 103, 140, 0.14),
+    0 6px 18px -6px rgba(232, 103, 140, 0.35),
+    0 18px 44px -20px rgba(232, 103, 140, 0.42);
 
   /* One easing voice across the whole site: a long, soft expo-out, plus a
      real sampled spring for hover/physical controls. The spring never applies
@@ -242,7 +243,7 @@
      whatever photograph or gradient is behind it; without backdrop-filter the
      panel becomes solid cream instead of turning into a transparent smear. */
   .glass {
-    background: #fdf8f2dd;
+    background: #fffbfcdd;
     border: 1px solid rgba(255, 255, 255, 0.6);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75), var(--shadow-soft);
     --glass-blur: blur(14px) saturate(1.2);
@@ -316,7 +317,7 @@
   }
 
   .btn-glass {
-    background: #fdf8f2bd;
+    background: #fffbfcbd;
     --glass-blur: blur(12px) saturate(1.2);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), var(--shadow-soft);
   }
@@ -390,11 +391,11 @@
   .border-charcoal\/8, .divide-charcoal\/8 { --surface-stroke: #26221f14; }
   .border-charcoal\/10 { --surface-stroke: #26221f1a; }
   .border-charcoal\/12 { --surface-stroke: #26221f1f; }
-  .border-ember\/8 { --surface-stroke: #eb630014; }
-  .border-ember\/10 { --surface-stroke: #eb63001a; }
-  .border-ember\/20 { --surface-stroke: #eb630033; }
+  .border-ember\/8 { --surface-stroke: #e8678c14; }
+  .border-ember\/10 { --surface-stroke: #e8678c1a; }
+  .border-ember\/20 { --surface-stroke: #e8678c33; }
   @media (hover: hover) {
-    .hover\:border-ember\/25:hover { --surface-stroke: #eb630040; }
+    .hover\:border-ember\/25:hover { --surface-stroke: #e8678c40; }
   }
 
   /* Chromium rounds fractional border-width up to 1 CSS px even at 2×.
@@ -454,11 +455,12 @@
     .marquee-group:hover .marquee-track { animation-play-state: paused; }
   }
 
-  /* Hero wash: three warm radial lights over a peach-to-cream ramp, so the
-     surface has depth instead of a banded gradient. Charcoal type sits on a
-     cream haze at every width; no white-on-photo copy survives this pass. */
+  /* Hero wash: three rose radial lights over a blush-to-porcelain ramp, so the
+     surface has depth instead of a banded gradient. One peach light survives at
+     the lower left, which is what keeps the surface warm rather than candy.
+     Charcoal type sits on a porcelain haze at every width. */
   .sun-gradient {
-    background: linear-gradient(118deg, #f2a67c 0%, #f7c0a2 38%, #fbd6c2 68%, #fdeee6 100%);
+    background: linear-gradient(118deg, #f4a2b8 0%, #f8c1cf 38%, #fbd9e2 68%, #fdeff3 100%);
   }
 
   /* Phone: the portrait keeps the full frame, and the copy sits on a warm
@@ -490,17 +492,18 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background: linear-gradient(90deg, rgba(253, 248, 242, var(--hero-haze)) min(38.5rem, 80%), transparent calc(min(38.5rem, 80%) + 12rem));
+      background: linear-gradient(90deg, rgba(255, 251, 252, var(--hero-haze)) min(38.5rem, 80%), transparent calc(min(38.5rem, 80%) + 12rem));
     }
   }
   @media (min-width: 1024px) {
     .sun-gradient::after { --hero-haze: 0.58; }
   }
   /* Feature wash for the research band, final call to action and footer.
-     A rose-apricot ramp: soft enough to read feminine at full-bleed width,
-     while #EB6300 stays reserved for the actions and accents on top of it. */
+     Rose all the way: pink blended toward peach passes through a salmon
+     midpoint that reads like flesh, so the two families only ever meet as
+     neighbouring flat surfaces (a peach frame against a rose field). */
   .ember-gradient {
-    background: linear-gradient(135deg, #f7ab84 0%, #fcc9b4 55%, #f6b7a6 100%);
+    background: linear-gradient(135deg, #f6a6c0 0%, #f9c4d3 55%, #fbdae5 100%);
   }
 
   /* Tonal depth. The whole page used to sit above L 40, which is what made the
@@ -510,11 +513,11 @@
      three carry cream type (8.9:1 at the lightest deep stop) — no white, no
      cool hue, no black. */
   .ticker-gradient {
-    background: linear-gradient(90deg, #2a1813, #4a2010 46%, #7a2e00);
+    background: linear-gradient(90deg, #2b161f, #4a1f2c 46%, #6e2138);
   }
 
   .ember-deep-gradient {
-    background: linear-gradient(145deg, #2a1813 0%, #3f1a0d 52%, #7a2e00 100%);
+    background: linear-gradient(145deg, #2b161f 0%, #3f1a26 52%, #6e2138 100%);
   }
 
   /* Keep the existing sRGB recipes above as real fallbacks. Only the large
@@ -523,28 +526,28 @@
   @supports (background: linear-gradient(0deg in oklab, #000, #fff)) {
     .sun-gradient {
       background:
-        radial-gradient(110% 90% at 86% 2% in oklab, rgba(255, 246, 236, 0.86), transparent 46%),
-        radial-gradient(95% 85% at 100% 62% in oklab, rgba(246, 158, 110, 0.9), transparent 62%),
-        radial-gradient(80% 75% at 0% 106% in oklab, rgba(240, 132, 88, 0.88), transparent 66%),
-        linear-gradient(118deg in oklab, #f2a67c 0%, #f7c0a2 38%, #fbd6c2 68%, #fdeee6 100%);
+        radial-gradient(110% 90% at 86% 2% in oklab, rgba(255, 250, 252, 0.88), transparent 46%),
+        radial-gradient(95% 85% at 100% 62% in oklab, rgba(244, 150, 178, 0.9), transparent 62%),
+        radial-gradient(80% 75% at 0% 106% in oklab, rgba(247, 180, 159, 0.9), transparent 66%),
+        linear-gradient(118deg in oklab, #f4a2b8 0%, #f8c1cf 38%, #fbd9e2 68%, #fdeff3 100%);
     }
     .sun-gradient::after {
-      background: linear-gradient(90deg in oklab, rgba(253, 248, 242, var(--hero-haze)) min(38.5rem, 80%), transparent calc(min(38.5rem, 80%) + 12rem));
+      background: linear-gradient(90deg in oklab, rgba(255, 251, 252, var(--hero-haze)) min(38.5rem, 80%), transparent calc(min(38.5rem, 80%) + 12rem));
     }
     .ember-gradient {
       background:
-        radial-gradient(100% 120% at 92% 0% in oklab, rgba(253, 248, 242, 0.86), transparent 60%),
-        radial-gradient(90% 90% at 0% 100% in oklab, rgba(246, 155, 120, 0.72), transparent 64%),
-        linear-gradient(135deg in oklab, #f7ab84 0%, #fcc9b4 55%, #f6b7a6 100%);
+        radial-gradient(100% 120% at 92% 0% in oklab, rgba(255, 251, 252, 0.88), transparent 60%),
+        radial-gradient(90% 90% at 0% 100% in oklab, rgba(250, 196, 211, 0.85), transparent 64%),
+        linear-gradient(135deg in oklab, #f6a6c0 0%, #f9c4d3 55%, #fbdae5 100%);
     }
     .ticker-gradient {
-      background: linear-gradient(90deg in oklab, #2a1813, #4a2010 46%, #7a2e00);
+      background: linear-gradient(90deg in oklab, #2b161f, #4a1f2c 46%, #6e2138);
     }
     .ember-deep-gradient {
       background:
-        radial-gradient(90% 80% at 8% 0% in oklab, rgba(122, 46, 0, 0.55), transparent 62%),
-        radial-gradient(85% 90% at 100% 100% in oklab, rgba(122, 60, 30, 0.45), transparent 64%),
-        linear-gradient(145deg in oklab, #2a1813 0%, #3f1a0d 52%, #7a2e00 100%);
+        radial-gradient(90% 80% at 8% 0% in oklab, rgba(110, 33, 56, 0.55), transparent 62%),
+        radial-gradient(85% 90% at 100% 100% in oklab, rgba(120, 55, 80, 0.45), transparent 64%),
+        linear-gradient(145deg in oklab, #2b161f 0%, #3f1a26 52%, #6e2138 100%);
     }
   }
 }
@@ -832,7 +835,7 @@ html.lenis body {
    there is room to keep the wash clear of the portrait. */
 @media (max-width: 1023.98px) {
   .hero-copy-plate {
-    background: linear-gradient(180deg, rgba(253, 248, 242, 0.6), var(--color-cream) 14%);
+    background: linear-gradient(180deg, rgba(255, 251, 252, 0.6), var(--color-cream) 14%);
   }
 }
 
@@ -840,11 +843,11 @@ html.lenis body {
   .hero-copy-plate {
     background: linear-gradient(
       90deg,
-      rgba(253, 248, 242, 0.97) 0%,
-      rgba(253, 248, 242, 0.94) 58%,
-      rgba(253, 248, 242, 0.78) 80%,
-      rgba(253, 248, 242, 0.3) 94%,
-      rgba(253, 248, 242, 0) 100%
+      rgba(255, 251, 252, 0.97) 0%,
+      rgba(255, 251, 252, 0.94) 58%,
+      rgba(255, 251, 252, 0.78) 80%,
+      rgba(255, 251, 252, 0.3) 94%,
+      rgba(255, 251, 252, 0) 100%
     );
   }
 }

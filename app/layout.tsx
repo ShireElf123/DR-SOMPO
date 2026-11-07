@@ -89,8 +89,8 @@ export const viewport: Viewport = {
   // audited scheme rather than a half-inverted one, which is the contrast
   // failure the reference site exhibits in dark mode.
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#FDF8F2" },
-    { media: "(prefers-color-scheme: dark)", color: "#FDF8F2" },
+    { media: "(prefers-color-scheme: light)", color: "#FFFBFC" },
+    { media: "(prefers-color-scheme: dark)", color: "#FFFBFC" },
   ],
   colorScheme: "only light",
   width: "device-width",

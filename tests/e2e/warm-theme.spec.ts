@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
 /**
- * Acceptance checks for the warm colour experiment: peach/apricot surfaces,
+ * Acceptance checks for the rosewater palette: blush/rose surfaces with peach
  * charcoal type on the light bands, cream type on the two deep ones, no cool
  * hue anywhere, and the accessibility behaviour the reference site loses in
  * dark mode.
@@ -14,7 +14,7 @@ import AxeBuilder from "@axe-core/playwright";
  * type, always AA.
  */
 
-const CREAM = "rgb(253, 248, 242)";
+const CREAM = "rgb(255, 251, 252)";
 
 test("the warm palette replaces the old forest tokens end to end", async ({ page }) => {
   await page.goto("/", { waitUntil: "networkidle" });
@@ -29,8 +29,8 @@ test("the warm palette replaces the old forest tokens end to end", async ({ page
     };
   });
   expect(tokens.forest).toBe("");
-  expect(tokens.ember).toBe("#eb6300");
-  expect(tokens.cream).toBe("#fdf8f2");
+  expect(tokens.ember).toBe("#e8678c");
+  expect(tokens.cream).toBe("#fffbfc");
   expect(tokens.body).toBe(CREAM);
 });
 
@@ -226,7 +226,7 @@ test("keyboard focus is visible on warm surfaces", async ({ page }) => {
   expect(focus!.text?.length).toBeGreaterThan(0);
   expect(focus!.outlineStyle).not.toBe("none");
   expect(parseFloat(focus!.outlineWidth)).toBeGreaterThanOrEqual(2);
-  expect(focus!.outlineColor).toBe("rgb(38, 34, 31)");
+  expect(focus!.outlineColor).toBe("rgb(43, 31, 36)");
 });
 
 test("reduced motion removes the springs instead of slowing them", async ({ page }) => {
@@ -285,9 +285,9 @@ for (const width of [320, 390]) {
     expect(layout.photoCoveredByCopy).toBeLessThan(0.02);
     // The copy runs on a cream wash in normal flow, with no second frosted pane.
     expect(layout.copyWash).toContain("linear-gradient");
-    expect(layout.copyWash).toContain("rgb(253, 248, 242)");
+    expect(layout.copyWash).toContain("rgb(255, 251, 252)");
     expect(layout.copyBlur).toBe("none");
-    expect(layout.supportColor).toBe("rgb(38, 34, 31)");
+    expect(layout.supportColor).toBe("rgb(43, 31, 36)");
     expect(layout.supportSize).toBeGreaterThanOrEqual(14);
   });
 }
