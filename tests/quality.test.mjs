@@ -63,44 +63,48 @@ test("resting light text meets AA on white, cream and blush", () => {
   }
 });
 
-test("charcoal clears AA on every coloured surface, including the deepest orange", () => {
-  for (const surface of ["cream", "blush", "peach", "apricot", "tangerine", "ember"]) {
+test("charcoal clears AA on every light surface, and cream clears AA on action and depth stops", () => {
+  for (const surface of ["cream", "blush", "petal", "peach", "rose", "apricot", "tangerine"]) {
     const ratio = contrast(token("charcoal"), token(surface));
     assert.ok(ratio >= 4.5, `Charcoal on ${surface}: ${ratio}`);
   }
+  for (const deep of ["ember", "ember-deep", "espresso"]) {
+    const ratio = contrast(token("cream"), token(deep));
+    assert.ok(ratio >= 4.5, `Cream on ${deep}: ${ratio}`);
+  }
 });
 
-test("the warm ramp never goes darker than #EB6300 and never turns into brown", () => {
-  assert.equal(css.match(/--color-ember:\s*(#[0-9a-f]{6})/i)[1].toLowerCase(), "#eb6300");
-  const warm = ["cream", "blush", "peach", "apricot", "tangerine", "ember"];
-  const floorValue = luminance(token("ember"));
-  for (const name of warm) {
-    assert.ok(luminance(token(name)) >= floorValue, `${name} is darker than the #EB6300 stop`);
+test("the rosewater ramp keeps light fields above the #AC5068 action stop and removes forest tokens", () => {
+  assert.equal(css.match(/--color-ember:\s*(#[0-9a-f]{6})/i)[1].toLowerCase(), "#ac5068");
+  const light = ["cream", "blush", "petal", "peach", "rose", "apricot", "tangerine"];
+  const actionFloor = luminance(token("ember"));
+  for (const name of light) {
+    assert.ok(luminance(token(name)) > actionFloor, `${name} should stay lighter than the #AC5068 action stop`);
   }
-  // Only deliberate text ink sits below the ramp; there is no dark surface token.
-  for (const name of ["charcoal", "ink", "ink-soft", "ink-muted"]) {
-    assert.ok(luminance(token(name)) < floorValue, `${name} should be a text ink`);
+  for (const name of ["ember-deep", "espresso", "charcoal", "ink", "ink-soft", "ink-muted"]) {
+    assert.ok(luminance(token(name)) < actionFloor, `${name} should sit below the #AC5068 action stop`);
   }
   assert.doesNotMatch(css, /--color-(forest|sage|mint|ivory|lime|fern|clay|sand|mist)\b/);
 });
 
-test("footer and feature panels are warm surfaces with charcoal type, never dark blocks", () => {
+test("footer uses the bounded plum depth ramp with cream type while light washes keep ink type", () => {
   const footer = readFileSync("components/footer.tsx", "utf8");
-  assert.match(footer, /ember-gradient/);
+  assert.match(footer, /ember-deep-gradient/);
+  assert.match(footer, /text-cream/);
   assert.doesNotMatch(footer, /bg-(charcoal|black|ember|forest)\b/);
   assert.doesNotMatch(footer, /text-white/);
-  // Large ember/tangerine feature tiles hand their type to charcoal, not white.
+  // Light rose washes (.ember-gradient) keep ink/charcoal type, never white or cream.
   const bento = readFileSync("components/sections/bento.tsx", "utf8");
-  for (const block of bento.match(/className="[^"]*bg-(?:ember|tangerine)[^"]*"/g) ?? []) {
-    assert.doesNotMatch(block, /text-white/);
+  for (const block of bento.match(/className="[^"]*\bember-gradient\b[^"]*"/g) ?? []) {
+    assert.doesNotMatch(block, /text-(white|cream)\b/);
   }
 });
 
 test("warm glass keeps charcoal readable over the deepest surface and over photography", () => {
-  const hex = css.match(/\.glass\s*{[^}]*background:\s*#fdf8f2([0-9a-f]{2})/i)[1];
+  const hex = css.match(/\.glass\s*{[^}]*background:\s*#fffcfc([0-9a-f]{2})/i)[1];
   const fill = parseInt(hex, 16) / 255;
   assert.ok(fill >= 0.72, `Glass fill is too transparent: ${fill}`);
-  for (const behind of [token("ember"), [0, 0, 0], [255, 255, 255]]) {
+  for (const behind of [token("ember"), token("espresso"), [0, 0, 0], [255, 255, 255]]) {
     const pane = composite(token("cream"), fill, behind);
     const ratio = contrast(token("charcoal"), pane);
     assert.ok(ratio >= 4.5, `Charcoal on glass over ${behind}: ${ratio}`);
@@ -124,7 +128,7 @@ test("dark mode is opted out instead of half-inverted", () => {
   assert.match(css, /@media \(forced-colors: active\)/);
   const layout = readFileSync("app/layout.tsx", "utf8");
   assert.match(layout, /colorScheme:\s*"only light"/);
-  assert.match(layout, /\(prefers-color-scheme: dark\)[^\n]*#FDF8F2/);
+  assert.match(layout, /\(prefers-color-scheme: dark\)[^\n]*#FFFBFC/);
 });
 
 test("SSR copy needs neither hydration nor decorative duplicates", () => {
