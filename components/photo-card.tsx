@@ -54,7 +54,7 @@ export function PhotoCard({
         )}
         <span
           aria-hidden="true"
-          className="absolute bottom-3 right-3 z-[2] flex h-6 w-6 items-center justify-center rounded-full bg-charcoal text-cream transition-transform duration-500 group-hover:rotate-45"
+          className="absolute bottom-3 right-3 z-[2] flex h-6 w-6 items-center justify-center rounded-full bg-cream/90 text-ember shadow-soft ring-1 ring-ember/20 transition-all duration-500 group-hover:rotate-45 group-hover:bg-ember group-hover:text-cream"
         >
           <ArrowUpRight className="h-3 w-3" />
         </span>

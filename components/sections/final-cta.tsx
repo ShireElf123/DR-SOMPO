@@ -1,6 +1,7 @@
 import { BookingLink } from "@/components/booking-link";
 import { ArrowUpRight, Phone } from "lucide-react";
 import { ParallaxImage, Reveal, WordsIn } from "@/components/ui/motion";
+import { BotanicalSprig } from "@/components/ui/botanical";
 import { practice } from "@/lib/practice";
 
 /**
@@ -30,16 +31,17 @@ export function FinalCta() {
             </div>
 
             <div className="relative px-4 pb-9 pt-5 text-center sm:px-8 sm:py-16">
-              <div className="glass mx-auto max-w-[40rem] rounded-[1.35rem] px-5 py-8 text-ink max-sm:border-0 max-sm:bg-transparent max-sm:px-1 max-sm:shadow-none sm:px-10 sm:py-14">
-                <p className="text-[10px] uppercase tracking-[0.2em] text-ink/75">
+              <div className="glass mx-auto max-w-[40rem] rounded-[1.5rem] px-5 py-8 text-ink max-sm:border-0 max-sm:bg-transparent max-sm:px-1 max-sm:shadow-none sm:px-10 sm:py-14">
+                <BotanicalSprig className="mx-auto mb-3" />
+                <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-ember">
                   New patients welcome
                 </p>
                 <h2
                   id="cta-heading"
-                  className="mx-auto mt-4 max-w-[32rem] text-[clamp(1.9rem,4.4vw,3.1rem)] leading-[1.02]"
+                  className="mx-auto mt-3.5 max-w-[32rem] text-[clamp(2rem,4.5vw,3.25rem)] leading-[1.0]"
                 >
                   <WordsIn text="Your health deserves" />{" "}
-                  <span className="text-ink/75">
+                  <span className="italic text-ember">
                     <WordsIn text="specialist attention." delay={0.2} />
                   </span>
                 </h2>

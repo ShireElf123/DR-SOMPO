@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
 import { SectionHead, SplitHero } from "@/components/page-hero";
 import { IconDisc, Panel } from "@/components/ui/plate";
+import { BotanicalSprig } from "@/components/ui/botanical";
 import {
   ParallaxImage,
   Reveal,
@@ -81,6 +82,7 @@ export default function AboutPage() {
       {/* Scroll-lit statement */}
       <section className="bg-cream pb-4 pt-12 sm:pt-16">
         <div className="shell">
+          <BotanicalSprig className="mx-auto mb-3.5" />
           <ScrollWords
             text="Having experienced difficult pregnancies herself, she brings a personal understanding to the women she cares for — alongside specialist training, research and a commitment to patient education."
             className="mx-auto max-w-[44rem] text-center text-[clamp(1.15rem,2.4vw,1.55rem)] leading-[1.4] tracking-[-0.02em]"
@@ -94,11 +96,11 @@ export default function AboutPage() {
           <div className="grid gap-9 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
             <div>
               <Reveal y={18}>
-                <blockquote className="mb-6 max-w-2xl border-l-2 border-ember/30 pl-4">
-                  <p className="text-[clamp(1.05rem,2.1vw,1.35rem)] font-light leading-[1.45] tracking-[-0.02em] text-ink">
+                <blockquote className="mb-6 max-w-2xl border-l-2 border-ember/40 pl-4">
+                  <p className="font-display text-[clamp(1.25rem,2.4vw,1.65rem)] italic leading-[1.28] tracking-[-0.015em] text-ink">
                     {brand.advocacy}
                   </p>
-                  <footer className="mt-2 text-[10px] uppercase tracking-[0.14em] text-ink-muted">
+                  <footer className="mt-2 text-[10px] uppercase tracking-[0.14em] text-ember">
                     Her practice, in her words
                   </footer>
                 </blockquote>
@@ -140,14 +142,14 @@ export default function AboutPage() {
 
             <Reveal y={26} delay={0.1}>
               <div className="relative">
-                <Panel tone="peach" className="p-2">
-                  <div className="relative aspect-[4/3] lg:aspect-[4/5] overflow-hidden rounded-[1.35rem]">
+                <Panel tone="blush" className="rounded-t-[8rem] rounded-b-[1.5rem] p-2 ring-1 ring-ember/15">
+                  <div className="relative aspect-[4/3] lg:aspect-[4/5] overflow-hidden rounded-t-[8rem] rounded-b-[1.25rem]">
                     <ParallaxImage
                       src="/images/consultation.jpg"
                       alt="Dr Sompo in consultation with a patient"
                       strength={44}
                       sizes="(max-width: 1024px) 92vw, 42vw"
-                      className="absolute inset-0 rounded-[1.35rem]"
+                      className="absolute inset-0 rounded-t-[8rem] rounded-b-[1.25rem]"
                     />
                     <div className="absolute right-3 top-3 flex flex-wrap justify-end gap-1.5">
                       {["MBChB", "FCOG (SA)", "MMed (O&G)"].map((code) => (

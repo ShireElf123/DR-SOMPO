@@ -3,6 +3,7 @@ import { FaqList } from "@/components/ui/faq-list";
 import Link from "next/link";
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import { ParallaxImage, Reveal, WordsIn } from "@/components/ui/motion";
+import { BotanicalBloom } from "@/components/ui/botanical";
 import { Panel, SignalBars } from "@/components/ui/plate";
 import { SectionHead } from "@/components/page-hero";
 import { biography, faqs, practice } from "@/lib/practice";
@@ -15,19 +16,21 @@ export function AboutTeaser() {
         <div className="grid items-center gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
           <Reveal y={26}>
             <div className="relative">
-              <div className="photo-depth relative aspect-[4/5] overflow-hidden rounded-[1.35rem] bg-peach">
-                <ParallaxImage
-                  src="/images/portrait-somp-card.jpg"
-                  alt="Portrait of Dr CM Ngwey-Sompo"
-                  strength={44}
-                  sizes="(max-width: 1024px) 92vw, 40vw"
-                  imageClassName="object-[center_16%]"
-                  className="absolute inset-0"
-                />
+              <div className="arch-frame bg-blush/80 p-2 ring-1 ring-ember/15">
+                <div className="arch-frame photo-depth relative aspect-[4/5] overflow-hidden bg-peach">
+                  <ParallaxImage
+                    src="/images/portrait-somp-card.jpg"
+                    alt="Portrait of Dr CM Ngwey-Sompo"
+                    strength={44}
+                    sizes="(max-width: 1024px) 92vw, 40vw"
+                    imageClassName="object-[center_16%]"
+                    className="absolute inset-0"
+                  />
+                </div>
               </div>
               <p className="mt-4 text-[10px] uppercase leading-relaxed tracking-[0.15em] text-ink-muted">
                 FCOG (SA) · MMed (O&amp;G) · Wits
-                <span className="mx-2 opacity-40">/</span>
+                <span className="mx-2 text-ember/60">✦</span>
                 Life Roseacres Hospital · {practice.room}
               </p>
             </div>
@@ -37,15 +40,15 @@ export function AboutTeaser() {
             <h2 id="about-teaser-heading" className="sr-only">
               Meet Dr Sompo
             </h2>
-            <p className="flex items-center gap-3 text-[10px] uppercase tracking-[0.2em] text-ink-muted">
-              <span className="h-px w-7 bg-charcoal/40" aria-hidden="true" />
+            <p className="flex items-center gap-2.5 text-[10px] uppercase tracking-[0.2em] text-ink-muted">
+              <span className="h-1.5 w-1.5 rotate-45 rounded-[1px] bg-ember" aria-hidden="true" />
               Meet Dr Sompo
             </p>
             <Reveal delay={0.06}>
-              <blockquote className="mt-5 max-w-[33rem] font-display text-[clamp(1.8rem,3.1vw,2.6rem)] italic leading-[1.08] tracking-[-0.015em] text-ink">
+              <blockquote className="mt-5 max-w-[33rem] font-display text-[clamp(1.85rem,3.2vw,2.65rem)] italic leading-[1.08] tracking-[-0.015em] text-ink">
                 “{biography[4].replace(/^Having experienced /, "Having experienced ")}”
               </blockquote>
-              <p className="mt-4 text-[10px] uppercase tracking-[0.16em] text-ink-soft">
+              <p className="mt-4 text-[10px] uppercase tracking-[0.16em] text-ember">
                 Dr CM Ngwey-Sompo
               </p>
             </Reveal>
@@ -66,7 +69,7 @@ export function AboutTeaser() {
                   {["MBChB", "FCOG (SA)", "MMed (O&G)"].map((code) => (
                     <span
                       key={code}
-                      className="rounded-full bg-cream px-2.5 py-1 text-[10px] font-medium text-ink-soft"
+                      className="rounded-full bg-blush/85 px-2.5 py-1 text-[10px] font-medium text-ink ring-1 ring-ember/15"
                     >
                       {code}
                     </span>
@@ -84,8 +87,9 @@ export function AboutTeaser() {
 /** Home page teaser for the Research & cervical health page. */
 export function ResearchTeaser() {
   return (
-    <section className="ember-gradient mt-16 text-ink sm:mt-20" aria-labelledby="research-teaser-heading">
-      <div className="shell py-12 sm:py-16 lg:py-20">
+    <section className="ember-gradient relative mt-16 overflow-hidden text-ink sm:mt-20" aria-labelledby="research-teaser-heading">
+      <BotanicalBloom className="absolute -right-6 -top-6 h-52 w-52" />
+      <div className="shell relative z-10 py-12 sm:py-16 lg:py-20">
         <Reveal y={24}>
           <div>
             <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-12">
@@ -93,10 +97,10 @@ export function ResearchTeaser() {
                 <span className="tag tag-light">Cervical health</span>
                 <h2
                   id="research-teaser-heading"
-                  className="text-[clamp(1.7rem,3.6vw,2.5rem)] leading-[1.04]"
+                  className="text-[clamp(1.85rem,3.8vw,2.7rem)] leading-[1.02]"
                 >
                   <WordsIn text="Advancing women's health through" />{" "}
-                  <span className="text-ink/70">
+                  <span className="italic text-ember">
                     <WordsIn text="research and education." delay={0.18} />
                   </span>
                 </h2>
@@ -106,7 +110,7 @@ export function ResearchTeaser() {
                 </p>
                 <SignalBars
                   values={[20, 34, 28, 46, 58, 50, 72, 64, 84]}
-                  className="mt-5 h-9 text-ink/70"
+                  className="mt-5 h-9 text-ember/75"
                 />
                 <Link href="/research" className="btn btn-light mt-6">
                   Explore the research

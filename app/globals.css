@@ -10,66 +10,53 @@
   --font-serif: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-instrument), "Times New Roman", Georgia, serif;
 
-  /* Rosewater. White and pale blush carry every large surface; a single deep
-     muted rose carries the actions and the small accents; peach stays as the
-     warm note, in frames and chips.
-
-     Two research findings set that shape. Pink is one of the *least* used
-     healthcare colours (99designs' audit of 900+ logos: blue appears in ~85% of
-     leading providers, pink sits with brown, purple and yellow at the bottom),
-     so for a women's practice it is a differentiator rather than a cliché — but
-     only if it is handled with restraint, because the same audit finds that
-     healthcare brands want to read "subdued, serious, mature". And pink reads
-     expensive when it is deep and greyed (hue 344, 37% saturation here) and
-     cheap when it is bright and pure, which is also why the pale fields stay
-     near-white rather than candy.
-
-     Contrast: cream type on the action stop 5.0:1, ink on the page 15.5:1,
-     cream on the wine depth stop 10.6:1. */
+  /* Soft Blossom & Pearl. Every surface stays luminous — warm porcelain, pearl,
+     blossom blush, rosewater silk and champagne peach — with zero heavy dark
+     blocks anywhere on the page. Primary actions carry a warm peony-rose stop
+     (#B3476C, 5.1:1 with cream type), while every band, card, ticker and footer
+     keeps deep plum-charcoal ink at 9.5:1–15.4:1 AAA contrast. */
   --color-cream: #fffcfc; /* porcelain page + card wash, 15.4:1 with ink */
-  --color-blush: #f9e2ea; /* pale rose callouts */
-  --color-petal: #f6d3de; /* the pink step between blush and rose */
-  --color-peach: #f5d2c1; /* pale peach: image backdrops, chips — the client's colour, kept */
-  --color-rose: #f2c3d0; /* dusty rose feature wash, 9.6:1 */
-  --color-apricot: #eeb9a4; /* peach feature surface, 9.1:1 */
-  --color-tangerine: #c4708a; /* hover + mid stops, 6.3:1 */
-  --color-ember: #ac5068; /* the action stop, 5.0:1 with cream type */
-  --color-ember-deep: #6b2337; /* wine depth stop: 10.6:1 with cream */
-  --color-espresso: #2a1920; /* plum-near-black for the two deep bands */
+  --color-blush: #fae4ec; /* luminous blossom bands & callouts, 13.0:1 */
+  --color-petal: #f7d4e1; /* rosewater silk step, 11.6:1 */
+  --color-peach: #f6d5c6; /* champagne peach: image backdrops, chips, 11.4:1 */
+  --color-rose: #f3c2d3; /* soft peony wash, 10.1:1 */
+  --color-apricot: #f1bfa9; /* warm nectarine surface, 9.5:1 */
+  --color-tangerine: #d4849f; /* peony hover + mid marks, 5.7:1 with charcoal */
+  --color-ember: #b3476c; /* peony-rose action stop, 5.1:1 with cream type */
+  --color-ember-deep: #7a2846; /* velvet mulberry stop: 9.3:1 with cream */
+  --color-espresso: #381c28; /* berry-plum depth token: 15.1:1 with cream */
   --color-charcoal: #2a2024;
 
-  /* Accessible text ramps. These replace ad-hoc alpha values so every body
-     colour in the build clears WCAG AA (4.5:1) on white, cream and blush. */
-  --color-ink: #2a2024; /* 15.5:1 on porcelain */
-  --color-ink-soft: #55484e; /* 8.5:1 on porcelain, 7.5:1 on blush */
-  --color-ink-muted: #635257; /* 7.0:1 on porcelain, 5.9:1 on blush, 4.9:1 on petal */
+  /* Accessible text ramps. Every body colour clears WCAG AA (4.5:1) across
+     porcelain, pearl, blush, petal and rose. */
+  --color-ink: #2a2024; /* 15.4:1 on porcelain */
+  --color-ink-soft: #56444c; /* 8.7:1 on porcelain, 7.4:1 on blush */
+  --color-ink-muted: #614953; /* 7.5:1 on porcelain, 4.9:1 on rose */
 
-  /* Four depths only, each a rose multi-layer stack: a tight contact shadow,
-     a mid diffusion and a wide, low-alpha rose ambient. Black is never used,
-     so shadows read as light through a curtain rather than soot. */
+  /* Four depths only, each a rosewater multi-layer stack: no black anywhere. */
   --shadow-soft:
-    0 1px 1px rgba(107, 35, 55, 0.06),
-    0 2px 5px -1px rgba(150, 55, 82, 0.05),
-    0 9px 20px -10px rgba(180, 70, 100, 0.16);
+    0 1px 1px rgba(122, 40, 70, 0.05),
+    0 2px 6px -1px rgba(165, 62, 98, 0.05),
+    0 10px 22px -10px rgba(186, 78, 114, 0.15);
   --shadow-layer:
-    0 -2px 4px rgba(107, 35, 55, 0.03),
-    0 -22px 60px rgba(150, 55, 82, 0.07);
+    0 -2px 4px rgba(122, 40, 70, 0.03),
+    0 -22px 60px rgba(165, 62, 98, 0.07);
   --shadow-lift:
-    0 1px 2px rgba(107, 35, 55, 0.05),
-    0 4px 9px -2px rgba(150, 55, 82, 0.05),
-    0 16px 34px -16px rgba(180, 70, 100, 0.2),
-    0 36px 64px -44px rgba(172, 80, 104, 0.22);
+    0 1px 2px rgba(122, 40, 70, 0.05),
+    0 4px 10px -2px rgba(165, 62, 98, 0.05),
+    0 16px 34px -16px rgba(186, 78, 114, 0.2),
+    0 36px 64px -44px rgba(179, 71, 108, 0.22);
   --shadow-float:
-    0 2px 5px rgba(107, 35, 55, 0.05),
-    0 8px 18px -6px rgba(150, 55, 82, 0.07),
-    0 28px 52px -26px rgba(180, 70, 100, 0.22),
-    0 60px 100px -60px rgba(172, 80, 104, 0.26);
+    0 2px 5px rgba(122, 40, 70, 0.05),
+    0 8px 18px -6px rgba(165, 62, 98, 0.07),
+    0 28px 52px -26px rgba(186, 78, 114, 0.22),
+    0 60px 100px -60px rgba(179, 71, 108, 0.25);
 
-  /* The one warm glow, shared by primary actions and floating glass. */
+  /* Peony-rose ambient glow shared by primary actions and floating glass. */
   --glow-warm:
-    0 0 0 1px rgba(172, 80, 104, 0.14),
-    0 6px 18px -6px rgba(172, 80, 104, 0.35),
-    0 18px 44px -20px rgba(172, 80, 104, 0.42);
+    0 0 0 1px rgba(179, 71, 108, 0.15),
+    0 6px 18px -6px rgba(179, 71, 108, 0.34),
+    0 18px 44px -20px rgba(179, 71, 108, 0.4);
 
   /* One easing voice across the whole site: a long, soft expo-out, plus a
      real sampled spring for hover/physical controls. The spring never applies
@@ -162,21 +149,29 @@
 
   ::placeholder { color: var(--color-ink-muted); opacity: 1; }
 
-  /* Display type: light, tightly tracked, with a hint of optical tightness at
-     large sizes. `font-synthesis: none` stops the browser faking a lighter
-     weight than the variable axis actually provides. */
+  /* Editorial display voice: Instrument Serif carries hero and section
+     headings so the page reads like a women's health atelier rather than a
+     neutral SaaS grid, while Figtree keeps card titles and body copy crisp. */
   h1,
-  h2,
-  h3 {
-    font-weight: 300;
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
     font-synthesis: none;
-    letter-spacing: -0.035em;
+    letter-spacing: -0.022em;
+    line-height: 1.02;
     text-wrap: balance;
   }
 
   h1 {
-    line-height: 0.98;
-    letter-spacing: -0.042em;
+    line-height: 0.96;
+    letter-spacing: -0.026em;
+  }
+
+  h3 {
+    font-weight: 500;
+    font-synthesis: none;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
   }
 
   p {
@@ -203,11 +198,11 @@
     }
   }
 
-  /* Sections rise over one another with big rounded shoulders — the layered
-     "stacked cards" rhythm of the reference. */
+  /* Sections rise over one another with soft rounded shoulders on warm rose
+     pearl (#fff8fa) rather than sterile white. */
   .sec {
     position: relative;
-    background: #fff;
+    background: #fff8fa;
     border-radius: 2.25rem 2.25rem 0 0;
     margin-top: -1.75rem;
     padding-block: 4rem;
@@ -218,6 +213,10 @@
     background: var(--color-blush);
   }
 
+  .arch-frame {
+    border-radius: 999px 999px 1.35rem 1.35rem;
+  }
+
   @media (min-width: 768px) {
     .sec {
       border-radius: 2.75rem 2.75rem 0 0;
@@ -225,13 +224,12 @@
     }
   }
 
-  /* Section eyebrows are set as an editorial rule + micro-caps rather than a
-     pill, so every section opens with the same typographic gesture. */
+  /* Section eyebrows open with a peony-rose petal mark + micro-caps. */
   .tag {
     display: inline-flex;
     align-items: center;
     align-self: start;
-    gap: 0.7rem;
+    gap: 0.55rem;
     margin-bottom: 0.9rem;
     color: var(--color-charcoal);
     font-size: 0.6875rem;
@@ -243,10 +241,12 @@
 
   .tag::before {
     content: "";
-    width: 1.6rem;
-    height: 1px;
-    background: currentColor;
-    opacity: 0.5;
+    width: 0.36rem;
+    height: 0.36rem;
+    border-radius: 1px;
+    transform: rotate(45deg);
+    background: var(--color-ember);
+    opacity: 0.85;
   }
 
   /* Warm glass. The fill is opaque enough that charcoal always clears AA over
@@ -358,9 +358,10 @@
   }
 
   .headline {
-    font-weight: 300;
-    letter-spacing: -0.035em;
-    line-height: 1.02;
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.022em;
+    line-height: 1;
   }
 
   /* Accessible body ramp — replaces the old low-alpha greys. */
@@ -408,11 +409,12 @@
   .border-charcoal\/8, .divide-charcoal\/8 { --surface-stroke: #2a202414; }
   .border-charcoal\/10 { --surface-stroke: #2a20241a; }
   .border-charcoal\/12 { --surface-stroke: #2a20241f; }
-  .border-ember\/8 { --surface-stroke: #ac506814; }
-  .border-ember\/10 { --surface-stroke: #ac50681a; }
-  .border-ember\/20 { --surface-stroke: #ac506833; }
+  .border-ember\/8 { --surface-stroke: #b3476c14; }
+  .border-ember\/10 { --surface-stroke: #b3476c1a; }
+  .border-ember\/15 { --surface-stroke: #b3476c26; }
+  .border-ember\/20 { --surface-stroke: #b3476c33; }
   @media (hover: hover) {
-    .hover\:border-ember\/25:hover { --surface-stroke: #ac506840; }
+    .hover\:border-ember\/25:hover { --surface-stroke: #b3476c40; }
   }
 
   /* Chromium rounds fractional border-width up to 1 CSS px even at 2×.
@@ -477,7 +479,7 @@
      the lower left, which is what keeps the surface warm rather than candy.
      Charcoal type sits on a porcelain haze at every width. */
   .sun-gradient {
-    background: linear-gradient(118deg, #f3c3d0 0%, #f7d3dc 38%, #fbe4ea 68%, #fdf1f4 100%);
+    background: linear-gradient(118deg, #f2bfd1 0%, #f8d4e1 38%, #fce7ef 68%, #fff6f9 100%);
   }
 
   /* Phone: the portrait keeps the full frame, and the copy sits on a warm
@@ -504,7 +506,7 @@
      right keeps its light and its scroll parallax. */
   @media (min-width: 640px) {
     .sun-gradient::after {
-      --hero-haze: 0.68;
+      --hero-haze: 0.7;
       content: "";
       position: absolute;
       inset: 0;
@@ -513,28 +515,22 @@
     }
   }
   @media (min-width: 1024px) {
-    .sun-gradient::after { --hero-haze: 0.58; }
+    .sun-gradient::after { --hero-haze: 0.6; }
   }
-  /* Feature wash for the research band, final call to action and footer.
-     Rose all the way: pink blended toward peach passes through a salmon
-     midpoint that reads like flesh, so the two families only ever meet as
-     neighbouring flat surfaces (a peach frame against a rose field). */
+  /* Feature wash for silk statement cards, research band and privacy section. */
   .ember-gradient {
-    background: linear-gradient(135deg, #f4c9d7 0%, #f8dae3 55%, #fcebf1 100%);
+    background: linear-gradient(135deg, #f3c1d3 0%, #f9dce7 55%, #fef1f6 100%);
   }
 
-  /* Tonal depth. The whole page used to sit above L 40, which is what made the
-     reskin read flat next to the release it replaced. Two deep warm surfaces
-     restore the value range: the announcement strip and the footer frame every
-     page, and the bento statement panel puts one deep block in the middle. All
-     three carry cream type (8.9:1 at the lightest deep stop) — no white, no
-     cool hue, no black. */
+  /* Soft Blossom & Pearl framing bands: zero dark/heavy surfaces anywhere.
+     Both the announcement ribbon and the closing footer stay in luminous
+     rosewater, peony and pearl silk, carrying crisp plum-charcoal ink. */
   .ticker-gradient {
-    background: linear-gradient(90deg, #2a1920, #4a2130 46%, #6b2337);
+    background: linear-gradient(90deg, #f6cedc, #fce8f0 50%, #f7d6ca);
   }
 
-  .ember-deep-gradient {
-    background: linear-gradient(145deg, #2a1920 0%, #3f1d29 52%, #6b2337 100%);
+  .blossom-footer {
+    background: linear-gradient(155deg, #f2bdd0 0%, #f8d5e2 46%, #fce8f0 82%, #fff6f9 100%);
   }
 
   /* Keep the existing sRGB recipes above as real fallbacks. Only the large
@@ -543,28 +539,28 @@
   @supports (background: linear-gradient(0deg in oklab, #000, #fff)) {
     .sun-gradient {
       background:
-        radial-gradient(110% 90% at 86% 2% in oklab, rgba(255, 250, 252, 0.88), transparent 46%),
-        radial-gradient(95% 85% at 100% 62% in oklab, rgba(242, 195, 208, 0.95), transparent 62%),
-        radial-gradient(80% 75% at 0% 106% in oklab, rgba(245, 210, 193, 0.95), transparent 66%),
-        linear-gradient(118deg in oklab, #f3c3d0 0%, #f7d3dc 38%, #fbe4ea 68%, #fdf1f4 100%);
+        radial-gradient(110% 90% at 86% 2% in oklab, rgba(255, 251, 253, 0.9), transparent 46%),
+        radial-gradient(95% 85% at 100% 62% in oklab, rgba(242, 191, 209, 0.96), transparent 62%),
+        radial-gradient(80% 75% at 0% 106% in oklab, rgba(246, 213, 198, 0.94), transparent 66%),
+        linear-gradient(118deg in oklab, #f2bfd1 0%, #f8d4e1 38%, #fce7ef 68%, #fff6f9 100%);
     }
     .sun-gradient::after {
       background: linear-gradient(90deg in oklab, rgba(255, 252, 252, var(--hero-haze)) min(38.5rem, 80%), transparent calc(min(38.5rem, 80%) + 12rem));
     }
     .ember-gradient {
       background:
-        radial-gradient(100% 120% at 92% 0% in oklab, rgba(255, 252, 252, 0.88), transparent 60%),
-        radial-gradient(90% 90% at 0% 100% in oklab, rgba(244, 201, 215, 0.92), transparent 64%),
-        linear-gradient(135deg in oklab, #f4c9d7 0%, #f8dae3 55%, #fcebf1 100%);
+        radial-gradient(100% 120% at 92% 0% in oklab, rgba(255, 252, 252, 0.9), transparent 60%),
+        radial-gradient(90% 90% at 0% 100% in oklab, rgba(243, 193, 211, 0.92), transparent 64%),
+        linear-gradient(135deg in oklab, #f3c1d3 0%, #f9dce7 55%, #fef1f6 100%);
     }
     .ticker-gradient {
-      background: linear-gradient(90deg in oklab, #2a1920, #4a2130 46%, #6b2337);
+      background: linear-gradient(90deg in oklab, #f6cedc, #fce8f0 50%, #f7d6ca);
     }
-    .ember-deep-gradient {
+    .blossom-footer {
       background:
-        radial-gradient(90% 80% at 8% 0% in oklab, rgba(107, 35, 55, 0.55), transparent 62%),
-        radial-gradient(85% 90% at 100% 100% in oklab, rgba(120, 55, 80, 0.45), transparent 64%),
-        linear-gradient(145deg in oklab, #2a1920 0%, #3f1d29 52%, #6b2337 100%);
+        radial-gradient(95% 85% at 12% 0% in oklab, rgba(255, 252, 252, 0.82), transparent 58%),
+        radial-gradient(85% 90% at 96% 100% in oklab, rgba(246, 213, 198, 0.85), transparent 62%),
+        linear-gradient(155deg in oklab, #f2bdd0 0%, #f8d5e2 46%, #fce8f0 82%, #fff6f9 100%);
     }
   }
 }

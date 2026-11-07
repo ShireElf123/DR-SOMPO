@@ -2,6 +2,7 @@ import Image from "@/components/ui/practice-image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal, ScrollWords } from "@/components/ui/motion";
+import { BotanicalSprig } from "@/components/ui/botanical";
 import { SectionHead } from "@/components/page-hero";
 
 type Tile = {
@@ -67,37 +68,44 @@ const tiles: Tile[] = [
 export function Services() {
   return (
     <>
-      {/* Scroll-lit statement, flanked by two plates so the block carries
-          photography rather than sitting as a bare paragraph. */}
+      {/* Scroll-lit statement, flanked by two arched sanctuary plates so the
+          block carries photography rather than sitting as a bare paragraph. */}
       <section className="bg-cream pb-12 pt-12 sm:pb-16 sm:pt-16">
         <div className="shell">
           <div className="grid items-center gap-6 lg:grid-cols-[0.62fr_1.6fr_0.62fr] lg:gap-8">
             <Reveal y={26} className="hidden lg:block">
-              <div className="photo-depth relative aspect-[3/4] overflow-hidden rounded-[1.25rem] bg-peach">
-                <Image
-                  src="/images/waiting-room.jpg"
-                  alt="The practice waiting area"
-                  fill
-                  sizes="20vw"
-                  className="object-cover"
-                />
+              <div className="arch-frame bg-blush/80 p-1.5 ring-1 ring-ember/15">
+                <div className="arch-frame photo-depth relative aspect-[3/4] overflow-hidden bg-peach">
+                  <Image
+                    src="/images/waiting-room.jpg"
+                    alt="The practice waiting area"
+                    fill
+                    sizes="20vw"
+                    className="object-cover"
+                  />
+                </div>
               </div>
             </Reveal>
 
-            <ScrollWords
-              text="A women's health advocate from adolescence to childbirth, menopause and beyond — one specialist, one standard of care, and every step explained."
-              className="mx-auto max-w-[40rem] text-center text-[clamp(1.15rem,2.4vw,1.55rem)] leading-[1.35] tracking-[-0.02em]"
-            />
+            <div>
+              <BotanicalSprig className="mx-auto mb-3.5" />
+              <ScrollWords
+                text="A women's health advocate from adolescence to childbirth, menopause and beyond — one specialist, one standard of care, and every step explained."
+                className="mx-auto max-w-[40rem] text-center text-[clamp(1.15rem,2.4vw,1.55rem)] leading-[1.38] tracking-[-0.02em]"
+              />
+            </div>
 
             <Reveal y={26} delay={0.1} className="hidden lg:block">
-              <div className="photo-depth relative aspect-[3/4] overflow-hidden rounded-[1.25rem] bg-peach">
-                <Image
-                  src="/images/screening-room.jpg"
-                  alt="A consultation room at the practice"
-                  fill
-                  sizes="20vw"
-                  className="object-cover"
-                />
+              <div className="arch-frame bg-blush/80 p-1.5 ring-1 ring-ember/15">
+                <div className="arch-frame photo-depth relative aspect-[3/4] overflow-hidden bg-peach">
+                  <Image
+                    src="/images/screening-room.jpg"
+                    alt="A consultation room at the practice"
+                    fill
+                    sizes="20vw"
+                    className="object-cover"
+                  />
+                </div>
               </div>
             </Reveal>
           </div>
@@ -110,7 +118,8 @@ export function Services() {
             <SectionHead
               id="services-heading"
               tag="What we care for"
-              title="Care for every stage of life"
+              title="Care for"
+              muted="every stage of life."
               intro="Antenatal and delivery care, contraception, fertility assessment, urogynaecological assessment, screening and surgery — one practice, one standard of care."
             />
             <div className="flex flex-wrap items-center gap-2 self-start sm:self-auto">
@@ -164,7 +173,7 @@ export function Services() {
                     />
                     <span
                       aria-hidden="true"
-                      className="absolute right-3 top-3 z-[2] flex h-6 w-6 items-center justify-center rounded-full bg-charcoal text-cream transition-transform duration-500 group-hover:rotate-45"
+                      className="absolute right-3 top-3 z-[2] flex h-6 w-6 items-center justify-center rounded-full bg-cream/90 text-ember shadow-soft ring-1 ring-ember/20 transition-all duration-500 group-hover:rotate-45 group-hover:bg-ember group-hover:text-cream"
                     >
                       <ArrowUpRight className="h-3 w-3" />
                     </span>

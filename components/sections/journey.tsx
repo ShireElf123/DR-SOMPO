@@ -9,8 +9,8 @@ export function Journey() {
     <section id="journey" className="sec" aria-labelledby="journey-heading">
       <div className="shell">
         <p className="mx-auto mb-10 max-w-[38rem] text-center text-[clamp(1.15rem,2.2vw,1.4rem)] leading-[1.35] tracking-[-0.02em] text-ink">
-          <span className="font-display text-[1.12em] italic tracking-[-0.015em]">Your path to care</span>{" "}
-          <span aria-hidden="true" className="mr-1 inline-block h-[1.05em] w-[1.05em] translate-y-[0.12em] overflow-hidden rounded-full bg-peach align-baseline ring-2 ring-cream/80">
+          <span className="font-display text-[1.18em] italic tracking-[-0.015em] text-ember">Your path to care</span>{" "}
+          <span aria-hidden="true" className="mr-1 inline-block h-[1.05em] w-[1.05em] translate-y-[0.12em] overflow-hidden rounded-full bg-peach align-baseline ring-2 ring-blush">
             <Image src="/images/consultation.jpg" alt="" width={40} height={40} className="h-full w-full object-cover" />
           </span>
           — three simple steps, from the first phone call to follow-up.
@@ -22,7 +22,7 @@ export function Journey() {
           {journey.map((step, index) => (
             <li key={step.step} className="journey-step" style={{ "--step": index } as CSSProperties}>
               {index < journey.length - 1 && <span aria-hidden="true" className="journey-connector" />}
-              <span aria-hidden="true" className="journey-number flex h-7 w-7 items-center justify-center rounded-full border border-ember/20 bg-cream font-display text-[12px] leading-none text-ink tabular-nums">
+              <span aria-hidden="true" className="journey-number flex h-7 w-7 items-center justify-center rounded-full border border-ember/25 bg-blush font-display text-[12px] italic leading-none text-ember-deep tabular-nums">
                 {step.step}
               </span>
               <div className="journey-step-reveal h-full">

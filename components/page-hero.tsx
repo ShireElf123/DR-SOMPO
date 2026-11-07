@@ -102,12 +102,12 @@ export function PageHero({
             data-hero-copy
           >
             <span className="tag self-start">{tag}</span>
-            <h1 className="max-w-[46rem] text-[clamp(2rem,5.2vw,3.9rem)] leading-[1.02]">
+            <h1 className="max-w-[46rem] text-[clamp(2.15rem,5.4vw,4.1rem)] leading-[0.98]">
               <WordsIn text={title} delay={0.15} stagger={0.03} />
               {muted && (
                 <>
                   {" "}
-                  <span className="text-ink/65">
+                  <span className="italic text-ember">
                     <WordsIn text={muted} delay={0.3} stagger={0.03} />
                   </span>
                 </>
@@ -145,12 +145,12 @@ export function SectionHead({
   return (
     <div className={cn("max-w-2xl", className)}>
       {tag && <span className="tag self-start">{tag}</span>}
-      <h2 id={id} className="text-[clamp(1.6rem,3.4vw,2.35rem)] leading-[1.06]">
+      <h2 id={id} className="text-[clamp(1.75rem,3.6vw,2.55rem)] leading-[1.03]">
         <WordsIn text={title} />
         {muted && (
           <>
             {" "}
-            <span className="font-display text-[1.06em] italic tracking-[-0.015em] text-ink/85">
+            <span className="italic text-ember">
               <WordsIn text={muted} delay={0.15} />
             </span>
           </>
@@ -194,15 +194,15 @@ export function SplitHero({
   return (
     <section className="px-3 pt-3 sm:px-4 sm:pt-4">
       <div className="mx-auto w-full max-w-[1180px]">
-        <div className="grid gap-2.5 rounded-[1.4rem] bg-blush p-2.5 shadow-soft sm:rounded-[1.75rem] sm:p-3 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch">
+        <div className="grid gap-2.5 rounded-[1.5rem] bg-blush p-2.5 shadow-soft sm:rounded-[1.75rem] sm:p-3.5 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch">
           <div className="order-2 flex flex-col justify-center px-3 pb-6 pt-4 sm:px-6 sm:pb-8 lg:order-1 lg:px-8 lg:py-10">
             <span className="tag self-start">{tag}</span>
-            <h1 className="text-[clamp(2rem,5vw,3.6rem)] leading-[1.02]">
+            <h1 className="text-[clamp(2.15rem,5.2vw,3.85rem)] leading-[0.98]">
               <WordsIn text={title} delay={0.1} stagger={0.04} />
               {muted && (
                 <>
                   {" "}
-                  <span className="text-ink-soft">
+                  <span className="italic text-ember">
                     <WordsIn text={muted} delay={0.2} stagger={0.04} />
                   </span>
                 </>
@@ -218,7 +218,7 @@ export function SplitHero({
                 {chips.map((chip) => (
                   <span
                     key={chip}
-                    className="rounded-full bg-cream px-2.5 py-1 text-[10px] font-medium text-ink border-hairline border-charcoal/8"
+                    className="rounded-full bg-cream px-2.5 py-1 text-[10px] font-medium text-ink border-hairline border-ember/15"
                   >
                     {chip}
                   </span>
@@ -228,16 +228,18 @@ export function SplitHero({
             {footer && <div className="mt-6">{footer}</div>}
           </div>
 
-          <div className="photo-depth relative order-1 overflow-hidden rounded-[1.1rem] bg-peach lg:order-2 lg:rounded-[1.35rem]">
-            <div className="relative aspect-[4/5] w-full">
-              <Image
-                src={image}
-                alt={alt}
-                fill
-                priority
-                sizes="(max-width: 1024px) 96vw, 560px"
-                className="object-cover object-[center_18%]"
-              />
+          <div className="order-1 rounded-t-[8rem] rounded-b-[1.35rem] bg-cream/65 p-1.5 ring-1 ring-ember/15 sm:rounded-t-[11rem] lg:order-2">
+            <div className="photo-depth relative overflow-hidden rounded-t-[8rem] rounded-b-[1.15rem] bg-peach sm:rounded-t-[11rem]">
+              <div className="relative aspect-[4/5] w-full">
+                <Image
+                  src={image}
+                  alt={alt}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 96vw, 560px"
+                  className="object-cover object-[center_18%]"
+                />
+              </div>
             </div>
           </div>
         </div>

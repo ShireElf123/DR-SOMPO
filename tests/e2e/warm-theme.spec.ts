@@ -29,12 +29,12 @@ test("the warm palette replaces the old forest tokens end to end", async ({ page
     };
   });
   expect(tokens.forest).toBe("");
-  expect(tokens.ember).toBe("#ac5068");
+  expect(tokens.ember).toBe("#b3476c");
   expect(tokens.cream).toBe("#fffcfc");
   expect(tokens.body).toBe(CREAM);
 });
 
-test("depth is warm, bounded and always carries cream type", async ({ page }) => {
+test("every section and framing band stays luminous, warm and carries plum-charcoal ink", async ({ page }) => {
   await page.goto("/", { waitUntil: "networkidle" });
   const panels = await page.evaluate(() => {
     const luminance = (rgb: number[]) => {
@@ -71,17 +71,17 @@ test("depth is warm, bounded and always carries cream type", async ({ page }) =>
   const deep = panels.filter((panel) => panel.painted && panel.luminance < 0.35);
   for (const panel of panels) {
     if (panel.painted) expect(panel.warm, `cool surface painted ${panel.background}`).toBe(true);
-    // Nothing paints white type behind a gradient wash.
     expect(panel.type).not.toBe("rgb(255, 255, 255)");
   }
-  // Exactly one section-level surface is allowed to go deep on a page; everything
-  // else stays light so the depth reads as an ending, not as a theme.
-  expect(deep.length, `deep sections: ${deep.map((panel) => panel.background).join(", ")}`).toBe(1);
+  // Soft Blossom & Pearl: zero dark/heavy section or footer blocks anywhere.
+  expect(deep.length, `deep sections: ${deep.map((panel) => panel.background).join(", ")}`).toBe(0);
 
   const footer = await page.evaluate(() => {
     const element = document.querySelector("footer")!;
     const ink = getComputedStyle(element).color;
     const surface = getComputedStyle(element).backgroundImage;
+    const h1Font = getComputedStyle(document.querySelector("h1")!).fontFamily;
+    const h2Font = getComputedStyle(document.querySelector("h2")!).fontFamily;
     const rgb = (ink.match(/\d+/g) ?? []).map(Number);
     const luminance = (values: number[]) =>
       values
@@ -91,19 +91,17 @@ test("depth is warm, bounded and always carries cream type", async ({ page }) =>
           return channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4;
         })
         .reduce((sum, channel, index) => sum + channel * [0.2126, 0.7152, 0.0722][index], 0);
-    return { surface, ink, inkLuminance: luminance(rgb) };
+    return { surface, ink, inkLuminance: luminance(rgb), h1Font, h2Font };
   });
   expect(footer.surface).toContain("linear-gradient");
-  // Cream, not charcoal, and light enough to clear AA on espresso (#2a1813).
-  expect(footer.inkLuminance).toBeGreaterThan(0.8);
+  expect(footer.inkLuminance).toBeLessThan(0.05);
+  expect(footer.h1Font.toLowerCase()).toContain("instrument");
+  expect(footer.h2Font.toLowerCase()).toContain("instrument");
 });
 
-test("the deep bands keep their type at AA when checked as painted pixels", async ({ page }) => {
+test("the blossom framing bands keep their type at AA when checked as painted pixels", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto("/", { waitUntil: "networkidle" });
-  // Measure the text-dense bands, not the whole footer: the oversized wordmark
-  // is a cream gradient across the full width and would dominate the modal
-  // pixel, reporting a contrast the reader never sees.
   const bands = [
     { name: "footer", selector: "footer .shell", ink: "footer .shell" },
     { name: "ticker", selector: ".ticker-gradient", ink: ".ticker-gradient .marquee-track" },
@@ -137,16 +135,9 @@ test("the deep bands keep their type at AA when checked as painted pixels", asyn
         });
         return 0.2126 * r + 0.7152 * g + 0.0722 * b;
       };
-      // Glyphs are the minority, so the mode is the band. Light fills inside the
-      // band (the cream booking pill, the wordmark) are surfaces in their own
-      // right and carry their own dark ink, so they are excluded from the band
-      // surface — otherwise the cream pill matches the cream type and reports 1:1.
       const ranked = [...counts.entries()].sort((a, b) => b[1] - a[1]);
-      const dark = ranked.filter(([key]) => luminance(key.split(",").map(Number)) < 0.5);
-      if (dark.length === 0) {
-        return 1; // nothing deep left: the band is no longer a deep band
-      }
-      const surface = dark[0][0];
+      const light = ranked.filter(([key]) => luminance(key.split(",").map(Number)) > 0.5);
+      const surface = (light[0] ?? ranked[0])[0];
       const ratio = (a: number, b: number) => (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
       return ratio(luminance((ink.match(/\d+/g) ?? []).map(Number)), luminance(surface.split(",").map(Number)));
     }, {

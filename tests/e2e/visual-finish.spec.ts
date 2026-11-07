@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-const gradients = [".sun-gradient", ".ember-gradient", ".ticker-gradient"];
+const gradients = [".sun-gradient", ".ember-gradient", ".ticker-gradient", ".blossom-footer"];
 
 test("large colour washes opt into OKLab and retain working sRGB fallbacks", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });

@@ -111,15 +111,15 @@ export function Hero() {
           >
             <span
               data-hero-arrival="label"
-              className="hero-copy-arrival hero-label mb-6 flex items-center gap-3 text-[10px] uppercase tracking-[0.16em] text-ink-muted"
+              className="hero-copy-arrival hero-label mb-6 flex items-center gap-2.5 text-[10px] uppercase tracking-[0.16em] text-ink-muted"
             >
-              <span className="h-px w-8 bg-ember" aria-hidden="true" />
+              <span className="h-1.5 w-1.5 rotate-45 rounded-[1px] bg-ember" aria-hidden="true" />
               Consulting at Life Roseacres Hospital
             </span>
 
-            <h1 data-hero-arrival="headline" className="hero-copy-arrival hero-headline text-[clamp(2.4rem,6.4vw,4.9rem)] font-light leading-[0.98] tracking-[-0.035em]">
+            <h1 data-hero-arrival="headline" className="hero-copy-arrival hero-headline text-[clamp(2.55rem,6.6vw,5.1rem)] leading-[0.95] tracking-[-0.025em]">
               <span className="block">{"Women's Health."}</span>
-              <span className="block font-display text-[1.12em] italic leading-[0.9] tracking-[-0.015em]">
+              <span className="block text-[1.06em] italic leading-[0.92] tracking-[-0.015em] text-ember">
                 Every Stage.
               </span>
               <span className="block">Every Journey.</span>
@@ -134,11 +134,11 @@ export function Hero() {
 
             <div
               data-hero-arrival="credentials"
-              className="hero-copy-arrival hero-credentials mt-5 flex flex-wrap sm:mt-7 items-center gap-x-3 gap-y-1.5 text-[10px] uppercase tracking-[0.16em] text-ink"
+              className="hero-copy-arrival hero-credentials mt-5 flex flex-wrap sm:mt-7 items-center gap-x-2.5 gap-y-1.5 text-[10px] uppercase tracking-[0.16em] text-ink"
             >
               {["MBChB", "FCOG (SA)", "MMed (O&G) Wits"].map((item, i) => (
-                <span key={item} className="flex items-center gap-3">
-                  {i > 0 && <span className="h-3 w-px bg-charcoal/25" aria-hidden="true" />}
+                <span key={item} className="flex items-center gap-2.5">
+                  {i > 0 && <span className="text-[8px] text-ember/75" aria-hidden="true">✦</span>}
                   {item}
                 </span>
               ))}
@@ -175,7 +175,8 @@ export function Hero() {
           </span>
 
           {/* Rotating glass pill */}
-          <span className="glass pointer-events-none absolute right-[27%] top-8 z-20 hidden rounded-full px-4 py-2 text-[11px] font-medium text-ink lg:block">
+          <span className="glass pointer-events-none absolute right-[27%] top-8 z-20 hidden items-center gap-2 rounded-full px-4 py-2 text-[11px] font-medium text-ink lg:inline-flex">
+            <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-ember" />
             <span key={pill} className={pill === 0 ? "block" : "hero-pill-label block"}>
               {rotating[pill]}
             </span>

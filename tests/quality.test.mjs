@@ -56,9 +56,9 @@ test("CSS stays within the existing small budget", () => {
   assert.ok(home.css.gzip <= 16 * 1024, `CSS: ${home.css.gzip} B gzipped`);
 });
 
-test("resting light text meets AA on white, cream and blush", () => {
+test("resting light text meets AA on white, cream, blush, petal and rose", () => {
   const foreground = rgb(restingColor("light"));
-  for (const background of [[255, 255, 255], token("cream"), token("blush")]) {
+  for (const background of [[255, 255, 255], token("cream"), token("blush"), token("petal"), token("rose")]) {
     assert.ok(contrast(foreground, background) >= 4.5, `Resting contrast: ${contrast(foreground, background)}`);
   }
 });
@@ -74,27 +74,31 @@ test("charcoal clears AA on every light surface, and cream clears AA on action a
   }
 });
 
-test("the rosewater ramp keeps light fields above the #AC5068 action stop and removes forest tokens", () => {
-  assert.equal(css.match(/--color-ember:\s*(#[0-9a-f]{6})/i)[1].toLowerCase(), "#ac5068");
+test("the blossom & pearl ramp keeps light fields above the #B3476C peony stop and removes forest tokens", () => {
+  assert.equal(css.match(/--color-ember:\s*(#[0-9a-f]{6})/i)[1].toLowerCase(), "#b3476c");
   const light = ["cream", "blush", "petal", "peach", "rose", "apricot", "tangerine"];
   const actionFloor = luminance(token("ember"));
   for (const name of light) {
-    assert.ok(luminance(token(name)) > actionFloor, `${name} should stay lighter than the #AC5068 action stop`);
+    assert.ok(luminance(token(name)) > actionFloor, `${name} should stay lighter than the #B3476C action stop`);
   }
   for (const name of ["ember-deep", "espresso", "charcoal", "ink", "ink-soft", "ink-muted"]) {
-    assert.ok(luminance(token(name)) < actionFloor, `${name} should sit below the #AC5068 action stop`);
+    assert.ok(luminance(token(name)) < actionFloor, `${name} should sit below the #B3476C action stop`);
   }
   assert.doesNotMatch(css, /--color-(forest|sage|mint|ivory|lime|fern|clay|sand|mist)\b/);
 });
 
-test("footer uses the bounded plum depth ramp with cream type while light washes keep ink type", () => {
+test("blossom footer, ticker and bento silk panels stay light with ink type and zero dark bands", () => {
   const footer = readFileSync("components/footer.tsx", "utf8");
-  assert.match(footer, /ember-deep-gradient/);
-  assert.match(footer, /text-cream/);
-  assert.doesNotMatch(footer, /bg-(charcoal|black|ember|forest)\b/);
-  assert.doesNotMatch(footer, /text-white/);
-  // Light rose washes (.ember-gradient) keep ink/charcoal type, never white or cream.
+  assert.match(footer, /blossom-footer/);
+  assert.match(footer, /text-ink/);
+  assert.doesNotMatch(footer, /ember-deep-gradient/);
+  assert.doesNotMatch(footer, /bg-(charcoal|black|ember|forest|espresso)\b/);
+  assert.doesNotMatch(footer, /text-(white|cream)\b/);
+  const ticker = readFileSync("components/ticker.tsx", "utf8");
+  assert.match(ticker, /text-ink/);
+  assert.doesNotMatch(ticker, /text-(white|cream)\b/);
   const bento = readFileSync("components/sections/bento.tsx", "utf8");
+  assert.doesNotMatch(bento, /ember-deep-gradient/);
   for (const block of bento.match(/className="[^"]*\bember-gradient\b[^"]*"/g) ?? []) {
     assert.doesNotMatch(block, /text-(white|cream)\b/);
   }

@@ -6,6 +6,7 @@ import { ArrowUpRight, Phone, ShieldCheck } from "lucide-react";
 import { PageHero, SectionHead } from "@/components/page-hero";
 import Image from "@/components/ui/practice-image";
 import { Plate } from "@/components/ui/plate";
+import { BotanicalBloom } from "@/components/ui/botanical";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/motion";
 import { Faqs } from "@/components/sections/faqs";
 import { journey, practice } from "@/lib/practice";
@@ -74,7 +75,7 @@ export default function PatientInfoPage() {
                       sizes="(max-width: 640px) 92vw, 30vw"
                       className="object-cover object-[center_18%] transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
                     />
-                    <span className="absolute left-3 top-3 grid h-7 w-7 place-items-center rounded-full bg-cream text-[10px] font-medium text-ink">
+                    <span className="absolute left-3 top-3 grid h-7 w-7 place-items-center rounded-full bg-cream font-display text-[11px] italic text-ember ring-1 ring-ember/20">
                       {step.step}
                     </span>
                   </div>
@@ -123,18 +124,11 @@ export default function PatientInfoPage() {
       </section>
 
       {/* Privacy */}
-      <section id="privacy" className="ember-gradient mt-16 overflow-hidden text-ink sm:mt-20">
-        <div className="shell">
+      <section id="privacy" className="ember-gradient relative mt-16 overflow-hidden text-ink sm:mt-20">
+        <BotanicalBloom className="absolute -right-6 -top-6 h-52 w-52" />
+        <div className="shell relative z-10">
           <Reveal>
             <div className="relative py-14 sm:py-20">
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full border border-charcoal/15"
-              />
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full border border-charcoal/10"
-              />
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div className="max-w-xl">
                   <span className="tag tag-light">Privacy</span>
