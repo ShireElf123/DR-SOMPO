@@ -14,7 +14,7 @@ import AxeBuilder from "@axe-core/playwright";
  * type, always AA.
  */
 
-const CREAM = "rgb(255, 251, 252)";
+const CREAM = "rgb(255, 252, 252)";
 
 test("the warm palette replaces the old forest tokens end to end", async ({ page }) => {
   await page.goto("/", { waitUntil: "networkidle" });
@@ -29,8 +29,8 @@ test("the warm palette replaces the old forest tokens end to end", async ({ page
     };
   });
   expect(tokens.forest).toBe("");
-  expect(tokens.ember).toBe("#e8678c");
-  expect(tokens.cream).toBe("#fffbfc");
+  expect(tokens.ember).toBe("#ac5068");
+  expect(tokens.cream).toBe("#fffcfc");
   expect(tokens.body).toBe(CREAM);
 });
 
@@ -226,7 +226,7 @@ test("keyboard focus is visible on warm surfaces", async ({ page }) => {
   expect(focus!.text?.length).toBeGreaterThan(0);
   expect(focus!.outlineStyle).not.toBe("none");
   expect(parseFloat(focus!.outlineWidth)).toBeGreaterThanOrEqual(2);
-  expect(focus!.outlineColor).toBe("rgb(43, 31, 36)");
+  expect(focus!.outlineColor).toBe("rgb(42, 32, 36)");
 });
 
 test("reduced motion removes the springs instead of slowing them", async ({ page }) => {
@@ -285,9 +285,9 @@ for (const width of [320, 390]) {
     expect(layout.photoCoveredByCopy).toBeLessThan(0.02);
     // The copy runs on a cream wash in normal flow, with no second frosted pane.
     expect(layout.copyWash).toContain("linear-gradient");
-    expect(layout.copyWash).toContain("rgb(255, 251, 252)");
+    expect(layout.copyWash).toContain("rgb(255, 252, 252)");
     expect(layout.copyBlur).toBe("none");
-    expect(layout.supportColor).toBe("rgb(43, 31, 36)");
+    expect(layout.supportColor).toBe("rgb(42, 32, 36)");
     expect(layout.supportSize).toBeGreaterThanOrEqual(14);
   });
 }

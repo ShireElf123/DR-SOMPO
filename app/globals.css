@@ -10,56 +10,66 @@
   --font-serif: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-instrument), "Times New Roman", Georgia, serif;
 
-  /* Rosewater palette. Pink and white carry the page; peach survives as the
-     warm accent because the practice asked for it, and it is the one hue that
-     still links the site to the photography. The ramp is the same lightness
-     structure as the warm release it replaces (every step within ~2 L*), so
-     the contrast evidence for type and actions carries over: charcoal on the
-     action stop is 5.1:1, cream on the deep wine stop is 10.6:1. */
-  --color-cream: #fffbfc; /* porcelain page + card wash, 15.4:1 with ink */
-  --color-blush: #fceaf1; /* pale rose callouts */
-  --color-petal: #f9d5e1; /* the pink step between blush and rose */
-  --color-peach: #fad8c6; /* pale peach: image backdrops, chips — the client's colour, kept */
-  --color-rose: #f3b3c6; /* dusty rose feature wash, 9.6:1 */
-  --color-apricot: #f7b49f; /* peach feature surface, 9.1:1 */
-  --color-tangerine: #f17fa2; /* hover + mid stops, 6.3:1 */
-  --color-ember: #e8678c; /* the action stop, 5.1:1 with charcoal */
-  --color-ember-deep: #6e2138; /* wine depth stop: 10.6:1 with cream */
-  --color-espresso: #2b161f; /* plum-near-black for the two deep bands */
-  --color-charcoal: #2b1f24;
+  /* Rosewater. White and pale blush carry every large surface; a single deep
+     muted rose carries the actions and the small accents; peach stays as the
+     warm note, in frames and chips.
+
+     Two research findings set that shape. Pink is one of the *least* used
+     healthcare colours (99designs' audit of 900+ logos: blue appears in ~85% of
+     leading providers, pink sits with brown, purple and yellow at the bottom),
+     so for a women's practice it is a differentiator rather than a cliché — but
+     only if it is handled with restraint, because the same audit finds that
+     healthcare brands want to read "subdued, serious, mature". And pink reads
+     expensive when it is deep and greyed (hue 344, 37% saturation here) and
+     cheap when it is bright and pure, which is also why the pale fields stay
+     near-white rather than candy.
+
+     Contrast: cream type on the action stop 5.0:1, ink on the page 15.5:1,
+     cream on the wine depth stop 10.6:1. */
+  --color-cream: #fffcfc; /* porcelain page + card wash, 15.4:1 with ink */
+  --color-blush: #f9e2ea; /* pale rose callouts */
+  --color-petal: #f6d3de; /* the pink step between blush and rose */
+  --color-peach: #f5d2c1; /* pale peach: image backdrops, chips — the client's colour, kept */
+  --color-rose: #f2c3d0; /* dusty rose feature wash, 9.6:1 */
+  --color-apricot: #eeb9a4; /* peach feature surface, 9.1:1 */
+  --color-tangerine: #c4708a; /* hover + mid stops, 6.3:1 */
+  --color-ember: #ac5068; /* the action stop, 5.0:1 with cream type */
+  --color-ember-deep: #6b2337; /* wine depth stop: 10.6:1 with cream */
+  --color-espresso: #2a1920; /* plum-near-black for the two deep bands */
+  --color-charcoal: #2a2024;
 
   /* Accessible text ramps. These replace ad-hoc alpha values so every body
      colour in the build clears WCAG AA (4.5:1) on white, cream and blush. */
-  --color-ink: #2b1f24; /* 15.4:1 on porcelain, 15.8:1 on white */
-  --color-ink-soft: #5c4a52; /* 7.6:1 on porcelain, 7.4:1 on blush */
-  --color-ink-muted: #6b5860; /* 6.5:1 on porcelain, 5.9:1 on blush */
+  --color-ink: #2a2024; /* 15.5:1 on porcelain */
+  --color-ink-soft: #55484e; /* 8.5:1 on porcelain, 7.5:1 on blush */
+  --color-ink-muted: #635257; /* 7.0:1 on porcelain, 5.9:1 on blush, 4.9:1 on petal */
 
   /* Four depths only, each a rose multi-layer stack: a tight contact shadow,
      a mid diffusion and a wide, low-alpha rose ambient. Black is never used,
      so shadows read as light through a curtain rather than soot. */
   --shadow-soft:
-    0 1px 1px rgba(110, 33, 56, 0.06),
+    0 1px 1px rgba(107, 35, 55, 0.06),
     0 2px 5px -1px rgba(150, 55, 82, 0.05),
     0 9px 20px -10px rgba(180, 70, 100, 0.16);
   --shadow-layer:
-    0 -2px 4px rgba(110, 33, 56, 0.03),
+    0 -2px 4px rgba(107, 35, 55, 0.03),
     0 -22px 60px rgba(150, 55, 82, 0.07);
   --shadow-lift:
-    0 1px 2px rgba(110, 33, 56, 0.05),
+    0 1px 2px rgba(107, 35, 55, 0.05),
     0 4px 9px -2px rgba(150, 55, 82, 0.05),
     0 16px 34px -16px rgba(180, 70, 100, 0.2),
-    0 36px 64px -44px rgba(232, 103, 140, 0.22);
+    0 36px 64px -44px rgba(172, 80, 104, 0.22);
   --shadow-float:
-    0 2px 5px rgba(110, 33, 56, 0.05),
+    0 2px 5px rgba(107, 35, 55, 0.05),
     0 8px 18px -6px rgba(150, 55, 82, 0.07),
     0 28px 52px -26px rgba(180, 70, 100, 0.22),
-    0 60px 100px -60px rgba(232, 103, 140, 0.26);
+    0 60px 100px -60px rgba(172, 80, 104, 0.26);
 
   /* The one warm glow, shared by primary actions and floating glass. */
   --glow-warm:
-    0 0 0 1px rgba(232, 103, 140, 0.14),
-    0 6px 18px -6px rgba(232, 103, 140, 0.35),
-    0 18px 44px -20px rgba(232, 103, 140, 0.42);
+    0 0 0 1px rgba(172, 80, 104, 0.14),
+    0 6px 18px -6px rgba(172, 80, 104, 0.35),
+    0 18px 44px -20px rgba(172, 80, 104, 0.42);
 
   /* One easing voice across the whole site: a long, soft expo-out, plus a
      real sampled spring for hover/physical controls. The spring never applies
@@ -243,7 +253,7 @@
      whatever photograph or gradient is behind it; without backdrop-filter the
      panel becomes solid cream instead of turning into a transparent smear. */
   .glass {
-    background: #fffbfcdd;
+    background: #fffcfcdd;
     border: 1px solid rgba(255, 255, 255, 0.6);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75), var(--shadow-soft);
     --glass-blur: blur(14px) saturate(1.2);
@@ -268,7 +278,7 @@
     align-items: center;
     gap: 0.6rem;
     background: var(--color-ember);
-    color: var(--color-charcoal);
+    color: var(--color-cream);
     padding: 0.4rem 0.4rem 0.4rem 1rem;
     border-radius: 999px;
     font-size: 0.8125rem;
@@ -287,7 +297,7 @@
   .btn i {
     width: 1.65rem;
     height: 1.65rem;
-    border: 1.5px solid rgba(38, 34, 31, 0.55);
+    border: 1.5px solid rgba(255, 252, 252, 0.7);
     border-radius: 999px;
     display: grid;
     place-items: center;
@@ -297,8 +307,8 @@
 
   .btn:hover i {
     transform: translateX(3px);
-    background: var(--color-charcoal);
-    color: var(--color-cream);
+    background: var(--color-cream);
+    color: var(--color-ember);
   }
 
   .btn-light {
@@ -308,7 +318,7 @@
   }
 
   .btn-light i {
-    border-color: rgba(38, 34, 31, 0.55);
+    border-color: rgba(42, 32, 36, 0.55);
   }
 
   .btn-light:hover i {
@@ -317,21 +327,28 @@
   }
 
   .btn-glass {
-    background: #fffbfcbd;
+    /* Sits on light surfaces, so it keeps charcoal type: only the solid rose
+       action carries cream. */
+    background: #fffcfcbd;
+    color: var(--color-charcoal);
     --glass-blur: blur(12px) saturate(1.2);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), var(--shadow-soft);
+  }
+
+  .btn-glass i {
+    border-color: rgba(42, 32, 36, 0.45);
   }
 
   /* Understated bordered pill used for secondary actions on tinted panels. */
   .btn-ghost {
     background: transparent;
     color: var(--color-charcoal);
-    border: 1px solid rgba(38, 34, 31, 0.16);
+    border: 1px solid rgba(42, 32, 36, 0.16);
     box-shadow: none;
   }
 
   .btn-ghost i {
-    border-color: rgba(38, 34, 31, 0.28);
+    border-color: rgba(42, 32, 36, 0.28);
   }
 
   .btn-ghost:hover i {
@@ -388,14 +405,14 @@
   .divide-y-hairline > :not(:last-child) { border-bottom-width: 1px; }
 
   /* Share the existing edge colours with the paint-only retina strokes. */
-  .border-charcoal\/8, .divide-charcoal\/8 { --surface-stroke: #26221f14; }
-  .border-charcoal\/10 { --surface-stroke: #26221f1a; }
-  .border-charcoal\/12 { --surface-stroke: #26221f1f; }
-  .border-ember\/8 { --surface-stroke: #e8678c14; }
-  .border-ember\/10 { --surface-stroke: #e8678c1a; }
-  .border-ember\/20 { --surface-stroke: #e8678c33; }
+  .border-charcoal\/8, .divide-charcoal\/8 { --surface-stroke: #2a202414; }
+  .border-charcoal\/10 { --surface-stroke: #2a20241a; }
+  .border-charcoal\/12 { --surface-stroke: #2a20241f; }
+  .border-ember\/8 { --surface-stroke: #ac506814; }
+  .border-ember\/10 { --surface-stroke: #ac50681a; }
+  .border-ember\/20 { --surface-stroke: #ac506833; }
   @media (hover: hover) {
-    .hover\:border-ember\/25:hover { --surface-stroke: #e8678c40; }
+    .hover\:border-ember\/25:hover { --surface-stroke: #ac506840; }
   }
 
   /* Chromium rounds fractional border-width up to 1 CSS px even at 2×.
@@ -460,7 +477,7 @@
      the lower left, which is what keeps the surface warm rather than candy.
      Charcoal type sits on a porcelain haze at every width. */
   .sun-gradient {
-    background: linear-gradient(118deg, #f4a2b8 0%, #f8c1cf 38%, #fbd9e2 68%, #fdeff3 100%);
+    background: linear-gradient(118deg, #f3c3d0 0%, #f7d3dc 38%, #fbe4ea 68%, #fdf1f4 100%);
   }
 
   /* Phone: the portrait keeps the full frame, and the copy sits on a warm
@@ -492,7 +509,7 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background: linear-gradient(90deg, rgba(255, 251, 252, var(--hero-haze)) min(38.5rem, 80%), transparent calc(min(38.5rem, 80%) + 12rem));
+      background: linear-gradient(90deg, rgba(255, 252, 252, var(--hero-haze)) min(38.5rem, 80%), transparent calc(min(38.5rem, 80%) + 12rem));
     }
   }
   @media (min-width: 1024px) {
@@ -503,7 +520,7 @@
      midpoint that reads like flesh, so the two families only ever meet as
      neighbouring flat surfaces (a peach frame against a rose field). */
   .ember-gradient {
-    background: linear-gradient(135deg, #f6a6c0 0%, #f9c4d3 55%, #fbdae5 100%);
+    background: linear-gradient(135deg, #f4c9d7 0%, #f8dae3 55%, #fcebf1 100%);
   }
 
   /* Tonal depth. The whole page used to sit above L 40, which is what made the
@@ -513,11 +530,11 @@
      three carry cream type (8.9:1 at the lightest deep stop) — no white, no
      cool hue, no black. */
   .ticker-gradient {
-    background: linear-gradient(90deg, #2b161f, #4a1f2c 46%, #6e2138);
+    background: linear-gradient(90deg, #2a1920, #4a2130 46%, #6b2337);
   }
 
   .ember-deep-gradient {
-    background: linear-gradient(145deg, #2b161f 0%, #3f1a26 52%, #6e2138 100%);
+    background: linear-gradient(145deg, #2a1920 0%, #3f1d29 52%, #6b2337 100%);
   }
 
   /* Keep the existing sRGB recipes above as real fallbacks. Only the large
@@ -527,27 +544,27 @@
     .sun-gradient {
       background:
         radial-gradient(110% 90% at 86% 2% in oklab, rgba(255, 250, 252, 0.88), transparent 46%),
-        radial-gradient(95% 85% at 100% 62% in oklab, rgba(244, 150, 178, 0.9), transparent 62%),
-        radial-gradient(80% 75% at 0% 106% in oklab, rgba(247, 180, 159, 0.9), transparent 66%),
-        linear-gradient(118deg in oklab, #f4a2b8 0%, #f8c1cf 38%, #fbd9e2 68%, #fdeff3 100%);
+        radial-gradient(95% 85% at 100% 62% in oklab, rgba(242, 195, 208, 0.95), transparent 62%),
+        radial-gradient(80% 75% at 0% 106% in oklab, rgba(245, 210, 193, 0.95), transparent 66%),
+        linear-gradient(118deg in oklab, #f3c3d0 0%, #f7d3dc 38%, #fbe4ea 68%, #fdf1f4 100%);
     }
     .sun-gradient::after {
-      background: linear-gradient(90deg in oklab, rgba(255, 251, 252, var(--hero-haze)) min(38.5rem, 80%), transparent calc(min(38.5rem, 80%) + 12rem));
+      background: linear-gradient(90deg in oklab, rgba(255, 252, 252, var(--hero-haze)) min(38.5rem, 80%), transparent calc(min(38.5rem, 80%) + 12rem));
     }
     .ember-gradient {
       background:
-        radial-gradient(100% 120% at 92% 0% in oklab, rgba(255, 251, 252, 0.88), transparent 60%),
-        radial-gradient(90% 90% at 0% 100% in oklab, rgba(250, 196, 211, 0.85), transparent 64%),
-        linear-gradient(135deg in oklab, #f6a6c0 0%, #f9c4d3 55%, #fbdae5 100%);
+        radial-gradient(100% 120% at 92% 0% in oklab, rgba(255, 252, 252, 0.88), transparent 60%),
+        radial-gradient(90% 90% at 0% 100% in oklab, rgba(244, 201, 215, 0.92), transparent 64%),
+        linear-gradient(135deg in oklab, #f4c9d7 0%, #f8dae3 55%, #fcebf1 100%);
     }
     .ticker-gradient {
-      background: linear-gradient(90deg in oklab, #2b161f, #4a1f2c 46%, #6e2138);
+      background: linear-gradient(90deg in oklab, #2a1920, #4a2130 46%, #6b2337);
     }
     .ember-deep-gradient {
       background:
-        radial-gradient(90% 80% at 8% 0% in oklab, rgba(110, 33, 56, 0.55), transparent 62%),
+        radial-gradient(90% 80% at 8% 0% in oklab, rgba(107, 35, 55, 0.55), transparent 62%),
         radial-gradient(85% 90% at 100% 100% in oklab, rgba(120, 55, 80, 0.45), transparent 64%),
-        linear-gradient(145deg in oklab, #2b161f 0%, #3f1a26 52%, #6e2138 100%);
+        linear-gradient(145deg in oklab, #2a1920 0%, #3f1d29 52%, #6b2337 100%);
     }
   }
 }
@@ -600,7 +617,7 @@
   left: 0;
   width: 1px;
 }
-.stages-list::before { background: rgba(38, 34, 31, 0.16); }
+.stages-list::before { background: rgba(42, 32, 36, 0.16); }
 .stages-list::after {
   background: var(--color-ember);
   transform-origin: 0 0;
@@ -611,7 +628,7 @@
   grid-template-columns: 3.25rem 1fr;
   gap: 1.25rem;
   padding-block: 1.7rem;
-  border-top: 1px solid rgba(38, 34, 31, 0.12);
+  border-top: 1px solid rgba(42, 32, 36, 0.12);
 }
 .stage-row:first-child { border-top: 0; padding-top: 0; }
 @supports (animation-timeline: view()) {
@@ -835,7 +852,7 @@ html.lenis body {
    there is room to keep the wash clear of the portrait. */
 @media (max-width: 1023.98px) {
   .hero-copy-plate {
-    background: linear-gradient(180deg, rgba(255, 251, 252, 0.6), var(--color-cream) 14%);
+    background: linear-gradient(180deg, rgba(255, 252, 252, 0.6), var(--color-cream) 14%);
   }
 }
 
@@ -843,11 +860,11 @@ html.lenis body {
   .hero-copy-plate {
     background: linear-gradient(
       90deg,
-      rgba(255, 251, 252, 0.97) 0%,
-      rgba(255, 251, 252, 0.94) 58%,
-      rgba(255, 251, 252, 0.78) 80%,
-      rgba(255, 251, 252, 0.3) 94%,
-      rgba(255, 251, 252, 0) 100%
+      rgba(255, 252, 252, 0.97) 0%,
+      rgba(255, 252, 252, 0.94) 58%,
+      rgba(255, 252, 252, 0.78) 80%,
+      rgba(255, 252, 252, 0.3) 94%,
+      rgba(255, 252, 252, 0) 100%
     );
   }
 }

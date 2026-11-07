@@ -101,7 +101,7 @@ export default function CursorCompanion() {
           "absolute left-0 top-0 flex items-center justify-center rounded-full border text-[10px] font-medium uppercase tracking-[0.16em] transition-[width,height,background-color,border-color,opacity] duration-300 ease-out",
           visible ? "opacity-100" : "opacity-0",
           label
-            ? "h-16 w-16 border-transparent bg-ember text-ink"
+            ? "h-16 w-16 border-transparent bg-ember text-cream"
             : active
               ? "h-10 w-10 border-ember/45 bg-ember/8"
               : "h-7 w-7 border-ember/30 bg-transparent",

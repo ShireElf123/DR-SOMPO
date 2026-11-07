@@ -50,7 +50,7 @@ export function StickyActions() {
                 Call
               </a>
               <BookingLink
-                className="flex flex-[1.4] items-center justify-center gap-2 rounded-full bg-ember py-3 text-[12px] font-semibold text-ink"
+                className="flex flex-[1.4] items-center justify-center gap-2 rounded-full bg-ember py-3 text-[12px] font-semibold text-cream"
               >
                 Book
                 <span className="sr-only">an appointment</span>

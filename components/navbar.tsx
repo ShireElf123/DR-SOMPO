@@ -194,7 +194,7 @@ export function Navbar() {
               <a
                 href={practice.phoneHref}
                 aria-label={`Call the practice on ${practice.phone}`}
-                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-ember text-ink shadow-soft lg:hidden"
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-ember text-cream shadow-soft lg:hidden"
               >
                 <Phone className="h-3.5 w-3.5" aria-hidden="true" />
               </a>

@@ -67,7 +67,7 @@ export default async function ContactPage({
                         href={practice.phoneHref}
                         className="group flex items-center gap-3 rounded-xl bg-cream/70 p-3 transition-colors hover:bg-cream"
                       >
-                        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-ember text-ink">
+                        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-ember text-cream">
                           <Phone className="h-3.5 w-3.5" aria-hidden="true" />
                         </span>
                         <span>

@@ -381,7 +381,7 @@ export function EnquiryForm({
                   className={cn(
                     "relative flex min-w-[3.1rem] shrink-0 flex-col items-center rounded-xl border px-2 py-2 transition-colors duration-300",
                     selected
-                      ? "border-ember bg-ember text-ink"
+                      ? "border-ember bg-ember text-cream"
                       : "border-charcoal/12 text-ink-soft hover:border-ember/40 hover:text-ink",
                   )}
                 >
@@ -447,7 +447,7 @@ export function EnquiryForm({
                   className={cn(
                     "min-h-12 rounded-xl border px-2.5 py-2 text-left transition-colors duration-300",
                     selected
-                      ? "border-ember bg-ember text-ink"
+                      ? "border-ember bg-ember text-cream"
                       : "border-charcoal/12 text-ink-soft hover:border-ember/40 hover:text-ink",
                   )}
                 >
@@ -546,7 +546,7 @@ export function EnquiryForm({
                       ? "cursor-pointer"
                       : "cursor-not-allowed border-dashed",
                     selected
-                      ? "border-ember bg-ember text-ink"
+                      ? "border-ember bg-ember text-cream"
                       : "border-ember/20 text-ink-soft",
                   )}
                 >
