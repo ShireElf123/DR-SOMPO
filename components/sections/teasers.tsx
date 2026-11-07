@@ -71,55 +71,51 @@ export function ResearchTeaser() {
     <section className="ember-gradient relative mt-16 overflow-hidden text-ink sm:mt-20" aria-labelledby="research-teaser-heading">
       <BotanicalBloom className="absolute -right-6 -top-6 h-52 w-52" />
       <div className="shell relative z-10 py-12 sm:py-16 lg:py-20">
-        <Reveal y={24}>
-          <div>
-            <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-12">
-              <div className="lg:pr-4">
-                <span className="tag tag-light">Cervical health</span>
-                <h2
-                  id="research-teaser-heading"
-                  className="text-[clamp(1.85rem,3.8vw,2.7rem)] leading-[1.02]"
-                >
-                  <WordsIn text="Advancing women's health through" />{" "}
-                  <span className="italic text-ember">
-                    <WordsIn text="research and education." delay={0.18} />
-                  </span>
-                </h2>
-                <p className="mt-4 max-w-md text-[13px] leading-relaxed text-ink">
-                  A Master of Medicine study on margin status after LLETZ in women
-                  living with HIV, presented at SASOG 2025, FIGO 2025 and in Dubai.
-                </p>
-                <SignalBars
-                  values={[20, 34, 28, 46, 58, 50, 72, 64, 84]}
-                  className="mt-5 h-9 text-ember/75"
-                />
-                <Link href="/research" className="btn btn-light mt-6">
-                  Explore the research
-                  <i aria-hidden="true">
-                    <ArrowUpRight className="h-3 w-3" />
-                  </i>
-                </Link>
-              </div>
-              <div className="photo-depth relative min-h-[16rem] overflow-hidden rounded-[1.5rem] bg-peach sm:min-h-[20rem] lg:min-h-[24rem]">
-                <ParallaxImage
-                  src="/images/cervical-research.jpg"
-                  alt="Laboratory microscope and research folders"
-                  strength={38}
-                  sizes="(max-width: 1024px) 92vw, 46vw"
-                  className="absolute inset-0"
-                />
-                <div className="absolute inset-x-4 bottom-4 z-[2] flex items-end justify-between gap-3">
-                  <p className="glass max-w-[16rem] rounded-lg px-2.5 py-1.5 text-[10px] leading-relaxed text-ink">
-                    LLETZ margin status · Wits MMed · 2025
-                  </p>
-                  <span className="glass rounded-full px-2.5 py-1 text-[10px] font-medium text-ink">
-                    Research
-                  </span>
-                </div>
-              </div>
+        <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-12">
+          <div className="lg:pr-4">
+            <span className="tag tag-light">Cervical health</span>
+            <h2
+              id="research-teaser-heading"
+              className="text-[clamp(1.85rem,3.8vw,2.7rem)] leading-[1.02]"
+            >
+              <WordsIn text="Advancing women's health through" />{" "}
+              <span className="italic text-ember">
+                <WordsIn text="research and education." delay={0.18} />
+              </span>
+            </h2>
+            <p className="mt-4 max-w-md text-[13px] leading-relaxed text-ink">
+              A Master of Medicine study on margin status after LLETZ in women
+              living with HIV, presented at SASOG 2025, FIGO 2025 and in Dubai.
+            </p>
+            <SignalBars
+              values={[20, 34, 28, 46, 58, 50, 72, 64, 84]}
+              className="mt-5 h-9 text-ember/75"
+            />
+            <Link href="/research" className="btn btn-light mt-6">
+              Explore the research
+              <i aria-hidden="true">
+                <ArrowUpRight className="h-3 w-3" />
+              </i>
+            </Link>
+          </div>
+          <div className="photo-depth relative min-h-[16rem] overflow-hidden rounded-[1.5rem] bg-peach sm:min-h-[20rem] lg:min-h-[24rem]">
+            <ParallaxImage
+              src="/images/cervical-research.jpg"
+              alt="Laboratory microscope and research folders"
+              strength={38}
+              sizes="(max-width: 1024px) 92vw, 46vw"
+              className="absolute inset-0"
+            />
+            <div className="absolute inset-x-4 bottom-4 z-[2] flex items-end justify-between gap-3">
+              <p className="glass max-w-[16rem] rounded-lg px-2.5 py-1.5 text-[10px] leading-relaxed text-ink">
+                LLETZ margin status · Wits MMed · 2025
+              </p>
+              <span className="glass rounded-full px-2.5 py-1 text-[10px] font-medium text-ink">
+                Research
+              </span>
             </div>
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );

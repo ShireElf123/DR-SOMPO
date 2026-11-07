@@ -29,7 +29,7 @@ const tiles: Tile[] = [
   {
     title: "Delivery",
     blurb: "Vaginal and caesarean delivery.",
-    image: "/images/corridor.jpg",
+    image: "/images/maternity-suite.jpg",
     href: "/services/delivery",
   },
   {
@@ -73,7 +73,7 @@ export function Services() {
       <section className="bg-cream pb-12 pt-12 sm:pb-16 sm:pt-16">
         <div className="shell">
           <div className="grid items-center gap-6 lg:grid-cols-[0.62fr_1.6fr_0.62fr] lg:gap-8">
-            <Reveal y={26} className="hidden lg:block">
+            <div className="hidden lg:block">
               <div className="arch-frame bg-blush/80 p-1.5 ring-1 ring-ember/15">
                 <div className="arch-frame photo-depth relative aspect-[3/4] overflow-hidden bg-peach">
                   <Image
@@ -85,7 +85,7 @@ export function Services() {
                   />
                 </div>
               </div>
-            </Reveal>
+            </div>
 
             <div>
               <BotanicalSprig className="mx-auto mb-3.5" />
@@ -95,19 +95,19 @@ export function Services() {
               />
             </div>
 
-            <Reveal y={26} delay={0.1} className="hidden lg:block">
+            <div className="hidden lg:block">
               <div className="arch-frame bg-blush/80 p-1.5 ring-1 ring-ember/15">
                 <div className="arch-frame photo-depth relative aspect-[3/4] overflow-hidden bg-peach">
                   <Image
-                    src="/images/research-desk.jpg"
-                    alt="Stethoscope and clinical notes on a consulting desk"
+                    src="/images/screening-room.jpg"
+                    alt="A consultation room at the practice"
                     fill
                     sizes="20vw"
-                    className="object-cover object-[64%_55%]"
+                    className="object-cover object-[52%_50%]"
                   />
                 </div>
               </div>
-            </Reveal>
+            </div>
           </div>
         </div>
       </section>

@@ -44,7 +44,7 @@ export default function ServicesPage() {
         muted="fertility and surgery."
         intro="One practice, one standard of care — from a first consultation through pregnancy, surgery and long-term follow-up."
         image="/images/research-desk.jpg"
-        mobileImage="/images/screening-room.jpg"
+        mobileImage="/images/specialist-desk.jpg"
         alt="Stethoscope and clinical notes on a specialist consulting desk"
       />
 

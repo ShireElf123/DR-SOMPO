@@ -23,10 +23,13 @@ const photographs = [
   "corridor.jpg",
   "fertility.jpg",
   "gynae.jpg",
+  "hero-sanctuary.jpg",
   "hospital-exterior.jpg",
+  "maternity-suite.jpg",
   "patient-quiet.jpg",
   "research-desk.jpg",
   "screening-room.jpg",
+  "specialist-desk.jpg",
   "surgery.jpg",
   "waiting-room.jpg",
 ];

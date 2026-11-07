@@ -533,8 +533,8 @@ export const serviceDetails: ServiceDetail[] = [
   },
   {
     serviceId: "delivery",
-    image: "/images/corridor.jpg",
-    imageAlt: "Quiet private hospital maternity wing corridor in warm daylight",
+    image: "/images/maternity-suite.jpg",
+    imageAlt: "Sunlit private hospital maternity suite with a newborn bassinet",
     eyebrow: "Obstetrics",
     standfirst:
       "Delivery care at Life Roseacres Hospital, with the mode of birth decided on clinical need and your preferences — and explained well before the day itself.",

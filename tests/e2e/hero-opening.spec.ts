@@ -41,7 +41,7 @@ async function observeOpening(page: Page) {
     window.heroOpeningProbe = new Promise((resolve) => {
       const sample = (now: number) => {
         const root = document.querySelector("#top");
-        const image = root?.querySelector<HTMLImageElement>('img[src*="screening-room"]');
+        const image = root?.querySelector<HTMLImageElement>('img[src*="hero-sanctuary"]');
         if (root && image && image.clientWidth) {
           start ??= now;
           // rAF can run while the first paint is still font/render-blocked.
@@ -137,7 +137,7 @@ test("cold mid-range mobile: no CLS, stationary portrait, actions available thro
   const heights = probe.frames.map((frame) => frame.image.height);
   expect(Math.max(...widths) - Math.min(...widths)).toBeLessThan(0.5);
   expect(Math.max(...heights) - Math.min(...heights)).toBeLessThan(0.5);
-  expect(probe.frames.every((frame) => frame.image.position === "52% 50%")).toBe(true);
+  expect(probe.frames.every((frame) => frame.image.position === "54% 62%")).toBe(true);
   await context.close();
 });
 

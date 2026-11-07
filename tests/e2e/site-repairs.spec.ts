@@ -371,7 +371,7 @@ for (const path of ["/", "/research", "/contact"]) {
     const hero = page.locator("main section").first();
     const selector =
       path === "/"
-        ? 'img[src*="screening-room"]'
+        ? 'img[src*="hero-sanctuary"]'
         : "picture[data-responsive-hero] img";
     await expect(hero.locator(selector)).toHaveCount(1);
     await expect(hero.locator("[data-photography-notice]")).toHaveCount(0);
@@ -386,7 +386,7 @@ for (const path of ["/", "/research", "/contact"]) {
     if (path === "/") {
       expect(
         requests.filter((name) =>
-          new URL(name).searchParams.get("url")?.endsWith("screening-room.jpg"),
+          new URL(name).searchParams.get("url")?.endsWith("hero-sanctuary.jpg"),
         ),
       ).toHaveLength(1);
     } else {

@@ -1,11 +1,14 @@
 /** All current /images assets are generated placeholders. Replace these labels
  * only when the practice supplies and approves real, licensed photography. */
 const subjects: Record<string, string> = {
+  "hero-sanctuary.jpg": "a sunlit consulting room",
+  "specialist-desk.jpg": "a stethoscope and notebook on a desk",
+  "maternity-suite.jpg": "a private maternity suite",
   "hospital-exterior.jpg": "a hospital exterior",
   "waiting-room.jpg": "a waiting room",
   "corridor.jpg": "a hospital corridor",
-  "screening-room.jpg": "a private consulting and examination room",
-  "research-desk.jpg": "a specialist consulting desk with a stethoscope and clinical notes",
+  "screening-room.jpg": "a consulting and examination room",
+  "research-desk.jpg": "a consulting desk with clinical notes",
 };
 
 export function photographyAlt(src: unknown, suppliedAlt: string): string {

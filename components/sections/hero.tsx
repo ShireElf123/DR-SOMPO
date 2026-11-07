@@ -70,12 +70,12 @@ export function Hero() {
               <div data-hero-arrival="photo"
                 className="hero-photo-arrival relative h-full w-full overflow-hidden lg:rounded-tl-[9rem]">
                 <Image
-                  src="/images/screening-room.jpg"
-                  alt="Private gynaecological consulting and examination suite"
+                  src="/images/hero-sanctuary.jpg"
+                  alt="Sunlit specialist consulting room with white coat, stethoscope and peonies"
                   fill
                   priority
                   sizes="(max-width: 1023px) 100vw, (max-width: 1279px) 46vw, 544px"
-                  className="object-cover object-[52%_50%]"
+                  className="object-cover object-[54%_62%]"
                 />
                 <div className="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-cream to-transparent lg:hidden" />
               </div>
