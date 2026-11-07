@@ -65,17 +65,28 @@ the whole build; every light surface keeps charcoal type, which is where the
    a light surface, so it needs its charcoal type back. Caught on screenshot, not
    by a test.
 
-## What this means for the photographs
+## The photographs
 
 They were white-balanced for a warm page, and that job is done — every frame is
-within ±5% of neutral in its highlights. What is left in them is real room
-colour. Against pink, eight frames sit in the orange band for 46–67% of their
-pixels: `corridor`, `hospital-exterior`, `research-desk`, `antenatal`,
-`screening-room`, `surgery`, `cervical-research`, `patient-quiet`.
+within ±5% of neutral in its highlights. What was left in them was real room
+colour: against pink, eight frames sat in the orange band for 46–67% of their
+pixels.
 
-The honest fix is to repaint those rooms in the files (blush or cream walls,
-same rooms, same people, same composition), not to grade them: a pink wash over
-a photograph is exactly the filter the client asked to have removed.
+Seven of those were repainted in the files — `corridor`, `screening-room`,
+`research-desk`, `surgery`, `patient-quiet`, `cervical-research`, `antenatal` —
+keeping the room, the people, the props and the framing, and changing only the
+wall and floor colours to blush off-white and pale oak. No CSS filter is applied
+to any photograph in the build.
+
+`hospital-exterior` is the exception and is deliberately unchanged: it is a
+golden-hour building shot, two attempts to re-grade it were refused by the
+model, and the honest fix is a re-shoot rather than a filter. It is the one warm
+image left on the site, and a building at dusk is something the eye accepts.
+
+Her portraits (`hero-doctor`, `portrait-somp-card`, `consultation`,
+`waiting-room`, `fertility`, `gynae`) are untouched: those walls were already
+cream, and editing a face to change the wall behind it is not a trade worth
+making.
 
 ## Status
 
