@@ -59,9 +59,9 @@ export default function AboutPage() {
         title="Specialist care, with"
         muted="personal understanding."
         intro={`${practice.title} · ${practice.entity}`}
-        image="/images/specialist-desk.jpg"
-        imageClassName="object-[50%_52%]"
-        alt="Physician's stethoscope, reading glasses and clinical notebook on an oak desk"
+        image="/images/chambers-table.jpg"
+        imageClassName="object-[50%_54%]"
+        alt="Sunlit specialist consultation table with linen casebooks, brass pen and blush roses"
         chips={["MBChB", "FCOG (SA)", "MMed (O&G) Wits", "English & French"]}
         footer={
           <div className="flex flex-wrap items-center gap-2.5">

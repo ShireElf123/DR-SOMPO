@@ -35,7 +35,7 @@ async function recordHomeEntrance(page: Page) {
       const sample = (time: number) => {
         const hero = document.querySelector("#top .sun-gradient");
         const image = hero && [...hero.querySelectorAll("img")].find((element) =>
-          element.src.includes("hero-sanctuary") && element.getBoundingClientRect().width > 0,
+          element.src.includes("consulting-sanctuary") && element.getBoundingClientRect().width > 0,
         );
         if (hero && image) {
           firstFrame ??= time;

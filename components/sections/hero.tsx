@@ -70,8 +70,8 @@ export function Hero() {
               <div data-hero-arrival="photo"
                 className="hero-photo-arrival relative h-full w-full overflow-hidden lg:rounded-tl-[9rem]">
                 <Image
-                  src="/images/hero-sanctuary.jpg"
-                  alt="Sunlit specialist consulting room with white coat, stethoscope and peonies"
+                  src="/images/consulting-sanctuary.jpg"
+                  alt="Sunlit specialist consulting room with white physician coat, oak desk and peonies"
                   fill
                   priority
                   sizes="(max-width: 1023px) 100vw, (max-width: 1279px) 46vw, 544px"

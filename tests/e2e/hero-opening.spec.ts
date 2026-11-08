@@ -41,7 +41,7 @@ async function observeOpening(page: Page) {
     window.heroOpeningProbe = new Promise((resolve) => {
       const sample = (now: number) => {
         const root = document.querySelector("#top");
-        const image = root?.querySelector<HTMLImageElement>('img[src*="hero-sanctuary"]');
+        const image = root?.querySelector<HTMLImageElement>('img[src*="consulting-sanctuary"]');
         if (root && image && image.clientWidth) {
           start ??= now;
           // rAF can run while the first paint is still font/render-blocked.

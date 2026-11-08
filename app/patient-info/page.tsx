@@ -68,7 +68,7 @@ export default function PatientInfoPage() {
                   <div className="relative aspect-[4/3] overflow-hidden bg-peach">
                     <Image
                       src={
-                        ["/images/waiting-room.jpg", "/images/screening-room.jpg", "/images/specialist-desk.jpg"][i % 3]
+                        ["/images/waiting-room.jpg", "/images/screening-room.jpg", "/images/chambers-table.jpg"][i % 3]
                       }
                       alt=""
                       fill

@@ -1,8 +1,8 @@
 /** All current /images assets are generated placeholders. Replace these labels
  * only when the practice supplies and approves real, licensed photography. */
 const subjects: Record<string, string> = {
-  "hero-sanctuary.jpg": "a sunlit consulting room",
-  "specialist-desk.jpg": "a stethoscope and notebook on a desk",
+  "consulting-sanctuary.jpg": "a sunlit consulting room",
+  "chambers-table.jpg": "a sunlit consultation table",
   "maternity-suite.jpg": "a private maternity suite",
   "hospital-exterior.jpg": "a hospital exterior",
   "waiting-room.jpg": "a waiting room",

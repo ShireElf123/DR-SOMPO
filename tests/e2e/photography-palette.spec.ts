@@ -20,16 +20,16 @@ import { expect, test } from "@playwright/test";
 const photographs = [
   "antenatal.jpg",
   "cervical-research.jpg",
+  "chambers-table.jpg",
+  "consulting-sanctuary.jpg",
   "corridor.jpg",
   "fertility.jpg",
   "gynae.jpg",
-  "hero-sanctuary.jpg",
   "hospital-exterior.jpg",
   "maternity-suite.jpg",
   "patient-quiet.jpg",
   "research-desk.jpg",
   "screening-room.jpg",
-  "specialist-desk.jpg",
   "surgery.jpg",
   "waiting-room.jpg",
 ];

@@ -250,7 +250,7 @@ for (const width of [320, 390]) {
     const layout = await page.evaluate(() => {
       const hero = document.querySelector("#top .sun-gradient") as HTMLElement;
       const plate = document.querySelector(".hero-copy-plate") as HTMLElement;
-      const photo = document.querySelector<HTMLImageElement>('#top img[src*="hero-sanctuary"]')!;
+      const photo = document.querySelector<HTMLImageElement>('#top img[src*="consulting-sanctuary"]')!;
       const support = document.querySelector(".hero-support") as HTMLElement;
       const p = plate.getBoundingClientRect();
       const i = photo.getBoundingClientRect();

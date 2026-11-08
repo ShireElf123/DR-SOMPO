@@ -66,11 +66,11 @@ export function BentoBand() {
             >
               <div className="photo-depth relative min-h-[15.5rem] flex-1 overflow-hidden rounded-tl-[5.5rem] rounded-tr-[1.15rem] rounded-b-[1.1rem] bg-peach">
                 <Image
-                  src="/images/specialist-desk.jpg"
-                  alt="Physician's stethoscope, reading glasses and clinical notebook on an oak desk"
+                  src="/images/chambers-table.jpg"
+                  alt="Sunlit specialist consultation table with linen casebooks, brass pen and blush roses"
                   fill
                   sizes="(max-width: 1024px) 92vw, 46vw"
-                  className="object-cover object-[50%_74%] transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
+                  className="object-cover object-[50%_68%] transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
                 />
                 <span
                   aria-hidden="true"
