@@ -51,12 +51,11 @@ function Wordmark({
       <span className="flex flex-col justify-center">
         <span
           className={cn(
-            "font-display uppercase leading-none tracking-[0.005em] text-ink",
-            compact ? "text-[15px]" : "text-[15px] sm:text-[18px]",
+            "whitespace-nowrap font-display uppercase leading-none tracking-[0.005em] text-ink",
+            compact ? "text-[15px]" : "text-[14.5px] min-[375px]:text-[15.5px] sm:text-[18px]",
           )}
         >
-          <span className="hidden sm:inline">Dr CM Ngwey-Sompo</span>
-          <span className="sm:hidden">Dr Sompo</span>
+          Dr CM Ngwey-Sompo
         </span>
         {!compact && (
           <span

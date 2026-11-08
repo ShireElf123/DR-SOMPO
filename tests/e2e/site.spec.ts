@@ -194,7 +194,7 @@ test.describe("mobile menu", () => {
     await expect(page).toHaveURL(/\/services$/);
     await expect(page.getByRole("dialog")).toHaveCount(0);
     await expectPainted(page.locator("h1"));
-    await page.locator("header").getByRole("link", { name: "Dr Sompo", exact: true }).click();
+    await page.locator("header").getByRole("link", { name: "Dr CM Ngwey-Sompo", exact: true }).click();
     await expect(page).toHaveURL(/\/$/);
     await expectPainted(page.locator("h1"));
     await expect(page.locator("body")).not.toHaveCSS("overflow", "hidden");

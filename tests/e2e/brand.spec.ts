@@ -45,14 +45,19 @@ test.describe("brand", () => {
     expect(contrast).toBeGreaterThanOrEqual(4.5);
   });
 
-  test("the phone header shortens the lockup without losing the name", async ({ page }) => {
-    await page.setViewportSize({ width: 390, height: 844 });
-    await page.goto("/", { waitUntil: "networkidle" });
-    const logo = page.locator("header a.group[href='/']");
-    await expect(logo).toHaveAccessibleName("Dr Sompo");
-    await expect(logo.locator("img")).toBeVisible();
-    // The descriptor is desktop-only; on a phone the mark and the name are enough.
-    await expect(logo.getByText("Obstetrician & Gynaecologist")).toBeHidden();
+  test("the phone header keeps the full doctor name on one line without the descriptor", async ({ page }) => {
+    for (const width of [320, 390]) {
+      await page.setViewportSize({ width, height: 844 });
+      await page.goto("/", { waitUntil: "networkidle" });
+      const logo = page.locator("header a.group[href='/']");
+      await expect(logo).toHaveAccessibleName("Dr CM Ngwey-Sompo");
+      await expect(logo.locator("img")).toBeVisible();
+      // The descriptor is desktop-only; on a phone the mark and full name sit cleanly beside the controls.
+      await expect(logo.getByText("Obstetrician & Gynaecologist")).toBeHidden();
+      const logoBox = await logo.boundingBox();
+      const callBox = await page.locator("header a[href^='tel:']").boundingBox();
+      expect(logoBox!.x + logoBox!.width).toBeLessThanOrEqual(callBox!.x - 6);
+    }
   });
 
   test("the tab icon is the mark on cream, not the old forest square", async ({ request }) => {
