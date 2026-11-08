@@ -1,0 +1,86 @@
+[
+  {
+    "route": "/",
+    "mainTextUnchanged": true,
+    "headingsUnchanged": true,
+    "structuredDataUnchanged": true,
+    "h1Count": 1
+  },
+  {
+    "route": "/services",
+    "mainTextUnchanged": true,
+    "headingsUnchanged": true,
+    "structuredDataUnchanged": true,
+    "h1Count": 1
+  },
+  {
+    "route": "/about",
+    "mainTextUnchanged": true,
+    "headingsUnchanged": true,
+    "structuredDataUnchanged": true,
+    "h1Count": 1
+  },
+  {
+    "route": "/research",
+    "mainTextUnchanged": true,
+    "headingsUnchanged": true,
+    "structuredDataUnchanged": true,
+    "h1Count": 1
+  },
+  {
+    "route": "/patient-info",
+    "mainTextUnchanged": true,
+    "headingsUnchanged": true,
+    "structuredDataUnchanged": true,
+    "h1Count": 1
+  },
+  {
+    "route": "/contact",
+    "mainTextUnchanged": true,
+    "headingsUnchanged": true,
+    "structuredDataUnchanged": true,
+    "h1Count": 1
+  },
+  {
+    "route": "/services/antenatal",
+    "mainTextUnchanged": true,
+    "headingsUnchanged": true,
+    "structuredDataUnchanged": true,
+    "h1Count": 1
+  },
+  {
+    "route": "/services/delivery",
+    "mainTextUnchanged": true,
+    "headingsUnchanged": true,
+    "structuredDataUnchanged": true,
+    "h1Count": 1
+  },
+  {
+    "route": "/services/general",
+    "mainTextUnchanged": true,
+    "headingsUnchanged": true,
+    "structuredDataUnchanged": true,
+    "h1Count": 1
+  },
+  {
+    "route": "/services/oncology",
+    "mainTextUnchanged": true,
+    "headingsUnchanged": true,
+    "structuredDataUnchanged": true,
+    "h1Count": 1
+  },
+  {
+    "route": "/services/fertility-assessment",
+    "mainTextUnchanged": true,
+    "headingsUnchanged": true,
+    "structuredDataUnchanged": true,
+    "h1Count": 1
+  },
+  {
+    "route": "/services/laparoscopy",
+    "mainTextUnchanged": true,
+    "headingsUnchanged": true,
+    "structuredDataUnchanged": true,
+    "h1Count": 1
+  }
+]

@@ -1,0 +1,267 @@
+[
+  {
+    "width": 320,
+    "results": [
+      {
+        "text": "Consulting at Life Roseacres Hospital",
+        "required": 4.5,
+        "samples": 101,
+        "minimum": 6.532974559370129
+      },
+      {
+        "text": "Women's Health.",
+        "required": 3,
+        "samples": 1317,
+        "minimum": 5.389556217240792
+      },
+      {
+        "text": "Every Stage.",
+        "required": 3,
+        "samples": 1035,
+        "minimum": 3.9252550766260565
+      },
+      {
+        "text": "Every Journey.",
+        "required": 3,
+        "samples": 1065,
+        "minimum": 5.370202681278228
+      },
+      {
+        "text": "Your health deserves specialist attention and an advocate, not just a clinician. Dr CM Ngwey-Sompo cares for women from adolescence through pregnancy, childbirth, menopause and beyond — and explains every step of it in plain language, in English or French.",
+        "required": 4.5,
+        "samples": 1920,
+        "minimum": 4.70830459846936
+      },
+      {
+        "text": "MBChB",
+        "required": 4.5,
+        "samples": 10,
+        "minimum": 6.277557037742157
+      },
+      {
+        "text": "FCOG (SA)",
+        "required": 4.5,
+        "samples": 4,
+        "minimum": 5.680926039116729
+      },
+      {
+        "text": "MMed (O&G) Wits",
+        "required": 4.5,
+        "samples": 15,
+        "minimum": 5.371001160146654
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "results": [
+      {
+        "text": "Consulting at Life Roseacres Hospital",
+        "required": 4.5,
+        "samples": 101,
+        "minimum": 6.511296147123592
+      },
+      {
+        "text": "Women's Health.",
+        "required": 3,
+        "samples": 1315,
+        "minimum": 5.254363734172866
+      },
+      {
+        "text": "Every Stage.",
+        "required": 3,
+        "samples": 1026,
+        "minimum": 4.0267644822684225
+      },
+      {
+        "text": "Every Journey.",
+        "required": 3,
+        "samples": 1042,
+        "minimum": 5.299828013640298
+      },
+      {
+        "text": "Your health deserves specialist attention and an advocate, not just a clinician. Dr CM Ngwey-Sompo cares for women from adolescence through pregnancy, childbirth, menopause and beyond — and explains every step of it in plain language, in English or French.",
+        "required": 4.5,
+        "samples": 1918,
+        "minimum": 4.780459953260871
+      },
+      {
+        "text": "MBChB",
+        "required": 4.5,
+        "samples": 11,
+        "minimum": 5.36423384182005
+      },
+      {
+        "text": "FCOG (SA)",
+        "required": 4.5,
+        "samples": 6,
+        "minimum": 5.312104403630572
+      },
+      {
+        "text": "MMed (O&G) Wits",
+        "required": 4.5,
+        "samples": 15,
+        "minimum": 5.2317874063504375
+      }
+    ]
+  },
+  {
+    "width": 640,
+    "results": [
+      {
+        "text": "Consulting at Life Roseacres Hospital",
+        "required": 4.5,
+        "samples": 101,
+        "minimum": 8.616022336143207
+      },
+      {
+        "text": "Women's Health.",
+        "required": 3,
+        "samples": 1822,
+        "minimum": 7.1486968872364045
+      },
+      {
+        "text": "Every Stage.",
+        "required": 3,
+        "samples": 1387,
+        "minimum": 6.100779996146338
+      },
+      {
+        "text": "Every Journey.",
+        "required": 3,
+        "samples": 1428,
+        "minimum": 7.183871478421821
+      },
+      {
+        "text": "Your health deserves specialist attention and an advocate, not just a clinician. Dr CM Ngwey-Sompo cares for women from adolescence through pregnancy, childbirth, menopause and beyond — and explains every step of it in plain language, in English or French.",
+        "required": 4.5,
+        "samples": 1775,
+        "minimum": 5.633988034247557
+      },
+      {
+        "text": "MBChB",
+        "required": 4.5,
+        "samples": 9,
+        "minimum": 8.137557438005409
+      },
+      {
+        "text": "FCOG (SA)",
+        "required": 4.5,
+        "samples": 6,
+        "minimum": 7.583484927736426
+      },
+      {
+        "text": "MMed (O&G) Wits",
+        "required": 4.5,
+        "samples": 15,
+        "minimum": 6.498638287805333
+      }
+    ]
+  },
+  {
+    "width": 1024,
+    "results": [
+      {
+        "text": "Consulting at Life Roseacres Hospital",
+        "required": 4.5,
+        "samples": 101,
+        "minimum": 8.135879297082196
+      },
+      {
+        "text": "Women's Health.",
+        "required": 3,
+        "samples": 5278,
+        "minimum": 4.773975108226933
+      },
+      {
+        "text": "Every Stage.",
+        "required": 3,
+        "samples": 3981,
+        "minimum": 4.714884606538501
+      },
+      {
+        "text": "Every Journey.",
+        "required": 3,
+        "samples": 4214,
+        "minimum": 5.775587328168173
+      },
+      {
+        "text": "Your health deserves specialist attention and an advocate, not just a clinician. Dr CM Ngwey-Sompo cares for women from adolescence through pregnancy, childbirth, menopause and beyond — and explains every step of it in plain language, in English or French.",
+        "required": 4.5,
+        "samples": 1776,
+        "minimum": 5.147222417853604
+      },
+      {
+        "text": "MBChB",
+        "required": 4.5,
+        "samples": 9,
+        "minimum": 7.04496813332825
+      },
+      {
+        "text": "FCOG (SA)",
+        "required": 4.5,
+        "samples": 5,
+        "minimum": 6.740581866247624
+      },
+      {
+        "text": "MMed (O&G) Wits",
+        "required": 4.5,
+        "samples": 15,
+        "minimum": 5.702352732145395
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "results": [
+      {
+        "text": "Consulting at Life Roseacres Hospital",
+        "required": 4.5,
+        "samples": 101,
+        "minimum": 8.556286250894427
+      },
+      {
+        "text": "Women's Health.",
+        "required": 3,
+        "samples": 8706,
+        "minimum": 6.756620466336971
+      },
+      {
+        "text": "Every Stage.",
+        "required": 3,
+        "samples": 6573,
+        "minimum": 4.641685570780148
+      },
+      {
+        "text": "Every Journey.",
+        "required": 3,
+        "samples": 7049,
+        "minimum": 6.848205666594966
+      },
+      {
+        "text": "Your health deserves specialist attention and an advocate, not just a clinician. Dr CM Ngwey-Sompo cares for women from adolescence through pregnancy, childbirth, menopause and beyond — and explains every step of it in plain language, in English or French.",
+        "required": 4.5,
+        "samples": 1775,
+        "minimum": 5.451594335100776
+      },
+      {
+        "text": "MBChB",
+        "required": 4.5,
+        "samples": 11,
+        "minimum": 7.3518235084643795
+      },
+      {
+        "text": "FCOG (SA)",
+        "required": 4.5,
+        "samples": 5,
+        "minimum": 7.143806207910135
+      },
+      {
+        "text": "MMed (O&G) Wits",
+        "required": 4.5,
+        "samples": 15,
+        "minimum": 6.358315957826053
+      }
+    ]
+  }
+]

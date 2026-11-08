@@ -1,0 +1,13 @@
+Node (npm test) — 2026-11-02T08:30:11Z
+# tests 32
+# pass 32
+# fail 0
+# duration_ms 975.267489
+
+Playwright — chromium, production build, CI=1
+  ✓  134 tests/e2e/site.spec.ts:80:1 › failed optional scroll download leaves native scrolling usable (3.2s)
+    test-results/hero-opening-hero-settles--a5473-iding-actions-no-preference/test-failed-1.png
+  1 failed
+  160 passed (5.1m)
+
+Known flake: hero-opening.spec.ts stability probe fails only under parallel CPU contention; passes standalone twice.

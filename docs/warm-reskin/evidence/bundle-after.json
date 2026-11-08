@@ -1,0 +1,22 @@
+{
+  "measuredAt": "2026-11-02T08:23:25.046Z",
+  "page": "/",
+  "modern": {
+    "count": 12,
+    "raw": 651637,
+    "gzip": 204773
+  },
+  "css": {
+    "raw": 89643,
+    "gzip": 16304
+  },
+  "document": {
+    "raw": 173040,
+    "gzip": 26171
+  },
+  "limits": {
+    "modern": 204800,
+    "css": 16384,
+    "document": 30720
+  }
+}

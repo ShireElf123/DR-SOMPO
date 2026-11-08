@@ -1,0 +1,175 @@
+import assert from "node:assert/strict";
+import { readFileSync, readdirSync } from "node:fs";
+import test from "node:test";
+import { analyzePage, optionalScrollChunks } from "../scripts/bundle-metrics.mjs";
+
+const home = analyzePage();
+
+function luminance(channels) {
+  return channels.map((channel) => {
+    const value = channel / 255;
+    return value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4;
+  }).reduce((sum, channel, index) => sum + channel * [0.2126, 0.7152, 0.0722][index], 0);
+}
+function contrast(a, b) {
+  const [bright, dark] = [luminance(a), luminance(b)].sort((x, y) => y - x);
+  return (bright + 0.05) / (dark + 0.05);
+}
+function rgb(hex) {
+  return hex.match(/[0-9a-f]{2}/gi).map((channel) => parseInt(channel, 16));
+}
+function composite(foreground, alpha, background) {
+  return background.map((channel, index) => foreground[index] * alpha + channel * (1 - alpha));
+}
+function restingColor(tint) {
+  const paragraph = home.html.match(new RegExp(`<p[^>]*data-scroll-words="${tint}"[^>]*>([\\s\\S]*?)<\\/p>`));
+  assert.ok(paragraph, `Missing ${tint} reading layer`);
+  return paragraph[1].match(/style="color:([^";]+)"/)[1];
+}
+
+const css = readFileSync("app/globals.css", "utf8");
+function token(name) {
+  const match = css.match(new RegExp(`--color-${name}:\\s*(#[0-9a-f]{6})`, "i"));
+  assert.ok(match, `Missing colour token ${name}`);
+  return rgb(match[1]);
+}
+
+test("initial modern home scripts stay below 200 KiB gzip", () => {
+  assert.ok(home.modern.gzip <= 200 * 1024, `Home scripts: ${home.modern.gzip} B; budget: 204800 B`);
+  assert.equal(home.total.gzip, home.modern.gzip + home.legacy.gzip);
+  assert.ok(home.legacy.count > 0, "Report the legacy-only polyfill separately");
+});
+
+test("optional scrolling is absent from initial script tags", () => {
+  const optional = optionalScrollChunks();
+  assert.equal(optional.length, 1, "Expected one separately loadable Lenis chunk");
+  assert.ok(optional[0].gzip < 8 * 1024);
+  assert.ok(!home.chunks.some((chunk) => chunk.src === optional[0].src));
+});
+
+test("HTML/RSC stays bounded too, not just the script download", () => {
+  assert.ok(home.document.gzip <= 30 * 1024, `HTML/RSC: ${home.document.gzip} B gzipped`);
+  assert.ok(home.modern.gzip + home.document.gzip <= 235 * 1024);
+});
+
+test("CSS stays within the existing small budget", () => {
+  assert.ok(home.css.gzip <= 16 * 1024, `CSS: ${home.css.gzip} B gzipped`);
+});
+
+test("resting light text meets AA on white, cream, blush, petal and rose", () => {
+  const foreground = rgb(restingColor("light"));
+  for (const background of [[255, 255, 255], token("cream"), token("blush"), token("petal"), token("rose")]) {
+    assert.ok(contrast(foreground, background) >= 4.5, `Resting contrast: ${contrast(foreground, background)}`);
+  }
+});
+
+test("charcoal clears AA on every light surface, and cream clears AA on action and depth stops", () => {
+  for (const surface of ["cream", "blush", "petal", "peach", "rose", "apricot", "tangerine"]) {
+    const ratio = contrast(token("charcoal"), token(surface));
+    assert.ok(ratio >= 4.5, `Charcoal on ${surface}: ${ratio}`);
+  }
+  for (const deep of ["ember", "ember-deep", "espresso"]) {
+    const ratio = contrast(token("cream"), token(deep));
+    assert.ok(ratio >= 4.5, `Cream on ${deep}: ${ratio}`);
+  }
+});
+
+test("the blossom & pearl ramp keeps light fields above the #B3476C peony stop and removes forest tokens", () => {
+  assert.equal(css.match(/--color-ember:\s*(#[0-9a-f]{6})/i)[1].toLowerCase(), "#b3476c");
+  const light = ["cream", "blush", "petal", "peach", "rose", "apricot", "tangerine"];
+  const actionFloor = luminance(token("ember"));
+  for (const name of light) {
+    assert.ok(luminance(token(name)) > actionFloor, `${name} should stay lighter than the #B3476C action stop`);
+  }
+  for (const name of ["ember-deep", "espresso", "charcoal", "ink", "ink-soft", "ink-muted"]) {
+    assert.ok(luminance(token(name)) < actionFloor, `${name} should sit below the #B3476C action stop`);
+  }
+  assert.doesNotMatch(css, /--color-(forest|sage|mint|ivory|lime|fern|clay|sand|mist)\b/);
+});
+
+test("blossom footer, ticker and bento silk panels stay light with ink type and zero dark bands", () => {
+  const footer = readFileSync("components/footer.tsx", "utf8");
+  assert.match(footer, /blossom-footer/);
+  assert.match(footer, /text-ink/);
+  assert.doesNotMatch(footer, /ember-deep-gradient/);
+  assert.doesNotMatch(footer, /bg-(charcoal|black|ember|forest|espresso)\b/);
+  assert.doesNotMatch(footer, /text-(white|cream)\b/);
+  const ticker = readFileSync("components/ticker.tsx", "utf8");
+  assert.match(ticker, /text-ink/);
+  assert.doesNotMatch(ticker, /text-(white|cream)\b/);
+  const bento = readFileSync("components/sections/bento.tsx", "utf8");
+  assert.doesNotMatch(bento, /ember-deep-gradient/);
+  for (const block of bento.match(/className="[^"]*\bember-gradient\b[^"]*"/g) ?? []) {
+    assert.doesNotMatch(block, /text-(white|cream)\b/);
+  }
+});
+
+test("warm glass keeps charcoal readable over the deepest surface and over photography", () => {
+  const hex = css.match(/\.glass\s*{[^}]*background:\s*#fffcfc([0-9a-f]{2})/i)[1];
+  const fill = parseInt(hex, 16) / 255;
+  assert.ok(fill >= 0.72, `Glass fill is too transparent: ${fill}`);
+  for (const behind of [token("ember"), token("espresso"), [0, 0, 0], [255, 255, 255]]) {
+    const pane = composite(token("cream"), fill, behind);
+    const ratio = contrast(token("charcoal"), pane);
+    assert.ok(ratio >= 4.5, `Charcoal on glass over ${behind}: ${ratio}`);
+  }
+  // The frost is restated outside the cascade layers, and forced colours strip it.
+  assert.match(css, /\.hero-copy-plate[\s\S]{0,120}?\{[^}]*backdrop-filter: var\(--glass-blur\)/);
+  assert.match(css, /--glass-blur: none/);
+});
+
+test("the depth system is layered and warm, never a black drop shadow", () => {
+  for (const name of ["soft", "layer", "lift", "float"]) {
+    const block = css.match(new RegExp(`--shadow-${name}:([^;]+);`))[1];
+    assert.ok((block.match(/rgba\(/g) || []).length >= 2, `${name} should be layered`);
+    assert.doesNotMatch(block, /rgba\(0,\s*0,\s*0/);
+  }
+});
+
+test("dark mode is opted out instead of half-inverted", () => {
+  assert.match(css, /color-scheme:\s*only light/);
+  assert.match(css, /input:-webkit-autofill/);
+  assert.match(css, /@media \(forced-colors: active\)/);
+  const layout = readFileSync("app/layout.tsx", "utf8");
+  assert.match(layout, /colorScheme:\s*"only light"/);
+  assert.match(layout, /\(prefers-color-scheme: dark\)[^\n]*#FFFBFC/);
+});
+
+test("SSR copy needs neither hydration nor decorative duplicates", () => {
+  for (const name of ["index", "services", "about", "research", "patient-info"]) {
+    const { html } = analyzePage(name);
+    assert.equal([...html.matchAll(/<h1[\s>]/g)].length, 1, `${name}: one h1`);
+    assert.ok(!html.includes("translateY(115%)"), `${name}: clipped server heading`);
+    for (const paragraph of html.matchAll(/<p[^>]*data-scroll-words="[^"]+"[^>]*>([\s\S]*?)<\/p>/g)) {
+      assert.ok(!paragraph[1].includes("opacity:0"), `${name}: hidden reading layer`);
+      assert.ok(!paragraph[1].includes('class="absolute inset-0"'), `${name}: decorative copy shipped unnecessarily`);
+    }
+  }
+});
+
+test("components cannot reintroduce full Motion or layout/drag features", () => {
+  for (const name of readdirSync("components", { recursive: true }).filter((name) => name.endsWith(".tsx"))) {
+    const source = readFileSync(`components/${name}`, "utf8");
+    for (const match of source.matchAll(/import\s*\{([^}]+)\}\s*from\s*["']framer-motion["']/g)) {
+      assert.ok(!/\b(motion|domMax|useReducedMotion)\b/.test(match[1]), `${name}: full runtime or non-hydration-safe hook`);
+    }
+    assert.ok(!/\b(layout|layoutId|drag)\s*=/.test(source), `${name}: feature unavailable in domAnimation`);
+  }
+});
+
+test("no stand-in doctor or clinical representative portraits are shipped or referenced", () => {
+  const retired = ["hero-doctor.jpg", "portrait-somp-card.jpg", "consultation.jpg"];
+  const images = new Set(readdirSync("public/images"));
+  for (const file of retired) {
+    assert.ok(!images.has(file), `${file} must not remain in public/images`);
+  }
+  for (const root of ["app", "components", "lib"]) {
+    for (const entry of readdirSync(root, { recursive: true })) {
+      if (typeof entry !== "string" || !/\.(ts|tsx|mjs)$/.test(entry)) continue;
+      const source = readFileSync(`${root}/${entry}`, "utf8");
+      for (const file of retired) {
+        assert.ok(!source.includes(file), `${root}/${entry} still references ${file}`);
+      }
+    }
+  }
+});

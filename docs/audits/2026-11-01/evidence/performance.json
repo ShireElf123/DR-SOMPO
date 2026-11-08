@@ -1,0 +1,164 @@
+[
+  {
+    "page": "home",
+    "requestedUrl": "http://127.0.0.1:3010/",
+    "fetchTime": "2026-11-01T16:50:34.853Z",
+    "lighthouseVersion": "13.6.0",
+    "performance": 0.9,
+    "runWarnings": [],
+    "settings": {
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      }
+    },
+    "metrics": {
+      "first-contentful-paint": {
+        "numericValue": 1080.1955,
+        "displayValue": "1.1\u00a0s",
+        "score": 0.99
+      },
+      "largest-contentful-paint": {
+        "numericValue": 3368.9887499999995,
+        "displayValue": "3.4\u00a0s",
+        "score": 0.68
+      },
+      "speed-index": {
+        "numericValue": 1080.228057870965,
+        "displayValue": "1.1\u00a0s",
+        "score": 1
+      },
+      "total-blocking-time": {
+        "numericValue": 138.5,
+        "displayValue": "140\u00a0ms",
+        "score": 0.95
+      },
+      "cumulative-layout-shift": {
+        "numericValue": 0.00555309967166936,
+        "displayValue": "0.006",
+        "score": 1
+      }
+    }
+  },
+  {
+    "page": "contact",
+    "requestedUrl": "http://127.0.0.1:3010/contact",
+    "fetchTime": "2026-11-01T16:54:23.840Z",
+    "lighthouseVersion": "13.6.0",
+    "performance": 0.95,
+    "runWarnings": [],
+    "settings": {
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      }
+    },
+    "metrics": {
+      "first-contentful-paint": {
+        "numericValue": 922.8339999999998,
+        "displayValue": "0.9\u00a0s",
+        "score": 1
+      },
+      "largest-contentful-paint": {
+        "numericValue": 2994.585,
+        "displayValue": "3.0\u00a0s",
+        "score": 0.78
+      },
+      "speed-index": {
+        "numericValue": 922.8339999999998,
+        "displayValue": "0.9\u00a0s",
+        "score": 1
+      },
+      "total-blocking-time": {
+        "numericValue": 55.5,
+        "displayValue": "60\u00a0ms",
+        "score": 1
+      },
+      "cumulative-layout-shift": {
+        "numericValue": 0.005168114692137321,
+        "displayValue": "0.005",
+        "score": 1
+      }
+    }
+  },
+  {
+    "page": "service",
+    "requestedUrl": "http://127.0.0.1:3010/services/laparoscopy",
+    "fetchTime": "2026-11-01T16:54:36.085Z",
+    "lighthouseVersion": "13.6.0",
+    "performance": 0.95,
+    "runWarnings": [],
+    "settings": {
+      "formFactor": "mobile",
+      "throttlingMethod": "simulate",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      }
+    },
+    "metrics": {
+      "first-contentful-paint": {
+        "numericValue": 906.9079999999999,
+        "displayValue": "0.9\u00a0s",
+        "score": 1
+      },
+      "largest-contentful-paint": {
+        "numericValue": 2910.635,
+        "displayValue": "2.9\u00a0s",
+        "score": 0.8
+      },
+      "speed-index": {
+        "numericValue": 906.9079999999999,
+        "displayValue": "0.9\u00a0s",
+        "score": 1
+      },
+      "total-blocking-time": {
+        "numericValue": 77.5,
+        "displayValue": "80\u00a0ms",
+        "score": 0.99
+      },
+      "cumulative-layout-shift": {
+        "numericValue": 0.00581079898223013,
+        "displayValue": "0.006",
+        "score": 1
+      }
+    }
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "name": "dr-ngwey-sompo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Website for Dr CM Ngwey-Sompo Inc. — Specialist Obstetrician & Gynaecologist, Life Roseacres Hospital, Primrose, Germiston.",
+  "scripts": {
+    "dev": "next dev -H 0.0.0.0 -p 3000",
+    "build": "next build",
+    "start": "next start -H 0.0.0.0 -p 3000",
+    "lint": "eslint . --max-warnings=0",
+    "typecheck": "tsc --noEmit",
+    "analyze": "node scripts/analyze-bundle.mjs",
+    "test": "node --test tests/quality.test.mjs && tsx --test tests/*.test.ts",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@fontsource-variable/figtree": "^5.3.0",
+    "framer-motion": "^12.43.0",
+    "lenis": "^1.3.27",
+    "lucide-react": "^1.66.0",
+    "next": "^16.4.3",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tailwind-merge": "^3.7.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.64.1",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "9.39.5",
+    "eslint-config-next": "^16.4.3",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.15",
+    "typescript": "~6.0.3"
+  }
+}
